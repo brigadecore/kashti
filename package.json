@@ -6,6 +6,9 @@
     "build": "gulp build --production"
   },
   "devDependencies": {
+    "@angular/cli": "^1.3.0",
+    "@angular/compiler-cli": "^4.3.4",
+    "@angular/core": "^4.3.4",
     "front-router": "^1.0.0",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",

@@ -53,7 +53,7 @@ var paths = {
 
 // Cleans the build directory
 gulp.task('clean', function(cb) {
-  rimraf('./build', cb);
+  rimraf('./dist', cb);
 });
 
 // Copies everything in the client folder except templates, Sass, and JS
@@ -61,7 +61,7 @@ gulp.task('copy', function() {
   return gulp.src(paths.assets, {
     base: './client/'
   })
-    .pipe(gulp.dest('./build'))
+    .pipe(gulp.dest('./dist'))
   ;
 });
 
@@ -69,10 +69,10 @@ gulp.task('copy', function() {
 gulp.task('copy:templates', function() {
   return gulp.src('./client/templates/**/*.html')
     .pipe(router({
-      path: 'build/assets/js/routes.js',
+      path: 'dist/assets/js/routes.js',
       root: 'client'
     }))
-    .pipe(gulp.dest('./build/templates'))
+    .pipe(gulp.dest('./dist/templates'))
   ;
 });
 
@@ -86,12 +86,12 @@ gulp.task('copy:foundation', function(cb) {
     }))
     .pipe($.uglify())
     .pipe($.concat('templates.js'))
-    .pipe(gulp.dest('./build/assets/js'))
+    .pipe(gulp.dest('./dist/assets/js'))
   ;
 
   // Iconic SVG icons
   gulp.src('./bower_components/foundation-apps/iconic/**/*')
-    .pipe(gulp.dest('./build/assets/img/iconic/'))
+    .pipe(gulp.dest('./dist/assets/img/iconic/'))
   ;
 
   cb();
@@ -111,7 +111,7 @@ gulp.task('sass', function () {
       browsers: ['last 2 versions', 'ie 10']
     }))
     .pipe(minifyCss)
-    .pipe(gulp.dest('./build/assets/css/'))
+    .pipe(gulp.dest('./dist/assets/css/'))
   ;
 });
 
@@ -127,7 +127,7 @@ gulp.task('uglify:foundation', function(cb) {
   return gulp.src(paths.foundationJS)
     .pipe(uglify)
     .pipe($.concat('foundation.js'))
-    .pipe(gulp.dest('./build/assets/js/'))
+    .pipe(gulp.dest('./dist/assets/js/'))
   ;
 });
 
@@ -140,13 +140,13 @@ gulp.task('uglify:app', function() {
   return gulp.src(paths.appJS)
     .pipe(uglify)
     .pipe($.concat('app.js'))
-    .pipe(gulp.dest('./build/assets/js/'))
+    .pipe(gulp.dest('./dist/assets/js/'))
   ;
 });
 
 // Starts a test server, which you can view at http://localhost:8079
 gulp.task('server', ['build'], function() {
-  gulp.src('./build')
+  gulp.src('./dist')
     .pipe($.webserver({
       port: 8079,
       host: 'localhost',

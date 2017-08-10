@@ -3,5 +3,6 @@
 .DS_Store
 .sass-cache/
 build/
+dist/
 bower_components/
 node_modules/
