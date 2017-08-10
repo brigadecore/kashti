@@ -17,12 +17,13 @@
 
 <body>
   <div class="grid-frame vertical">
-    <div class="grid-content shrink" style="padding: 0;">
+
+    <nav class="grid-content shrink" style="padding: 0;">
       <div class="menu-group-left">
         <ul class="primary condense menu-bar left">
-          <li><a><strong>Acid</strong></a></li>
-          <li><a><strong>ACS</strong></a></li>
-          <li><a><strong>Draft</strong></a></li>
+          <li><a href="/"><strong>Acid</strong></a></li>
+          <li><a href="/"><strong>ACS</strong></a></li>
+          <li><a href="/"><strong>Draft</strong></a></li>
         </ul>
       </div>
       <div class="menu-group-right right">
@@ -30,9 +31,19 @@
           <li class="right"><a><img zf-iconic="" icon="cog" size="small"></a></li>
         </ul>
       </div>
-    </div>
+    </nav>
+
+    <aside id="sidebar">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/build">Builds</a></li>
+        <li><a>Config</a></li>
+      </ul>
+    </aside>
+
     <div ui-view class="grid-content">
     </div>
+
   </div>
 </body>
 </html>
