@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en" ng-app="application">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ACID UI</title>
+  <link href="./assets/css/app.css" rel="stylesheet" type="text/css">
+  <script src="./assets/js/foundation.js"></script>
+  <script src="./assets/js/templates.js"></script>
+  <script src="./assets/js/routes.js"></script>
+  <script src="./assets/js/app.js"></script>
+</head>
+
+<body>
+  <div class="grid-frame vertical">
+    <div class="grid-content shrink" style="padding: 0;">
+      <div class="menu-group-left">
+        <ul class="primary condense menu-bar left">
+          <li><a><strong>ACID</strong></a></li>
+          <li><a><strong>ACS</strong></a></li>
+          <li><a><strong>Draft</strong></a></li>
+        </ul>
+      </div>
+      <div class="menu-group-right right">
+        <ul class="secondary condense menu-bar">
+          <li class="right"><a><img zf-iconic="" icon="cog" size="small"></a></li>
+        </ul>
+      </div>
+    </div>
+    <div ui-view class="grid-content">
+    </div>
+  </div>
+</body>
+</html>

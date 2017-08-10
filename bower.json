@@ -1,0 +1,28 @@
+{
+  "name": "foundation-apps-template",
+  "version": "1.2.0",
+  "authors": [
+    "ZURB"
+  ],
+  "description": "Template project for Foundation for Apps by ZURB.",
+  "main": "gulpfile.js",
+  "keywords": [
+    "framework",
+    "angular",
+    "web",
+    "apps"
+  ],
+  "license": "MIT",
+  "homepage": "http://foundation.zurb.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "foundation-apps": "~1.2.0"
+  }
+}
