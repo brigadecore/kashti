@@ -1,4 +1,65 @@
+#sidebar {
+  .menu-bar {
+    .logo {
+      a {
+        background-color: darken($bluem, 40%) !important;
+      }
+
+      img {
+        max-height: 12px;
+        width: auto;
+        margin: 1px auto 0;
+      }
+    }
+
+    a {
+      text-align: left;
+    }
+
+    #organization {
+      position: relative;
+      min-width: 4em;
+
+      svg.iconic {
+        position: absolute;
+        width: 0.5rem;
+        top: 0.65rem;
+        left: auto;
+        right: 1.25rem;
+      }
+    }
+  }
+
+  &.icon-right {
+    background: yellow !important;
+
+    a {
+      .rounded {
+        border-radius: 50%;
+        border: 1px solid $light1;
+
+        small {
+          width: 5px;
+        }
+      }
+    }
+  }
+}
+
+#sidebar,
+#header {
+  .menu-group,
+  .menu-bar {
+    background-color: $dark1 !important;
+
+    a {
+      background-color: $dark1 !important;
+
+      border-right: 1px solid lighten($dark1, 12.5%);
+    }
+  }
+}
+
 #topbar {
   background: black;
-  border: 5px solid blue;
 }

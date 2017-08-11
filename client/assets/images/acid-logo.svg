@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="299px" height="83px" viewBox="0 0 299 83" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.1 (44463) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-size="120" font-family="WorkSans-Bold, Work Sans" letter-spacing="-2" font-weight="bold">
+        <g id="Group" transform="translate(0.000000, -31.000000)">
+            <text id="C" fill="#50E3C2">
+                <tspan x="152.14" y="112">C</tspan>
+            </text>
+            <text id="ACI-D" fill="#27759A">
+                <tspan x="0.12" y="112">ACI</tspan>
+                <tspan x="192.24" y="112" font-size="100"> </tspan>
+                <tspan x="218.84" y="112">D</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

@@ -18,98 +18,77 @@
 <body>
   <div class="grid-frame">
 
-    <!-- <nav class="grid-content shrink" style="padding: 0;">
-      <div class="menu-group-left">
-        <ul class="primary condense menu-bar left">
-          <li><a href="/"><strong>Acid</strong></a></li>
-          <li><a href="/"><strong>ACS</strong></a></li>
-          <li><a href="/"><strong>Draft</strong></a></li>
-        </ul>
-      </div>
-      <div class="menu-group-right right">
-        <ul class="secondary condense menu-bar">
-          <li class="right"><a><img zf-iconic="" icon="cog" size="small"></a></li>
-        </ul>
-      </div>
-    </nav> -->
-
     <div zf-panel position="left" id="sidebar" class="medium-grid-block collapse medium-3 large-2 vertical">
       <div class="grid-content collapse shrink hide-for-medium">
-        <a href="" class="secondary button expand" zf-close>Close</a>
+        <a href="" class="button expand" zf-close>Close</a>
       </div>
       <div class="grid-content collapse shrink">
-        <img src="http://placehold.it/400x150&text=Logo">
+        <ul class="menu-bar primary">
+          <li class="hide-for-medium"><a zf-open="sidebar" href="#">Menu</a></li>
+          <li class="logo small-4"><a href="/"><img src="assets/images/acid-logo.svg" /></a></li>
+          <li id="organization" class="small-8">
+            <a href="/">ACS
+              <img zf-iconic="" icon="chevron" data-direction="bottom" size="medium" class="right">
+            </a>
+          </li>
+        </ul>
       </div>
-
       <div class="grid-content">
-        <section class="block-list">
+        <nav>
           <ul>
-            <li>
-              <a href="#">
-                Slam Book
-                <span class="block-list-label">7</span>
+            <li id="project">
+              <a href="/build">
+                <img zf-iconic="" icon="Circle-check" data-direction="top" size="small" class="iconic-color-success">
+                Draft
               </a>
             </li>
-            <li>
-              <a href="#">
-                Foundation Chat
-                <span class="block-list-label">2</span>
-              </a>
-            </li>
-            <li>
-              <a class="success" href="#">
-                LolCats
-                <span class="block-list-label">2</span>
-              </a>
-            </li>
+            <li><a href="/build">Builds</a></li>
+            <li><a href="/build">Pipelines</a></li>
+            <li><a href="/build">Configuration</a></li>
+            <li><a href="/build">Speed</a></li>
           </ul>
-        </section>
-
-        <section class="block-list">
-          <header>People</header>
-          <ul>
-            <li>
-              <a href="#">
-                Glen Coco
-                <span class="block-list-label">2</span>
-              </a>
-            </li>
-            <li>
-              <a class="success" href="#">
-                Guy Guyerson
-                <span class="block-list-label">2</span>
-              </a>
-            </li>
-          </ul>
-        </section>
+        </nav>
       </div>
       <div class="grid-content collapse shrink avatar-section">
-          <img src="http://placehold.it/50x50">
-          Regina George 
+        <nav>
+          <ul>
+            <li><a href="/">
+              <img zf-iconic="" icon="document" data-direction="top" size="small" />
+              Docs
+            </a></li>
+            <li><a href="/">
+              <img zf-iconic="" icon="Comment-square" data-direction="top" size="small" />
+              Support
+            </a></li>
+          </ul>
+        </nav>
       </div>
     </div>
 
-    <!-- <aside id="sidebar" class="grid-block small-up-3" noscroll>
-      <ul class="grid-block">
-        <li><a href="/">Home</a></li>
-        <li><a href="/build">Builds</a></li>
-        <li><a>Config</a></li>
-      </ul>
-
-      <div class="grid-block">
-        <p>By default, all content blocks scroll vertically. This allows you to create independently-scrolling panes of content in your apps. However, in CSS, if an element scrolls vertically, any horizontal overflow will be hidden. To disable scrolling on a block, just add the class `.noscroll`.</p>
-        <p>By default, all content blocks scroll vertically. This allows you to create independently-scrolling panes of content in your apps. However, in CSS, if an element scrolls vertically, any horizontal overflow will be hidden. To disable scrolling on a block, just add the class `.noscroll`.</p>
-      </div>
-    </aside> -->
-
-    <div class="grid-block collapse medium-9 large-8 vertical">
+    <div class="grid-block collapse medium-9 large-10 vertical">
       <div id="header" class="shrink collapse grid-content">
-        <ul class="menu-bar primary">
-          <li class="hide-for-medium"><a zf-open="sidebar" href="#">Menu</a></li>
-          <li><a href="#">Link 1</a></li>
-          <li><a href="#">Link 2</a></li>
-          <li><a href="#">Link 3</a></li>
-        </ul>
+        <div class="menu-group primary">
+          <div class="menu-group-left">
+            <ul class="menu-bar">
+              <li class="hide-for-medium"><a zf-open="sidebar" href="#">Menu</a></li>
+              <li><a href="#">Link 1</a></li>
+              <li><a href="#">Link 2</a></li>
+              <li><a href="#">Link 3</a></li>
+            </ul>
+          </div>
+          <div class="menu-group-right">
+            <ul class="icon-right menu-bar">
+              <li>
+                <a href="#">
+                  <img zf-iconic="" icon="person" data-direction="bottom" size="small" class="rounded left" />
+                  <small>
+                    <img zf-iconic="" icon="chevron" data-direction="bottom" size="small" class="right" />
+                  </small>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
       <div class="grid-block">
         <div class="grid-block small-12 medium-9 vertical">
@@ -139,13 +118,17 @@
             <p>Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat.</p>
             <hr />
           </div>
-          <div class="message-input grid-content collapse shrink">
-            <span class="inline-label">
-              <input type="text" placeholder="Message">
-              <a href="#" class="button">Send</a>
-            </span>
-          </div>
+
+          <footer class="collapse shrink">
+            <ul class="inline-list">
+                <li>ACID</li>
+                <li>Github</li>
+                <li>Github</li>
+                <li>Github</li>
+            </ul>
+          </footer>
         </div>
+
         <div class="grid-content medium-3 show-for-medium message-side-bar">
           <section class="block-list">
             <header>In This Room</header>

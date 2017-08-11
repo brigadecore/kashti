@@ -1,4 +1,67 @@
 #sidebar {
-  background: #eee;
-  border: 10px solid blue;
+  background-color: $light1;
+
+  .grid-content {
+    padding: 0;
+  }
+
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin: 0;
+
+      a {
+        display: block;
+        padding: 0.75rem 1rem 0.75rem 4rem;
+        line-height: 1;
+        position: relative;
+        @include transition;
+
+        &:hover {
+          background-color: darken($light1, 12.5%);
+          color: $dark1;
+        }
+
+        svg.iconic {
+          position: absolute;
+          top: 0.775rem;
+          left: 2rem;
+          // color: $bluem;
+        }
+      }
+
+      &:first-child {
+        padding-top: 0.5rem;
+      }
+      &:last-child {
+        padding-bottom: 1.5rem;
+      }
+    }
+
+    li#project a {
+      background-color: darken($light1, 5%);
+      font-size: 1.5rem;
+      // border: 1px solid red;
+      padding: 0.75rem 1rem 0.75rem 3rem;
+      margin: 1rem 0.825rem 0 0.825rem;
+      font-weight: bold;
+      border-radius: 2px;
+      @include box-shadow(0, 1px, 1px, rgba(0,0,0,0.25));
+
+      svg.iconic,
+      img.iconic {
+        left: 1.2rem;
+        top: 1.125rem;
+        color: green;
+
+        &.iconic-color-success {
+          color: $success-color !important;
+          fill: $success-color !important;
+        }
+      }
+    }
+  }
 }

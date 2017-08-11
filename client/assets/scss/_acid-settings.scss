@@ -1,12 +1,16 @@
 // Variables
 // ---------------------------------------
 //
-$light: #F6F9FA;
+$light: #efe9f4;
 $mid: #7E949C;
 $bluel: #BCE2F3;
 $bluem: #37B0E7;
 $blued: #277A9F;
 $yellow: #EAF1CA;
+
+$dark1: #403f4c;
+$light1: lighten($dark1, 66.67%);
+
 
 
 // Mixins
