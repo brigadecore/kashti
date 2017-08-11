@@ -1,3 +1,24 @@
-#footer {
-  background: white;
+footer {
+  border-top: 2px solid $light1;
+  margin-top: 3.5rem;
+
+  ul {
+    margin: 0;
+
+    li {
+      margin-right: 1.5rem;
+
+      a,
+      span {
+        padding: 0.75rem 0.5rem 1rem 0.5rem;
+        display: inline-block;
+        font-size: 0.825rem;
+        color: darken($light1, 33.33%);
+      }
+
+      a {
+        color: $bluem;
+      }
+    }
+  }
 }

@@ -1,5 +1,5 @@
 #sidebar {
-  background-color: $light1;
+  background-color: $light2;
 
   .grid-content {
     padding: 0;
@@ -21,7 +21,7 @@
         @include transition;
 
         &:hover {
-          background-color: darken($light1, 12.5%);
+          background-color: darken($light2, 5%);
           color: $dark1;
         }
 
@@ -29,12 +29,11 @@
           position: absolute;
           top: 0.775rem;
           left: 2rem;
-          // color: $bluem;
         }
       }
 
       &:first-child {
-        padding-top: 0.5rem;
+        padding-top: 1rem;
       }
       &:last-child {
         padding-bottom: 1.5rem;
@@ -42,25 +41,18 @@
     }
 
     li#project a {
-      background-color: darken($light1, 5%);
-      font-size: 1.5rem;
-      // border: 1px solid red;
+      background-color: darken($light2, 2%);
+      font-size: 1.667rem;
       padding: 0.75rem 1rem 0.75rem 3rem;
-      margin: 1rem 0.825rem 0 0.825rem;
-      font-weight: bold;
-      border-radius: 2px;
-      @include box-shadow(0, 1px, 1px, rgba(0,0,0,0.25));
+      margin: 1rem 0.825rem 0.5rem 0.825rem;
+      border-radius: 3px;
+      font-family: $klinic;
+      @include box-shadow(0, 1px, 1px, rgba(0,0,0,0.125));
 
-      svg.iconic,
-      img.iconic {
-        left: 1.2rem;
-        top: 1.125rem;
-        color: green;
-
-        &.iconic-color-success {
-          color: $success-color !important;
-          fill: $success-color !important;
-        }
+      span {
+        left: -0.925rem;
+        top: 0.35rem;
+        position: absolute;
       }
     }
   }

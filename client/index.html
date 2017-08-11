@@ -18,6 +18,7 @@
 <body>
   <div class="grid-frame">
 
+    <!-- left sidebar -->
     <div zf-panel position="left" id="sidebar" class="medium-grid-block collapse medium-3 large-2 vertical">
       <div class="grid-content collapse shrink hide-for-medium">
         <a href="" class="button expand" zf-close>Close</a>
@@ -27,7 +28,7 @@
           <li class="hide-for-medium"><a zf-open="sidebar" href="#">Menu</a></li>
           <li class="logo small-4"><a href="/"><img src="assets/images/acid-logo.svg" /></a></li>
           <li id="organization" class="small-8">
-            <a href="/">ACS
+            <a href="/dashboard">ACS
               <img zf-iconic="" icon="chevron" data-direction="bottom" size="medium" class="right">
             </a>
           </li>
@@ -37,26 +38,26 @@
         <nav>
           <ul>
             <li id="project">
-              <a href="/build">
-                <img zf-iconic="" icon="Circle-check" data-direction="top" size="small" class="iconic-color-success">
+              <a href="/dashboard">
+                <span><img zf-iconic="" icon="Circle-check" data-direction="top" size="small" class="iconic-color-success"></span>
                 Draft
               </a>
             </li>
-            <li><a href="/build">Builds</a></li>
-            <li><a href="/build">Pipelines</a></li>
-            <li><a href="/build">Configuration</a></li>
-            <li><a href="/build">Speed</a></li>
+            <li><a href="/project">Builds</a></li>
+            <li><a href="/project">Pipelines</a></li>
+            <li><a href="/project">Configuration</a></li>
+            <li><a href="/project">Speed</a></li>
           </ul>
         </nav>
       </div>
       <div class="grid-content collapse shrink avatar-section">
         <nav>
           <ul>
-            <li><a href="/">
+            <li><a href="https://github.com/deis/acid/tree/master/docs" target="_blank">
               <img zf-iconic="" icon="document" data-direction="top" size="small" />
               Docs
             </a></li>
-            <li><a href="/">
+            <li><a href="https://github.com/deis/acid/issues/" target="_blank">
               <img zf-iconic="" icon="Comment-square" data-direction="top" size="small" />
               Support
             </a></li>
@@ -65,15 +66,15 @@
       </div>
     </div>
 
+    <!-- topbar #header -->
     <div class="grid-block collapse medium-9 large-10 vertical">
       <div id="header" class="shrink collapse grid-content">
         <div class="menu-group primary">
           <div class="menu-group-left">
             <ul class="menu-bar">
-              <li class="hide-for-medium"><a zf-open="sidebar" href="#">Menu</a></li>
-              <li><a href="#">Link 1</a></li>
-              <li><a href="#">Link 2</a></li>
-              <li><a href="#">Link 3</a></li>
+              <li class="hide-for-medium"><a zf-open="sidebar" href="/">Menu</a></li>
+              <li><a href="/dashboard">Draft</a></li>
+              <li><a href="/project">Build #23</a></li>
             </ul>
           </div>
           <div class="menu-group-right">
@@ -91,60 +92,23 @@
         </div>
       </div>
       <div class="grid-block">
-        <div class="grid-block small-12 medium-9 vertical">
+        <div class="grid-block small-12 medium-12 vertical">
           <div class="grid-content">
-            <h4><img src="http://placehold.it/30x30"> Cady Heron</h4>
-            <p>Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue.</p>
-            <hr />
-            <h4><img src="http://placehold.it/30x30"> Kevin Gnapoor</h4>
-            <p>Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat.</p>
-            <hr />
-            <h4><img src="http://placehold.it/30x30"> Cady Heron</h4>
-            <p>Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat.</p>
-            <hr />
-            <h4><img src="http://placehold.it/30x30"> Trang Pak</h4>
-            <p>Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat.</p>
-            <hr />
-            <h4><img src="http://placehold.it/30x30"> Coach Carr</h4>
-            <p>Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat.</p>
-            <hr />
-            <h4><img src="http://placehold.it/30x30"> Cady Heron</h4>
-            <p>Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat.</p>
-            <hr />
-            <h4><img src="http://placehold.it/30x30"> Trang Pak</h4>
-            <p>Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat.</p>
-            <hr />
-            <h4><img src="http://placehold.it/30x30"> Cady Heron</h4>
-            <p>Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat.</p>
-            <hr />
+
+            <div ui-view class="grid-block grid-content small-12"></div>
+
+            <footer class="collapse shrink">
+              <ul class="inline-list">
+                <li><span><a href="https://github.com/deis/acid" target="_blank">ACID</a> is licensed under the The MIT License.</span></li>
+                <li><a href="https://github.com/deis/acid/releases" target="_blank">Changelog</a></li>
+                <li><a href="https://github.com/deis/acid/tree/master/docs" target="_blank">Documentation</a></li>
+                <li><a href="https://github.com/deis/acid/" target="_blank">Github</a></li>
+              </ul>
+            </footer>
           </div>
-
-          <footer class="collapse shrink">
-            <ul class="inline-list">
-                <li>ACID</li>
-                <li>Github</li>
-                <li>Github</li>
-                <li>Github</li>
-            </ul>
-          </footer>
-        </div>
-
-        <div class="grid-content medium-3 show-for-medium message-side-bar">
-          <section class="block-list">
-            <header>In This Room</header>
-            <ul>
-              <li><a href="#">Cady Heron</a></li>
-              <li><a href="#">Kevin Gnapoor</a></li>
-              <li><a href="#">Trang Pak</a></li>
-              <li><a href="#">Coach Carr</a></li>
-              <li><a href="#">Regina George</a></li>
-            </ul>
-          </section>
         </div>
       </div>
     </div>
-
-    <!-- <div ui-view class="grid-block grid-content small-up-9"></div> -->
 
   </div>
 </body>

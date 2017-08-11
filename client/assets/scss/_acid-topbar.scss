@@ -2,13 +2,13 @@
   .menu-bar {
     .logo {
       a {
-        background-color: darken($bluem, 40%) !important;
+        background-color: $bluem !important;
       }
 
       img {
         max-height: 12px;
         width: auto;
-        margin: 1px auto 0;
+        margin: 2px auto 0;
       }
     }
 
@@ -19,28 +19,14 @@
     #organization {
       position: relative;
       min-width: 4em;
+      height: 48px;
 
       svg.iconic {
         position: absolute;
         width: 0.5rem;
-        top: 0.65rem;
+        top: 0.5rem;
         left: auto;
         right: 1.25rem;
-      }
-    }
-  }
-
-  &.icon-right {
-    background: yellow !important;
-
-    a {
-      .rounded {
-        border-radius: 50%;
-        border: 1px solid $light1;
-
-        small {
-          width: 5px;
-        }
       }
     }
   }
@@ -50,16 +36,44 @@
 #header {
   .menu-group,
   .menu-bar {
-    background-color: $dark1 !important;
+    background-color: $blued !important;
 
     a {
-      background-color: $dark1 !important;
+      background-color: transparent;
+      border-right: 1px solid lighten($blued, 5%);
+      font-family: $klinic;
+      @include transition;
 
-      border-right: 1px solid lighten($dark1, 12.5%);
+      &:hover {
+        background-color: lighten($blued, 2.5%);
+      }
     }
   }
 }
 
-#topbar {
+#header {
   background: black;
+
+  .icon-right {
+    a {
+      padding-right: 1rem;
+
+      .rounded {
+        border-radius: 50%;
+        border: 1px solid $light1;
+        margin-right: 2rem;
+      }
+
+      small {
+        width: 5px;
+
+        .iconic {
+          position: absolute;
+          right: 1.5rem;
+          top: 1rem;
+          width: 7px;
+        }
+      }
+    }
+  }
 }
