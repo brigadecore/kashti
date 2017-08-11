@@ -1,0 +1,41 @@
+// Fonts
+// ---------------------------------------
+//
+@font-face{
+  font-family: 'klinic';
+  src: url('../fonts/klinicslabmedium-webfont.eot');
+  src: url('../fonts/klinicslabmedium-webfont.eot?#iefix') format("embedded-opentype"),
+    url('../fonts/klinicslabmedium-webfont.woff2') format("woff2"),
+    url('../fonts/klinicslabmedium-webfont.woff') format("woff"),
+    url('../fonts/klinicslabmedium-webfont.ttf') format("truetype"),
+    url('../fonts/klinicslabmedium-webfont.svg#klinic_slabmedium') format("svg");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'work_sansregular';
+  src: url('../fonts/worksans-regular-webfont.eot');
+  src: url('../fonts/worksans-regular-webfont.eot?#iefix') format("embedded-opentype"),
+       url('../fonts/worksans-regular-webfont.woff') format('woff'),
+       url('../fonts/worksans-regular-webfont.ttf') format('truetype'),
+       url('../fonts/worksans-regular-webfont.svg#f310d4dccd89e059e79d3b6deebb4725') format('svg');
+  font-style: normal;
+  font-weight: 400;
+}
+
+
+$klinic: 'klinic', Consolas, 'Andale Mono', Rockwell, Courier, sans-serif;
+$work: 'work_sansregular', 'Helvetica Neue', Helvetica, Arial, Geneva, sans-serif;
+
+
+@mixin klinicReg {
+  font-family: $klinic;
+  font-weight: 400;
+  letter-spacing: 0.0125em;
+}
+
+@mixin klinicBold {
+  font-family: $klinic;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}

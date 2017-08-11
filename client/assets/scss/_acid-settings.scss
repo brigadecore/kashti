@@ -1,0 +1,61 @@
+// Variables
+// ---------------------------------------
+//
+$light: #F6F9FA;
+$mid: #7E949C;
+$bluel: #BCE2F3;
+$bluem: #37B0E7;
+$blued: #277A9F;
+$yellow: #EAF1CA;
+
+
+// Mixins
+// ---------------------------------------
+//
+@mixin transition($property:all, $duration:0.3s, $easing:ease-in-out) {
+  transition: $property $duration $easing;
+}
+
+@mixin border-radius($radius1:3px, $radius2:3px) {
+  -webkit-border-radius: $radius1 $radius2 $radius1 $radius2;
+  -moz-border-radius: $radius1 $radius2 $radius1 $radius2;
+  border-radius: $radius1 $radius2 $radius1 $radius2;
+}
+
+@mixin box-shadow($xlength:0, $ylength:2px, $size:0, $color:rgba(30,30,30,0.25)) {
+  -webkit-box-shadow: $xlength $ylength $size $color;
+  -moz-box-shadow: $xlength $ylength $size $color;
+  box-shadow: $xlength $ylength $size $color;
+}
+
+// link effect
+@mixin ripple($color: $pink) {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  @include transition;
+
+  &::after {
+    display: inline-block;
+    content: "";
+    background: $color;
+    height: 3px;
+    width: 10%;
+    opacity: 0;
+    margin: -0.75em auto 0;
+    @include transition;
+  }
+
+  &:hover::after {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+@mixin vertical-align($position: relative) {
+  position: $position;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
