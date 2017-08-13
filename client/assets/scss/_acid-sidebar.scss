@@ -16,12 +16,15 @@
       a {
         display: block;
         padding: 0.75rem 1rem 0.75rem 4rem;
+        border-radius: 3px;
+        margin: 0 5%;
         line-height: 1;
         position: relative;
         @include transition;
 
+        &.active,
         &:hover {
-          background-color: darken($light2, 5%);
+          background-color: $light1;
           color: $dark1;
         }
 
@@ -41,13 +44,12 @@
     }
 
     li#project a {
-      background-color: darken($light2, 2%);
+      background-color: $light1;
       font-size: 1.667rem;
       padding: 0.75rem 1rem 0.75rem 3rem;
       margin: 1rem 0.825rem 0.5rem 0.825rem;
-      border-radius: 3px;
+      border-radius: 2px;
       font-family: $klinic;
-      @include box-shadow(0, 1px, 1px, rgba(0,0,0,0.125));
 
       span {
         left: -0.925rem;

@@ -1,17 +1,29 @@
 // Variables
 // ---------------------------------------
 //
-$light: #efe9f4;
-$mid: #7E949C;
-$bluel: #BCE2F3;
-$bluem: #37B0E7;
-$blued: #277A9F;
-$yellow: #EAF1CA;
+// $light: #efe9f4;
+// $mid: #7E949C;
+// $bluel: #BCE2F3;
+// $bluem: #37B0E7;
+// $blued: #277A9F;
+// $yellow: #EAF1CA;
+//
+// $dark1: #403f4c;
+// $light1: lighten($dark1, 66.67%);
+// $light2: lighten($bluem, 40%);
 
-$dark1: #403f4c;
-$light1: lighten($dark1, 66.67%);
-$light2: lighten($bluem, 40%);
 
+$brand1: #2541B2;
+$brand2: #37B0E7;
+
+$dark1: #342E37;
+$dark2: #2D3047;
+$dark3: #93B7BE;
+
+$light1: #E1E6EE;
+$light2: #F4F5F7;
+$light3: #FBFBFD;
+$light4: #fff;
 
 
 // Mixins

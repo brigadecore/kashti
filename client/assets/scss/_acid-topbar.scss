@@ -2,7 +2,7 @@
   .menu-bar {
     .logo {
       a {
-        background-color: $bluem !important;
+        background-color: $brand1 !important;
       }
 
       img {
@@ -36,23 +36,22 @@
 #header {
   .menu-group,
   .menu-bar {
-    background-color: $blued !important;
+    background-color: $brand2;
 
     a {
       background-color: transparent;
-      border-right: 1px solid lighten($blued, 5%);
       font-family: $klinic;
       @include transition;
 
       &:hover {
-        background-color: lighten($blued, 2.5%);
+        background-color: $brand2;
       }
     }
   }
 }
 
 #header {
-  background: black;
+  background: $brand2;
 
   .icon-right {
     a {
