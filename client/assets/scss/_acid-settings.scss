@@ -76,3 +76,8 @@ $light4: #fff;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
+
+@mixin uppercase {
+  text-transform: uppercase;
+  letter-spacing: 0.125em;
+}

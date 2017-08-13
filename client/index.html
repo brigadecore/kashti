@@ -16,19 +16,22 @@
 </head>
 
 <body>
+
   <div class="grid-frame">
 
+    <div position="left" id="primary" class="vertical shrink grid-block">
+      <a href="/" class="logo"><img src="assets/images/acid-logo.png" /></a>
+    </div>
+
     <!-- left sidebar -->
-    <div zf-panel position="left" id="sidebar" class="medium-grid-block collapse medium-3 large-2 vertical">
-      <div class="grid-content collapse shrink hide-for-medium">
-        <a href="" class="button expand" zf-close>Close</a>
-      </div>
+    <div zf-panel position="left" id="sidebar" class="medium-grid-block collapse medium-2 large-2 vertical">
       <div class="grid-content collapse shrink">
         <ul class="menu-bar primary">
-          <li class="hide-for-medium"><a zf-open="sidebar" href="#">Menu</a></li>
-          <li class="logo small-4"><a href="/"><img src="assets/images/acid-logo.svg" /></a></li>
-          <li id="organization" class="small-8">
-            <a href="/dashboard">ACS
+          <li id="organization">
+            <a href="/dashboard">
+              <h2>Draft</h2>
+              <h3>Azure Container Service</h3>
+
               <img zf-iconic="" icon="chevron" data-direction="bottom" size="medium" class="right">
             </a>
           </li>
@@ -37,12 +40,6 @@
       <div class="grid-content">
         <nav>
           <ul>
-            <li id="project">
-              <a href="/dashboard">
-                <span><img zf-iconic="" icon="Circle-check" data-direction="top" size="small" class="iconic-color-success"></span>
-                Draft
-              </a>
-            </li>
             <li><a href="/project">Builds</a></li>
             <li><a href="/project">Pipelines</a></li>
             <li><a href="/project">Configuration</a></li>
@@ -67,7 +64,7 @@
     </div>
 
     <!-- topbar #header -->
-    <div class="grid-block collapse medium-9 large-10 vertical">
+    <div class="grid-block collapse vertical">
       <div id="header" class="shrink collapse grid-content">
         <div class="menu-group primary">
           <div class="menu-group-left">

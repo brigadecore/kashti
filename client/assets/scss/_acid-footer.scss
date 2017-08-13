@@ -1,5 +1,5 @@
 footer {
-  border-top: 2px solid $light2;
+  border-top: 2px solid $dark3;
   margin-top: 3.5rem;
 
   ul {
@@ -13,11 +13,11 @@ footer {
         padding: 0.75rem 0.5rem 1rem 0.5rem;
         display: inline-block;
         font-size: 0.825rem;
-        color: $light1;
+        color: $brand2;
       }
 
       a {
-        color: $dark3;
+        color: $brand2;
       }
     }
   }

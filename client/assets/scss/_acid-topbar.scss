@@ -1,57 +1,22 @@
-#sidebar {
-  .menu-bar {
-    .logo {
-      a {
-        background-color: $brand1 !important;
-      }
-
-      img {
-        max-height: 12px;
-        width: auto;
-        margin: 2px auto 0;
-      }
-    }
-
-    a {
-      text-align: left;
-    }
-
-    #organization {
-      position: relative;
-      min-width: 4em;
-      height: 48px;
-
-      svg.iconic {
-        position: absolute;
-        width: 0.5rem;
-        top: 0.5rem;
-        left: auto;
-        right: 1.25rem;
-      }
-    }
-  }
-}
-
-#sidebar,
 #header {
   .menu-group,
   .menu-bar {
-    background-color: $brand2;
+    background-color: $light4;
 
     a {
       background-color: transparent;
-      font-family: $klinic;
+      color: $dark2;
+      font-family: $europa;
       @include transition;
 
       &:hover {
-        background-color: $brand2;
       }
     }
   }
 }
 
 #header {
-  background: $brand2;
+  background: $light4;
 
   .icon-right {
     a {
@@ -59,7 +24,7 @@
 
       .rounded {
         border-radius: 50%;
-        border: 1px solid $light1;
+        border: 1px solid $dark3;
         margin-right: 2rem;
       }
 

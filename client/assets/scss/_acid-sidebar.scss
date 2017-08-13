@@ -1,5 +1,83 @@
+#primary {
+  background-color: $brand2;
+  width: 56px;
+  z-index: 500;
+  position: relative;
+
+  a.logo {
+    background-color: $brand1;
+    position: relative;
+    display: block;
+    height: 56px;
+
+    img {
+      max-width: 32px;
+      position: absolute;
+      top: 12px;
+      left: 12px;
+    }
+
+    &:hover {
+      background-color: lighten($brand1, 10%);
+    }
+  }
+}
+
 #sidebar {
   background-color: $light2;
+
+  .menu-group,
+  .menu-bar {
+    background-color: $light2;
+
+    a {
+      text-align: left;
+      color: $dark2;
+      background-color: $light2;
+    }
+
+    #organization {
+      position: relative;
+      min-width: 4em;
+      text-align: left;
+      height: 50px;
+      width: 78%;
+      margin: 0.5rem 2%;
+      padding: 0.125rem 9% 0;
+      border-bottom: 2px solid darken($light2, 3.33%);
+
+      a {
+        display: block;
+        padding: 0;
+      }
+
+      img,
+      .iconic {
+        position: absolute;
+        width: 0.5rem;
+        top: 0.5rem;
+        left: auto;
+        right: 1.25rem;
+        color: $dark2;
+      }
+
+      h2 {
+        margin: 0rem;
+        color: $dark2;
+        display: block;
+        text-align: left;
+        font-size: 1.25rem;
+      }
+
+      h3 {
+        margin: 0;
+        color: $dark3;
+        display: block;
+        font-size: 0.575rem;
+        @include uppercase;
+      }
+    }
+  }
 
   .grid-content {
     padding: 0;
@@ -15,11 +93,13 @@
 
       a {
         display: block;
-        padding: 0.75rem 1rem 0.75rem 4rem;
+        padding: 0.75rem 1rem 0.75rem 1rem;
         border-radius: 3px;
         margin: 0 5%;
         line-height: 1;
         position: relative;
+        color: darken($dark3, 7.5%);
+        @include europaBold;
         @include transition;
 
         &.active,
@@ -31,7 +111,8 @@
         svg.iconic {
           position: absolute;
           top: 0.775rem;
-          left: 2rem;
+          left: -2rem;
+          z-index: 1100;
         }
       }
 
@@ -49,7 +130,7 @@
       padding: 0.75rem 1rem 0.75rem 3rem;
       margin: 1rem 0.825rem 0.5rem 0.825rem;
       border-radius: 2px;
-      font-family: $klinic;
+      font-family: $europa;
 
       span {
         left: -0.925rem;
