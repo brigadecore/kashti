@@ -17,7 +17,7 @@
   config.$inject = ['$urlRouterProvider', '$locationProvider'];
 
   function config($urlProvider, $locationProvider) {
-    $urlProvider.otherwise('/build');
+    $urlProvider.otherwise('/');
 
     $locationProvider.html5Mode({
       enabled:false,
