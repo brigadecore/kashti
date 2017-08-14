@@ -13,7 +13,7 @@ RUN apt-get install -y nodejs
 
 # Install app dependencies
 COPY package.json /usr/src/app/
-npm install && bower install
+RUN npm install
 
 # Bundle app source
 COPY /dist /usr/src/app
