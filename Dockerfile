@@ -17,7 +17,7 @@ RUN npm install
 npm install -g foundation-cli bower gulp
 
 # Bundle app source
-COPY . /usr/src/app
+COPY /dist /usr/src/app
 
 EXPOSE 8079
 CMD [ "npm", "start" ]
