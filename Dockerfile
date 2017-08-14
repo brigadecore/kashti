@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM node:boron
 
 RUN apt-get clean && apt-get update
 RUN apt-get install -y curl
@@ -14,8 +14,7 @@ RUN apt-get install -y nodejs
 # Install app dependencies
 COPY package.json /usr/src/app/
 RUN npm install
-RUN npm install -g gulp-cli
-RUN bower install
+npm install -g foundation-cli bower gulp
 
 # Bundle app source
 COPY . /usr/src/app
