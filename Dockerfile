@@ -8,15 +8,19 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 # Installing nodesjs
-RUN curl -sL https://deb.nodesource.com/setup_7.x | bash
-RUN apt-get install -y nodejs
+# RUN curl -sL https://deb.nodesource.com/setup_7.x | bash
+# RUN apt-get install -y nodejs
 
 # Install app dependencies
-COPY package.json /usr/src/app/
-RUN npm install
+COPY package.json .
+COPY bower.json .
+
+RUN npm install --quiet -g foundation-cli gulp bower && npm cache clean
+RUN npm install --quiet
+RUN bower install --allow-root
 
 # Bundle app source
-COPY /dist /usr/src/app
+COPY . .
 
-CMD node /assets/js/app.js
+CMD [ "npm", "start" ]
 EXPOSE 4000
