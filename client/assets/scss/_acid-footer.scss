@@ -1,23 +1,24 @@
 footer {
-  border-top: 2px solid $dark3;
+  border-top: 2px solid $light1;
   margin-top: 3.5rem;
 
   ul {
-    margin: 0;
+    margin: 0 1.5rem;
 
     li {
       margin-right: 1.5rem;
 
       a,
       span {
-        padding: 0.75rem 0.5rem 1rem 0.5rem;
+        padding: 0.75rem 0rem 1rem 0rem;
         display: inline-block;
         font-size: 0.825rem;
-        color: $brand2;
+        color: $dark3;
       }
 
       a {
         color: $brand2;
+        padding: 0.75rem 0.5rem 1rem 0.5rem;
       }
     }
   }

@@ -1,15 +1,23 @@
 #header {
+  background-color: rgba(255,255,255,0.5);
+  border-bottom: 2px solid white;
+
   .menu-group,
   .menu-bar {
-    background-color: $light4;
+    background-color: transparent;
+    border: none;
 
     a {
       background-color: transparent;
-      color: $dark2;
+      color: $light1;
+      font-size: 1.125rem;
       font-family: $europa;
+      padding: 1.2rem 1.5rem 1.15rem;
       @include transition;
+      @include europaBold;
 
       &:hover {
+        color: $brand2;
       }
     }
   }
@@ -17,6 +25,24 @@
 
 #header {
   background: $light4;
+
+  .menu-group-left {
+
+    li:last-of-type {
+      a {
+        color: $dark2;
+      }
+    }
+    li + li {
+      &:before {
+        content: ">";
+        display: inline-block;
+        color: $light1;
+        padding: 1rem 0;
+        @include europaBold;
+      }
+    }
+  }
 
   .icon-right {
     a {

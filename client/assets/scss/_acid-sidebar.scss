@@ -13,8 +13,8 @@
     img {
       max-width: 32px;
       position: absolute;
-      top: 12px;
-      left: 12px;
+      top: 11px;
+      left: 11px;
     }
 
     &:hover {
@@ -25,6 +25,7 @@
 
 #sidebar {
   background-color: $light2;
+  overflow-x: visible;
 
   .menu-group,
   .menu-bar {
@@ -40,25 +41,36 @@
       position: relative;
       min-width: 4em;
       text-align: left;
-      height: 50px;
+      height: 57px;
       width: 78%;
-      margin: 0.5rem 2%;
-      padding: 0.125rem 9% 0;
+      margin: 0;
+      padding: 0;
       border-bottom: 2px solid darken($light2, 3.33%);
 
       a {
         display: block;
-        padding: 0;
+        padding: 0.625rem 11% 0;
+        @include transition;
+
+        &:hover {
+          background: darken($light2, 2.5%);
+        }
       }
 
-      img,
-      .iconic {
+      .icon {
         position: absolute;
-        width: 0.5rem;
-        top: 0.5rem;
+        width: 1.2rem;
+        height: 1.2rem;
+        line-height: 1.5;
+        top: 1.125rem;
         left: auto;
-        right: 1.25rem;
-        color: $dark2;
+        right: 0.825rem;
+        font-size: 0.825rem;
+        color: darken($light1, 5%);
+        text-align: center;
+        background: rgba(255,255,255,0.25);
+        border-radius: 50%;
+        border: 1px solid darken($light1, 2.5%);
       }
 
       h2 {

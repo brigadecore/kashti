@@ -23,6 +23,7 @@
     "tests"
   ],
   "dependencies": {
-    "foundation-apps": "~1.2.0"
+    "foundation-apps": "~1.2.0",
+    "Ionicons": "ionicons#^2.0.1"
   }
 }

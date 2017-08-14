@@ -2,6 +2,9 @@
 @import "settings";
 @import "foundation";
 
+// icons
+@import "bower_components/ionicons/scss/ionicons.scss";
+
 // get app styles
 @import "client/assets/scss/acid-settings";
 @import "client/assets/scss/acid-type";
