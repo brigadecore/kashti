@@ -13,11 +13,10 @@ RUN apt-get install -y nodejs
 
 # Install app dependencies
 COPY package.json /usr/src/app/
-RUN npm install
-npm install -g foundation-cli bower gulp
+npm install && bower install
 
 # Bundle app source
 COPY /dist /usr/src/app
 
-EXPOSE 8079
-CMD [ "npm", "start" ]
+CMD node /assets/js/app.js
+EXPOSE 4000
