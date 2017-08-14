@@ -1,10 +1,15 @@
 #primary {
-  background: $brand2 url('../images/topo-pattern-white.png') repeat 0 0;
+  background: $brand2 url('../images/topo-pattern-white.png') repeat 20px 0;
   // background-blend-mode: overlay;
   background-size: 376px auto;
   width: 56px;
   z-index: 500;
   position: relative;
+  @include transition;
+
+  &:hover {
+    background-position: -6px 0;
+  }
 
   .icon {
     color: white;
