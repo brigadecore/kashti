@@ -1,8 +1,38 @@
 #primary {
-  background-color: $brand2;
+  background: $brand2 url('../images/topo-pattern-white.png') repeat 0 0;
+  // background-blend-mode: overlay;
+  background-size: 376px auto;
   width: 56px;
   z-index: 500;
   position: relative;
+
+  .icon {
+    color: white;
+    position: absolute;
+    font-size: 1.25rem;
+    left: 0;
+    width: 56px;
+    line-height: 50px;
+    text-align: center;
+
+    &:after {
+      border: 1px solid $light4;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      content: " ";
+      display: block;
+      margin: -40px 0 0 12px;
+    }
+
+    &.ion-document-text {
+      bottom: 60px;
+    }
+
+    &.ion-help {
+      bottom: 19px;
+    }
+  }
 
   a.logo {
     background-color: $brand1;
@@ -26,6 +56,7 @@
 #sidebar {
   background-color: $light2;
   overflow-x: visible;
+  overflow-y: hidden;
 
   .menu-group,
   .menu-bar {
@@ -49,44 +80,50 @@
 
       a {
         display: block;
-        padding: 0.625rem 11% 0;
+        padding: 0.5rem 11% 0;
         @include transition;
+
+        .icon {
+          position: absolute;
+          width: 1.2rem;
+          height: 1.2rem;
+          line-height: 1.5;
+          top: 1.125rem;
+          left: auto;
+          right: 0.825rem;
+          font-size: 0.825rem;
+          color: darken($light1, 5%);
+          text-align: center;
+          background: rgba(255,255,255,0.25);
+          border-radius: 50%;
+          border: 1px solid darken($light1, 2.5%);
+          @include transition;
+        }
+
+        h2 {
+          margin: 0;
+          color: $dark2;
+          display: block;
+          text-align: left;
+          font-size: 1.25rem;
+        }
+
+        h3 {
+          margin: 0;
+          color: $dark3;
+          display: block;
+          font-size: 0.575rem;
+          @include uppercase;
+        }
 
         &:hover {
           background: darken($light2, 2.5%);
+
+          .icon {
+            color: lighten($dark2, 8%);
+            background: rgba(255,255,255,1);
+          }
         }
-      }
-
-      .icon {
-        position: absolute;
-        width: 1.2rem;
-        height: 1.2rem;
-        line-height: 1.5;
-        top: 1.125rem;
-        left: auto;
-        right: 0.825rem;
-        font-size: 0.825rem;
-        color: darken($light1, 5%);
-        text-align: center;
-        background: rgba(255,255,255,0.25);
-        border-radius: 50%;
-        border: 1px solid darken($light1, 2.5%);
-      }
-
-      h2 {
-        margin: 0rem;
-        color: $dark2;
-        display: block;
-        text-align: left;
-        font-size: 1.25rem;
-      }
-
-      h3 {
-        margin: 0;
-        color: $dark3;
-        display: block;
-        font-size: 0.575rem;
-        @include uppercase;
       }
     }
   }
@@ -97,7 +134,7 @@
 
   nav ul {
     list-style: none;
-    margin: 0;
+    margin: 0 0 -10px;
     padding: 0;
 
     li {
@@ -118,13 +155,6 @@
         &:hover {
           background-color: $light1;
           color: $dark1;
-        }
-
-        svg.iconic {
-          position: absolute;
-          top: 0.775rem;
-          left: -2rem;
-          z-index: 1100;
         }
       }
 

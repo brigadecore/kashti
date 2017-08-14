@@ -24,7 +24,6 @@
 }
 
 #header {
-  background: $light4;
 
   .menu-group-left {
 
@@ -49,19 +48,35 @@
       padding-right: 1rem;
 
       .rounded {
+        background: white;
         border-radius: 50%;
-        border: 1px solid $dark3;
-        margin-right: 2rem;
+        border: 1px solid $brand2;
+        color: $light1;
+        margin-right: 1.5rem;
+        margin-top: -2px;
+        font-size: 1.25rem;
+        @include transition;
       }
 
       small {
         width: 5px;
 
-        .iconic {
+        .icon {
           position: absolute;
-          right: 1.5rem;
-          top: 1rem;
+          right: 1.25rem;
+          top: 1.5rem;
           width: 7px;
+          color: $brand2;
+        }
+      }
+
+      &:hover {
+        .rounded {
+          color: darken($light1, 7.5%);
+        }
+
+        small .icon {
+          color: $dark2;
         }
       }
     }

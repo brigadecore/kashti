@@ -4,8 +4,12 @@ body {
   color: $dark2;
   font-size: 16px;
   overflow-x: hidden;
+}
 
-  h1, h2, h3 {
-    @include europaBold;
-  }
+h1, h2, h3 {
+  @include europaBold;
+}
+
+#main {
+  padding-top: 1.5rem;
 }
