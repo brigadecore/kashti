@@ -7,6 +7,8 @@
 
   <title>Acid UI</title>
 
+  <base href="/acid-ui/">
+
   <link href="assets/css/app.css" rel="stylesheet" type="text/css">
   <link rel="icon" type="image/png" href="assets/images/favicon.png">
   <link rel="icon" type="image/x-icon" href="assets/images/favicon.png">
@@ -23,7 +25,7 @@
   <div class="grid-frame">
 
     <div position="left" id="primary" class="vertical shrink grid-block">
-      <a href="/" class="logo"><img src="assets/images/acid-logo.png" /></a>
+      <a href="/acid-ui/" class="logo"><img src="assets/images/acid-logo.png" /></a>
 
       <a href="https://github.com/deis/acid/tree/master/docs"><i class="icon ion-document-text right"></i></a>
       <a href="https://github.com/deis/acid/issues"><i class="icon ion-help right"></i></a>
@@ -49,9 +51,9 @@
               </select>
               <small>Project</small>
               <ul class="block-list" id="switcher-project">
-                <li><a href="/#!/project">Acid</a></li>
-                <li><a href="/#!/project">Draft</a></li>
-                <li><a href="/#!/project">Helm</a></li>
+                <li><a href="../acid-ui/#!/project">Acid</a></li>
+                <li><a href="../acid-ui/#!/project">Draft</a></li>
+                <li><a href="../acid-ui/#!/project">Helm</a></li>
               </ul>
             </zf-popup>
           </li>
@@ -60,10 +62,10 @@
       <div class="grid-content">
         <nav>
           <ul>
-            <li><a href="/#!/project">Builds</a></li>
-            <li><a href="/#!/project">Pipelines</a></li>
-            <li><a href="/#!/project">Configuration</a></li>
-            <li><a href="/#!/project">Speed</a></li>
+            <li><a href="../acid-ui/#!/project">Builds</a></li>
+            <li><a href="../acid-ui/#!/project">Pipelines</a></li>
+            <li><a href="../acid-ui/#!/project">Configuration</a></li>
+            <li><a href="../acid-ui/#!/project">Speed</a></li>
           </ul>
         </nav>
       </div>
@@ -89,11 +91,11 @@
             <ul class="menu-bar">
               <li 
                 ng-hide="$state.current.name === 'home'">
-                <a href="/#!/project">Draft</a></li>
+                <a href="../acid-ui/#!/project">Draft</a></li>
               <li 
                 ng-class="{ 'active': $state.current.name === 'project'}" 
                 ng-hide="$state.current.name === 'home'">
-                <a href="/#!/project">Master</a></li>
+                <a href="../acid-ui/#!/project">Master</a></li>
               <li ng-show="$state.current.name === 'build'"><a href="/#!/build">Build #23</a></li>
             </ul>
           </div>
