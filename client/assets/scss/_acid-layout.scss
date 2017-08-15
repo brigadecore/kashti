@@ -50,3 +50,28 @@ h1, h2, h3 {
     @include transition;
   }
 }
+
+.button,
+button {
+  border-radius: 2rem;
+  padding: 0.25rem 2rem;
+  line-height: 1.75;
+  background: $dark3;
+  color: $light4;
+  border: none;
+  box-shadow: none;
+  @include europaBold;
+}
+
+.icon-green {
+  color: $success;
+}
+.icon-blue {
+  color: $active;
+}
+.icon-red {
+  color: $error;
+}
+.icon-orange {
+  color: $warn;
+}

@@ -92,3 +92,47 @@
     }
   }
 }
+
+#switcher {
+  padding: 0 0 0.825rem;
+  margin-left: 43px;
+  margin-top: -1px;
+  border-radius: 5px;
+
+  select {
+    margin: 0.25rem 7%;
+    width: 86%;
+    color: $dark2;
+    @include europaBold;
+  }
+
+  small,
+  a {
+    padding: 0.25rem 1rem;
+    line-height: 1.4;
+  }
+
+  a {
+    color: $dark2;
+    border-radius: 3px;
+    @include europaBold;
+    @include transition;
+
+    &:hover {
+      background-color: $light2;
+      color: $brand2;
+    }
+  }
+
+  small {
+    @include uppercase;
+    display: inline-block;
+    padding-top: 1rem;
+  }
+
+  ul, li {
+    padding: 0;
+    margin: 0;
+    border: none !important;
+  }
+}

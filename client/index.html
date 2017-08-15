@@ -43,16 +43,15 @@
 
             <zf-popup id="switcher" class="switcher-wrap">
               <small>Team</small>
-              <ul class="block-list" id="switcher-team">
-                <li>Acid</li>
-                <li>Draft</li>
-                <li>Helm</li>
-              </ul>
+              <select class="small-12">
+                <option>Azure Container Service</option>
+                <option>Deis</option>
+              </select>
               <small>Project</small>
               <ul class="block-list" id="switcher-project">
-                <li>Acid</li>
-                <li>Draft</li>
-                <li>Helm</li>
+                <li><a href="/project">Acid</a></li>
+                <li><a href="/project">Draft</a></li>
+                <li><a href="/project">Helm</a></li>
               </ul>
             </zf-popup>
           </li>
@@ -61,7 +60,7 @@
       <div class="grid-content">
         <nav>
           <ul>
-            <li><a href="/#!/build">Builds</a></li>
+            <li><a href="/#!/project">Builds</a></li>
             <li><a href="/#!/project">Pipelines</a></li>
             <li><a href="/#!/project">Configuration</a></li>
             <li><a href="/#!/project">Speed</a></li>

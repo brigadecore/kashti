@@ -1,3 +1,15 @@
+.project-header {
+  border: 1px solid $light1;
+
+  aside {
+    color: $active;
+    background: $light1;
+    font-size: 0.925rem;
+    display: block;
+    border: 1px solid $light1;
+  }
+}
+
 .build-list {
   margin-top: 2rem;
 
@@ -12,28 +24,28 @@
       text-align: left;
       padding: 0.25rem 1.25rem;
       margin: 0 0 0.25rem 0;
-      border-radius: 2px;
+      border-radius: 4px;
       @include transition;
 
       div {
         font-family: $mono;
-        display: inline-block;
-        padding-right: 0.5rem;
-        font-size: 0.925rem;
-        letter-spacing: -0.025em;
+        font-size: 0.825rem;
+        line-height: 2.25;
+        letter-spacing: -0.05em;
+        color: darken($dark3, 10%);
+        @include transition;
       }
 
       .act-state {
-        padding-top: 1rem;
+        padding-top: 0.1rem;
+        position: relative;
+        line-height: 1.725;
 
         .icon {
           font-size: 1.5rem;
+          top: -0.25rem;
+          position: absolute;
         }
-
-        .icon-green {
-          color: $success;
-        }
-
       }
 
       .act-author {
@@ -41,7 +53,6 @@
           max-width: 30px;
           border-radius: 0.25rem;
         }
-
       }
 
       .act-message {
@@ -58,12 +69,31 @@
       }
 
       &:after {
-
+        content: "Details >";
+        color: $active;
+        font-size: 0.75rem;
+        position: absolute;
+        right: 1rem;
+        opacity: 0.5;
+        width: 1rem;
+        text-align: right;
+        background: red;
+        overflow: hidden;
+        @include transition;
       }
 
       &:hover {
         background: white;
         @include box-shadow(0,1px,4px,rgba(0,0,0,0.15));
+
+        &:after {
+          opacity: 1;
+          width: auto;
+        }
+
+        div {
+          color: $dark2;
+        }
       }
     }
   }
