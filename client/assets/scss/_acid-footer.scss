@@ -1,6 +1,8 @@
 footer {
   border-top: 2px solid $light2;
   margin-top: 3.5rem;
+  opacity: 1;
+  @include transition;
 
   ul {
     margin: 0 0.75rem;
