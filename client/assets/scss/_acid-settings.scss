@@ -1,18 +1,6 @@
 // Variables
 // ---------------------------------------
 //
-// $light: #efe9f4;
-// $mid: #7E949C;
-// $bluel: #BCE2F3;
-// $bluem: #37B0E7;
-// $blued: #277A9F;
-// $yellow: #EAF1CA;
-//
-// $dark1: #403f4c;
-// $light1: lighten($dark1, 66.67%);
-// $light2: lighten($bluem, 40%);
-
-
 $brand1: #2541B2;
 $brand2: #37B0E7;
 
@@ -26,10 +14,10 @@ $light3: #FBFBFD;
 $light4: #fff;
 
 $success: #70AE29;
-$fail: #D10015;
-$error: $fail;
-$warn: darken(#F5A623, 2.5%);
-$active: $brand2;
+$fail:    #D10015;
+$error:   $fail;
+$warn:    darken(#F5A623, 2.5%);
+$active:  $brand2;
 
 
 // Mixins

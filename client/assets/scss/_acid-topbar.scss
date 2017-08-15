@@ -136,3 +136,24 @@
     border: none !important;
   }
 }
+
+#account-menu {
+  ul {
+    margin: 0;
+    padding: 0;
+    li {
+      small,
+      strong {
+        display: block;
+        padding: 0.5rem 1rem;
+      }
+
+      small {
+        @include uppercase;
+      }
+      a {
+
+      }
+    }
+  }
+}
