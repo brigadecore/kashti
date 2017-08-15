@@ -11,6 +11,7 @@ var gulp     = require('gulp');
 var rimraf   = require('rimraf');
 var router   = require('front-router');
 var sequence = require('run-sequence');
+var deploy   = require('gulp-gh-pages');
 
 // Check for --production flag
 var isProduction = !!(argv.production);
@@ -142,6 +143,12 @@ gulp.task('uglify:app', function() {
     .pipe($.concat('app.js'))
     .pipe(gulp.dest('./dist/assets/js/'))
   ;
+});
+
+// Deploys the dist app to gh-pages
+gulp.task('deploy', function() {
+  return gulp.src('./dist/**/*')
+    .pipe(deploy());
 });
 
 // Starts a test server, which you can view at http://localhost:4000
