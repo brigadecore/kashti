@@ -25,6 +25,12 @@ $light2: #F4F5F7;
 $light3: #FBFBFD;
 $light4: #fff;
 
+$success: #70AE29;
+$fail: #D10015;
+$error: $fail;
+$warn: darken(#F5A623, 2.5%);
+$active: $brand2;
+
 
 // Mixins
 // ---------------------------------------

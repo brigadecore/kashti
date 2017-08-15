@@ -8,6 +8,9 @@
   <title>Acid UI</title>
 
   <link href="./assets/css/app.css" rel="stylesheet" type="text/css">
+  <link rel="icon" type="image/png" href="./assets/images/favicon.png">
+  <link rel="icon" type="image/x-icon" href="./assets/images/favicon.png">
+  <link rel="apple-touch-icon-precomposed" href="./assets/images/apple-touch-icon-precomposed.png">
 
   <script src="./assets/js/foundation.js"></script>
   <script src="./assets/js/templates.js"></script>
@@ -27,16 +30,31 @@
     </div>
 
     <!-- left sidebar -->
-    <div zf-panel position="left" id="sidebar" class="medium-grid-block collapse medium-2 large-2 vertical">
+    <div zf-panel position="left" id="sidebar" class="medium-grid-block collapse medium-2 large-2 vertical" ng-hide="$state.current.name === 'home'">
       <div class="grid-content collapse shrink">
         <ul class="menu-bar primary">
           <li id="organization">
-            <a href="/#!/">
+            <a href="" zf-popup-toggle="switcher">
               <h2>Draft</h2>
               <h3>Azure Container Service</h3>
 
               <i class="icon ion-chevron-down right"></i>
             </a>
+
+            <zf-popup id="switcher" class="switcher-wrap">
+              <small>Team</small>
+              <ul class="block-list" id="switcher-team">
+                <li>Acid</li>
+                <li>Draft</li>
+                <li>Helm</li>
+              </ul>
+              <small>Project</small>
+              <ul class="block-list" id="switcher-project">
+                <li>Acid</li>
+                <li>Draft</li>
+                <li>Helm</li>
+              </ul>
+            </zf-popup>
           </li>
         </ul>
       </div>
@@ -70,9 +88,14 @@
         <div class="menu-group primary">
           <div class="menu-group-left">
             <ul class="menu-bar">
-              <li><a href="/#!/project">Draft</a></li>
-              <li><a href="/#!/project">Master</a></li>
-              <li><a href="/#!/build">Build #23</a></li>
+              <li 
+                ng-hide="$state.current.name === 'home'">
+                <a href="/#!/project">Draft</a></li>
+              <li 
+                ng-class="{ 'active': $state.current.name === 'project'}" 
+                ng-hide="$state.current.name === 'home'">
+                <a href="/#!/project">Master</a></li>
+              <li ng-show="$state.current.name === 'build'"><a href="/#!/build">Build #23</a></li>
             </ul>
           </div>
           <div class="menu-group-right">
@@ -93,7 +116,7 @@
         <div class="grid-block small-12 medium-12 vertical">
           <div class="grid-content">
 
-            <div ui-view class="grid-block grid-content small-12" id="main"></div>
+            <div ui-view class="grid-block grid-content small-12 template-{{$state.current.name}}" id="main"></div>
 
             <footer class="collapse shrink">
               <ul class="inline-list">

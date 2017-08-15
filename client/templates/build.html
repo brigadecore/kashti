@@ -8,13 +8,16 @@ animationIn: slideInLeft
   <h1>Build #23</h1>
   <p class="lead">Project <strong><a href="/#!/project">Draft</a></strong>.</p>
 
-  <div class="act"></div>
-  <div class="act act-offset-1"></div>
-  <div class="act act-offset-1"></div>
-  <div class="act act-offset-1"></div>
-  <div class="act act-offset-1"></div>
-  <div class="act act-offset-1"></div>
-  <div class="act act-offset-1"></div>
-  <div class="act act-offset-1"></div>
+  <zf-accordion auto-open="false" collapsible="true" multi-open="true">
+    <zf-accordion-item title="Auto Open">
+    Auto open opens the first tab on render.
+    </zf-accordion-item>
+    <zf-accordion-item title="Collapsible">
+    Collapsible allows toggable tabs. Click on a tab to open or close it.
+    </zf-accordion-item>
+    <zf-accordion-item title="Multi Open">
+    Multi open allows for multiple tabs to be open at once.
+    </zf-accordion-item>
+  </zf-accordion>
 
 </div>

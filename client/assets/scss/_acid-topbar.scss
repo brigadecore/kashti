@@ -1,6 +1,11 @@
 #header {
-  background-color: rgba(255,255,255,0.5);
-  border-bottom: 2px solid white;
+  background-color: rgba(255,255,255,0.05);
+  border-bottom: 2px solid darken($light2, 1%);
+  @include transition;
+
+  &:hover {
+    background-color: rgba(255,255,255,0.85);
+  }
 
   .menu-group,
   .menu-bar {
@@ -9,10 +14,10 @@
 
     a {
       background-color: transparent;
-      color: $light1;
+      color: $dark3;
       font-size: 1.125rem;
       font-family: $europa;
-      padding: 1.2rem 1.5rem 1.15rem;
+      padding: 1.2rem 1.5rem 1.1rem;
       @include transition;
       @include europaBold;
 
@@ -21,28 +26,31 @@
       }
     }
   }
-}
 
-#header {
-
+  // top breadcrumbs
   .menu-group-left {
-
-    li:last-of-type {
-      a {
+    ul.menu-bar {
+      li:last-child,
+      li.active {
+        a {
         color: $dark2;
+        }
       }
-    }
-    li + li {
-      &:before {
-        content: ">";
-        display: inline-block;
-        color: $light1;
-        padding: 1rem 0;
-        @include europaBold;
+
+      li + li {
+        &:before {
+          content: ">";
+          display: inline-block;
+          color: $dark3;
+          opacity: 0.5;
+          padding: 1rem 0;
+          @include europaBold;
+        }
       }
     }
   }
 
+  // account menu
   .icon-right {
     a {
       padding-right: 1rem;

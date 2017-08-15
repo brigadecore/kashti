@@ -17,10 +17,12 @@
   font-style: normal;
 }
 
-$europa: 'europa','Open Sans',Roboto,Century Gothic,AppleGothic,Arial,sans-serif;
-
 @mixin europaBold {
   font-family: $europa;
   font-weight: bold;
   letter-spacing: 0.025em;
 }
+
+// font-family variables
+$europa: 'europa','Open Sans',Roboto,Century Gothic,AppleGothic,Arial,sans-serif;
+$mono: Menlo, 'DejaVu Sans Mono', 'SF Mono', 'Monaco', 'Inconsolata', "Fira Mono", 'Droid Sans Mono', 'Source Code Pro', 'Lucida Console', monospace;

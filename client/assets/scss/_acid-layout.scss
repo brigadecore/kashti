@@ -1,5 +1,8 @@
 body {
-  background: $light4;
+  background:
+    url('../images/topo-pattern-white.png') repeat 20px 0,
+    linear-gradient(185deg, #F0F1F6 0%, lighten(#e6e9f0, 1%) 100%);
+  background-size: 376px auto, auto auto;
   font-family: $europa;
   color: $dark2;
   font-size: 16px;
@@ -12,17 +15,18 @@ h1, h2, h3 {
 
 #main {
   padding-top: 1.5rem;
-  min-height: 70vh;
+  min-height: 90vh;
   transition: all 0.25s ease-in-out;
 
+  // page transition animations
   &.ng-animate {
-    // min-height: 100vh;
+    min-height: 100vh;
   }
 
-  // &.ng-enter {
-  //   animation: slideInLeft 0.125s all ease-in-out;
-  //   z-index: 8888;
-  // }
+  &.ng-enter {
+    animation: slideInLeft 0.125s all ease-in-out;
+    z-index: 8888;
+  }
   &.ng-leave {
     animation: fadeOut 0.075s all linear;
     z-index: 999;

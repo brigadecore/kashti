@@ -1,0 +1,70 @@
+.build-list {
+  margin-top: 2rem;
+
+  .build-item {
+    border: none;
+
+    &:first-child {
+      border: none;
+    }
+
+    a {
+      text-align: left;
+      padding: 0.25rem 1.25rem;
+      margin: 0 0 0.25rem 0;
+      border-radius: 2px;
+      @include transition;
+
+      div {
+        font-family: $mono;
+        display: inline-block;
+        padding-right: 0.5rem;
+        font-size: 0.925rem;
+        letter-spacing: -0.025em;
+      }
+
+      .act-state {
+        padding-top: 1rem;
+
+        .icon {
+          font-size: 1.5rem;
+        }
+
+        .icon-green {
+          color: $success;
+        }
+
+      }
+
+      .act-author {
+        .avatar {
+          max-width: 30px;
+          border-radius: 0.25rem;
+        }
+
+      }
+
+      .act-message {
+
+      }
+      .act-hash {
+
+      }
+      .act-time-ago {
+
+      }
+      .act-time-duration {
+
+      }
+
+      &:after {
+
+      }
+
+      &:hover {
+        background: white;
+        @include box-shadow(0,1px,4px,rgba(0,0,0,0.15));
+      }
+    }
+  }
+}
