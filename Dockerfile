@@ -23,4 +23,4 @@ RUN bower install --allow-root
 COPY . .
 
 CMD [ "npm", "start" ]
-EXPOSE 8080
+EXPOSE 4000
