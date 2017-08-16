@@ -62,7 +62,21 @@
       <div class="grid-content">
         <nav>
           <ul>
-            <li><a href="../acid-ui/#!/project">Builds</a></li>
+            <li ng-class="{ 'active': $state.current.name === 'project'}">
+              <a href="../acid-ui/#!/project">Activity</a>
+            </li>
+            <li ng-class="{ 'active': $state.current.name === 'build'}">
+              <a href="../acid-ui/#!/build">Builds</a>
+
+              <ul>
+                <li class="active"><a>All</a></li>
+                <li><a>Deploys</a></li>
+                <li><a>Pulls</a></li>
+                <li><a>Pushes</a></li>
+                <li><a>Releases</a></li>
+                <li><a>Tests</a></li>
+              </ul>
+            </li>
             <li><a href="../acid-ui/#!/project">Pipelines</a></li>
             <li><a zf-open="basicModal">Configuration</a></li>
             <li><a href="../acid-ui/#!/project">Speed</a></li>

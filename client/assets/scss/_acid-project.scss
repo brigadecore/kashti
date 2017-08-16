@@ -38,13 +38,30 @@
 
       .act-state {
         padding-top: 0.1rem;
+        padding-left: 0.1rem;
         position: relative;
         line-height: 1.725;
 
         .icon {
           font-size: 1.5rem;
-          top: -0.25rem;
+          line-height: 0.5;
+          top: 0.25rem;
+          background: darken($light3, 3.5%);
           position: absolute;
+          z-index: 900;
+          @include transition;
+        }
+
+        &:after {
+          width: 2px;
+          height: 40px;
+          left: 0.625rem;
+          top: -4px;
+          background: $light1;
+          position: absolute;
+          display: block;
+          content: " ";
+          z-index: 500;
         }
       }
 
@@ -73,26 +90,41 @@
         color: $active;
         font-size: 0.75rem;
         position: absolute;
-        right: 1rem;
+        right: 1.5rem;
         top: 0.667rem;
         opacity: 0;
         text-align: right;
         @include europaBold;
         @include transition;
       }
+    }
 
-      &:hover {
-        background: white;
-        @include box-shadow(0,1px,4px,rgba(0,0,0,0.15));
+    &:hover a,
+    &:first-of-type a {
+      background: white;
+      @include box-shadow(0,1px,4px,rgba(0,0,0,0.15));
 
-        &:after {
-          opacity: 1;
-          width: auto;
+      &:after {
+        opacity: 1;
+        width: auto;
+        right: 0.925rem;
+      }
+
+      .act-state {
+        .icon {
+          background: white;
         }
+      }
 
-        div {
-          color: $dark2;
-        }
+      div {
+        color: $dark2;
+      }
+    }
+
+    &:first-of-type {
+      .act-state:after {
+        top: 10px;
+        height: 30px;
       }
     }
   }

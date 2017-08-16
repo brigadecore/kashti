@@ -165,11 +165,48 @@
         color: darken($dark3, 7.5%);
         @include europaBold;
         @include transition;
+      }
 
-        &.active,
-        &:hover {
-          background-color: $light1;
-          color: $dark1;
+      &.active a,
+      &:hover a {
+        background-color: $light1;
+        color: $dark1;
+      }
+
+      &.active {
+        ul {
+          display: block;
+
+          li {
+            a {
+              background: transparent;
+              color: darken($dark3, 7.5%);
+            }
+
+            &.active a,
+            &:hover a{
+              background-color: white;
+              color: $dark2;
+            }
+          }
+        }
+      }
+
+      ul {
+        margin: -0.25rem 0.5rem 0;
+        padding: 0;
+        display: none;
+
+        li {
+          a {
+            font-size: 0.825rem;
+            font-family: $europa;
+            font-weight: normal;
+            line-height: 1.636;
+            display: inline-block;
+            border-radius: 2rem;
+            padding: 0 0.725rem;
+          }
         }
       }
 

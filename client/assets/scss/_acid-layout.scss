@@ -64,6 +64,11 @@ button {
   @include europaBold;
 }
 
+code,
+pre {
+  font-family: $mono;
+}
+
 .icon-green {
   color: $success;
 }
