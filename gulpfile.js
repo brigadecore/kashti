@@ -159,6 +159,7 @@ gulp.task('base-prod', function() {
   return gulp.src('./client/index.html')
     .pipe(replace('base href="/"', 'base href="/acid-ui/"'))
     .pipe(gulp.dest('./client/'))
+    .pipe(gulp.dest('./dist/'))
 });
 
 // Deploys the dist app to gh-pages
