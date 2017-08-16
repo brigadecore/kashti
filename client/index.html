@@ -131,9 +131,18 @@
 
             <div ui-view class="grid-block grid-content small-12 template-{{$state.current.name}}" id="main"></div>
 
-                    <div zf-modal="" id="basicModal">
-                      <a zf-close="" class="close-button">×</a>
-                      <h3>Acid.js Configuration</h3>
+            <footer class="collapse shrink">
+              <ul class="inline-list">
+                <li><span><a href="https://github.com/deis/acid" target="_blank">ACID</a> is licensed under the The MIT License.</span></li>
+                <li><a href="https://github.com/deis/acid/releases" target="_blank">Changelog</a></li>
+                <li><a href="https://github.com/deis/acid/tree/master/docs" target="_blank">Documentation</a></li>
+                <li><a href="https://github.com/deis/acid/" target="_blank">Github</a></li>
+              </ul>
+            </footer>
+
+            <div zf-modal="" id="basicModal">
+              <a zf-close="" class="close-button">×</a>
+              <h3>Acid.js Configuration</h3>
 <code>
 // ============================================================================
 // NOTE: This is the actual acid.js file for testing the Acid project.
@@ -203,14 +212,6 @@ events.pullRequest = build
 </code>
                     </div>
 
-            <footer class="collapse shrink">
-              <ul class="inline-list">
-                <li><span><a href="https://github.com/deis/acid" target="_blank">ACID</a> is licensed under the The MIT License.</span></li>
-                <li><a href="https://github.com/deis/acid/releases" target="_blank">Changelog</a></li>
-                <li><a href="https://github.com/deis/acid/tree/master/docs" target="_blank">Documentation</a></li>
-                <li><a href="https://github.com/deis/acid/" target="_blank">Github</a></li>
-              </ul>
-            </footer>
           </div>
         </div>
       </div>
