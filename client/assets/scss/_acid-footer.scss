@@ -2,7 +2,15 @@ footer {
   border-top: 2px solid $light1;
   margin-top: 3.5rem;
   opacity: 1;
+  position: relative;
   @include transition;
+
+  img {
+    max-height: 24px;
+    position: absolute;
+    top: 1.25rem;
+    right: 2rem;
+  }
 
   ul {
     margin: 0 0.75rem;
