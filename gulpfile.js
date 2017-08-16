@@ -12,6 +12,8 @@ var rimraf   = require('rimraf');
 var router   = require('front-router');
 var sequence = require('run-sequence');
 var deploy   = require('gulp-gh-pages');
+var replace  = require('gulp-replace');
+
 
 // Check for --production flag
 var isProduction = !!(argv.production);
@@ -145,8 +147,22 @@ gulp.task('uglify:app', function() {
   ;
 });
 
+// Prep the templates for local server
+gulp.task('base-local', function() {
+  return gulp.src('./client/index.html')
+    .pipe(replace('base href="/acid-ui/"', 'base href="/"'))
+    .pipe(gulp.dest('./client/'))
+});
+
+// Prep the templates for deploy to gh-pages
+gulp.task('base-prod', function() {
+  return gulp.src('./client/index.html')
+    .pipe(replace('base href="/"', 'base href="/acid-ui/"'))
+    .pipe(gulp.dest('./client/'))
+});
+
 // Deploys the dist app to gh-pages
-gulp.task('deploy', function() {
+gulp.task('deploy', ['base-prod'], function() {
   return gulp.src('./dist/**/*')
     .pipe(deploy());
 });
@@ -166,7 +182,7 @@ gulp.task('server', ['build'], function() {
 
 // Builds your entire app once, without starting a server
 gulp.task('build', function(cb) {
-  sequence('clean', ['copy', 'copy:foundation', 'sass', 'uglify'], 'copy:templates', cb);
+  sequence('clean', 'base-local', ['copy', 'copy:foundation', 'sass', 'uglify'], 'copy:templates', cb);
 });
 
 // Default task: builds your app, starts a server, and recompiles assets when they change
