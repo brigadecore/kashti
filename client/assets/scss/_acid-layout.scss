@@ -76,3 +76,34 @@ button {
 .icon-orange {
   color: $warn;
 }
+
+#basicModal {
+  align-items: right;
+  -ms-flex-pack: right;
+  justify-content: flex-end;
+
+  aside.modal {
+    max-width: 940px;
+    background: $light3;
+    max-height: 100vh;
+    overflow-y: scroll;
+
+    .close-button {
+      top: 1.125rem;
+      right: 1.125rem;
+      font-size: 3em;
+    }
+
+    h3 {
+      margin: 0.5rem 1.25rem 1rem;
+      font-size: 1.25rem;
+      color: $dark2;
+    }
+
+    pre {
+      background-color: $light2;
+      margin: 1.25rem 1.25rem;
+      padding: 0.5rem;
+    }
+  }
+}

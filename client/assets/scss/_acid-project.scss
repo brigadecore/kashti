@@ -74,11 +74,10 @@
         font-size: 0.75rem;
         position: absolute;
         right: 1rem;
-        opacity: 0.5;
-        width: 1rem;
+        top: 0.667rem;
+        opacity: 0;
         text-align: right;
-        background: red;
-        overflow: hidden;
+        @include europaBold;
         @include transition;
       }
 
