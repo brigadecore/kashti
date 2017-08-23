@@ -5,30 +5,46 @@ animationIn: slideInRight
 ---
 
 <div class="grid-container medium-grid-block vertical" id="projects">
-  <div class="grid-content">
-    <h1>Acid UI</h1>
-    <p class="lead">This is the dashboard.</p>
-  </div>
 
   <div class="grid-content">
+    <a class="add-project"><i class="icon ion-plus-circled"></i> Add a Project</a>
+
     <div class="medium-grid-block horizontal">
 
       <section class="small-6 columns">
-        <a href="../acid-ui/#!/project" class="grid-content project">
+        <a href="../acid-ui/#!/project" class="grid-content project project-fail">
+          <div class="status">
+            <i class="icon ion-checkmark-circled status-success"></i>
+            <i class="icon ion-close-circled status-fail"></i>
+            <img src="assets/images/rolling.svg" class="status-active" />
+          </div>
           <h2>Draft</h2>
           <h4>Project</h4>
         </a>
       </section>
 
       <section class="small-6 columns">
-        <a href="../acid-ui/#!/project" class="grid-content project">
+        <a href="../acid-ui/#!/project" class="grid-content project project-active">
+          <div class="status">
+            <i class="icon ion-checkmark-circled status-success"></i>
+            <i class="icon ion-close-circled status-fail"></i>
+            <img src="assets/images/rolling.svg" class="status-active" />
+          </div>
           <h2>ACID</h2>
           <h4>Project</h4>
         </a>
       </section>
 
+    </div>
+    <div class="medium-grid-block horizontal">
+
       <section class="small-6 columns ">
-        <a href="../acid-ui/#!/project" class="grid-content project">
+        <a href="../acid-ui/#!/project" class="grid-content project project-success">
+          <div class="status">
+            <i class="icon ion-checkmark-circled status-success"></i>
+            <i class="icon ion-close-circled status-fail"></i>
+            <img src="assets/images/rolling.svg" class="status-active" />
+          </div>
           <h2>Helm</h2>
           <h4>Project</h4>
         </a>

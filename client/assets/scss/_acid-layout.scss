@@ -40,17 +40,6 @@ h1, h2, h3 {
   opacity: 0;
 }
 
-#projects {
-  a.project {
-    background: $light3;
-    margin: 0 2% 2rem 2%;
-    border: 2px solid $light2;
-    border-radius: 4px;
-    @include box-shadow;
-    @include transition;
-  }
-}
-
 .button,
 button {
   border-radius: 2rem;

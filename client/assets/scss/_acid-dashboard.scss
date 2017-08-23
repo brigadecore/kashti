@@ -1,0 +1,117 @@
+.template-home {
+  min-height: 100vh;
+  margin-bottom: -80px;
+
+  .add-project {
+    display: inline-block;
+    padding: 0.75rem 1rem 0.75rem 2.75rem;
+    border: 1px dashed $brand2;
+    margin: 0 1rem 2.75rem;
+    background-color: rgba(255,255,255,0.5);
+    font-size: 0.75rem;
+    color: $dark3;
+    line-height: 1.2;
+    position: relative;
+    font-weight: bold;
+    @include transition;
+    @include border-radius(0.25rem,0.25rem);
+    @include uppercase;
+
+    .icon {
+      color: $brand2;
+      font-size: 1.25rem;
+      margin-right: 0.5rem;
+      position: absolute;
+      top: 0.425rem;
+      left: 0.75rem;
+    }
+
+    &:hover {
+      background-color: rgba(255,255,255,0.825);
+      border-color: darken($brand2, 10%);
+      color: $dark2;
+    }
+  }
+
+  .project {
+    position: relative;
+    overflow: hidden;
+    height: 150px;
+    background: lighten($light3, 2.5%);
+    margin: 0 2% 2rem 2%;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    @include box-shadow(0,2px,12px,rgba(0,0,0,0.2));
+    @include transition;
+
+    h2 {
+      margin: 1.5rem 0 0.75rem 56px;
+      font-size: 1.5rem;
+    }
+
+    h4 {
+      @include uppercase;
+      font-size: 0.825rem;
+      letter-spacing: 0.05em;
+      color: darken($light1, 15%);
+      margin: 0rem 0 1rem 56px;
+    }
+
+    .status {
+      img,
+      .icon {
+        font-size: 2rem;
+        text-align: left;
+        width: 36px;
+        height: 36px;
+        display: inline-block;
+        position: absolute;
+        top: 1.5rem;
+        left: 1.5rem;
+        z-index: 500;
+        display: none;
+        background: white;
+        border-radius: 50%;
+      }
+
+      img {
+        margin-left: -2px;
+      }
+
+      &:after {
+        width: 2px;
+        height: 115px;
+        background-color: $light1;
+        display: block;
+        content: " ";
+        position: absolute;
+        left: 37px;
+        top: 2rem;
+        z-index: 300;
+      }
+
+    }
+
+
+    &.project-success {
+      .icon.status-success {
+        display: block;
+        color: $success;
+      }
+    }
+
+    &.project-fail {
+      .icon.status-fail {
+        display: block;
+        color: $fail;
+      }
+    }
+
+    &.project-active {
+      img.status-active {
+        display: block;
+        color: $active;
+      }
+    }
+  }
+}
