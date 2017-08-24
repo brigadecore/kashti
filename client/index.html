@@ -141,29 +141,28 @@
       </div>
       <!-- /#header -->
 
-      <div class="grid-block">
-        <div class="grid-block small-12 medium-12 vertical">
-          <div class="grid-content">
+      <div class="grid-block vertical">
+        <div class="grid-content">
 
-            <!-- ui-view -->
-            <div ui-view class="grid-block grid-content small-12 template-{{$state.current.name}}" id="main"></div>
+          <!-- ui-view -->
+          <div ui-view class="grid-content small-centered small-12 template-{{$state.current.name}}" id="main"></div>
 
-            <!-- app footer -->
-            <footer class="collapse shrink">
-              <ul class="inline-list">
-                <li>
-                  <a href="https://open.microsoft.com/" target="_blank"><img src="assets/images/microsoft.png" /></a>
-                </li>
-                <li><span><a href="https://github.com/deis/acid" target="_blank">ACID</a> is licensed under the The MIT License.</span></li>
-                <li><a href="https://github.com/deis/acid/releases" target="_blank">Changelog</a></li>
-                <li><a href="https://github.com/deis/acid/tree/master/docs" target="_blank">Documentation</a></li>
-                <li><a href="https://github.com/deis/acid/" target="_blank">Github</a></li>
-              </ul>
-            </footer>
+          <!-- app footer -->
+          <footer class="collapse shrink">
+            <ul class="inline-list">
+              <li>
+                <a href="https://open.microsoft.com/" target="_blank"><img src="assets/images/microsoft.png" /></a>
+              </li>
+              <li><span><a href="https://github.com/deis/acid" target="_blank">ACID</a> is licensed under the The MIT License.</span></li>
+              <li><a href="https://github.com/deis/acid/releases" target="_blank">Changelog</a></li>
+              <li><a href="https://github.com/deis/acid/tree/master/docs" target="_blank">Documentation</a></li>
+              <li><a href="https://github.com/deis/acid/" target="_blank">Github</a></li>
+            </ul>
+          </footer>
 
-            <div zf-modal="" id="basicModal" animation-in="slideInLeft" animation-out="slideOutRight">
-              <a zf-close="" class="close-button">×</a>
-              <h3>Project Configuration</h3>
+          <div zf-modal="" id="basicModal" animation-in="slideInLeft" animation-out="slideOutRight">
+            <a zf-close="" class="close-button">×</a>
+            <h3>Project Configuration</h3>
 <pre>
 // ============================================================================
 // NOTE: This is the actual acid.js file for testing the Acid project.
@@ -231,12 +230,12 @@ events.push = build
 // Handle Pull Request
 events.pullRequest = build
 </pre>
-            </div>
-            <!-- /modal -->
-
           </div>
+          <!-- /modal -->
+
         </div>
       </div>
+
     </div>
 
   </div>

@@ -41,7 +41,7 @@
     position: relative;
     height: 170px;
     background: lighten($light3, 2.5%);
-    margin: 1rem 3.5% 1rem 3.5%;
+    margin: 1rem 0.925rem;
     border: 2px solid transparent;
     border-radius: 4px;
     @include box-shadow(0,2px,12px,rgba(0,0,0,0.2));
@@ -55,7 +55,7 @@
     }
 
     h2 {
-      margin: 1.25rem 0 0 76px;
+      margin: 1.25rem 0 0 4rem;
       font-size: 1.5rem;
       color: $dark1;
       @include transition;
@@ -66,7 +66,7 @@
       font-size: 0.667rem;
       letter-spacing: 0.05em;
       color: darken($light1, 15%);
-      margin: 0 0 1rem 76px;
+      margin: 0 0 1rem 4rem;
     }
 
     &:hover {
@@ -88,8 +88,8 @@
         height: 36px;
         display: inline-block;
         position: absolute;
-        top: 1.25rem;
-        left: 1.5rem;
+        top: 1.125rem;
+        left: 1.25rem;
         z-index: 500;
         display: none;
         background: white;
@@ -109,7 +109,7 @@
         display: block;
         content: " ";
         position: absolute;
-        left: 37px;
+        left: 2rem;
         top: 2rem;
         z-index: 300;
       }
@@ -118,7 +118,7 @@
     .activity {
       ul {
         list-style: none;
-        margin: 10px 0 0 76px;
+        margin: 10px 0 0 4rem;
 
         li {
           font-family: $mono;
@@ -138,7 +138,7 @@
             border: 2px solid white;
             position: absolute;
             z-index: 650;
-            left: -44px;
+            left: -2.35rem;
             top: 3px;
           }
 

@@ -18,6 +18,11 @@ h1, h2, h3 {
   min-height: 90vh;
   transition: all 0.25s ease-in-out;
 
+  .grid-container {
+    max-width: 65rem;
+    // margin-right: -1.5rem;
+  }
+
   // page transition animations
   &.ng-animate {
     min-height: 100vh;
