@@ -91,6 +91,17 @@
 
 .project-filters {
   padding-top: 1.75rem;
+  position: relative;
+
+  &:after {
+    display: block;
+    content: " ";
+    height: 1px;
+    width: 100%;
+    background: $light1;
+    position: absolute;
+    top: 2.95rem;
+  }
 
   select {
     margin-left: 1rem;
@@ -100,6 +111,7 @@
     background-color: $light2;
     height: 2.5rem;
     line-height: 1.5;
+    z-index: 750;
 
     option {
       font-size: 0.825rem;
@@ -111,6 +123,7 @@
     height: auto;
     margin: 0 3rem;
     display: inline-block;
+    z-index: 750;
 
     &:last-child {
       float: right;
