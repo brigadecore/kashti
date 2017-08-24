@@ -1,12 +1,181 @@
-.project-header {
-  border: 1px solid $light1;
+.template-project {
+  position: relative;
+  padding: 1.5rem 1rem 0;
+  margin: 0;
 
-  aside {
-    color: $active;
-    background: $light1;
-    font-size: 0.925rem;
+  .grid-container {
+    @include breakpoint(xlarge up) {
+      max-width: 60rem !important;
+    }
+  }
+
+  &:after {
+    background: linear-gradient(5deg, darken(#F0F1F6, 2%) 0%, lighten(#e6e9f0, 1%) 100%);
     display: block;
-    border: 1px solid $light1;
+    content: " ";
+    top: 0;
+    left: -2rem;
+    width: 110%;
+    height: 252px;
+    position: absolute;
+    z-index: 100;
+  }
+}
+
+.project-header-wrap {
+  position: relative;
+  z-index: 200;
+  padding-bottom: 2rem;
+}
+
+.project-header {
+  background-color: $light3;
+  border: 1px solid $light1;
+  padding: 1rem 1.75rem;
+  min-height: 145px;
+  @include box-shadow(0,1px,6px,rgba(0,0,0,0.15));
+  @include border-radius(0.2rem);
+
+  h1 {
+    font-size: 2rem;
+    color: $dark2;
+    margin-bottom: 1.25rem;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+
+    li {
+      font-family: $mono;
+      font-size: 0.75rem;
+      color: $dark3;
+    }
+  }
+}
+
+.project-status-bar {
+  color: $active;
+  background: $light2;
+  font-size: 0.925rem;
+  display: block;
+  border: 1px solid $light1;
+  margin-top: -1px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  @include box-shadow(0,2px,4px,rgba(0,0,0,0.15));
+
+  img {
+    max-width: 3rem;
+    margin-top: -3px;
+  }
+
+  span {
+    position: relative;
+    display: inline-block;
+
+    &:after {
+      background-color: $light2;
+      border-top: 1px solid $light1;
+      height: 4px;
+      width: 2000px;
+      display: block;
+      content: " ";
+      position: absolute;
+      left: 112.5%;
+      top: 0.45rem;
+      @include border-radius(1rem,1rem);
+    }
+  }
+}
+
+.project-filters {
+  padding-top: 1.75rem;
+
+  select {
+    margin-left: 1rem;
+    margin-right: 5rem;
+    border-radius: 0.75rem;
+    border-color: $light1;
+    background-color: $light2;
+    height: 2.5rem;
+    line-height: 1.5;
+
+    option {
+      font-size: 0.825rem;
+    }
+  }
+
+  ul {
+    padding: 0;
+    height: auto;
+    margin: 0 3rem;
+    display: inline-block;
+
+    &:last-child {
+      float: right;
+      margin-right: 0;
+      position: absolute;
+      right: 0;
+    }
+
+    li {
+      font-size: 0.825rem;
+      margin: 0 1rem;
+      color: $dark3;
+      margin: 0 -2px;
+      padding: 0 0.5rem;
+      display: inline-block;
+      background-color: $light2;
+      line-height: 3;
+      @include transition;
+
+      &:first-child {
+        border-radius: 40px 0 0 40px;
+        padding-left: 1rem;
+      }
+
+      &:last-child {
+        border-radius: 0 40px 40px 0;
+        padding-right: 1rem;
+      }
+
+      &.active {
+        color: lighten($dark2, 7.5%);
+      }
+
+      &:hover {
+        background: darken($light2, 3.5%);
+      }
+    }
+  }
+}
+
+.project-config-summary {
+
+  strong {
+    color: $dark2;
+    display: block;
+    margin-bottom: -1.5rem;
+  }
+
+  pre {
+    padding: 1rem 0 0 2rem;
+    font-size: 0.75rem;
+    line-height: 1.425;
+    color: $dark3;
+
+    &:hover {
+      color: $dark2;
+    }
+  }
+
+  button {
+    position: absolute;
+    bottom: 0.12rem;
+    min-width: 10rem;
+    margin-left: 1.25rem;
+    left: 75%;
   }
 }
 

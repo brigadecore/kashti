@@ -13,6 +13,10 @@ h1, h2, h3 {
   @include europaBold;
 }
 
+.content-wrap {
+  padding: 0;
+}
+
 #main {
   padding-top: 1.5rem;
   min-height: 90vh;
@@ -52,15 +56,51 @@ button {
   line-height: 2;
   background: $light2;
   color: $brand2;
-  border: none;
+  border: 1px solid transparent;
   box-shadow: none;
+  margin: 1rem 0;
+  @include transition;
   @include box-shadow(0,1px,3px,rgba(0,0,0,0.2));
   @include europaBold;
+
+  .icon {
+    font-size: 0.75rem;
+    margin: 0 0.5rem;
+
+    &.right {
+      margin-right: -0.5rem;
+      margin-left: 0.5;
+    }
+    &.left {
+      margin-left: -0.5rem;
+      margin-right: 0.5rem;
+    }
+  }
+
+  &:hover {
+    background: white;
+    color: darken($brand2, 10%);
+    border-color: rgba(55,176,231,0.25);
+    @include box-shadow(0,2px,7px,rgba(0,0,0,0.2));
+  }
+}
+
+::selection {
+  color: $brand1;
+  background: lighten($brand2, 35%);
 }
 
 code,
 pre {
   font-family: $mono;
+  font-size: 0.825rem;
+  line-height: 1.636;
+  color: $dark2;
+
+  ::selection {
+    color: white;
+    background: $brand2;
+  }
 }
 
 .icon-green {

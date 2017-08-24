@@ -2,6 +2,12 @@
   min-height: 100vh;
   margin-bottom: -80px;
 
+  .grid-container {
+    @include breakpoint(xlarge up) {
+      max-width: 80rem !important;
+    }
+  }
+
   .add-project {
     display: inline-block;
     padding: 0.75rem 1rem 0.75rem 2.75rem;

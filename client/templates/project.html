@@ -6,30 +6,65 @@ animationIn: fadeIn
 
 <div class="grid-container">
 
-  <div class="grid-content project-header">
-    <div class="medium-grid-block vertical">
-      <section class="small-12 collapse columns">
-        <h1>Draft Project</h1>
-        <h3><small><code>https://github.com/azure/draft.gif</code></small></h3>
-
-        <a zf-open="basicModal">Project Configuration<br>
-          Acid.js</a>
-
-        <select class="small-4">
-          <option>master</option>
-          <option>feature-branch</option>
-          <option>gh-pages</option>
-          <option>staging-app</option>
-        </select>
-      </section>
-
-      <aside class="medium-grid-block">
-        <div class="grid-content icon-blue small-12 collapse columns">
-          <img src="assets/images/puff.svg" />
-          Watching for events.
+  <div class="grid-content project-header-wrap">
+    <div class="grid-block horizontal">
+      <div class="small-12 medium-8 large-9 vertical">
+        <div class="project-header">
+          <h1>Draft Project</h1>
+          <ul>
+            <li>https://github.com/azure/draft.git</li>
+            <li>Namespace: cidci-draft</li>
+          </ul>
         </div>
-      </aside>
 
+        <div class="project-status-bar">
+          <div class="grid-content icon-blue small-12 collapse columns">
+            <img src="assets/images/ripple.svg" />
+            <span>Watching for events.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="small-12 medium-4 large-3 project-config-summary">
+        <pre>
+<strong>Acid.js</strong>
+
+Image: technosophos/
+acid-node:latest
+
+Events:
+- git push
+        </pre>
+
+        <div class="text-center">
+          <button zf-open="basicModal" class="secondary round tiny">Project Config <i class="icon ion-arrow-right-b right"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-filters grid-content">
+    <div class="grid-block">
+      <select class="small-3 grid-block">
+        <option>master</option>
+        <option>feature-branch</option>
+        <option>gh-pages</option>
+        <option>staging-app</option>
+      </select>
+
+      <ul class="inline-list">
+        <li class="active">All Tasks</li>
+        <li>Tests</li>
+        <li>Deploys</li>
+        <li>Releases</li>
+        <li>Pushes</li>
+        <li>Pulls</li>
+      </ul>
+
+      <ul class="inline-list right">
+        <li class="active">By Everyone</li>
+        <li>By Me</li>
+      </ul>
     </div>
   </div>
 
