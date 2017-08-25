@@ -47,7 +47,8 @@ var paths = {
   ],
   // These files are for your app's JavaScript
   appJS: [
-    'client/assets/js/app.js'
+    'client/assets/js/app.js',
+    'bower_components/angular-gantt/dist/angular-gantt.min.js'
   ]
 }
 
