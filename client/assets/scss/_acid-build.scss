@@ -4,6 +4,8 @@
   margin: 0;
 
   .grid-container {
+    max-width: 60rem !important;
+
     @include breakpoint(xlarge up) {
       max-width: 60rem !important;
     }
