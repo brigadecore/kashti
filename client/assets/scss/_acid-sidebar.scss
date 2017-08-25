@@ -174,6 +174,12 @@
       }
 
       &.active {
+        background: linear-gradient(185deg, #F0F1F6 0%, lighten(#e6e9f0, 3.5%) 100%);
+
+        a {
+          background-color: transparent;
+        }
+
         ul {
           display: block;
 
@@ -183,17 +189,21 @@
               color: darken($dark3, 7.5%);
             }
 
-            &.active a,
-            &:hover a{
-              background-color: white;
-              color: $dark2;
+            &.active,
+            &:hover {
+              background: transparent;
+
+              a {
+                background-color: white;
+                color: $dark2;
+              }
             }
           }
         }
       }
 
       ul {
-        margin: -0.75rem 1rem 0;
+        margin: -0.5rem 0 0 0.425rem;
         padding: 0;
         display: none;
 
@@ -205,7 +215,7 @@
             line-height: 1.636;
             display: inline-block;
             border-radius: 2rem;
-            padding: 0 0.725rem;
+            padding: 0 0.65rem;
           }
         }
       }
