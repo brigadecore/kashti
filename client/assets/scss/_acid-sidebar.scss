@@ -154,13 +154,15 @@
 
     li {
       margin: 0;
+      padding-top: 0.425rem;
+      @include transition;
 
       a {
         display: block;
         padding: 0.75rem 1rem 0.75rem 1rem;
         border-radius: 3px;
         margin: 0 5%;
-        line-height: 1;
+        line-height: 0.8;
         position: relative;
         color: darken($dark3, 7.5%);
         @include europaBold;
@@ -169,7 +171,7 @@
 
       &.active a,
       &:hover a {
-        background-color: $light1;
+        background: linear-gradient(95deg, $light1 0%, lighten($light1, 2%) 100%);
         color: $dark1;
       }
 
@@ -177,7 +179,7 @@
         background: linear-gradient(185deg, #F0F1F6 0%, lighten(#e6e9f0, 3.5%) 100%);
 
         a {
-          background-color: transparent;
+          color: $dark1;
         }
 
         ul {
