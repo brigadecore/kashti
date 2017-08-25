@@ -1,0 +1,23 @@
+.template-build {
+  position: relative;
+  padding: 1.5rem 1rem 0;
+  margin: 0;
+
+  .grid-container {
+    @include breakpoint(xlarge up) {
+      max-width: 60rem !important;
+    }
+  }
+
+  &:after {
+    background: linear-gradient(5deg, darken(#F0F1F6, 2%) 0%, lighten(#e6e9f0, 1%) 100%);
+    display: block;
+    content: " ";
+    top: 0;
+    left: -2rem;
+    width: 110%;
+    height: 252px;
+    position: absolute;
+    z-index: 100;
+  }
+}

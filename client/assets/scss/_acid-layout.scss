@@ -19,7 +19,8 @@ h1, h2, h3 {
 
 #main {
   padding-top: 1.5rem;
-  min-height: 90vh;
+  min-height: 88vh;
+  overflow-x: hidden;
   transition: all 0.25s ease-in-out;
 
   .grid-container {
