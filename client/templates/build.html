@@ -6,33 +6,51 @@ animationIn: slideInLeft
 
 <div class="grid-container">
 
-  <div class="grid-content project-header-wrap">
+  <div class="grid-content build-header-wrap">
     <div class="grid-block horizontal">
-      <div class="small-12 medium-8 large-9">
+      <div class="small-12">
 
         <div class="build-header">
           <h1>Build #213</h1>
+          <small><a href="../acid-ui/#!/project">Draft</a></small>
 
-          <div gantt data=data></div>
+          <div class="build-chart" gantt data=data>CHART HERE</div>
         </div>
 
       </div>
     </div>
   </div>
 
-        <h1>Build #23</h1>
-  <p class="lead">Project <strong><a href="../acid-ui/#!/project">Draft</a></strong>.</p>
+  <p>&nbsp;</p>
 
-  <zf-accordion auto-open="true" collapsible="true" multi-open="true">
-    <zf-accordion-item title="Auto Open">
-    Auto open opens the first tab on render.
-    </zf-accordion-item>
-    <zf-accordion-item title="Collapsible">
-    Collapsible allows toggable tabs. Click on a tab to open or close it.
-    </zf-accordion-item>
-    <zf-accordion-item title="Multi Open">
-    Multi open allows for multiple tabs to be open at once.
-    </zf-accordion-item>
-  </zf-accordion>
+  <ul>
+    <li>technosophos triggered an event.push via github a4dc72</li>
+
+    <li>Go project setup</li>
+
+    <li>goBuild.tasks
+
+      <zf-accordion auto-open="true" collapsible="true" multi-open="true">
+        <zf-accordion-item title="Go runner">
+          technosophos triggered an event.push via github a4dc72
+        </zf-accordion-item>
+        <zf-accordion-item title="goBuild.tasks">
+          <zf-accordion auto-open="true" collapsible="true" multi-open="true">
+            <zf-accordion-item title="glide install --strip-vendor">
+            </zf-accordion-item>
+            <zf-accordion-item title="make test-unit">
+            </zf-accordion-item>
+            <zf-accordion-item title="make test-unit">
+            </zf-accordion-item>
+          </zf-accordion>
+        </zf-accordion-item>
+        <zf-accordion-item title="Multi Open">
+        Multi open allows for multiple tabs to be open at once.
+        </zf-accordion-item>
+      </zf-accordion>
+    </li>
+
+    <li>Build complete. Status updated for PR #24</li>
+    </ul>
 
 </div>

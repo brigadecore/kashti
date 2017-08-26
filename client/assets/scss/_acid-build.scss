@@ -7,7 +7,7 @@
     max-width: 60rem !important;
 
     @include breakpoint(xlarge up) {
-      max-width: 60rem !important;
+      max-width: 65rem !important;
     }
   }
 
@@ -18,7 +18,7 @@
     top: 0;
     left: -2rem;
     width: 110%;
-    height: 252px;
+    height: 200px;
     position: absolute;
     z-index: 100;
   }
@@ -31,17 +31,16 @@
   padding-left: 2rem;
 }
 
-.project-header {
-  min-height: 145px;
-  background-color: $light3;
-  border: 1px solid $light1;
+.build-header {
   padding: 1.25rem 1.75rem;
-  @include box-shadow(0,1px,6px,rgba(0,0,0,0.15));
-  @include border-radius(0.2rem);
 
   h1 {
     font-size: 2rem;
     color: $dark2;
     margin-bottom: 1.25rem;
+  }
+
+  .build-chart {
+    background: white;
   }
 }
