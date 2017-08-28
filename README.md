@@ -1,6 +1,6 @@
 Front-end for the [Acid](https://github.com/deis/acid) project.
 
-[![screen shot 2017-08-23 at 11 04 35 pm](https://user-images.githubusercontent.com/686194/29651842-82963930-8857-11e7-9b9c-dd99addae4ea.png)](https://deis.github.io/acid-ui/)
+[![demo-ui](https://user-images.githubusercontent.com/686194/29797449-f7be1f90-8c0b-11e7-8b39-92133d91c2d5.gif)](https://deis.github.io/acid-ui/)
 
 --  
 
