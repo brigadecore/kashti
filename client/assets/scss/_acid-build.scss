@@ -9,38 +9,320 @@
     @include breakpoint(xlarge up) {
       max-width: 65rem !important;
     }
-  }
 
-  &:after {
-    background: linear-gradient(5deg, darken(#F0F1F6, 2%) 0%, lighten(#e6e9f0, 1%) 100%);
-    display: block;
-    content: " ";
-    top: 0;
-    left: -2rem;
-    width: 110%;
-    height: 200px;
-    position: absolute;
-    z-index: 100;
+    &:after {
+      background: linear-gradient(5deg, darken(#F0F1F6, 7.5%) 0%, lighten(#e6e9f0, 1%) 100%);
+      display: block;
+      content: " ";
+      top: 0;
+      left: -2rem;
+      width: 110%;
+      height: 150px;
+      position: absolute;
+      z-index: 100;
+      @include transition;
+    }
+
+    .button {
+      position: absolute;
+      bottom: -1rem;
+      right: 1.75rem;
+      transition: none;
+      padding-left: 0.75rem;
+      padding-right: 1rem;
+    }
+
+    &.active-chart {
+      &:after {
+        height: 335px;
+      }
+
+      .button {
+        position: absolute;
+        bottom: 0.5rem;
+      }
+    }
   }
 }
 
 .build-header-wrap {
   position: relative;
   z-index: 200;
-  padding-bottom: 2rem;
+  padding-bottom: 0.825rem;
   padding-left: 2rem;
 }
 
 .build-header {
   padding: 1.25rem 1.75rem;
+  position: relative;
 
   h1 {
-    font-size: 2rem;
+    font-size: 1.75rem;
     color: $dark2;
     margin-bottom: 1.25rem;
+    position: relative;
+
+    small {
+      font-family: $mono;
+      font-size: 0.667rem;
+      position: absolute;
+      left: -2.5rem;
+      top: 1.333rem;
+      color: darken($dark3, 7.5%);
+    }
+  }
+
+  .build-metadata {
+    font-family: $mono;
+    font-size: 0.667rem;
+    color: darken($dark3, 7.5%);
+    margin-top: -0.5rem;
+    padding-bottom: 2rem;
   }
 
   .build-chart {
+    height: 13.5rem;
+    position: relative;
+
+    &:before,
+    &:after {
+      display: inline-block;
+      width: 2px;
+      position: absolute;
+      height: 160px;
+      content: " ";
+      background: $light2;
+      top: -0.5rem;
+      bottom: 0;
+      z-index: -2;
+      left: 1rem;
+    }
+
+    &:after {
+      left: auto;
+      right: 1rem;
+    }
+
+    .task {
+      position: absolute;
+      display: inline-block;
+      height: 1.5rem;
+      background: $brand2;
+      min-width: 2%;
+      z-index: 350;
+      overflow: visible;
+      padding: 0.2rem 0.5rem;
+      font-family: $mono;
+      font-size: 0.667rem;
+      line-height: 1.636;
+      color: white;
+      @include border-radius(2px);
+      @include box-shadow(0,1px,3px,rgba(255,255,255,0.5));
+      @include transition;
+
+      &:hover {
+        background: $brand1;
+      }
+
+      .icon {
+        padding-left: 0.25rem;
+      }
+
+      a {
+        color: white;
+      }
+
+      span {
+        display: inline-block;
+        width: 100%;
+        overflow-x: hidden;
+        white-space: nowrap;
+      }
+    }
+
+    em {
+      display: inline-block;
+      width: 100%;
+      position: relative;
+      height: 2px;
+      margin-top: 0.7rem;
+      margin-bottom: 1rem;
+      content: " ";
+      background: $light2;
+      left: 0;
+      right: 0;
+      z-index: -2;
+    }
+
+    .task-0 {
+      top: 0;
+      width: 4%;
+      left: 0%;
+    }
+
+    .task-1 {
+      top: 0;
+      width: 15%;
+      left: 5%;
+    }
+
+    .task-2 {
+      left: 5%;
+      top: 2rem;
+      width: 70%;
+    }
+
+    .task-3 {
+      left: 0;
+      top: 4rem;
+      width: 25%;
+      left: 5%;
+    }
+
+    .task-4 {
+      left: 30%;
+      top: 6rem;
+      width: 15%;
+
+    }
+
+    .task-5 {
+      left: 70%;
+      top: 8rem;
+      width: 14%;
+    }
+
+    .task-6 {
+      left: 85%;
+      top: 8rem;
+      width: 15%;
+    }
+  }
+}
+
+ul.build-details {
+  list-style: none;
+  margin: 0.5rem 1.5rem 3rem;
+
+  li,
+  .accordion-item {
     background: white;
+    margin: 0 0 0.75rem;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-left: 5px solid lighten($success, 10%);
+    @include box-shadow(0,2px,2px,rgba(0,0,0,0.125));
+    @include border-radius(4px);
+    margin-left: 1rem;
+    color: lighten($dark2, 5%);
+
+    code {
+      border: none;
+      font-family: $mono;
+      background: $light1;
+      color: $dark2;
+      padding-left: 0.25rem;
+      padding-right: 0.25rem;
+      line-height: 2;
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+      @include border-radius(2px);
+
+      img {
+        @include border-radius(50%,50%);
+        margin-left: -1rem;
+        margin-right: -0.5 rem;
+      }
+    }
+
+    &.trigger {
+      border-left-color: transparent;
+    }
+
+    &.trigger,
+    &.result {
+      margin-left: 0;
+    }
+
+    ul,
+    .accordion {
+      margin: 1rem 0 1rem 0.5rem;
+    }
+  }
+
+  li.zf-accordion-wrap {
+    background: none;
+    box-shadow: none;
+    @include border-radius(0);
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+
+  .parent {
+    border-color: lighten($success, 42.5%);
+  }
+
+  pre {
+    background: $dark2;
+    color: $light3;
+    padding: 0.5rem 1rem 0;
+    margin-bottom: 0.5rem;
+    @include border-radius(4px);
+  }
+
+  small {
+    font-size: 0.825rem;
+    display: block;
+    line-height: 2;
+    margin-top: 0.825rem;
+  }
+
+  .icon {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+  }
+
+  .ion-checkmark-circled {
+    color: $success;
+  }
+
+  .accordion {
+    border: none;
+
+    .accordion-item {
+
+      .accordion-title {
+        background: transparent;
+        padding: 0;
+        line-height: 1.5;
+      }
+
+      .accordion-content {
+        display: block;
+        padding: 1rem 0.25rem 0;
+
+        // for accordions inside accordions
+        .accordion {
+          margin: 0;
+          padding: 0;
+
+          .accordion-item {
+            margin-left: 0;
+            background-color: $light2;
+
+            .accordion-content {
+              display: none;
+            }
+
+            &.is-active .accordion-content {
+              display: block;
+            }
+          }
+        }
+      }
+
+    }
   }
 }

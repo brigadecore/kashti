@@ -4,53 +4,124 @@ url: /build
 animationIn: slideInLeft
 ---
 
-<div class="grid-container">
+<div class="grid-container" ng-class="{'active-chart': showChart }">
 
   <div class="grid-content build-header-wrap">
     <div class="grid-block horizontal">
       <div class="small-12">
 
-        <div class="build-header">
-          <h1>Build #213</h1>
-          <small><a href="../acid-ui/#!/project">Draft</a></small>
+        <div class="build-header" >
+          <h1><small>#213</small> docs(readme): clean up readme a bit</h1>
 
-          <div class="build-chart" gantt data=data>CHART HERE</div>
+          <div class="grid-block horizontal build-metadata">
+            <div class="grid-content small-6 text-left">Duration 2m 12s</div>
+            <div class="grid-content small-6 text-right">Finished at 9:46am UTC-8</div>
+          </div>
+
+          <div class="horizontal build-chart" gantt data=data ng-init="showChart = true" ng-hide="!showChart">
+            <div class="task task-0"><a href=""><span title="git"><i class="icon ion-social-github"></i></span></a></div>
+            <div class="task task-1"><a href=""><span title="event.push">event.push</span></a></div>
+            <div class="task task-2"><a href=""><span title="goBuild.tasks">goBuild.tasks</span></a></div>
+            <div class="task task-3"><a href=""><span title="jsLint.images">jsLint.images</span></a></div>
+            <div class="task task-4"><a href=""><span title="jsLint.images">jsLint.images</span></a></div>
+            <div class="task task-5"><a href=""><span title="Tasks complete.">Tasks complete.</span></a></div>
+            <div class="task task-6"><a href=""><span title="Slack: Post to #ci"><strong>#</strong> Post to #ci</span></a></div>
+
+            <em></em>
+            <em></em>
+            <em></em>
+            <em></em>
+            <em></em>
+          </div>
+
+          <a href="" class="button button secondary small" ng-hide="!showChart" ng-click="showChart = false"><i class="icon ion-arrow-up-b"></i> Hide Build Timeline</a>
+          <a href="" class="button button secondary small" ng-hide="showChart" ng-click="showChart = true"><i class="icon ion-arrow-down-b"></i> Show Build Timeline</a>
         </div>
 
       </div>
     </div>
   </div>
 
-  <p>&nbsp;</p>
+  <ul class="build-details">
+    <li class="trigger" id="task-1">
+      <code><img src="assets/images/technosophos.jpg" /> technosophos</code> triggered an <code>event.push</code> via github <code>a4dc72</code></li>
 
-  <ul>
-    <li>technosophos triggered an event.push via github a4dc72</li>
-
-    <li>Go project setup</li>
-
-    <li>goBuild.tasks
-
+    <li class="zf-accordion-wrap">
       <zf-accordion auto-open="true" collapsible="true" multi-open="true">
-        <zf-accordion-item title="Go runner">
-          technosophos triggered an event.push via github a4dc72
+        <zf-accordion-item title="Go project setup">
+          <pre>
+var gopath = "/go"
+var localPath = gopath + "/src/github.com/" + project.repo.name;
+          </pre>
         </zf-accordion-item>
-        <zf-accordion-item title="goBuild.tasks">
+        <zf-accordion-item title="Go Runner">
+          <pre>
+goBuild.image = "golang:1.8";
+
+goBuild.env = {
+    "DEST_PATH": localPath,
+    "GOPATH": gopath
+};
+          </pre>
+        </zf-accordion-item>
+        <zf-accordion-item title="goBuild.tasks" class="parent">
           <zf-accordion auto-open="true" collapsible="true" multi-open="true">
-            <zf-accordion-item title="glide install --strip-vendor">
+            <zf-accordion-item title="glide install --strip-vendor" class="is-active">
+              <pre>
+glide install
+make: glide: Command not found
+make: *** [bootstrap] Error 127
+
+cd "${WORKDIR}" && make bootstrap build returned exit code 2
+
+Action failed: cd "${WORKDIR}" && make bootstrap build
+              </pre>
             </zf-accordion-item>
             <zf-accordion-item title="make test-unit">
+              <pre>
+Makefile:110: The docker client CLI has moved to github.com/docker/cli. By default, it is built from the git sha specified in hack/dockerfile/binaries-commits. For a dev-test cycle involving the CLI, run:
+ DOCKER_CLI_PATH=/host/path/to/cli/binary make shell 
+...
+...
+---> Making bundle: test-unit (in bundles/17.06.0-dev/test-unit)
+Wed Jun 28 02:58:21 UTC 2017
+# github.com/docker/docker/dockerversion
+dockerversion/useragent.go:20: undefined: Version
+dockerversion/useragent.go:22: undefined: GitCommit
+ok    github.com/docker/docker/api  0.026s  coverage: 68.0% of statements
+ok    github.com/docker/docker/api/errors 0.003s  coverage: 100.0% of statements
+FAIL  github.com/docker/docker/api/server [build failed]
+make: *** [test-unit] Error 2
+$ 
+              </pre>
             </zf-accordion-item>
             <zf-accordion-item title="make test-unit">
+              <pre>
+Makefile:110: The docker client CLI has moved to github.com/docker/cli. By default, it is built from the git sha specified in hack/dockerfile/binaries-commits. For a dev-test cycle involving the CLI, run:
+ DOCKER_CLI_PATH=/host/path/to/cli/binary make shell 
+...
+...
+---> Making bundle: test-unit (in bundles/17.06.0-dev/test-unit)
+Wed Jun 28 02:58:21 UTC 2017
+# github.com/docker/docker/dockerversion
+dockerversion/useragent.go:20: undefined: Version
+dockerversion/useragent.go:22: undefined: GitCommit
+ok    github.com/docker/docker/api  0.026s  coverage: 68.0% of statements
+ok    github.com/docker/docker/api/errors 0.003s  coverage: 100.0% of statements
+FAIL  github.com/docker/docker/api/server [build failed]
+make: *** [test-unit] Error 2
+$ 
+              </pre>
             </zf-accordion-item>
           </zf-accordion>
-        </zf-accordion-item>
-        <zf-accordion-item title="Multi Open">
-        Multi open allows for multiple tabs to be open at once.
+          <small>3 of 3 tasks in goBuild.tasks completed successfully.</small>
         </zf-accordion-item>
       </zf-accordion>
     </li>
 
-    <li>Build complete. Status updated for PR #24</li>
+    <li class="result" id="task-4">
+      <i class="icon ion-checkmark-circled"></i> Build complete. Status updated for <code>PR #24</code>
+    </li>
     </ul>
 
 </div>
