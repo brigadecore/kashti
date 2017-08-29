@@ -2,6 +2,7 @@
 name: home
 url: /
 animationIn: slideInRight
+controller: projectController
 ---
 
 <div class="grid-container medium-grid-block vertical" id="projects">
@@ -13,6 +14,8 @@ animationIn: slideInRight
     </div>
 
     <div class="grid-block">
+
+      <section ng-repeat="name in project">Project name is</section>
 
       <section class="small-12 medium-6 large-4">
         <div class="project project-fail">
