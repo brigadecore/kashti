@@ -34,6 +34,7 @@
   background-color: $light3;
   border: 1px solid $light1;
   padding: 1.25rem 1.75rem;
+  position: relative;
   @include box-shadow(0,1px,6px,rgba(0,0,0,0.15));
   @include border-radius(0.2rem);
 
@@ -52,6 +53,12 @@
       font-size: 0.75rem;
       color: $dark3;
     }
+  }
+
+  .build-status {
+    left: auto;
+    right: 2rem;
+    top: 2rem;
   }
 }
 

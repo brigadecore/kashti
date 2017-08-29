@@ -13,6 +13,16 @@ animationIn: slideInLeft
         <div class="build-header" >
           <h1><small>#213</small> docs(readme): clean up readme a bit</h1>
 
+          <div class="build-status" ng-init="buildResult='success'" ng-class="{
+            'build-success': buildResult == 'success',
+            'build-failed': buildResult == 'failed',
+            'build-active': buildResult == 'active'
+          }">
+            <div class="success" ng-show="buildResult == 'success'"><i class="icon ion-checkmark-circled"></i> Passed</div>
+            <div class="failed" ng-show="buildResult == 'failed'"><i class="icon ion-close-circled"></i> Failed</div>
+            <div class="active" ng-show="buildResult == 'active'"><img src="assets/images/rolling.svg" /> In Progress</div>
+          </div>
+
           <div class="grid-block horizontal build-metadata">
             <div class="grid-content small-6 text-left">Duration 2m 12s</div>
             <div class="grid-content small-6 text-right">Finished at 9:46am UTC-8</div>
