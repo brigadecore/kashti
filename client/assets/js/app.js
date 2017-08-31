@@ -32,7 +32,6 @@
   }
 
   // consume api for templates/views
-
   app.controller("buildController", function ($scope, $http) {
     $http({method: 'GET',
       url: 'http://localhost:7745/v1/build/:test-1234567890abcdef-12345678/',

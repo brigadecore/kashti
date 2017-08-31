@@ -13,8 +13,9 @@ var router   = require('front-router');
 var sequence = require('run-sequence');
 var deploy   = require('gulp-gh-pages');
 var replace  = require('gulp-replace');
+var cors     = require('cors');
 
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+app.use(cors())
 
 
 // Check for --production flag
