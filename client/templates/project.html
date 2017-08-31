@@ -2,6 +2,7 @@
 name: project
 url: /project
 animationIn: fadeIn
+controller: projectController
 ---
 
 <div class="grid-container">
@@ -15,6 +16,12 @@ animationIn: fadeIn
             <li>https://github.com/azure/draft.git</li>
             <li>Namespace: cidci-draft</li>
           </ul>
+
+          <h3>Project: 
+            {{ project.id }}
+            {{ project }}
+            {{ data.project }}
+          </h3>
 
           <div class="build-status" ng-init="buildResult='success'" ng-class="{
             'build-success': buildResult == 'success',

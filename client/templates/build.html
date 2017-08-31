@@ -2,6 +2,7 @@
 name: build
 url: /build
 animationIn: slideInLeft
+controller: buildController
 ---
 
 <div class="grid-container" ng-class="{'active-chart': showChart }">
@@ -51,6 +52,12 @@ animationIn: slideInLeft
       </div>
     </div>
   </div>
+
+  <h3>Build: 
+    {{ build.id }}
+    {{ build }}
+    {{ data.build }}
+  </h3>
 
   <ul class="build-details">
     <li class="trigger" id="task-1">
