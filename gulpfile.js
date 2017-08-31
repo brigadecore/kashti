@@ -14,6 +14,8 @@ var sequence = require('run-sequence');
 var deploy   = require('gulp-gh-pages');
 var replace  = require('gulp-replace');
 
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
 
 // Check for --production flag
 var isProduction = !!(argv.production);
@@ -176,7 +178,16 @@ gulp.task('server', ['build'], function() {
       host: 'localhost',
       fallback: 'index.html',
       livereload: true,
-      open: true
+      open: true,
+      proxies: [
+        {
+          source: '/v1',
+          target: 'http://localhost:7745/v1',
+          options: {
+            headers: {'Access-Control-Allow-Origin': '*'}
+          }
+        }
+      ]
     }))
   ;
 });
