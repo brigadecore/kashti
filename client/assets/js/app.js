@@ -4,7 +4,6 @@
   var app =  angular.module('application', [
     'ui.router',
     'ngAnimate',
-    'ngCors',
 
     //foundation
     'foundation',
@@ -33,11 +32,24 @@
   }
 
   // consume api for templates/views
+  app.controller("projectsController", function ($scope, $http) {
+    $http({method: 'GET',
+      url: 'http://40.76.22.204/v1/projects',
+      headers: {
+        'Access-Control-Allow-Origin': 'http://40.76.22.204'
+      }
+    }).then(function successCallback(response) {
+        $scope.projects = response.data;
+    },
+      function errorCallback(response) {}
+    );
+  });
+
   app.controller("buildController", function ($scope, $http) {
     $http({method: 'GET',
-      url: 'http://localhost:7745/v1/build/:test-1234567890abcdef-12345678/',
+      url: 'http://40.76.22.204/v1/builds',
       headers: {
-        // 'Access-Control-Allow-Origin': 'http://localhost:7745/'
+        'Access-Control-Allow-Origin': 'http://40.76.22.204'
       }
     }).then(function successCallback(response) {
         $scope.build = response.data;
@@ -46,14 +58,14 @@
     );
   });
 
-  app.controller("projectController", function ($scope, $http) {
+  app.controller("jobController", function ($scope, $http) {
     $http({method: 'GET',
-      url: 'http://localhost:7745/v1/project/acid-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac/',
+      url: 'http://40.76.22.204/v1/job/node-runner-1504302282234-800550b4',
       headers: {
-        // 'Access-Control-Allow-Origin': 'http://localhost:7745/'
+        'Access-Control-Allow-Origin': 'http://40.76.22.204'
       }
     }).then(function successCallback(response) {
-        $scope.project = response.data;
+        $scope.job = response.data;
     },
       function errorCallback(response) {}
     );

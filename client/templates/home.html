@@ -2,7 +2,7 @@
 name: home
 url: /
 animationIn: slideInRight
-controller: projectController
+controller: projectsController
 ---
 
 <div class="grid-container medium-grid-block vertical" id="projects">
@@ -15,7 +15,7 @@ controller: projectController
 
     <div class="grid-block">
 
-      <section class="small-12 medium-6 large-4" ng-repeat="project in project">
+      <section class="small-12 medium-6 large-4" ng-repeat="project in projects">
         <div class="project project-success">
           <a href="../acid-ui/#!/project" class="">
             <div class="status">
