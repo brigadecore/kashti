@@ -181,7 +181,10 @@ gulp.task('server', ['build'], function() {
       proxies: [
         {
           source: '/v1',
-          target: 'http://localhost:7745/v1'
+          target: 'http://localhost:7745/v1',
+          options: {
+            headers: {'Access-Control-Allow-Origin': '*'}
+          }
         }
       ]
     }))
