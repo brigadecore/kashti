@@ -4,6 +4,7 @@
   var app =  angular.module('application', [
     'ui.router',
     'ngAnimate',
+    'ngCors',
 
     //foundation
     'foundation',

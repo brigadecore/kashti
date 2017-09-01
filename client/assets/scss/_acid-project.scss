@@ -35,6 +35,7 @@
   border: 1px solid $light1;
   padding: 1.25rem 1.75rem;
   position: relative;
+  z-index: 500;
   @include box-shadow(0,1px,6px,rgba(0,0,0,0.15));
   @include border-radius(0.2rem);
 
@@ -71,6 +72,8 @@
   margin-top: -1px;
   margin-bottom: 1rem;
   overflow: hidden;
+  position: relative;
+  z-index: 1100;
   @include box-shadow(0,2px,4px,rgba(0,0,0,0.15));
 
   img {

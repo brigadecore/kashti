@@ -237,12 +237,16 @@ ul.build-details {
       }
     }
 
-    &.trigger {
+    &.trigger,
+    &:first-child,
+    &:last-child {
       border-left-color: transparent;
     }
 
     &.trigger,
-    &.result {
+    &.result,
+    &:first-child,
+    &:last-child {
       margin-left: 0;
     }
 

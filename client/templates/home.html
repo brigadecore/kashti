@@ -15,7 +15,28 @@ controller: projectController
 
     <div class="grid-block">
 
-      <section ng-repeat="name in project">Project name is</section>
+      <section class="small-12 medium-6 large-4" ng-repeat="project in project">
+        <div class="project project-success">
+          <a href="../acid-ui/#!/project" class="">
+            <div class="status">
+              <i class="icon ion-checkmark-circled status-success"></i>
+              <i class="icon ion-close-circled status-fail"></i>
+              <img src="assets/images/rolling.svg" class="status-active" />
+            </div>
+
+            <h2>{{project.name}}</h2>
+            <h4>Project</h4>
+
+            <div class="activity">
+              <ul>
+                <li>{{build.job.message}}</li>
+                <li>{{build.job.message}}</li>
+                <li>{{build.job.message}}</li>
+              </ul>
+            </div>
+          </a>
+        </div>
+      </section>
 
       <section class="small-12 medium-6 large-4">
         <div class="project project-fail">
@@ -86,7 +107,19 @@ controller: projectController
           </a>
         </div>
       </section>
-
     </div>
+
+    <!-- delete this block -->
+    <p>&nbsp;</p><p>&nbsp;</p><hr>
+    <div class="grid-block">
+      <div class="small-12" style="margin:1rem;">
+        <label>'project' API data:</label>
+        <textarea style="width:96%;min-height:120px;padding:15px 2%;line-height:1.3;">
+{{project}}
+        </textarea>
+      </div>
+    </div>
+    <!-- /delete this block -->
+
   </div>
 </div>

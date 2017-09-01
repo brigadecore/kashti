@@ -6,6 +6,7 @@
     "build": "gulp build --production"
   },
   "devDependencies": {
+    "angular-cors": "^1.0.0",
     "front-router": "^1.0.0",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
@@ -23,7 +24,5 @@
     "run-sequence": "^1.1.1",
     "yargs": "^3.15.0"
   },
-  "dependencies": {
-    "cors": "^2.8.4"
-  }
+  "dependencies": {}
 }

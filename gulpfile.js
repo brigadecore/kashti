@@ -13,9 +13,6 @@ var router   = require('front-router');
 var sequence = require('run-sequence');
 var deploy   = require('gulp-gh-pages');
 var replace  = require('gulp-replace');
-var cors     = require('cors');
-
-app.use(cors())
 
 
 // Check for --production flag
@@ -50,6 +47,7 @@ var paths = {
   ],
   // These files are for your app's JavaScript
   appJS: [
+    'client/assets/js/cors.js',
     'client/assets/js/app.js'
   ]
 }
@@ -183,10 +181,7 @@ gulp.task('server', ['build'], function() {
       proxies: [
         {
           source: '/v1',
-          target: 'http://localhost:7745/v1',
-          options: {
-            headers: {'Access-Control-Allow-Origin': '*'}
-          }
+          target: 'http://localhost:7745/v1'
         }
       ]
     }))
