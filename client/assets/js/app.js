@@ -58,13 +58,11 @@
   app.controller("projectController", function ($scope, $http) {
     $http({method: 'GET',
       url: '//40.76.22.204/v1/project/acid-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
-      method: 'JSONP',
             headers: {
                 'Accept': 'application/json, text/javascript',
                     'Content-Type': 'application/json; charset=utf-8'
             },
-            isArray: false,
-            callback: 'JSON_CALLBACK'
+            isArray: true
     }).then(function successCallback(response) {
         $scope.project = response.data;
     },
