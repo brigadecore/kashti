@@ -39,7 +39,7 @@
   // consume api for templates/views
   app.controller("projectsController", function ($scope, $http) {
     $http({method: 'GET',
-      url: '//40.76.22.204/v1/projects',
+      url: '//acid-api.technosophos.me:7745/v1/projects',
       method: 'JSONP',
       headers: {
         'Accept': 'application/json, text/javascript',
@@ -57,7 +57,7 @@
   // consume api for templates/views
   app.controller("projectController", function ($scope, $http) {
     $http({method: 'GET',
-      url: '//40.76.22.204/v1/project/acid-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
+      url: '//acid-api.technosophos.me:7745/v1/project/acid-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
       headers: {
           'Accept': 'application/json, text/javascript',
               'Content-Type': 'application/json; charset=utf-8'
@@ -72,7 +72,7 @@
 
   app.controller("buildsController", function ($scope, $http) {
     $http({method: 'GET',
-      url: '//40.76.22.204/v1/project/acid-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac/builds',
+      url: '//acid-api.technosophos.me:7745/v1/project/acid-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac/builds',
       method: 'JSONP',
             headers: {
                 'Accept': 'application/json, text/javascript',
@@ -88,7 +88,7 @@
 
   app.controller("buildController", function ($scope, $http) {
     $http({method: 'GET',
-      url: '//40.76.22.204/v1/build/01brzpbywcc5xjfn13ftx3e1p3/',
+      url: '//acid-api.technosophos.me:7745/v1/build/01brzpbywcc5xjfn13ftx3e1p3/',
       method: 'JSONP',
             headers: {
                 'Accept': 'application/json, text/javascript',
@@ -105,7 +105,7 @@
 
   app.controller("jobsController", function ($scope, $http) {
     $http({method: 'GET',
-      url: '//40.76.22.204/v1/build/01brzpbywcc5xjfn13ftx3e1p3/jobs',
+      url: '//acid-api.technosophos.me:7745/v1/build/01brzpbywcc5xjfn13ftx3e1p3/jobs',
       headers: {
         'Access-Control-Allow-Origin': '*'
       }
@@ -118,7 +118,7 @@
 
   app.controller("jobController", function ($scope, $http) {
     $http({method: 'GET',
-      url: '//40.76.22.204/v1/job/node-runner-1504302282234-800550b4',
+      url: '//acid-api.technosophos.me:7745/v1/job/node-runner-1504302282234-800550b4',
       headers: {
         'Access-Control-Allow-Origin': '*'
       }
