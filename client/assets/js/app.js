@@ -39,14 +39,11 @@
   // consume api for templates/views
   app.controller("projectsController", function ($scope, $http) {
     $http({method: 'GET',
-      url: '//acid-api.technosophos.me:7745/v1/projects',
-      method: 'JSONP',
+      url: 'http://acid-api.technosophos.me:7745/v1/projects',
       headers: {
-        'Accept': 'application/json, text/javascript',
-              'Content-Type': 'application/json; charset=utf-8'
+        'Accept': 'application/json, text/javascript', 'Content-Type': 'application/json; charset=utf-8'
       },
-      isArray: false,
-      callback: 'JSON_CALLBACK'
+      isArray: true
     }).then(function successCallback(response) {
         $scope.projects = response.data;
     },
@@ -59,8 +56,7 @@
     $http({method: 'GET',
       url: '//acid-api.technosophos.me:7745/v1/project/acid-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
       headers: {
-          'Accept': 'application/json, text/javascript',
-              'Content-Type': 'application/json; charset=utf-8'
+        'Accept': 'application/json, text/javascript', 'Content-Type': 'application/json; charset=utf-8'
       },
       isArray: true
     }).then(function successCallback(response) {
@@ -73,14 +69,12 @@
   app.controller("buildsController", function ($scope, $http) {
     $http({method: 'GET',
       url: '//acid-api.technosophos.me:7745/v1/project/acid-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac/builds',
-      method: 'JSONP',
-            headers: {
-                'Accept': 'application/json, text/javascript',
-                    'Content-Type': 'application/json; charset=utf-8'
-            },
-            isArray: true
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      },
+      isArray: true
     }).then(function successCallback(response) {
-        $scope.build = response.data;
+        $scope.builds = response.data;
     },
       function errorCallback(response) {}
     );
@@ -89,13 +83,10 @@
   app.controller("buildController", function ($scope, $http) {
     $http({method: 'GET',
       url: '//acid-api.technosophos.me:7745/v1/build/01brzpbywcc5xjfn13ftx3e1p3/',
-      method: 'JSONP',
-            headers: {
-                'Accept': 'application/json, text/javascript',
-                    'Content-Type': 'application/json; charset=utf-8'
-            },
-            isArray: false,
-            callback: 'JSON_CALLBACK'
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      },
+      isArray: true
     }).then(function successCallback(response) {
         $scope.build = response.data;
     },
@@ -108,7 +99,8 @@
       url: '//acid-api.technosophos.me:7745/v1/build/01brzpbywcc5xjfn13ftx3e1p3/jobs',
       headers: {
         'Access-Control-Allow-Origin': '*'
-      }
+      },
+      isArray: true
     }).then(function successCallback(response) {
         $scope.jobs = response.data;
     },
@@ -121,7 +113,8 @@
       url: '//acid-api.technosophos.me:7745/v1/job/node-runner-1504302282234-800550b4',
       headers: {
         'Access-Control-Allow-Origin': '*'
-      }
+      },
+      isArray: true
     }).then(function successCallback(response) {
         $scope.job = response.data;
     },

@@ -2,12 +2,9 @@
 name: project
 url: /project
 animationIn: fadeIn
-controller: projectController
 ---
 
-<div class="grid-container">
-
-  <h1>{{project}}</h1>
+<div class="grid-container" ng-controller="projectController">
 
   <div class="grid-content project-header-wrap">
     <div class="grid-block horizontal">
@@ -83,7 +80,7 @@ Events:
   </div>
 
   <ul class="grid-content build-list collapse" ng-controller="buildsController">
-    <li ng-repeat="build in project" class="medium-grid-block build-item">
+    <li ng-repeat="build in project" class="medium-grid-block build-item" ng-controller="buildController">
 
     {{build}}
 
