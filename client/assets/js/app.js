@@ -40,7 +40,7 @@
   app.controller("projectsController", function ($scope, $http) {
     $http({
       method: 'GET',
-      url: '//acid-api.technosophos.me:7745/v1/projects',
+      url: 'https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745/v1/projects',
       isArray: true,
       headers: {
         'Accept': 'application/json, text/javascript',
@@ -56,7 +56,7 @@
   // consume api for templates/views
   app.controller("projectController", function ($scope, $http) {
     $http({method: 'GET',
-      url: '//acid-api.technosophos.me:7745/v1/project/acid-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
+      url: 'https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745/v1/project/acid-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
       headers: {
         'Accept': 'application/json, text/javascript',
         'Content-Type': 'application/json; charset=utf-8'
@@ -71,7 +71,7 @@
 
   app.controller("buildsController", function ($scope, $http) {
     $http({method: 'GET',
-      url: '//acid-api.technosophos.me:7745/v1/project/acid-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac/builds',
+      url: 'https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745/v1/project/acid-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac/builds',
       headers: {
         'Accept': 'application/json, text/javascript',
         'Content-Type': 'application/json; charset=utf-8'
@@ -86,7 +86,7 @@
 
   app.controller("buildController", function ($scope, $http) {
     $http({method: 'GET',
-      url: '//acid-api.technosophos.me:7745/v1/build/01bscavbceeypx00mc6swagqzj/',
+      url: 'https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745/v1/build/01bscavbceeypx00mc6swagqzj/',
       headers: {
         'Accept': 'application/json, text/javascript',
         'Content-Type': 'application/json; charset=utf-8'
@@ -101,7 +101,7 @@
 
   app.controller("jobsController", function ($scope, $http) {
     $http({method: 'GET',
-      url: '//acid-api.technosophos.me:7745/v1/build/01brzpbywcc5xjfn13ftx3e1p3/jobs',
+      url: 'https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745/v1/build/01brzpbywcc5xjfn13ftx3e1p3/jobs',
       headers: {
         'Accept': 'application/json, text/javascript',
         'Content-Type': 'application/json; charset=utf-8'
@@ -116,7 +116,7 @@
 
   app.controller("jobController", function ($scope, $http) {
     $http({method: 'GET',
-      url: '//acid-api.technosophos.me:7745/v1/job/node-runner-1504302282234-800550b4',
+      url: 'https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745/v1/job/node-runner-1504302282234-800550b4',
       headers: {
         'Accept': 'application/json, text/javascript',
         'Content-Type': 'application/json; charset=utf-8'
