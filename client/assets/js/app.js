@@ -86,7 +86,7 @@
 
   app.controller("buildController", function ($scope, $http) {
     $http({method: 'GET',
-      url: '//acid-api.technosophos.me:7745/v1/build/01brzpbywcc5xjfn13ftx3e1p3/',
+      url: '//acid-api.technosophos.me:7745/v1/build/01bscavbceeypx00mc6swagqzj/',
       headers: {
         'Accept': 'application/json, text/javascript',
         'Content-Type': 'application/json; charset=utf-8'
