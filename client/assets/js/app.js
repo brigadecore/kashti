@@ -38,12 +38,14 @@
 
   // consume api for templates/views
   app.controller("projectsController", function ($scope, $http) {
-    $http({method: 'GET',
+    $http({
+      method: 'GET',
       url: 'http://acid-api.technosophos.me:7745/v1/projects',
+      isArray: true,
       headers: {
-        'Accept': 'application/json, text/javascript', 'Content-Type': 'application/json; charset=utf-8'
-      },
-      isArray: true
+        'Accept': 'application/json, text/javascript',
+        'Content-Type': 'application/json; charset=utf-8'
+      }
     }).then(function successCallback(response) {
         $scope.projects = response.data;
     },
@@ -56,7 +58,8 @@
     $http({method: 'GET',
       url: '//acid-api.technosophos.me:7745/v1/project/acid-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
       headers: {
-        'Accept': 'application/json, text/javascript', 'Content-Type': 'application/json; charset=utf-8'
+        'Accept': 'application/json, text/javascript',
+        'Content-Type': 'application/json; charset=utf-8'
       },
       isArray: true
     }).then(function successCallback(response) {
@@ -70,7 +73,8 @@
     $http({method: 'GET',
       url: '//acid-api.technosophos.me:7745/v1/project/acid-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac/builds',
       headers: {
-        'Access-Control-Allow-Origin': '*'
+        'Accept': 'application/json, text/javascript',
+        'Content-Type': 'application/json; charset=utf-8'
       },
       isArray: true
     }).then(function successCallback(response) {
@@ -84,7 +88,8 @@
     $http({method: 'GET',
       url: '//acid-api.technosophos.me:7745/v1/build/01brzpbywcc5xjfn13ftx3e1p3/',
       headers: {
-        'Access-Control-Allow-Origin': '*'
+        'Accept': 'application/json, text/javascript',
+        'Content-Type': 'application/json; charset=utf-8'
       },
       isArray: true
     }).then(function successCallback(response) {
@@ -98,7 +103,8 @@
     $http({method: 'GET',
       url: '//acid-api.technosophos.me:7745/v1/build/01brzpbywcc5xjfn13ftx3e1p3/jobs',
       headers: {
-        'Access-Control-Allow-Origin': '*'
+        'Accept': 'application/json, text/javascript',
+        'Content-Type': 'application/json; charset=utf-8'
       },
       isArray: true
     }).then(function successCallback(response) {
@@ -112,7 +118,8 @@
     $http({method: 'GET',
       url: '//acid-api.technosophos.me:7745/v1/job/node-runner-1504302282234-800550b4',
       headers: {
-        'Access-Control-Allow-Origin': '*'
+        'Accept': 'application/json, text/javascript',
+        'Content-Type': 'application/json; charset=utf-8'
       },
       isArray: true
     }).then(function successCallback(response) {

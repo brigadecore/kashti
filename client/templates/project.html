@@ -80,7 +80,7 @@ Events:
   </div>
 
   <ul class="grid-content build-list collapse" ng-controller="buildsController">
-    <li ng-repeat="build in project" class="medium-grid-block build-item" ng-controller="buildController">
+    <li ng-repeat="build in project.builds" class="medium-grid-block build-item">
 
     {{build}}
 
