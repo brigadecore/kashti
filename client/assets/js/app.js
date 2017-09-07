@@ -42,7 +42,7 @@
       url: '//40.76.22.204/v1/projects',
       method: 'JSONP',
       headers: {
-          'Accept': 'application/json, text/javascript',
+        'Accept': 'application/json, text/javascript',
               'Content-Type': 'application/json; charset=utf-8'
       },
       isArray: false,
@@ -58,11 +58,11 @@
   app.controller("projectController", function ($scope, $http) {
     $http({method: 'GET',
       url: '//40.76.22.204/v1/project/acid-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
-            headers: {
-                'Accept': 'application/json, text/javascript',
-                    'Content-Type': 'application/json; charset=utf-8'
-            },
-            isArray: true
+      headers: {
+          'Accept': 'application/json, text/javascript',
+              'Content-Type': 'application/json; charset=utf-8'
+      },
+      isArray: true
     }).then(function successCallback(response) {
         $scope.project = response.data;
     },
@@ -72,16 +72,15 @@
 
   app.controller("buildsController", function ($scope, $http) {
     $http({method: 'GET',
-      url: '//40.76.22.204/v1/builds',
+      url: '//40.76.22.204/v1/project/acid-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac/builds',
       method: 'JSONP',
             headers: {
                 'Accept': 'application/json, text/javascript',
                     'Content-Type': 'application/json; charset=utf-8'
             },
-            isArray: false,
-            callback: 'JSON_CALLBACK'
+            isArray: true
     }).then(function successCallback(response) {
-        $scope.builds = response.data;
+        $scope.build = response.data;
     },
       function errorCallback(response) {}
     );

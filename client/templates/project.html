@@ -7,6 +7,8 @@ controller: projectController
 
 <div class="grid-container">
 
+  <h1>{{project}}</h1>
+
   <div class="grid-content project-header-wrap">
     <div class="grid-block horizontal">
       <div class="small-12 medium-8 large-9 vertical">
@@ -80,8 +82,12 @@ Events:
     </div>
   </div>
 
-  <ul class="grid-content build-list collapse">
-    <li ng-repeat="build in project" class="medium-grid-block build-item"><a href="../acid-ui/#!/build" class="grid-block">
+  <ul class="grid-content build-list collapse" ng-controller="buildsController">
+    <li ng-repeat="build in project" class="medium-grid-block build-item">
+
+    {{build}}
+
+    <a href="../acid-ui/#!/build" class="grid-block">
       <div class="act-state small-1 collapse">
         {(build.status)}
       </div>
@@ -89,9 +95,9 @@ Events:
         <!-- {(build.author.avatar)} -->
       </div>
       <div class="act-message small-5 collapse">
-        {(build.name)}
+        {{build.id}}
       </div>
-      <div class="act-hash small-1 collapse">{(build.commit)}</div>
+      <div class="act-hash small-1 collapse">{{build.commit}}</div>
       <div class="act-time-ago small-2 collapse">{(build.timeago)}</div>
       <div class="act-time-duration small-2 collapse">{(build.duration)}</div>
     </a></li>
