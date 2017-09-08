@@ -106,6 +106,7 @@
                 ng-hide="$state.current.name === 'home'">
                 <a href="../acid-ui/#!/project/{{project.id}}">{{project.name}}</a></li>
               <li 
+                ng-controller="buildController" 
                 ng-class="{ 'active': $state.current.name === 'project'}" 
                 ng-hide="$state.current.name === 'home'">
                 <a href="../acid-ui/#!/project">Master</a></li>

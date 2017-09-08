@@ -47,7 +47,6 @@ var paths = {
   ],
   // These files are for your app's JavaScript
   appJS: [
-    'client/assets/js/cors.js',
     'client/assets/js/app.js'
   ]
 }

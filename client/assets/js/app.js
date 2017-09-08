@@ -40,8 +40,8 @@
     return function(value) {
       if(!angular.isString(value)) {
           return value;
-      } 
-      return value.replace(/^\s+|\s+$/g, ''); // you could use .trim, but it's not going to work in IE<9
+      };
+      return value.replace(/^\s+|\s+$/g, '');
     };
   });
 
@@ -62,15 +62,23 @@
     );
   });
 
-  // consume api for templates/views
   app.controller("projectController", function ($scope, $http) {
+
+    // var myResource = $resource("https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745/v1/project/:projectID",
+    //   {projectID: '@id'},
+    //     {enter : {
+    //       method: "GET",
+    //       isArray: false
+    //     }
+    //   });
+
     $http({method: 'GET',
       url: 'https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745/v1/project/acid-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
+      isArray: true,
       headers: {
         'Accept': 'application/json, text/javascript',
         'Content-Type': 'application/json; charset=utf-8'
-      },
-      isArray: true
+      }
     }).then(function successCallback(response) {
         $scope.project = response.data;
     },
