@@ -1,6 +1,6 @@
 ---
 name: project
-url: /project
+url: /project/:id
 animationIn: fadeIn
 ---
 
@@ -81,7 +81,7 @@ Events:
 
   <ul class="grid-content build-list collapse" ng-controller="buildsController">
     <li ng-repeat="build in builds" class="medium-grid-block build-item">
-      <a href="../acid-ui/#!/build" class="grid-block">
+      <a href="../acid-ui/#!/build/{{build.id}}" class="grid-block">
         <div class="act-state collapse">
           <i class="icon ion-checkmark-circled icon-green"></i>
         </div>

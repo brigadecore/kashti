@@ -35,9 +35,9 @@
     <div zf-panel position="left" id="sidebar" class="medium-grid-block collapse medium-2 large-2 vertical" ng-hide="$state.current.name === 'home'">
       <div class="grid-content collapse shrink">
         <ul class="menu-bar primary">
-          <li id="organization">
+          <li id="organization" ng-controller="projectController">
             <a href="" zf-popup-toggle="switcher">
-              <h2>Draft</h2>
+              <h2>{{project.name | trim }}</h2>
               <h3>Azure Container Service</h3>
 
               <i class="icon ion-chevron-down right"></i>
@@ -50,12 +50,8 @@
                 <option>Deis</option>
               </select>
               <small>Project</small>
-              <ul class="block-list" id="switcher-project">
-                <li><a href="../acid-ui/#!/project/acid-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac">deis/empty-testbed</a></li>
-                <!--
-                <li><a href="../acid-ui/#!/project">Draft</a></li>
-                <li><a href="../acid-ui/#!/project">Helm</a></li>
-                -->
+              <ul class="block-list" id="switcher-project" ng-controller="projectsController">
+                <li ng-repeat="project in projects"><a href="../acid-ui/#!/project/{{project.id}}">{{project.name}}</a></li>
               </ul>
             </zf-popup>
           </li>
@@ -65,10 +61,10 @@
         <nav>
           <ul>
             <li ng-class="{ 'active': $state.current.name === 'project'}">
-              <a href="../acid-ui/#!/project">Activity</a>
+              <a href="../acid-ui/#!/project/{{project.id}}">Activity</a>
             </li>
             <li ng-class="{ 'active': $state.current.name === 'build'}">
-              <a href="../acid-ui/#!/build">Builds</a>
+              <a href="../acid-ui/#!/build/{{build.id}}">Builds</a>
 
               <ul>
                 <li class="active"><a>All</a></li>
@@ -79,9 +75,9 @@
                 <li><a>Tests</a></li>
               </ul>
             </li>
-            <li><a href="../acid-ui/#!/project">Pipelines</a></li>
+            <li><a href="../acid-ui/#!/project/{{project.id}}">Pipelines</a></li>
             <li><a zf-open="basicModal">Configuration</a></li>
-            <li><a href="../acid-ui/#!/project">Speed</a></li>
+            <li><a href="../acid-ui/#!/project/{{project.id}}">Speed</a></li>
           </ul>
         </nav>
       </div>
@@ -106,13 +102,14 @@
           <div class="menu-group-left">
             <ul class="menu-bar">
               <li 
+                ng-controller="projectController" 
                 ng-hide="$state.current.name === 'home'">
-                <a href="../acid-ui/#!/project">deis/empty-testbed</a></li>
+                <a href="../acid-ui/#!/project/{{project.id}}">{{project.name}}</a></li>
               <li 
                 ng-class="{ 'active': $state.current.name === 'project'}" 
                 ng-hide="$state.current.name === 'home'">
                 <a href="../acid-ui/#!/project">Master</a></li>
-              <li ng-show="$state.current.name === 'build'"><a href="/#!/build">Build #23</a></li>
+              <li ng-show="$state.current.name === 'build'"><a href="/#!/build/{{build.id}}">Build {{build.id}}</a></li>
             </ul>
           </div>
           <div class="menu-group-right">
