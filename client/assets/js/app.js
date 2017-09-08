@@ -103,7 +103,7 @@
 
   app.controller("buildController", function ($scope, $http) {
     $http({method: 'GET',
-      url: 'https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745/v1/build/01bscavbceeypx00mc6swagqzj/',
+      url: 'https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745/v1/build/01bscavbceeypx00mc6swagqzj',
       headers: {
         'Accept': 'application/json, text/javascript',
         'Content-Type': 'application/json; charset=utf-8'
