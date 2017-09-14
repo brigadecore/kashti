@@ -47,6 +47,21 @@
   });
 
   // consume api for templates/views
+
+  app.factory("Project", function ($resource) {
+    return $resource(
+      'https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745/v1/projects/:id',
+    { update:
+      { method: 'GET' }
+    });
+  });
+
+  app.run(['$rootScope', '$state', '$stateParams',
+    function ($rootScope, $state, $stateParams) {
+      $rootScope.$state = $state;
+      $rootScope.$stateParams = $stateParams;
+  }])
+
   app.controller("projectsController", function ($scope, $http) {
     $http({
       method: 'GET',
@@ -63,17 +78,20 @@
     );
   });
 
-  app.controller("projectController", function ($scope, $resource, $http) {
+  app.controller("projectController", ['$scope', '$stateParams', '$http',
+       function ($scope, $stateParams, $http) {
 
-    var myResource = $resource('https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745/v1/project/:projectID',
-      {projectID: '@_id'},
-      {
-        update: { method:'PUT' }
-      });
-    return myResource;
+    // var myResource = $resource('https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745/v1/project/:projectID',
+    //   {projectID: '@_id'},
+    //   {
+    //     update: { method:'GET' }
+    //   });
+    // return myResource;
+
+    var current = $stateParams;
 
     $http({method: 'GET',
-      url: myResource,
+      url: 'https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745/v1/project/' + current.id,
       isArray: true,
       headers: {
         'Accept': 'application/json, text/javascript',
@@ -84,7 +102,7 @@
     },
       function errorCallback(response) {}
     );
-  });
+  }]);
 
   app.controller("buildsController", function ($scope, $http) {
     $http({method: 'GET',

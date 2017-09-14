@@ -2,9 +2,10 @@
 name: project
 url: /project/:id
 animationIn: fadeIn
+controller: projectController
 ---
 
-<div class="grid-container" ng-controller="projectController">
+<div class="grid-container">
 
   <div class="grid-content project-header-wrap">
     <div class="grid-block horizontal">
@@ -55,6 +56,7 @@ Events:
   </div>
 
   <div class="project-filters grid-content">
+
     <div class="grid-block">
       <select class="small-3">
         <option>master</option>
