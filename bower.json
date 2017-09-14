@@ -26,6 +26,7 @@
     "foundation-apps": "~1.2.0",
     "Ionicons": "ionicons#^2.0.1",
     "angular-gantt": "^1.3.3",
-    "angular-moment": "^1.0.1"
+    "angular-moment": "^1.0.1",
+    "angular-resource": "1.4.2"
   }
 }

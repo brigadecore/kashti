@@ -3,6 +3,7 @@
 
   var app =  angular.module('application', [
     'ui.router',
+    'ngResource',
     'ngAnimate',
 
     //foundation
@@ -15,8 +16,8 @@
   ;
 
   app.config(['$httpProvider', function ($httpProvider) {
-      $httpProvider.defaults.useXDomain = true;
-      delete $httpProvider.defaults.headers.common['X-Requested-With'];
+    $httpProvider.defaults.useXDomain = true;
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
   }]);
 
   config.$inject = ['$urlRouterProvider', '$locationProvider'];
@@ -62,18 +63,18 @@
     );
   });
 
-  app.controller("projectController", function ($scope, $http) {
+  app.controller("projectController", function ($scope, $resource, $http) {
 
-    // var myResource = $resource("https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745/v1/project/:projectID",
-    //   {projectID: '@id'},
-    //     {enter : {
-    //       method: "GET",
-    //       isArray: false
-    //     }
-    //   });
+    var myResource = $resource("https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745/v1/project/:projectID",
+      {projectID: '@_id'},
+      {enter : {
+        method: "GET",
+        isArray: false
+      }
+    });
 
     $http({method: 'GET',
-      url: 'https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745/v1/project/acid-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
+      url: myResource,
       isArray: true,
       headers: {
         'Accept': 'application/json, text/javascript',
