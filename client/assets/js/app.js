@@ -88,10 +88,10 @@
     //   });
     // return myResource;
 
-    var current = $stateParams;
+    var currentProject = $stateParams;
 
     $http({method: 'GET',
-      url: 'https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745/v1/project/' + current.id,
+      url: 'https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745/v1/project/' + currentProject.id,
       isArray: true,
       headers: {
         'Accept': 'application/json, text/javascript',
@@ -104,9 +104,12 @@
     );
   }]);
 
-  app.controller("buildsController", function ($scope, $http) {
+  app.controller("buildsController", ['$scope', '$stateParams', '$http',
+       function ($scope, $stateParams, $http) {
+    var currentProject = $stateParams;
+
     $http({method: 'GET',
-      url: 'https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745/v1/project/acid-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac/builds',
+      url: 'https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745/v1/project/' + currentProject.id + '/builds',
       headers: {
         'Accept': 'application/json, text/javascript',
         'Content-Type': 'application/json; charset=utf-8'
@@ -117,11 +120,14 @@
     },
       function errorCallback(response) {}
     );
-  });
+  }]);
 
-  app.controller("buildController", function ($scope, $http) {
+  app.controller("buildController", ['$scope', '$stateParams', '$http',
+       function ($scope, $stateParams, $http) {
+    var currentBuild = $stateParams;
+
     $http({method: 'GET',
-      url: 'https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745/v1/build/01bscavbceeypx00mc6swagqzj',
+      url: 'https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745/v1/build/' + currentBuild.id,
       headers: {
         'Accept': 'application/json, text/javascript',
         'Content-Type': 'application/json; charset=utf-8'
@@ -132,7 +138,7 @@
     },
       function errorCallback(response) {}
     );
-  });
+  }]);
 
   app.controller("jobsController", function ($scope, $http) {
     $http({method: 'GET',

@@ -12,7 +12,11 @@ controller: buildController
       <div class="small-12">
 
         <div class="build-header" >
-          <h1><!--<small>#213</small>--> {{ build.id }}</h1>
+          <h1>
+            <a href="../acid-ui/#!/project/{{ build.project_id }}" title="Back to Build list"><i class="ion-chevron-left icon"></i></a>
+            <!--<small>#213</small>-->
+            {{ build.id }}
+          </h1>
 
           <div class="build-status" ng-init="buildResult='success'" ng-class="{
             'build-success': buildResult == 'success',
@@ -52,6 +56,8 @@ controller: buildController
       </div>
     </div>
   </div>
+
+  <textarea height="200" style="height:200px;">{{ build }}</textarea>
 
 
   <ul class="build-details">

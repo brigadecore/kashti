@@ -60,8 +60,11 @@
       <div class="grid-content">
         <nav>
           <ul>
+            <li ng-class="{ 'active': $state.current.name === 'project'}">
+              <a href="../acid-ui/#!/project/{{ $stateParams.id }}">Activity</a>
+            </li>
             <li ng-class="{ 'active': $state.current.name === 'build'}">
-              <a href="../acid-ui/#!/project/{{ $stateParams.id }}">Builds</a>
+              <a href="../acid-ui/#!/project/{{ $stateParams.id }}/{{build.id}}">Builds</a>
 
               <ul>
                 <li class="active"><a>All</a></li>
@@ -101,13 +104,13 @@
               <li 
                 ng-controller="projectController" 
                 ng-hide="$state.current.name === 'home'">
-                <a href="../acid-ui/#!/project/{{ $stateParams.id }}">Project Name</a></li>
-<!--               <li 
+                <a href="../acid-ui/#!/project/{{project.id}}">{{project.name}}</a></li>
+              <li 
                 ng-controller="buildController" 
                 ng-class="{ 'active': $state.current.name === 'project'}" 
                 ng-hide="$state.current.name === 'home'">
-                <a href="../acid-ui/#!/project/{{ $stateParams.id }}">Master</a></li> -->
-              <li ng-show="$state.current.name === 'build'"><a href="/#!/build/{{build.id}}">Build #{{ $stateParams.id }}</a></li>
+                <a href="../acid-ui/#!/project">Master</a></li>
+              <li ng-show="$state.current.name === 'build'"><a href="/#!/build/{{build.id}}">Build {{build.id}}</a></li>
             </ul>
           </div>
           <div class="menu-group-right">
