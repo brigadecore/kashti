@@ -65,13 +65,12 @@
 
   app.controller("projectController", function ($scope, $resource, $http) {
 
-    var myResource = $resource("https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745/v1/project/:projectID",
+    var myResource = $resource('https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745/v1/project/:projectID',
       {projectID: '@_id'},
-      {enter : {
-        method: "GET",
-        isArray: false
-      }
-    });
+      {
+        update: { method:'PUT' }
+      });
+    return myResource;
 
     $http({method: 'GET',
       url: myResource,
