@@ -93,9 +93,12 @@ Events:
         <div class="act-message small-4 collapse">
           {{ build.id }}
         </div>
-        <div class="act-hash small-3 collapse">{{build.commit | limitTo : -6: number.length }}</div>
+        <div class="act-hash small-2 collapse">{{build.commit | limitTo : -6: number.length }}</div>
         <div class="act-time-ago small-1 collapse">{(timeago)}</div>
         <div class="act-time-duration small-1 collapse">{(duration)}</div>
+        <!-- <div class="act-child-jobs small-2 collapse">
+          {{ build.jobs.length }}
+        </div> -->
       </a>
     </li>
   </ul>

@@ -63,6 +63,20 @@
     margin: -0.25em 0 1em;
     position: relative;
 
+    a {
+      position: absolute;
+      left: -2rem;
+      padding-right: 1.5rem;
+      color: $brand2;
+      font-size: 1.25rem;
+      top: 0.35rem;
+      @include transition;
+
+      &:hover {
+        left: -2.5rem;
+      }
+    }
+
     small {
       font-family: $mono;
       font-size: 0.667rem;
@@ -201,6 +215,15 @@
   }
 }
 
+.job-list {
+  h4 {
+    margin: 0 2rem;
+    @include europaBold;
+    font-size: 1.25rem;
+    color: $dark3;
+  }
+}
+
 ul.build-details {
   list-style: none;
   margin: 0.5rem 1.5rem 3rem;
@@ -254,6 +277,92 @@ ul.build-details {
     .accordion {
       margin: 1rem 0 1rem 0.5rem;
     }
+  }
+
+  li.parent {
+    em {
+      background: $light2;
+      font-style: normal;
+      color: $dark2;
+      font-family: $mono;
+      padding: 0.25rem 0.5rem;
+      font-size: 0.825rem;
+      border-radius: 3px;
+      margin-left: 0.3rem;
+      margin-right: 0.3rem;
+
+      img {
+        max-height: 1.425rem;
+      }
+
+      i {
+        font-size: 0.925rem;
+        margin-right: -0.125rem;
+      }
+    }
+  }
+
+  li.job {
+    margin-left: 2rem;
+    position: relative;
+
+    h5 {
+      @include europaBold;
+      font-size: 1.5rem;
+      padding: 0.333em 0 2em;
+    }
+
+    small {
+      font-size: 0.667rem;
+      font-family: $mono;
+      color: $dark3;
+      background: lighten($light2, 2.5%);
+      border-radius: 6px;
+      padding: 0 0.5rem;
+      margin-top: 0;
+      margin-left: -0.5rem;
+    }
+
+    dl {
+      margin-left: 200px;
+      margin-top: -32px;
+      dt,
+      dd {
+        display: inline-block;
+        color: $dark3;
+        font-family: $europa;
+        font-size: 0.925rem;
+        line-height: 1;
+        margin: 0;
+        padding: 0;
+      }
+      dt {
+        width: 20%;
+        font-weight: normal;
+      }
+      dd {
+        width: 70%;
+      }
+    }
+
+    .job-response {
+      position: absolute;
+      font-size: 0.925rem;
+      left: 0.5rem;
+      top: 5.25rem;
+      background: $light2;
+      padding: 0.25rem 0.65rem;
+      border-radius: 3rem;
+
+      i,
+      img {
+        max-height: 1.5rem;
+      }
+    }
+  }
+
+  li.active {
+    border-left: 6px solid $brand2;
   }
 
   li.zf-accordion-wrap {

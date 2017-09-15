@@ -110,7 +110,7 @@
                 ng-class="{ 'active': $state.current.name === 'project'}" 
                 ng-hide="$state.current.name === 'home'">
                 <a href="../acid-ui/#!/project">Master</a></li>
-              <li ng-show="$state.current.name === 'build'"><a href="/#!/build/{{build.id}}">Build {{build.id}}</a></li>
+              <li ng-show="$state.current.name === 'build'"><a href="/#!/build/{{build.id}}">Build {{ $stateParams.build.id}}</a></li>
             </ul>
           </div>
           <div class="menu-group-right">

@@ -19,6 +19,26 @@ $error:   $fail;
 $warn:    darken(#F5A623, 2.5%);
 $active:  $brand2;
 
+.success {
+  color: $success;
+}
+
+.fail {
+  color: $fail;
+}
+
+.error {
+  color: $error;
+}
+
+.warn {
+  color: $warn;
+}
+
+.active {
+  color: $active;
+}
+
 
 // Mixins
 // ---------------------------------------
