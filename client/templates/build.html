@@ -65,8 +65,10 @@ controller: buildController
           <em ng-show="build.provider == 'dockerhub'"><img src="assets/images/docker.png" alt="dockerhub" /> {{ build.provider }}</em>
           <em ng-show="build.provider == 'slackbot'"><img src="assets/images/slack.png" alt="Slack" /> {{ build.provider }}</em> 
           : <em>{{ build.type }}</em> 
-          started a build via <em>commit #{{ build.commit  | limitTo : -6: number.length }}</em></li>
+          started a build via <em>commit #{{ build.commit  | limitTo : -6: number.length }}</em>
+      </li>
       <div ng-controller="jobsController">
+
         <li ng-repeat="job in jobs" class="job" ng-class="{ 'active': job.exit_code = '0' }">
           <small>{{job.creation_time | date:'MM/dd/yyyy @ h:mma Z'}}</small>
           <h5>{{job.name}}</h5>
@@ -89,6 +91,18 @@ controller: buildController
             <dt>ID:</dt>
             <dd>{{job.id}}</dd>
           </dl>
+
+          <p class="ng-controller="logController">
+            LOG OUTPUT
+
+            {{logstream}}
+
+            {{job.logs}}
+
+            {{job.log}}
+
+            {{logs}}
+          </p>
           <small>{{job.end_time | date:'MM/dd/yyyy @ h:mma Z'}}</small>
 
         </li>

@@ -171,19 +171,44 @@
     );
   }]);
 
-  app.controller("jobController", function ($scope, $http) {
+  app.controller("jobController", ['$scope', '$stateParams', '$http',
+         function ($scope, $stateParams, $http) {
+    var currentJobID = $stateParams.id;
+
     $http({method: 'GET',
-      url: 'https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745/v1/job/node-runner-1504302282234-800550b4',
+      url: 'https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745/v1/job/' + currentJobID,
       headers: {
         'Accept': 'application/json, text/javascript',
         'Content-Type': 'application/json; charset=utf-8'
       },
       isArray: true
     }).then(function successCallback(response) {
-        $scope.job = response.data;
+      $scope.job = response.data;
     },
       function errorCallback(response) {}
     );
-  });
+  }]);
+
+  app.controller("logController", ['$scope', '$stateParams', '$http',
+         function ($scope, $stateParams, $http) {
+    var currentJobID = $stateParams.id;
+
+    $http({method: 'GET',
+      url: 'https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745/v1/job/' + currentJobID + '/logs',
+      headers: {
+        'Accept': 'application/json, text/javascript',
+        'Content-Type': 'application/json; charset=utf-8'
+      },
+      transformResponse: undefined
+    }).then(function successCallback(response) {
+        // response.data
+
+        $scope.logstream = response;
+
+        // return {content: data};
+    },
+      function errorCallback(response) {}
+    );
+  }]);
 
 })();
