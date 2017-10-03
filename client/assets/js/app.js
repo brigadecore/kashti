@@ -5,7 +5,7 @@
     'ui.router',
     'ngResource',
     'ngAnimate',
-
+    'hljs',
     //foundation
     'foundation',
     'foundation.dynamicRouting',
@@ -18,7 +18,14 @@
   app.config(['$httpProvider', function ($httpProvider) {
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
-  }]);
+  }])
+
+  app.config(function (hljsServiceProvider) {
+    hljsServiceProvider.setOptions({
+      // replace tab with 4 spaces
+      tabReplace: '    '
+    });
+  })
 
   config.$inject = ['$urlRouterProvider', '$locationProvider'];
 
@@ -46,8 +53,15 @@
     };
   });
 
-  // consume api for templates/views
+  // use service to share IDs between controllers
+  // app.factory('jobService', function() {
+  //   return {
+  //     theJob: {}
+  //   };
+  // });
 
+
+  // consume api for templates/views
   app.factory("Project", function ($resource) {
     return $resource(
       'https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745/v1/projects/:id',
@@ -80,13 +94,6 @@
 
   app.controller("projectController", ['$scope', '$stateParams', '$http',
        function ($scope, $stateParams, $http) {
-
-    // var myResource = $resource('https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745/v1/project/:projectID',
-    //   {projectID: '@_id'},
-    //   {
-    //     update: { method:'GET' }
-    //   });
-    // return myResource;
 
     var currentProject = $stateParams;
 
@@ -138,19 +145,6 @@
     },
       function errorCallback(response) {}
     );
-
-    // $http({method: 'GET',
-    //   url: 'https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745/v1/build/' + currentBuild.id + '/jobs',
-    //   headers: {
-    //     'Accept': 'application/json, text/javascript',
-    //     'Content-Type': 'application/json; charset=utf-8'
-    //   },
-    //   isArray: true
-    // }).then(function successCallback(response) {
-    //     $scope.jobs = response.data;
-    // },
-    //   function errorCallback(response) {}
-    // );
   }]);
 
   app.controller("jobsController", ['$scope', '$stateParams', '$http',
@@ -173,6 +167,7 @@
 
   app.controller("jobController", ['$scope', '$stateParams', '$http',
          function ($scope, $stateParams, $http) {
+
     var currentJobID = $stateParams.id;
 
     $http({method: 'GET',
@@ -185,30 +180,30 @@
     }).then(function successCallback(response) {
       $scope.job = response.data;
     },
-      function errorCallback(response) {}
-    );
+    function errorCallback(response) {
+      console.log('Build > Job endpoint returned ' + response.status + ', citing \'' + response.message + '\'.');
+    });
   }]);
 
   app.controller("logController", ['$scope', '$stateParams', '$http',
-         function ($scope, $stateParams, $http) {
-    var currentJobID = $stateParams.id;
+    function ($scope, $stateParams, $http) {
+
+    // var currentJobID = $scope.job.id;
 
     $http({method: 'GET',
-      url: 'https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745/v1/job/' + currentJobID + '/logs',
+      url: 'https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745/v1/job/node-runner-1504824013794-800550b4/logs?stream=true',
+      responseType: 'text',
       headers: {
-        'Accept': 'application/json, text/javascript',
-        'Content-Type': 'application/json; charset=utf-8'
-      },
-      transformResponse: undefined
+        'Accept': 'plain/text, text/javascript',
+        'Content-Type': 'plain/text; charset=utf-8'
+      }
     }).then(function successCallback(response) {
-        // response.data
-
-        $scope.logstream = response;
-
-        // return {content: data};
+      $scope.logs = response.data;
     },
-      function errorCallback(response) {}
-    );
+    function errorCallback(response) {
+      $scope.logerror = response.status;
+      console.log('Job > Logs endpoint returned ' + response.status + ', citing \'' + response.message + '\'.');
+    });
   }]);
 
 })();

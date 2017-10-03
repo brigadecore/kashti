@@ -64,20 +64,29 @@ controller: buildController
           <em ng-show="build.provider == 'github'"><i class="icon ion-social-github"></i> {{ build.provider }}</em>
           <em ng-show="build.provider == 'dockerhub'"><img src="assets/images/docker.png" alt="dockerhub" /> {{ build.provider }}</em>
           <em ng-show="build.provider == 'slackbot'"><img src="assets/images/slack.png" alt="Slack" /> {{ build.provider }}</em> 
+          <em ng-show="!(
+            build.provider === 'slackbot' || 
+            build.provider === 'dockerhub' || 
+            build.provider === 'github'
+          )"> {{ build.provider }}</em> 
           : <em>{{ build.type }}</em> 
           started a build via <em>commit #{{ build.commit  | limitTo : -6: number.length }}</em>
       </li>
       <div ng-controller="jobsController">
 
-        <li ng-repeat="job in jobs" class="job" ng-class="{ 'active': job.exit_code = '0' }">
-          <small>{{job.creation_time | date:'MM/dd/yyyy @ h:mma Z'}}</small>
+        <li ng-repeat="job in jobs" class="job" ng-class="{
+          'active': job.status == 'Pending',
+          'success':  job.status == 'Succeeded',
+          'failed':  job.status == 'Failed'
+        }">
+          <small>Started at {{job.creation_time | date:'MM/dd/yyyy @ h:mma Z'}}</small>
           <h5>{{job.name}}</h5>
 
-          <div class="job-response success" ng-show="job.exit_code == '1'">
+          <div class="job-response success" ng-show="job.status == 'Succeeded'">
             <i class="icon ion-checkmark-circled status-success"></i>
             Complete
           </div>
-          <div class="job-response active" ng-show="job.exit_code == '0'">
+          <div class="job-response active" ng-show="job.status == 'Pending'">
             <img src="assets/images/rolling.svg" class="status-active" />
             Pending
           </div>
@@ -85,29 +94,36 @@ controller: buildController
             Failed
           </div> -->
 
-          <dl>
-            <dt>Image:</dt>
-            <dd>{{job.image}}</dd>
-            <dt>ID:</dt>
-            <dd>{{job.id}}</dd>
+          <!-- log output -->
+          <div ng-controller="logController">
+            <div ng-show="logerror == '404'">
+              <dl>
+                <dt>Image:</dt>
+                <dd>{{job.image}}</dd>
+                <dt>ID:</dt>
+                <dd>{{job.id}}</dd>
+                <dt>Logs:</dt>
+                <dd>none <span>{{logerror}}</span></dd>
+              </dl>
+            </div>
+            <div ng-show="logerror == null">
+              <dl>
+                <dt>Image:</dt>
+                <dd>{{job.image}}</dd>
+                <dt>ID:</dt>
+                <dd>{{job.id}}</dd>
+                <dt>Log output:</dt>
+              </dl>
+              <div class="log-wrap" hljs hljs-source="logs"></div>
+            </div>
+          </div>
+
           </dl>
 
-          <p class="ng-controller="logController">
-            LOG OUTPUT
-
-            {{logstream}}
-
-            {{job.logs}}
-
-            {{job.log}}
-
-            {{logs}}
-          </p>
-          <small>{{job.end_time | date:'MM/dd/yyyy @ h:mma Z'}}</small>
+          <small>Finished at {{job.end_time | date:'MM/dd/yyyy @ h:mma Z'}}</small>
 
         </li>
       </div>
-      <!-- <li>Build Response</li> -->
     </ul>
   </div>
 
