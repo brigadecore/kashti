@@ -62,14 +62,6 @@
 
 
   // consume api for templates/views
-  app.factory("Project", function ($resource) {
-    return $resource(
-      'https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745/v1/projects/:id',
-    { update:
-      { method: 'GET' }
-    });
-  });
-
   app.run(['$rootScope', '$state', '$stateParams',
     function ($rootScope, $state, $stateParams) {
       $rootScope.$state = $state;
