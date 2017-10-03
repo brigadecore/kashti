@@ -117,7 +117,13 @@ controller: buildController
               <dd>{{job.id}}</dd>
               <dt>Log output:</dt>
             </dl>
-            <div class="log-wrap" hljs hljs-source="logs"></div>
+            <div class="log-wrap" ng-class="{'log-expand': expandLog == true }">
+              <div hljs hljs-source="logs" class="log-inner"></div>
+              <a ng-click="expandLog = !expandLog">
+                <span ng-show="!expandLog"><i class="icon ion-arrow-down-b"></i> Expand log</span>
+                <span ng-show="expandLog"><i class="icon ion-arrow-up-b"></i> Collapse log</span>
+              </a>
+            </div>
           </div>
         </div>
 

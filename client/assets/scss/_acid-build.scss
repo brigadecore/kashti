@@ -217,20 +217,21 @@
 
 .job-list {
   h4 {
-    margin: 0 2rem 2rem;
+    margin: 0 1.125rem 2rem;
     @include europaBold;
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     color: $dark3;
 
     .job-count {
       @include border-radius(50%,50%);
       background: rgba(255,255,255,0.5);
       width: 2rem;
-      text-align: center;
       line-height: 1.5;
+      text-align: center;
       display: inline-block;
       padding: 0 0.5rem;
-      margin-right: 0.5rem;
+      margin-right: 0.25rem;
+      color: $dark2;
     }
   }
 }
@@ -379,14 +380,57 @@ ul.build-details {
   }
 
   .log-wrap {
+    position: relative;
+    overflow: hidden;
+
+    a {
+      position: absolute;
+      bottom: -3em;
+      left: 1%;
+      width: 98%;
+      opacity: 0;
+      z-index: -10;
+      background: lighten($dark2, 15%);
+      color: $light3;
+      text-align: center;
+      font-weight: bold;
+      font-size: 0.75rem;
+      line-height: 2;
+      @include border-radius(4px, 4px);
+      @include transition;
+
+      i {
+        font-size: 0.75em;
+        padding-right: 0.333rem;
+      }
+    }
+
+    &:hover {
+      a {
+        z-index: 500;
+        bottom: 0.5rem;
+        opacity: 1;
+      }
+    }
+
+    &.log-expand {
+      .log-inner,
+      .log-inner code {
+        height: auto;
+      }
+    }
+  }
+
+  .log-inner {
     background: lighten($dark2, 5%);
     position: relative;
     overflow-x: hidden;
     overflow-y: scroll;
     border-radius: 3px;
-    height: 115px;
+    height: 135px;
     width: 100%;
     padding: 0.75rem 1rem;
+    @include transition;
 
     code,
     .hljs,
@@ -394,6 +438,7 @@ ul.build-details {
       background: transparent;
       padding: 0;
       margin: 0;
+      @include transition;
     }
 
     code {
@@ -403,8 +448,9 @@ ul.build-details {
       line-height: 1.5;
       font-size: 0.825rem;
       display: table-cell;
-      height: 115px;
+      height: 135px;
       vertical-align: bottom;
+      padding-bottom: 3em !important;
     }
   }
 

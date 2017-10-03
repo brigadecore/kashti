@@ -179,11 +179,10 @@
 
   app.controller("logController", ['$scope', '$stateParams', '$http',
     function ($scope, $stateParams, $http) {
-
-    // var currentJobID = $scope.job.id;
+    var currentJobID = $scope.job.id;
 
     $http({method: 'GET',
-      url: 'https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745/v1/job/node-runner-1504824013794-800550b4/logs?stream=true',
+      url: 'https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745/v1/job/' + currentJobID + '/logs?stream=true',
       responseType: 'text',
       headers: {
         'Accept': 'plain/text, text/javascript',
