@@ -15,22 +15,22 @@ controller: buildController
           <h1>
             <a href="../acid-ui/#!/project/{{ build.project_id }}" title="Back to Build list"><i class="ion-chevron-left icon"></i></a>
             <!--<small>#213</small>-->
-            {{ build.id }}
+            Build {{ build.id }}
           </h1>
 
-          <div class="build-status" ng-init="buildResult='success'" ng-class="{
-            'build-success': buildResult == 'success',
-            'build-failed': buildResult == 'failed',
-            'build-active': buildResult == 'active'
+          <div class="build-status" ng-class="{
+            'success': build.worker.status == 'Succeeded',
+            'failed': build.worker.status == 'Failed',
+            'active': build.worker.status == 'Pending'
           }">
-            <div class="success" ng-show="buildResult == 'success'"><i class="icon ion-checkmark-circled"></i> Passed</div>
-            <div class="failed" ng-show="buildResult == 'failed'"><i class="icon ion-close-circled"></i> Failed</div>
-            <div class="active" ng-show="buildResult == 'active'"><img src="assets/images/rolling.svg" /> In Progress</div>
+            <div class="success" ng-show="build.worker.status == 'Succeeded'"><i class="icon ion-checkmark-circled"></i> Passed</div>
+            <div class="failed" ng-show="build.worker.status == 'Failed'"><i class="icon ion-close-circled"></i> Failed</div>
+            <div class="active" ng-show="build.worker.status == 'Pending'"><img src="assets/images/rolling.svg" /> In Progress</div>
           </div>
 
           <div class="grid-block horizontal build-metadata">
-            <div class="grid-content small-6 text-left">Duration 2m 12s</div>
-            <div class="grid-content small-6 text-right">Finished at 9:46am UTC-8</div>
+            <div class="grid-content small-6 text-left">Started at {{build.worker.start_time}}</div>
+            <div class="grid-content small-6 text-right">Finished at {{build.worker.end_time}}</div>
           </div>
 
           <div class="horizontal build-chart" gantt data=data ng-init="showChart = true" ng-hide="!showChart">
@@ -118,7 +118,13 @@ controller: buildController
               <dt>Log output:</dt>
             </dl>
             <div class="log-wrap" ng-class="{'log-expand': expandLog == true }">
-              <div hljs hljs-source="logs" class="log-inner"></div>
+
+              <div 
+                hljs 
+                hljs-source="logs" 
+                class="log-inner">
+              </div>
+
               <a ng-click="expandLog = !expandLog">
                 <span ng-show="!expandLog"><i class="icon ion-arrow-down-b"></i> Expand log</span>
                 <span ng-show="expandLog"><i class="icon ion-arrow-up-b"></i> Collapse log</span>
