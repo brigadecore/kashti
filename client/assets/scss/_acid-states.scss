@@ -19,14 +19,17 @@
     max-width: 1.5rem;
   }
 
-  &.build-success{
-    color: $success;
+  &.build-success,
+  .success {
+    Color: $success;
   }
 
-  &.build-failed {
+  &.build-failed,
+  .failed {
     color: $error;
   }
-  &.build-active {
+  &.build-active,
+  .active {
     color: $active;
   }
 }

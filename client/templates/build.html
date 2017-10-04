@@ -5,24 +5,24 @@ animationIn: slideInLeft
 controller: buildController
 ---
 
-<div class="grid-container" ng-class="{'active-chart': showChart }">
+<div class="grid-container build-chart-{{jobs.length}}" ng-class="{'active-chart': showChart }">
 
-  <div class="grid-content build-header-wrap">
+  
+
+  <div class="grid-content build-header-wrap" ng-controller="ScrollCtrl">
     <div class="grid-block horizontal">
       <div class="small-12">
 
-        <div class="build-header" >
+        <div class="build-header">
           <h1>
             <a href="../acid-ui/#!/project/{{ build.project_id }}" title="Back to Build list"><i class="ion-chevron-left icon"></i></a>
-            <!--<small>#213</small>-->
             Build {{ build.id }}
           </h1>
 
           <div class="build-status" ng-class="{
             'success': build.worker.status == 'Succeeded',
             'failed': build.worker.status == 'Failed',
-            'active': build.worker.status == 'Pending'
-          }">
+            'active': build.worker.status == 'Pending'}">
             <div class="success" ng-show="build.worker.status == 'Succeeded'"><i class="icon ion-checkmark-circled"></i> Passed</div>
             <div class="failed" ng-show="build.worker.status == 'Failed'"><i class="icon ion-close-circled"></i> Failed</div>
             <div class="active" ng-show="build.worker.status == 'Pending'"><img src="assets/images/rolling.svg" /> In Progress</div>
@@ -33,14 +33,23 @@ controller: buildController
             <div class="grid-content small-6 text-right">Finished at {{build.worker.end_time}}</div>
           </div>
 
-          <div class="horizontal build-chart" gantt data=data ng-init="showChart = true" ng-hide="!showChart">
+          <div class="horizontal build-chart build-chart-{{jobs.length}}" gantt data="data" ng-init="showChart = true" ng-hide="!showChart" ng-controller="jobsController">
+
+            <div class="build-chart-bg"></div>
+
             <div class="task task-0"><a href=""><span title="git"><i class="icon ion-social-github"></i></span></a></div>
+
+            <div class="task task-{{$index + 1}}" ng-repeat="job in jobs">
+              <a ng-click="gotoElement('{{job.id}}')"><span title="job.name">{{job.name}}</span></a>
+            </div>
+
+            <!-- <div class="task task-0"><a href=""><span title="git"><i class="icon ion-social-github"></i></span></a></div>
             <div class="task task-1"><a href=""><span title="event.push">event.push</span></a></div>
             <div class="task task-2"><a href=""><span title="goBuild.tasks">goBuild.tasks</span></a></div>
             <div class="task task-3"><a href=""><span title="jsLint.images">jsLint.images</span></a></div>
             <div class="task task-4"><a href=""><span title="jsLint.images">jsLint.images</span></a></div>
             <div class="task task-5"><a href=""><span title="Tasks complete.">Tasks complete.</span></a></div>
-            <div class="task task-6"><a href=""><span title="Slack: Post to #ci"><strong>#</strong> Post to #ci</span></a></div>
+            <div class="task task-6"><a href=""><span title="Slack: Post to #ci"><strong>#</strong> Post to #ci</span></a></div> -->
 
             <em></em>
             <em></em>
@@ -49,8 +58,8 @@ controller: buildController
             <em></em>
           </div>
 
-          <a href="" class="button button secondary small" ng-hide="!showChart" ng-click="showChart = false"><i class="icon ion-arrow-up-b"></i> Hide Build Timeline</a>
-          <a href="" class="button button secondary small" ng-hide="showChart" ng-click="showChart = true"><i class="icon ion-arrow-down-b"></i> Show Build Timeline</a>
+          <a href="" class="button button secondary small" ng-hide="showChart" ng-click="showChart = true"><i class="icon ion-arrow-up-b"></i> Hide Build Timeline</a>
+          <a href="" class="button button secondary small" ng-hide="!showChart" ng-click="showChart = false"><i class="icon ion-arrow-down-b"></i> Show Build Timeline</a>
         </div>
 
       </div>
@@ -64,7 +73,7 @@ controller: buildController
       <span ng-show="jobs.length > '1'"><span class="job-count">{{ jobs.length }}</span> jobs ran inside this build:</span>
     </h4>
 
-    <ul class="build-details" ng-hide="jobs.length == '0'">
+    <ul class="build-details" ng-hide="jobs.length == '0'" id="build-details">
       <li class="parent">
           <em ng-show="build.provider == 'github'"><i class="icon ion-social-github"></i> {{ build.provider }}</em>
           <em ng-show="build.provider == 'dockerhub'"><img src="assets/images/docker.png" alt="dockerhub" /> {{ build.provider }}</em>
@@ -81,7 +90,7 @@ controller: buildController
         'active': job.status == 'Pending',
         'success':  job.status == 'Succeeded',
         'failed':  job.status == 'Failed'
-      }">
+      }" id="{{job.id}}">
         <small>Started at {{job.creation_time | date:'MM/dd/yyyy @ h:mma Z'}}</small>
         <h5>{{job.name}}</h5>
 

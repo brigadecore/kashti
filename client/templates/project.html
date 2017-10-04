@@ -84,8 +84,14 @@ Events:
   <ul class="grid-content build-list collapse" ng-controller="buildsController">
     <li ng-repeat="build in builds" class="medium-grid-block build-item">
       <a href="../acid-ui/#!/build/{{build.id}}" class="grid-block">
-        <div class="act-state collapse">
-          <i class="icon ion-checkmark-circled icon-green"></i>
+        <div class="act-state collapse {{ build.worker.status }}" ng-class="{
+          'success': build.worker.status == 'Succeeded',
+          'failed': build.worker.status == 'Failed',
+          'active': build.worker.status == 'Pending'
+        }">
+          <!-- <div class="success" ng-show="build.worker.status == 'Succeeded'"><i class="icon ion-checkmark-circled"></i> Passed</div>
+          <div class="failed" ng-show="build.worker.status == 'Failed'"><i class="icon ion-close-circled"></i> Failed</div>
+          <div class="active" ng-show="build.worker.status == 'Pending'"><img src="assets/images/rolling.svg" /> In Progress</div> -->
         </div>
         <div class="act-author small-2 collapse">
           {{build.provider}}:{{build.type}}
