@@ -68,7 +68,8 @@
       $rootScope.$stateParams = $stateParams;
   }])
 
-  app.controller("projectsController", function ($scope, $http) {
+  app.controller("projectsController", ['$scope', '$stateParams', '$http',
+       function ($scope, $stateParams, $http) {
     $http({
       method: 'GET',
       url: 'https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745/v1/projects',
@@ -82,7 +83,7 @@
     },
       function errorCallback(response) {}
     );
-  });
+  }]);
 
   app.controller("projectController", ['$scope', '$stateParams', '$http',
        function ($scope, $stateParams, $http) {
@@ -98,6 +99,9 @@
       }
     }).then(function successCallback(response) {
         $scope.project = response.data;
+
+        var projectID = $scope.project.name;
+        console.log('the project is ' + projectID );
     },
       function errorCallback(response) {}
     );

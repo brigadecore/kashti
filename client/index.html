@@ -32,12 +32,12 @@
     </div>
 
     <!-- left sidebar -->
-    <div zf-panel position="left" id="sidebar" class="medium-grid-block collapse medium-2 large-2 vertical" ng-hide="$state.current.name === 'home'">
+    <div zf-panel position="left" id="sidebar" class="medium-grid-block collapse medium-2 large-2 vertical" ng-hide="$state.current.name === 'home'" ng-init="projectID={{project.id}}">
       <div class="grid-content collapse shrink">
         <ul class="menu-bar primary">
           <li id="organization" ng-controller="projectController">
             <a href="" zf-popup-toggle="switcher">
-              <h2>{{ $stateParams.id | trim }}</h2>
+              <h2>{{ $stateParams | trim }}</h2>
               <h3>Azure Container Service</h3>
 
               <i class="icon ion-chevron-down right"></i>

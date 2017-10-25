@@ -84,6 +84,9 @@ Events:
   <ul class="grid-content build-list collapse" ng-controller="buildsController">
     <li ng-repeat="build in builds" class="medium-grid-block build-item">
       <a href="../acid-ui/#!/build/{{build.id}}" class="grid-block">
+
+        <!-- <h1>H1 {{build.worker}}</h1> -->
+
         <div class="act-state collapse {{ build.worker.status }}" ng-class="{
           'success': build.worker.status == 'Succeeded',
           'failed': build.worker.status == 'Failed',
@@ -100,8 +103,8 @@ Events:
           {{ build.id }}
         </div>
         <div class="act-hash small-2 collapse">{{build.commit | limitTo : -6: number.length }}</div>
-        <div class="act-time-ago small-1 collapse">{(timeago)}</div>
-        <div class="act-time-duration small-1 collapse">{(duration)}</div>
+        <div class="act-time-ago small-1 collapse">{{ build.worker.start_time }}</div>
+        <div class="act-time-duration small-1 collapse">{{ build.worker.start_time }}</div>
         <!-- <div class="act-child-jobs small-2 collapse">
           {{ build.jobs.length }}
         </div> -->
