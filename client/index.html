@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Acid UI</title>
+  <title>Brigade UI</title>
 
   <base href="/">
 
@@ -25,10 +25,10 @@
   <div class="grid-frame">
 
     <div position="left" id="primary" class="vertical shrink grid-block">
-      <a href="/acid-ui/" class="logo"><img src="assets/images/acid-logo.png" /></a>
+      <a href="/brigade-ui/" class="logo"><img src="assets/images/brigade-logo.png" /></a>
 
-      <a href="https://github.com/deis/acid/tree/master/docs"><i class="icon ion-document-text right"></i></a>
-      <a href="https://github.com/deis/acid/issues"><i class="icon ion-help right"></i></a>
+      <a href="https://github.com/azure/brigade/tree/master/docs"><i class="icon ion-document-text right"></i></a>
+      <a href="https://github.com/azure/brigade/issues"><i class="icon ion-help right"></i></a>
     </div>
 
     <!-- left sidebar -->
@@ -51,7 +51,7 @@
               </select>
               <small>Project</small>
               <ul class="block-list" id="switcher-project" ng-controller="projectsController">
-                <li ng-repeat="project in projects"><a href="../acid-ui/#!/project/{{project.id}}">{{project.name}}</a></li>
+                <li ng-repeat="project in projects"><a href="../brigade-ui/#!/project/{{project.id}}">{{project.name}}</a></li>
               </ul>
             </zf-popup>
           </li>
@@ -61,10 +61,10 @@
         <nav>
           <ul>
             <li ng-class="{ 'active': $state.current.name === 'project'}">
-              <a href="../acid-ui/#!/project/{{ $stateParams.id }}">Activity</a>
+              <a href="../brigade-ui/#!/project/{{ $stateParams.id }}">Activity</a>
             </li>
             <li ng-class="{ 'active': $state.current.name === 'build'}">
-              <a href="../acid-ui/#!/project/{{ $stateParams.id }}/{{build.id}}">Builds</a>
+              <a href="../brigade-ui/#!/project/{{ $stateParams.id }}/{{build.id}}">Builds</a>
 
               <ul>
                 <li class="active"><a>All</a></li>
@@ -75,19 +75,19 @@
                 <li><a>Tests</a></li>
               </ul>
             </li>
-            <li><a href="../acid-ui/#!/project/{{project.id}}">Pipelines</a></li>
+            <li><a href="../brigade-ui/#!/project/{{project.id}}">Pipelines</a></li>
             <li><a zf-open="basicModal">Configuration</a></li>
-            <li><a href="../acid-ui/#!/project/{{project.id}}">Speed</a></li>
+            <li><a href="../brigade-ui/#!/project/{{project.id}}">Speed</a></li>
           </ul>
         </nav>
       </div>
       <div class="grid-content collapse shrink avatar-section">
         <nav>
           <ul>
-            <li><a href="https://github.com/deis/acid/tree/master/docs" target="_blank">
+            <li><a href="https://github.com/azure/brigade/tree/master/docs" target="_blank">
               Docs
             </a></li>
-            <li><a href="https://github.com/deis/acid/issues/" target="_blank">
+            <li><a href="https://github.com/azure/brigade/issues/" target="_blank">
               Support
             </a></li>
           </ul>
@@ -104,12 +104,12 @@
               <li 
                 ng-controller="projectController" 
                 ng-hide="$state.current.name === 'home'">
-                <a href="../acid-ui/#!/project/{{project.id}}">{{project.name}}</a></li>
+                <a href="../brigade-ui/#!/project/{{project.id}}">{{project.name}}</a></li>
               <li 
                 ng-controller="buildController" 
                 ng-class="{ 'active': $state.current.name === 'project'}" 
                 ng-hide="$state.current.name === 'home'">
-                <a href="../acid-ui/#!/project">Master</a></li>
+                <a href="../brigade-ui/#!/project">Master</a></li>
               <li ng-show="$state.current.name === 'build'"><a href="/#!/build/{{build.id}}">Build {{ $stateParams.build.id}}</a></li>
             </ul>
           </div>
@@ -153,10 +153,10 @@
               <li>
                 <a href="https://open.microsoft.com/" target="_blank"><img src="assets/images/microsoft.png" /></a>
               </li>
-              <li><span><a href="https://github.com/deis/acid" target="_blank">ACID</a> is licensed under the The MIT License.</span></li>
-              <li><a href="https://github.com/deis/acid/releases" target="_blank">Changelog</a></li>
-              <li><a href="https://github.com/deis/acid/tree/master/docs" target="_blank">Documentation</a></li>
-              <li><a href="https://github.com/deis/acid/" target="_blank">Github</a></li>
+              <li><span><a href="https://github.com/azure/brigade" target="_blank">BRIGADE</a> is licensed under the The MIT License.</span></li>
+              <li><a href="https://github.com/azure/brigade/releases" target="_blank">Changelog</a></li>
+              <li><a href="https://github.com/azure/brigade/tree/master/docs" target="_blank">Documentation</a></li>
+              <li><a href="https://github.com/azure/brigade/" target="_blank">Github</a></li>
             </ul>
           </footer>
 
@@ -164,10 +164,6 @@
             <a zf-close="" class="close-button">×</a>
             <h3>Project Configuration</h3>
 <pre>
-// ============================================================================
-// NOTE: This is the actual acid.js file for testing the Acid project.
-// Be careful when editing!
-// ============================================================================
 /* global Job WaitGroup events */
 
 function build(e) {
@@ -175,12 +171,12 @@ function build(e) {
   var gopath = "/go"
 
   // To set GOPATH correctly, we have to override the default
-  // path that Acid sets.
+  // path that Brigade sets.
   var localPath = gopath + "/src/github.com/" + project.repo.name;
 
 
   // Create a new job
-  var goBuild = new Job("acid-test");
+  var goBuild = new Job("brigade-test");
 
   // Since this is Go, we want a go runner.
   goBuild.image = "golang:1.8";
@@ -205,9 +201,9 @@ function build(e) {
     "make test-unit"
   ];
 
-  var jsLint = new Job("acid-js-build");
+  var jsLint = new Job("brigade-js-build");
 
-  jsLint.image = "technosophos/acid-node:latest";
+  jsLint.image = "technosophos/brigade-node:latest";
   jsLint.tasks = [
     "date",
     "echo Begin test-js",

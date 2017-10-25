@@ -153,14 +153,14 @@ gulp.task('uglify:app', function() {
 // Prep the templates for local server
 gulp.task('base-local', function() {
   return gulp.src('./client/index.html')
-    .pipe(replace('base href="/acid-ui/"', 'base href="/"'))
+    .pipe(replace('base href="/brigade-ui/"', 'base href="/"'))
     .pipe(gulp.dest('./client/'))
 });
 
 // Prep the templates for deploy to gh-pages
 gulp.task('base-prod', function() {
   return gulp.src('./client/index.html')
-    .pipe(replace('base href="/"', 'base href="/acid-ui/"'))
+    .pipe(replace('base href="/"', 'base href="/brigade-ui/"'))
     .pipe(gulp.dest('./client/'))
     .pipe(gulp.dest('./dist/'))
 });
