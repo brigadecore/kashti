@@ -11,7 +11,7 @@ Built on the foundation app framework, as an angular app. Design plans for the U
 
 ## Development
 
-Install dependancies and run the app locally with:
+Install dependancies and run the app with these commands. If bower asks for clarification, opt to install angular `1.4.14`.
 
 ```
 npm install && bower install
