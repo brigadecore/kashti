@@ -169,47 +169,14 @@
         @include transition;
       }
 
-      &.active a,
-      &:hover a {
-        background: linear-gradient(95deg, $light1 0%, lighten($light1, 2%) 100%);
+      li:hover a {
         color: $dark1;
-
-        a {
-          background: transparent none;
-        }
+        background: $light1;
       }
 
-      &.active {
-        background: linear-gradient(185deg, #F0F1F6 0%, lighten(#e6e9f0, 3.5%) 100%);
-
-        a {
-          color: $dark1;
-        }
-
-        ul {
-          display: block;
-
-          li {
-            a {
-              background: transparent;
-              color: darken($dark3, 7.5%);
-            }
-
-            &.active,
-            &:hover {
-              background: transparent;
-
-              a {
-                background-color: white;
-                color: $dark2;
-
-                a {
-                  background: transparent;
-                }
-              }
-            }
-          }
-        }
+      li.active a {
+        background: white;
+        color: $dark1;
       }
 
       ul {
@@ -234,21 +201,6 @@
       }
       &:last-child {
         padding-bottom: 1.5rem;
-      }
-    }
-
-    li#project a {
-      background-color: $light1;
-      font-size: 1.667rem;
-      padding: 0.75rem 1rem 0.75rem 3rem;
-      margin: 1rem 0.825rem 0.5rem 0.825rem;
-      border-radius: 2px;
-      font-family: $europa;
-
-      span {
-        left: -0.925rem;
-        top: 0.35rem;
-        position: absolute;
       }
     }
   }

@@ -27,14 +27,14 @@ controller: projectController
   <div class="grid-content">
     <nav>
       <ul>
-        <li ng-class="{ 'active': $state.current.name === 'project'}">
+        <li>
 
           <ul>
-            <li class="active"><a>All events</a></li>
-            <li><a>Github</a></li>
-            <li><a>Docker</a></li>
-            <li><a>Slack</a></li>
-            <li><a>Trello</a></li>
+            <li ng-class="{ 'active': $state.current.name === 'project'}" class="active"><a>All Events</a></li>
+            <li ng-class="{ 'active': $state.current.name === ''}"><a>Github</a></li>
+            <li ng-class="{ 'active': $state.current.name === ''}"><a>Docker</a></li>
+            <li ng-class="{ 'active': $state.current.name === ''}"><a>Slack</a></li>
+            <li ng-class="{ 'active': $state.current.name === ''}"><a>Trello</a></li>
           </ul>
         </li>
       </ul>
