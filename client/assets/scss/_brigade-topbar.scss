@@ -1,10 +1,10 @@
 #header {
   background-color: rgba(255,255,255,0.05);
-  border-bottom: 2px solid darken($light2, 1%);
+  border-bottom: 2px solid rgba(0,0,0,0.0125);
   @include transition;
 
   &:hover {
-    background-color: rgba(255,255,255,0.85);
+    background-color: rgba(255,255,255,0.2);
   }
 
   .menu-group,
@@ -15,11 +15,27 @@
     a {
       background-color: transparent;
       color: $dark3;
-      font-size: 1.125rem;
+      font-size: 1rem;
       font-family: $europa;
       padding: 1.2rem 1.5rem 1.1rem;
+      display: inline-block;
       @include transition;
       @include europaBold;
+
+      em {
+        font-family: $mono;
+        font-style: normal;
+        font-size: 1rem;
+        letter-spacing: 0.01em;
+        margin-left: 0.5rem;
+        text-transform: uppercase;
+        color: $dark2;
+        font-weight: normal;
+
+        &:before {
+          content: '#';
+        }
+      }
 
       &:hover {
         color: $brand2;
@@ -93,11 +109,34 @@
   }
 }
 
+.popup.switcher-wrap.is-active {
+  top: -1px !important;
+  left: 48px !important;
+  position: fixed !important;
+  border-radius: 1px;
+  // opacity: 0 !important;
+
+  // &.is-active {
+  //   opacity: 1 !important;
+  // }
+
+  // & + .popup.switcher-wrap.is-active {
+  //   opacity: 0 !important;
+  //   left: -9999em !important;
+
+  //   &:last-of-type {
+  //     opacity: 1 !important;
+  //     left: 48px !important;
+  //   }
+  // }
+}
+
 #switcher {
   padding: 0 0 0.825rem;
-  margin-left: 43px;
-  margin-top: -1px;
-  border-radius: 5px;
+  top: -1px !important;
+  left: 48px !important;
+  position: fixed !important;
+  border-radius: 1px;
 
   select {
     margin: 0.25rem 7%;

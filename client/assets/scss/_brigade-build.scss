@@ -1,6 +1,6 @@
 .template-build {
   position: relative;
-  padding: 1.5rem 1rem 0;
+  // padding: 1.5rem 1rem 0;
   margin: 0;
 
   .grid-container {
@@ -109,6 +109,19 @@
 
       &:hover {
         left: -2.5rem;
+      }
+    }
+
+    em {
+      font-family: $mono;
+      font-style: normal;
+      font-size: 1.667rem;
+      // font-weight: normal;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+
+      &:before {
+        content: '#';
       }
     }
 

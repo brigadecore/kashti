@@ -5,39 +5,169 @@ animationIn: slideInRight
 controller: projectsController
 ---
 
-<div class="grid-container medium-grid-block vertical" id="projects">
+<div zf-panel position="left" id="sidebar" class="medium-grid-block collapse medium-2 large-2 vertical" ng-hide="$state.current.name === 'home'" ng-init="{projectID:project.id}">
+  <div class="grid-content collapse shrink">
+    <ul class="menu-bar primary">
+      <li id="organization" ng-controller="projectController">
+        <a href="" zf-popup-toggle="switcher">
+          <h2>{{ build.project.name | trim }}</h2>
 
+          <i class="icon ion-chevron-down right"></i>
+        </a>
+
+        <zf-popup id="switcher" class="switcher-wrap">
+          <small>Project</small>
+          <ul class="block-list" id="switcher-project" ng-controller="projectsController">
+            <li ng-repeat="project in projects"><a href="../brigade-ui/#!/project/{{project.id}}">{{project.name}}</a></li>
+          </ul>
+        </zf-popup>
+      </li>
+    </ul>
+  </div>
   <div class="grid-content">
+    <nav>
+      <ul>
+        <li ng-class="{ 'active': $state.current.name === 'project'}">
+          <a href="../brigade-ui/#!/project/{{ $stateParams.id }}">Activity</a>
+        </li>
+        <li ng-class="{ 'active': $state.current.name === 'build'}">
+          <a href="../brigade-ui/#!/project/{{ $stateParams.id }}/{{build.id}}">Builds</a>
 
-    <div class="grid-block">
-      <a class="add-project"><i class="icon ion-plus-circled"></i> Add a Project</a>
-    </div>
+          <ul>
+            <li class="active"><a>All</a></li>
+            <li><a>Deploys</a></li>
+            <li><a>Pulls</a></li>
+            <li><a>Pushes</a></li>
+            <li><a>Releases</a></li>
+            <li><a>Tests</a></li>
+          </ul>
+        </li>
+        <li><a href="../brigade-ui/#!/project/{{project.id}}">Pipelines</a></li>
+        <li><a zf-open="basicModal">Configuration</a></li>
+        <li><a href="../brigade-ui/#!/project/{{project.id}}">Speed</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="grid-content collapse shrink avatar-section">
+    <nav>
+      <ul>
+        <li><a href="https://github.com/azure/brigade/tree/master/docs" target="_blank">
+          Docs
+        </a></li>
+        <li><a href="https://github.com/azure/brigade/issues/" target="_blank">
+          Support
+        </a></li>
+      </ul>
+    </nav>
+  </div>
+</div>
 
-    <div class="grid-block" ng-controller="projectsController">
+<div class="medium-grid-block collapse medium-12 large-12 vertical">
+  <div class="grid-block collapse vertical">
 
-      <section class="small-12 medium-6 large-4" ng-repeat="project in projects">
-        <div class="project project-success">
-          <a href="../brigade-ui/#!/project/{{project.id}}" class="">
-            <div class="status">
-              <i class="icon ion-checkmark-circled status-success"></i>
-              <i class="icon ion-close-circled status-fail"></i>
-              <img src="assets/images/rolling.svg" class="status-active" />
-            </div>
-
-            <h2>{{project.name}}</h2>
-            <h4>Project</h4>
-
-            <div class="activity" ng-controller="buildsController">
-              <ul>
-                <li ng-repeat="build in project.builds">
-                  {{build.job.message}}
-                </li>
-              </ul>
-            </div>
-          </a>
+    <!-- topbar #header -->
+    <div id="header" class="shrink collapse grid-content">
+      <div class="menu-group primary">
+        <div class="menu-group-left">
+          <ul class="menu-bar">
+            <li 
+              ng-controller="projectController" 
+              ng-hide="$state.current.name === 'home'">
+              <a href="../brigade-ui/#!/project/{{project.id}}">{{project.name}}</a></li>
+            <li 
+              ng-controller="buildController" 
+              ng-class="{ 'active': $state.current.name === 'project'}" 
+              ng-hide="$state.current.name === 'home'">
+              <a href="../brigade-ui/#!/project">Master</a></li>
+            <li ng-show="$state.current.name === 'build'"><a href="/#!/build/{{build.id}}">Build {{ $stateParams.build.id}}</a></li>
+          </ul>
         </div>
-      </section>
+        <div class="menu-group-right">
+          <ul class="icon-right menu-bar">
+            <li>
+              <a href="" zf-popup-toggle="account-menu">
+                <i class="icon ion-person rounded right"></i>
+                <small>
+                  <i class="icon ion-chevron-down right"></i>
+                </small>
+              </a>
 
+              <zf-popup id="account-menu" class="account-dropdown">
+                <ul class="block-list">
+                  <li class="account-user">
+                    <small>Logged in as:</small>
+                    <strong>roflynnc@microsoft.com</strong>
+                  </li>
+                  <li><a href="/">User Settings</a></li>
+                  <li><a href="https://www.youtube.com/watch?v=G7RgN9ijwE4" target="_blank">Log Out</a></li>
+
+                </ul>
+              </zf-popup>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
+    <!-- /#header -->
+
+    <div class="grid-block vertical">
+      <div class="grid-content content-wrap">
+
+        <div class="grid-content small-centered small-12">
+          <div class="grid-container medium-grid-block vertical" id="projects">
+
+            <div class="grid-content">
+
+              <div class="grid-block">
+                <a class="add-project"><i class="icon ion-plus-circled"></i> Add a Project</a>
+              </div>
+
+              <div class="grid-block" ng-controller="projectsController">
+
+                <section class="small-12 medium-6 large-4" ng-repeat="project in projects">
+                  <div class="project project-success">
+                    <a href="../brigade-ui/#!/project/{{project.id}}" class="">
+                      <div class="status">
+                        <i class="icon ion-checkmark-circled status-success"></i>
+                        <i class="icon ion-close-circled status-fail"></i>
+                        <img src="assets/images/rolling.svg" class="status-active" />
+                      </div>
+
+                      <h2>{{project.name}}</h2>
+                      <h4>Project</h4>
+
+                      <div class="activity" ng-controller="buildsController">
+                        <ul>
+                          <li ng-repeat="build in project.builds">
+                            {{build.job.message}}
+                          </li>
+                        </ul>
+                      </div>
+                    </a>
+                  </div>
+                </section>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- app footer -->
+      <footer class="collapse shrink">
+        <ul class="inline-list">
+          <li class="right microsoft-logo">
+            <a href="https://open.microsoft.com/" target="_blank"><img src="assets/images/microsoft.png" /></a>
+          </li>
+          <li><span><a href="https://github.com/azure/brigade" target="_blank">BRIGADE</a> is licensed under the The MIT License.</span></li>
+          <li><a href="https://github.com/azure/brigade/releases" target="_blank">Changelog</a></li>
+          <li><a href="https://github.com/azure/brigade/tree/master/docs" target="_blank">Documentation</a></li>
+          <li><a href="https://github.com/azure/brigade/" target="_blank">Github</a></li>
+        </ul>
+      </footer>
+
+      </div>
+    </div>
+
   </div>
 </div>

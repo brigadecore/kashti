@@ -1,6 +1,6 @@
 .template-project {
   position: relative;
-  padding: 1.5rem 1rem 0;
+  padding: 0;
   margin: 0;
 
   .grid-container {
@@ -14,19 +14,18 @@
     display: block;
     content: " ";
     top: 0;
-    left: -2rem;
+    left: 16.67%;
     width: 110%;
     height: 252px;
     position: absolute;
-    z-index: 100;
+    z-index: -100;
   }
 }
 
 .project-header-wrap {
   position: relative;
   z-index: 200;
-  padding-bottom: 2rem;
-  padding-left: 2rem;
+  padding: .75rem 2.75rem;
 }
 
 .project-header {
@@ -208,6 +207,8 @@
 .build-list {
   margin-top: 1rem;
   margin-right: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 
   .build-item {
     border: none;
