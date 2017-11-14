@@ -173,6 +173,10 @@
       &:hover a {
         background: linear-gradient(95deg, $light1 0%, lighten($light1, 2%) 100%);
         color: $dark1;
+
+        a {
+          background: transparent none;
+        }
       }
 
       &.active {
@@ -198,6 +202,10 @@
               a {
                 background-color: white;
                 color: $dark2;
+
+                a {
+                  background: transparent;
+                }
               }
             }
           }
