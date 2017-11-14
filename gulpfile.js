@@ -157,6 +157,18 @@ gulp.task('base-local', function() {
     .pipe(gulp.dest('./client/'))
 });
 
+// Prep the templates for Docker build
+gulp.task('base-docker', function() {
+  return gulp.src('./client/index.html')
+    .pipe(replace('base href="/"', 'base href="/brigade-ui/"'))
+    .pipe(gulp.dest('./client/'))
+    .pipe(gulp.dest('./dist/'))
+});
+
+gulp.task('docker-build', function(cb) {
+  sequence('clean', 'base-docker', ['copy', 'copy:foundation', 'sass', 'uglify'], 'copy:templates', cb);
+});
+
 // Prep the templates for deploy to gh-pages
 gulp.task('base-prod', function() {
   return gulp.src('./client/index.html')
