@@ -9,16 +9,16 @@ controller: projectController
   <div class="grid-content collapse shrink">
     <ul class="menu-bar primary">
       <li id="organization" ng-controller="projectController">
-        <a href="" zf-popup-toggle="switcher">
-          <h2>{{ project.name | trim }}</h2>
+        <a zf-popup-toggle="switcher">
+          <h2>{{ project.name | limitTo:18 }}<small ng-if="project.name.length > 18">&#8230;</small></h2>
 
           <i class="icon ion-chevron-down right"></i>
         </a>
 
-        <zf-popup id="switcher" class="switcher-wrap">
-          <small>Project</small>
+        <zf-popup id="switcher" class="switcher-wrap" ng-show="!hideSwitcher">
+          <small>Projects</small>
           <ul class="block-list" id="switcher-project" ng-controller="projectsController">
-            <li ng-repeat="project in projects"><a href="../brigade-ui/#!/project/{{project.id}}">{{project.name}}</a></li>
+            <li ng-repeat="project in projects"><a href="../brigade-ui/#!/project/{{project.id}}" ng-click="hideSwitcher = true">{{project.name}}</a></li>
           </ul>
         </zf-popup>
       </li>
@@ -66,7 +66,7 @@ controller: projectController
               ng-controller="buildController" 
               ng-class="{ 'active': $state.current.name === 'project'}" 
               ng-hide="$state.current.name === 'home'">
-              <a href="../brigade-ui/#!/project">Project Overview</a></li>
+              <a href="../brigade-ui/#!/project/{{project.id}}">Project Overview</a></li>
             <li ng-show="$state.current.name === 'build'"><a href="/#!/build/{{build.id}}">Build {{ $stateParams.build.id}}</a></li>
           </ul>
         </div>
@@ -134,7 +134,7 @@ controller: projectController
           </div>
         </div>
 
-        <ul class="grid-content build-list collapse" ng-controller="buildsController">
+        <ul class="grid-content build-list" ng-controller="buildsController">
           <li ng-repeat="build in builds" class="medium-grid-block build-item">
             <a href="../brigade-ui/#!/build/{{build.id}}" class="grid-block">
 

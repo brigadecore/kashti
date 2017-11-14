@@ -25,7 +25,7 @@
 .project-header-wrap {
   position: relative;
   z-index: 200;
-  padding: 0;
+  padding: .75rem 2.75rem;
 }
 
 .project-header {
@@ -207,6 +207,8 @@
 .build-list {
   margin-top: 1rem;
   margin-right: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 
   .build-item {
     border: none;

@@ -112,6 +112,19 @@
       }
     }
 
+    em {
+      font-family: $mono;
+      font-style: normal;
+      font-size: 1.667rem;
+      // font-weight: normal;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+
+      &:before {
+        content: '#';
+      }
+    }
+
     small {
       font-family: $mono;
       font-size: 0.667rem;
