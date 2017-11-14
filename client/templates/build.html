@@ -29,7 +29,6 @@ controller: buildController
     <nav>
       <ul>
         <li ng-class="{ 'active': $state.current.name === 'project'}">
-         <!--  <a href="../brigade-ui/#!/project/{{ $stateParams.id }}">Project Overview</a> -->
 
           <ul>
             <li class="active"><a>All events</a></li>
@@ -197,9 +196,9 @@ controller: buildController
                 <img src="assets/images/rolling.svg" class="status-active" />
                 Pending
               </div>
-              <!-- <div class="job-response fail" ng-show="job.status = Failed">
+              <div class="job-response fail" ng-show="job.status = Failed">
                 Failed
-              </div> -->
+              </div>
 
               <!-- log output -->
               <div ng-controller="logController">
@@ -250,7 +249,7 @@ controller: buildController
       <!-- app footer -->
       <footer class="collapse shrink">
         <ul class="inline-list">
-          <li>
+          <li class="right microsoft-logo">
             <a href="https://open.microsoft.com/" target="_blank"><img src="assets/images/microsoft.png" /></a>
           </li>
           <li><span><a href="https://github.com/azure/brigade" target="_blank">BRIGADE</a> is licensed under the The MIT License.</span></li>

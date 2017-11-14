@@ -10,18 +10,12 @@ controller: projectsController
     <ul class="menu-bar primary">
       <li id="organization" ng-controller="projectController">
         <a href="" zf-popup-toggle="switcher">
-          <h2>{{ $stateParams | trim }}</h2>
-          <h3>Azure Container Service</h3>
+          <h2>{{ build.project.name | trim }}</h2>
 
           <i class="icon ion-chevron-down right"></i>
         </a>
 
         <zf-popup id="switcher" class="switcher-wrap">
-          <small>Team</small>
-          <select class="small-12">
-            <option>Azure Container Service</option>
-            <option>Deis</option>
-          </select>
           <small>Project</small>
           <ul class="block-list" id="switcher-project" ng-controller="projectsController">
             <li ng-repeat="project in projects"><a href="../brigade-ui/#!/project/{{project.id}}">{{project.name}}</a></li>
@@ -162,7 +156,7 @@ controller: projectsController
         <!-- app footer -->
         <footer class="collapse shrink">
           <ul class="inline-list">
-            <li>
+            <li class="right microsoft-logo">
               <a href="https://open.microsoft.com/" target="_blank"><img src="assets/images/microsoft.png" /></a>
             </li>
             <li><span><a href="https://github.com/azure/brigade" target="_blank">BRIGADE</a> is licensed under the The MIT License.</span></li>
