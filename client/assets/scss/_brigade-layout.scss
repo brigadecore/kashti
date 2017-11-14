@@ -17,8 +17,12 @@ h1, h2, h3 {
   padding: 0;
 }
 
+.view-wrap {
+  width: 100%;
+  height: 100%;
+}
+
 #main {
-  padding-top: 1.5rem;
   min-height: 88vh;
   overflow-x: hidden;
   transition: all 0.25s ease-in-out;
@@ -26,6 +30,7 @@ h1, h2, h3 {
   .grid-container {
     max-width: 65rem;
     // margin-right: -1.5rem;
+    padding-top: 1.5rem;
   }
 
   // page transition animations

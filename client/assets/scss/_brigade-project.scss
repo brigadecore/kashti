@@ -1,6 +1,6 @@
 .template-project {
   position: relative;
-  padding: 1.5rem 1rem 0;
+  padding: 0;
   margin: 0;
 
   .grid-container {
@@ -14,11 +14,11 @@
     display: block;
     content: " ";
     top: 0;
-    left: -2rem;
+    left: 16.67%;
     width: 110%;
     height: 252px;
     position: absolute;
-    z-index: 100;
+    z-index: -100;
   }
 }
 
