@@ -3,7 +3,8 @@
   "version": "1.2.0",
   "scripts": {
     "start": "gulp",
-    "build": "gulp build --production"
+    "build": "gulp build --production",
+    "docker-build": "gulp docker-build && docker build -t technosophos/kashti:latest ."
   },
   "devDependencies": {
     "angular-cors": "^1.0.0",
