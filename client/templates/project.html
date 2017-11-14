@@ -5,7 +5,7 @@ animationIn: fadeIn
 controller: projectController
 ---
 
-<div zf-panel id="sidebar" class="medium-grid-block collapse medium-2 large-2 vertical" ng-hide="$state.current.name === 'home'" ng-init="projectID={{project.id}}">
+<div zf-panel position="left" id="sidebar" class="medium-grid-block collapse medium-2 large-2 vertical" ng-hide="$state.current.name === 'home'" ng-init="projectID={{project.id}}">
   <div class="grid-content collapse shrink">
     <ul class="menu-bar primary">
       <li id="organization" ng-controller="projectController">
@@ -54,129 +54,134 @@ controller: projectController
   </div>
 </div>
 
-<div class="grid-block vertical">
+<div class="medium-grid-block collapse medium-10 large-10 vertical">
+  <div class="grid-block collapse vertical">
 
-  <!-- topbar #header -->
-  <div id="header" class="shrink collapse grid-content vertical">
-    <div class="menu-group primary">
-      <div class="menu-group-left">
-        <ul class="menu-bar">
-          <li 
-            ng-controller="buildController" 
-            ng-class="{ 'active': $state.current.name === 'project'}" 
-            ng-hide="$state.current.name === 'home'">
-            <a href="../brigade-ui/#!/project">Project Overview</a></li>
-          <li ng-show="$state.current.name === 'build'"><a href="/#!/build/{{build.id}}">Build {{ $stateParams.build.id}}</a></li>
-        </ul>
-      </div>
-      <div class="menu-group-right">
-        <ul class="icon-right menu-bar">
-          <li>
-            <a href="" zf-popup-toggle="account-menu">
-              <i class="icon ion-person rounded right"></i>
-              <small>
-                <i class="icon ion-chevron-down right"></i>
-              </small>
-            </a>
+    <!-- topbar #header -->
+    <div id="header" class="shrink collapse grid-content vertical">
+      <div class="menu-group primary">
+        <div class="menu-group-left">
+          <ul class="menu-bar">
+            <li 
+              ng-controller="buildController" 
+              ng-class="{ 'active': $state.current.name === 'project'}" 
+              ng-hide="$state.current.name === 'home'">
+              <a href="../brigade-ui/#!/project">Project Overview</a></li>
+            <li ng-show="$state.current.name === 'build'"><a href="/#!/build/{{build.id}}">Build {{ $stateParams.build.id}}</a></li>
+          </ul>
+        </div>
+        <div class="menu-group-right">
+          <ul class="icon-right menu-bar">
+            <li>
+              <a href="" zf-popup-toggle="account-menu">
+                <i class="icon ion-person rounded right"></i>
+                <small>
+                  <i class="icon ion-chevron-down right"></i>
+                </small>
+              </a>
 
-            <zf-popup id="account-menu" class="account-dropdown">
-              <ul class="block-list">
-                <li class="account-user">
-                  <small>Logged in as:</small>
-                  <strong>roflynnc@microsoft.com</strong>
-                </li>
-                <li><a href="/">User Settings</a></li>
-                <li><a href="https://www.youtube.com/watch?v=G7RgN9ijwE4" target="_blank">Log Out</a></li>
+              <zf-popup id="account-menu" class="account-dropdown">
+                <ul class="block-list">
+                  <li class="account-user">
+                    <small>Logged in as:</small>
+                    <strong>roflynnc@microsoft.com</strong>
+                  </li>
+                  <li><a href="/">User Settings</a></li>
+                  <li><a href="https://www.youtube.com/watch?v=G7RgN9ijwE4" target="_blank">Log Out</a></li>
 
-              </ul>
-            </zf-popup>
-          </li>
-        </ul>
+                </ul>
+              </zf-popup>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-  <!-- /#header -->
+    <!-- /#header -->
 
-  <div class="grid-block vertical collapse">
+    <div class="grid-block vertical">
+      <div class="grid-content content-wrap">
 
-    <div class="grid-content project-header-wrap">
-      <div class="grid-block horizontal collapse">
-        <div class="small-12 vertical">
-          <div class="project-header">
-            <h1>{{project.name}}</h1>
-            <ul>
-              <li>{{project.repo.cloneURL}}</li>
-              <li>Sidecar: {{project.kubernetes.vcsSidecar}}</li>
-              <li>Namespace: {{project.kubernetes.namespace}}</li>
-            </ul>
+        <div class="grid-content project-header-wrap">
+          <div class="grid-block horizontal collapse">
+            <div class="small-12 vertical">
+              <div class="project-header">
+                <h1>{{project.name}}</h1>
+                <ul>
+                  <li>{{project.repo.cloneURL}}</li>
+                  <li>Sidecar: {{project.kubernetes.vcsSidecar}}</li>
+                  <li>Namespace: {{project.kubernetes.namespace}}</li>
+                </ul>
 
-            <div class="build-status" ng-init="buildResult='success'" ng-class="{
-              'build-success': buildResult == 'success',
-              'build-failed': buildResult == 'failed',
-              'build-active': buildResult == 'active'
-            }">
-              <div class="success" ng-show="buildResult == 'success'"><i class="icon ion-checkmark-circled"></i> Passing</div>
-              <div class="failed" ng-show="buildResult == 'failed'"><i class="icon ion-close-circled"></i> Failing</div>
-              <div class="active" ng-show="buildResult == 'active'"><img src="assets/images/rolling.svg" /> In Progress</div>
+                <div class="build-status" ng-init="buildResult='success'" ng-class="{
+                  'build-success': buildResult == 'success',
+                  'build-failed': buildResult == 'failed',
+                  'build-active': buildResult == 'active'
+                }">
+                  <div class="success" ng-show="buildResult == 'success'"><i class="icon ion-checkmark-circled"></i> Passing</div>
+                  <div class="failed" ng-show="buildResult == 'failed'"><i class="icon ion-close-circled"></i> Failing</div>
+                  <div class="active" ng-show="buildResult == 'active'"><img src="assets/images/rolling.svg" /> In Progress</div>
+                </div>
+              </div>
+
+              <div class="project-status-bar">
+                <div class="grid-content icon-blue small-12 collapse columns">
+                  <img src="assets/images/ripple.svg" />
+                  <span>Watching for events.</span>
+                </div>
+              </div>
             </div>
-          </div>
 
-          <div class="project-status-bar">
-            <div class="grid-content icon-blue small-12 collapse columns">
-              <img src="assets/images/ripple.svg" />
-              <span>Watching for events.</span>
-            </div>
           </div>
         </div>
 
+        <ul class="grid-content build-list collapse" ng-controller="buildsController">
+          <li ng-repeat="build in builds" class="medium-grid-block build-item">
+            <a href="../brigade-ui/#!/build/{{build.id}}" class="grid-block">
+
+              <div class="act-state collapse {{ build.worker.status }}" ng-class="{
+                'success': build.worker.status == 'Succeeded',
+                'failed': build.worker.status == 'Failed',
+                'active': build.worker.status == 'Pending'
+              }">
+                <div class="success" ng-show="build.worker.status == 'Succeeded'"><i class="icon ion-checkmark-circled"></i> Passed</div>
+                <div class="failed" ng-show="build.worker.status == 'Failed'"><i class="icon ion-close-circled"></i> Failed</div>
+                <div class="active" ng-show="build.worker.status == 'Pending'"><img src="assets/images/rolling.svg" /> In Progress</div>
+              </div>
+              <div class="act-author small-2 collapse">
+                {{build.provider}}:{{build.type}}
+              </div>
+              <div class="act-message small-4 collapse">
+                {{ build.id }}
+              </div>
+              <div class="act-hash small-2 collapse">{{build.commit | limitTo : -6: number.length }}</div>
+              <div class="act-time-ago small-1 collapse">{{ build.worker.start_time }}</div>
+              <div class="act-time-duration small-1 collapse">{{ build.worker.start_time }}</div>
+              <div class="act-child-jobs small-2 collapse">
+                {{ build.jobs.length }}
+              </div>
+            </a>
+          </li>
+        </ul>
+
+        <div class="text-center">
+          <button class="secondary round small">Load More</button>
+        </div>
       </div>
-    </div>
 
-    <ul class="grid-content build-list collapse" ng-controller="buildsController">
-      <li ng-repeat="build in builds" class="medium-grid-block build-item">
-        <a href="../brigade-ui/#!/build/{{build.id}}" class="grid-block">
+      <!-- app footer -->
+      <footer class="collapse shrink">
+        <ul class="inline-list">
+          <li class="right microsoft-logo">
+            <a href="https://open.microsoft.com/" target="_blank"><img src="assets/images/microsoft.png" /></a>
+          </li>
+          <li><span><a href="https://github.com/azure/brigade" target="_blank">BRIGADE</a> is licensed under the The MIT License.</span></li>
+          <li><a href="https://github.com/azure/brigade/releases" target="_blank">Changelog</a></li>
+          <li><a href="https://github.com/azure/brigade/tree/master/docs" target="_blank">Documentation</a></li>
+          <li><a href="https://github.com/azure/brigade/" target="_blank">Github</a></li>
+        </ul>
+      </footer>
 
-          <div class="act-state collapse {{ build.worker.status }}" ng-class="{
-            'success': build.worker.status == 'Succeeded',
-            'failed': build.worker.status == 'Failed',
-            'active': build.worker.status == 'Pending'
-          }">
-            <div class="success" ng-show="build.worker.status == 'Succeeded'"><i class="icon ion-checkmark-circled"></i> Passed</div>
-            <div class="failed" ng-show="build.worker.status == 'Failed'"><i class="icon ion-close-circled"></i> Failed</div>
-            <div class="active" ng-show="build.worker.status == 'Pending'"><img src="assets/images/rolling.svg" /> In Progress</div>
-          </div>
-          <div class="act-author small-2 collapse">
-            {{build.provider}}:{{build.type}}
-          </div>
-          <div class="act-message small-4 collapse">
-            {{ build.id }}
-          </div>
-          <div class="act-hash small-2 collapse">{{build.commit | limitTo : -6: number.length }}</div>
-          <div class="act-time-ago small-1 collapse">{{ build.worker.start_time }}</div>
-          <div class="act-time-duration small-1 collapse">{{ build.worker.start_time }}</div>
-          <div class="act-child-jobs small-2 collapse">
-            {{ build.jobs.length }}
-          </div>
-        </a>
-      </li>
-    </ul>
-
-    <div class="text-center">
-      <button class="secondary round small">Load More</button>
     </div>
   </div>
-
-  <!-- app footer -->
-  <footer class="collapse shrink">
-    <ul class="inline-list">
-      <li class="right microsoft-logo">
-        <a href="https://open.microsoft.com/" target="_blank"><img src="assets/images/microsoft.png" /></a>
-      </li>
-      <li><span><a href="https://github.com/azure/brigade" target="_blank">BRIGADE</a> is licensed under the The MIT License.</span></li>
-      <li><a href="https://github.com/azure/brigade/releases" target="_blank">Changelog</a></li>
-      <li><a href="https://github.com/azure/brigade/tree/master/docs" target="_blank">Documentation</a></li>
-      <li><a href="https://github.com/azure/brigade/" target="_blank">Github</a></li>
-    </ul>
-  </footer>
 
 </div>
