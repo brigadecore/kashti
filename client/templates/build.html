@@ -30,22 +30,15 @@ controller: buildController
       <ul>
         <li ng-class="{ 'active': $state.current.name === 'project'}">
           <a href="../brigade-ui/#!/project/{{ $stateParams.id }}">Project Overview</a>
-        </li>
-        <li ng-class="{ 'active': $state.current.name === 'build'}">
-          <a href="../brigade-ui/#!/project/{{ $stateParams.id }}/{{build.id}}">Builds</a>
 
           <ul>
-            <li class="active"><a>All</a></li>
-            <li><a>Deploys</a></li>
-            <li><a>Pulls</a></li>
-            <li><a>Pushes</a></li>
-            <li><a>Releases</a></li>
-            <li><a>Tests</a></li>
+            <li class="active"><a>All events</a></li>
+            <li><a>Github</a></li>
+            <li><a>Docker</a></li>
+            <li><a>Slack</a></li>
+            <li><a>Trello</a></li>
           </ul>
         </li>
-        <li><a href="../brigade-ui/#!/project/{{project.id}}">Pipelines</a></li>
-        <li><a zf-open="basicModal">Configuration</a></li>
-        <li><a href="../brigade-ui/#!/project/{{project.id}}">Speed</a></li>
       </ul>
     </nav>
   </div>
@@ -75,11 +68,6 @@ controller: buildController
             ng-class="{ 'active': $state.current.name === 'project'}" 
             ng-hide="$state.current.name === 'home'">
             <a href="../brigade-ui/#!/project">Project Overview</a></li>
-          <li 
-            ng-controller="buildController" 
-            ng-class="{ 'active': $state.current.name === 'project'}" 
-            ng-hide="$state.current.name === 'home'">
-            <a href="../brigade-ui/#!/project">Master</a></li>
           <li ng-show="$state.current.name === 'build'"><a href="/#!/build/{{build.id}}">Build {{ $stateParams.build.id}}</a></li>
         </ul>
       </div>
