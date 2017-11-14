@@ -16,11 +16,6 @@ controller: projectController
         </a>
 
         <zf-popup id="switcher" class="switcher-wrap">
-          <small>Team</small>
-          <select class="small-12">
-            <option>Azure Container Service</option>
-            <option>Deis</option>
-          </select>
           <small>Project</small>
           <ul class="block-list" id="switcher-project" ng-controller="projectsController">
             <li ng-repeat="project in projects"><a href="../brigade-ui/#!/project/{{project.id}}">{{project.name}}</a></li>

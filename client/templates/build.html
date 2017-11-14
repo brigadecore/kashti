@@ -11,18 +11,12 @@ controller: buildController
     <ul class="menu-bar primary">
       <li id="organization" ng-controller="projectController">
         <a href="" zf-popup-toggle="switcher">
-          <h2>{{ $stateParams | trim }}</h2>
-          <h3>Azure Container Service</h3>
+          <h2>{{ build.project.name | trim }}</h2>
 
           <i class="icon ion-chevron-down right"></i>
         </a>
 
         <zf-popup id="switcher" class="switcher-wrap">
-          <small>Team</small>
-          <select class="small-12">
-            <option>Azure Container Service</option>
-            <option>Deis</option>
-          </select>
           <small>Project</small>
           <ul class="block-list" id="switcher-project" ng-controller="projectsController">
             <li ng-repeat="project in projects"><a href="../brigade-ui/#!/project/{{project.id}}">{{project.name}}</a></li>
@@ -35,7 +29,7 @@ controller: buildController
     <nav>
       <ul>
         <li ng-class="{ 'active': $state.current.name === 'project'}">
-          <a href="../brigade-ui/#!/project/{{ $stateParams.id }}">Activity</a>
+          <a href="../brigade-ui/#!/project/{{ $stateParams.id }}">Project Overview</a>
         </li>
         <li ng-class="{ 'active': $state.current.name === 'build'}">
           <a href="../brigade-ui/#!/project/{{ $stateParams.id }}/{{build.id}}">Builds</a>
@@ -77,9 +71,10 @@ controller: buildController
       <div class="menu-group-left">
         <ul class="menu-bar">
           <li 
-            ng-controller="projectController" 
+            ng-controller="buildController" 
+            ng-class="{ 'active': $state.current.name === 'project'}" 
             ng-hide="$state.current.name === 'home'">
-            <a href="../brigade-ui/#!/project/{{project.id}}">{{project.name}}</a></li>
+            <a href="../brigade-ui/#!/project">Project Overview</a></li>
           <li 
             ng-controller="buildController" 
             ng-class="{ 'active': $state.current.name === 'project'}" 
