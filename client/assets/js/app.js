@@ -72,7 +72,7 @@
        function ($scope, $stateParams, $http) {
     $http({
       method: 'GET',
-      url: 'https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745/v1/projects',
+      url: baseURL + '/v1/projects',
       isArray: true,
       headers: {
         'Accept': 'application/json, text/javascript',
@@ -91,7 +91,7 @@
     var currentProject = $stateParams;
 
     $http({method: 'GET',
-      url: 'https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745/v1/project/' + currentProject.id,
+      url: baseURL + '/v1/project/' + currentProject.id,
       isArray: true,
       headers: {
         'Accept': 'application/json, text/javascript',
@@ -112,7 +112,7 @@
     var currentProject = $stateParams;
 
     $http({method: 'GET',
-      url: 'https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745/v1/project/' + currentProject.id + '/builds',
+      url: baseURL + '/v1/project/' + currentProject.id + '/builds',
       headers: {
         'Accept': 'application/json, text/javascript',
         'Content-Type': 'application/json; charset=utf-8'
@@ -130,7 +130,7 @@
     var currentBuild = $stateParams;
 
     $http({method: 'GET',
-      url: 'https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745/v1/build/' + currentBuild.id,
+      url: baseURL + '/v1/build/' + currentBuild.id,
       headers: {
         'Accept': 'application/json, text/javascript',
         'Content-Type': 'application/json; charset=utf-8'
@@ -148,7 +148,7 @@
     var currentBuild = $stateParams;
 
     $http({method: 'GET',
-      url: 'https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745/v1/build/' + currentBuild.id + '/jobs',
+      url: baseURL + '/v1/build/' + currentBuild.id + '/jobs',
       headers: {
         'Accept': 'application/json, text/javascript',
         'Content-Type': 'application/json; charset=utf-8'
@@ -167,7 +167,7 @@
     var currentJobID = $stateParams.id;
 
     $http({method: 'GET',
-      url: 'https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745/v1/job/' + currentJobID,
+      url: baseURL + '/v1/job/' + currentJobID,
       headers: {
         'Accept': 'application/json, text/javascript',
         'Content-Type': 'application/json; charset=utf-8'
@@ -186,7 +186,7 @@
     var currentJobID = $scope.job.id;
 
     $http({method: 'GET',
-      url: 'https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745/v1/job/' + currentJobID + '/logs?stream=true',
+      url: baseURL + '/v1/job/' + currentJobID + '/logs?stream=true',
       responseType: 'text',
       headers: {
         'Accept': 'plain/text, text/javascript',
