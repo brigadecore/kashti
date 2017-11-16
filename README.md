@@ -35,8 +35,12 @@ image:
 ```
 $ eval $(minikube docker-env)
 $ npm docker-build
-$ helm install -n brigade-ui chart/kashti
+$ helm install -n brigade-ui chart/kashti --set brigade.apiServer=https://example.com:7745
 ```
 
 This will push a copy of the Docker image into your Minikube docker registry and
 then install the chart.
+
+The value of `brigade.apiServer` should be the fully qualified URL to your Brigade
+installation's API server. This is the URL that the _client_ will see, so you
+may need to use the outside IP address, not the cluster IP.
