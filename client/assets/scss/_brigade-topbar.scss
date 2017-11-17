@@ -79,7 +79,9 @@
         margin-right: 1.5rem;
         margin-top: -2px;
         font-size: 1.25rem;
-        width: 1.333rem;
+        width: 24px;
+        height: 24px;
+        display: inline-block;
         text-align: center;
         @include transition;
       }
