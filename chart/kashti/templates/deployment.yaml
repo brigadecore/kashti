@@ -29,8 +29,15 @@ spec:
             httpGet:
               path: /
               port: {{ .Values.service.internalPort }}
+          volumeMounts:
+            - name: config-js
+              mountPath: /usr/share/nginx/html/js/settings
           resources:
 {{ toYaml .Values.resources | indent 12 }}
+      volumes:
+        - name: config-js
+          configMap:
+            name: {{ template "fullname" . }}
     {{- if .Values.nodeSelector }}
       nodeSelector:
 {{ toYaml .Values.nodeSelector | indent 8 }}
