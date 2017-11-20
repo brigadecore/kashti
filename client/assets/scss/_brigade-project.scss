@@ -10,13 +10,13 @@
   }
 
   &:after {
-    background: linear-gradient(5deg, darken(#F0F1F6, 2%) 0%, lighten(#e6e9f0, 1%) 100%);
+    background: linear-gradient(adeg, darken(#F0F1F6, 2%) 0%, lighten(#e6e9f0, 1%) 100%);
     display: block;
     content: " ";
     top: 0;
     left: 16.67%;
     width: 110%;
-    height: 252px;
+    height: 260px;
     position: absolute;
     z-index: -100;
   }
@@ -134,7 +134,6 @@
     padding: 0;
     height: auto;
     margin: 0 2rem;
-    // display: inline-block;
     z-index: 750;
 
     &:last-child {
@@ -212,6 +211,8 @@
 
   .build-item {
     border: none;
+    height: 42px;
+    overflow: hidden;
 
     &:first-child {
       border: none;
@@ -225,7 +226,7 @@
       overflow: hidden;
       @include transition;
 
-      div {
+      span {
         font-family: $mono;
         font-size: 0.825rem;
         line-height: 2.25;
@@ -239,58 +240,90 @@
         padding-left: 0.1rem;
         position: relative;
         line-height: 1.725;
+        min-width: 3%;
+
+        div {
+          display: none;
+        }
+
+        &.success {
+          div.success {
+            display: inline-block;
+            color: $success;
+          }
+        }
+        &.failed {
+          div.failed {
+            display: inline-block;
+            color: $fail;
+          }
+        }
+        &.active {
+          div.active {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+          }
+        }
 
         .icon {
           font-size: 1.5rem;
           line-height: 0.5;
-          top: 0.25rem;
+          top: 3px;
+          left: -11px;
           background: darken($light3, 3.5%);
           position: absolute;
           z-index: 900;
           @include transition;
+        }
 
-          &.ion-checkmark-circled {
-            color: $success;
-          }
-
-          &.ion-close-circled {
-            color: $fail;
-          }
+        img {
+          position: relative;
+          left: -11px;
+          top: 3px;
+          width: 24px;
+          height: 24px;
+          position: absolute;
+          z-index: 900;
+          background-color: $light1;
+          border-radius: 50%;
         }
 
         &:after {
           width: 2px;
-          height: 40px;
-          left: 0.625rem;
+          height: 42px;
+          left: -2px;
           top: -4px;
           background: $light1;
           position: absolute;
           display: block;
           content: " ";
           z-index: 500;
+          opacity: 0.5;
         }
       }
 
       .act-author {
+        min-width: 16%;
+
         .avatar {
           max-width: 30px;
           border-radius: 0.25rem;
         }
-
-        padding-left: 2.5rem;
       }
 
       .act-message {
-        padding-left: 1.5rem;
+        min-width: 28%;
       }
       .act-hash {
-        padding-left: -1rem;
+        min-width: 11%;
       }
       .act-time-ago {
+        min-width: 10%;
 
       }
       .act-time-duration {
-
+        min-width: 10%;
       }
 
       &:after {
@@ -331,8 +364,8 @@
 
     &:first-of-type {
       .act-state:after {
-        top: 10px;
-        height: 30px;
+        top: 22px;
+        height: 20px;
       }
     }
   }

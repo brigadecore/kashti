@@ -6,7 +6,7 @@
     'ngResource',
     'ngAnimate',
     'hljs',
-    //foundation
+    'angularMoment',
     'foundation',
     'foundation.dynamicRouting',
     'foundation.dynamicRouting.animations'
