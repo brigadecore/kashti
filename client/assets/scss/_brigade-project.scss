@@ -248,6 +248,14 @@
           position: absolute;
           z-index: 900;
           @include transition;
+
+          &.ion-checkmark-circled {
+            color: $success;
+          }
+
+          &.ion-close-circled {
+            color: $fail;
+          }
         }
 
         &:after {
@@ -273,10 +281,10 @@
       }
 
       .act-message {
-        padding-left: 2.5rem;
+        padding-left: 1.5rem;
       }
       .act-hash {
-
+        padding-left: -1rem;
       }
       .act-time-ago {
 

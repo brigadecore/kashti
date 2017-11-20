@@ -146,13 +146,13 @@ controller: projectController
                 <div class="failed" ng-show="build.worker.status == 'Failed'"><i class="icon ion-close-circled"></i> Failed</div>
                 <div class="active" ng-show="build.worker.status == 'Pending'"><img src="assets/images/rolling.svg" /> In Progress</div>
               </div>
-              <div class="act-author small-2 collapse">
+              <div class="act-author small-3 collapse">
                 {{build.provider}}:{{build.type}}
               </div>
-              <div class="act-message small-4 collapse">
+              <div class="act-message small-3 collapse">
                 {{ build.id }}
               </div>
-              <div class="act-hash small-2 collapse">{{build.commit | limitTo : -6: number.length }}</div>
+              <div class="act-hash small-1 collapse">{{build.commit | limitTo : -6: number.length }}</div>
               <div class="act-time-ago small-1 collapse">{{ build.worker.start_time }}</div>
               <div class="act-time-duration small-1 collapse">{{ build.worker.start_time }}</div>
               <div class="act-child-jobs small-2 collapse">
