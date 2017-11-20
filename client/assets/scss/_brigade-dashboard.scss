@@ -61,18 +61,20 @@
     }
 
     h2 {
-      margin: 1.25rem 0 0 4rem;
-      font-size: 1.333rem;
+      margin: 1.2rem 2rem 0 4rem;
+      font-size: 1.5rem;
+      line-height: 1.25;
       color: $dark1;
       @include transition;
+      @include wordwrap;
     }
 
     h4 {
       @include uppercase;
       font-size: 0.667rem;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.15em;
       color: darken($light1, 15%);
-      margin: 0 0 1rem 4rem;
+      margin: 0.825rem 0 1rem 4rem;
     }
 
     &:hover {
@@ -106,6 +108,23 @@
         margin-top: -2px;
         margin-left: -4px;
         background: darken($light2, 5%);
+      }
+
+      &::before {
+        font-size: 2rem;
+        text-align: left;
+        width: 28px;
+        height: 28px;
+        display: inline-block;
+        position: absolute;
+        top: 1.25rem;
+        left: 1.25rem;
+        z-index: 500;
+        display: block;
+        background: $light2;
+        border-radius: 50%;
+        border: 2px solid white;
+        content: ' ';
       }
 
       &:after {

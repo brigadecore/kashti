@@ -275,6 +275,14 @@
           position: absolute;
           z-index: 900;
           @include transition;
+
+          &.ion-checkmark-circled {
+            color: $success;
+          }
+
+          &.ion-close-circled {
+            color: $fail;
+          }
         }
 
         img {

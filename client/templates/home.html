@@ -5,63 +5,6 @@ animationIn: slideInRight
 controller: projectsController
 ---
 
-<div zf-panel position="left" id="sidebar" class="medium-grid-block collapse medium-2 large-2 vertical" ng-hide="$state.current.name === 'home'" ng-init="{projectID:project.id}">
-  <div class="grid-content collapse shrink">
-    <ul class="menu-bar primary">
-      <li id="organization" ng-controller="projectController">
-        <a href="" zf-popup-toggle="switcher">
-          <h2>{{ build.project.name | trim }}</h2>
-
-          <i class="icon ion-chevron-down right"></i>
-        </a>
-
-        <zf-popup id="switcher" class="switcher-wrap">
-          <small>Project</small>
-          <ul class="block-list" id="switcher-project" ng-controller="projectsController">
-            <li ng-repeat="project in projects"><a href="../brigade-ui/#!/project/{{project.id}}">{{project.name}}</a></li>
-          </ul>
-        </zf-popup>
-      </li>
-    </ul>
-  </div>
-  <div class="grid-content">
-    <nav>
-      <ul>
-        <li ng-class="{ 'active': $state.current.name === 'project'}">
-          <a href="../brigade-ui/#!/project/{{ $stateParams.id }}">Activity</a>
-        </li>
-        <li ng-class="{ 'active': $state.current.name === 'build'}">
-          <a href="../brigade-ui/#!/project/{{ $stateParams.id }}/{{build.id}}">Builds</a>
-
-          <ul>
-            <li class="active"><a>All</a></li>
-            <li><a>Deploys</a></li>
-            <li><a>Pulls</a></li>
-            <li><a>Pushes</a></li>
-            <li><a>Releases</a></li>
-            <li><a>Tests</a></li>
-          </ul>
-        </li>
-        <li><a href="../brigade-ui/#!/project/{{project.id}}">Pipelines</a></li>
-        <li><a zf-open="basicModal">Configuration</a></li>
-        <li><a href="../brigade-ui/#!/project/{{project.id}}">Speed</a></li>
-      </ul>
-    </nav>
-  </div>
-  <div class="grid-content collapse shrink avatar-section">
-    <nav>
-      <ul>
-        <li><a href="https://github.com/azure/brigade/tree/master/docs" target="_blank">
-          Docs
-        </a></li>
-        <li><a href="https://github.com/azure/brigade/issues/" target="_blank">
-          Support
-        </a></li>
-      </ul>
-    </nav>
-  </div>
-</div>
-
 <div class="medium-grid-block collapse medium-12 large-12 vertical">
   <div class="grid-block collapse vertical">
 
@@ -99,8 +42,7 @@ controller: projectsController
                     <strong>roflynnc@microsoft.com</strong>
                   </li>
                   <li><a href="/">User Settings</a></li>
-                  <li><a href="https://www.youtube.com/watch?v=G7RgN9ijwE4" target="_blank">Log Out</a></li>
-
+                  <li><a href="/">Log Out</a></li>
                 </ul>
               </zf-popup>
             </li>
@@ -119,13 +61,37 @@ controller: projectsController
             <div class="grid-content">
 
               <div class="grid-block">
-                <a class="add-project"><i class="icon ion-plus-circled"></i> Add a Project</a>
+
+                <a class="add-project" zf-open="showProjectHelp"><i class="icon ion-plus-circled"></i> Add a Project</a>
+
+                <!-- popup modal -->
+                <div zf-modal="showProjectHelp" id="showProjectHelp" class="modal-project-help">
+                  <div class="modal-inner">
+                    <h3>How to Add Projects</h3>
+                    <p>Projects are defined by a <code>brigade.js</code> file in your source code, which links your repo with <a target="_blank" href="//brigade.sh">Brigade</a>, to start listening for events (such as pushes to Github).</p>
+
+                    <p>Check out the <a target="_blank" href="https://deis.github.io/brigade/topics/scripting.html#brigade-scripts-projects-and-repositories">Brigade Docs</a> for details on configuring projects and repositories.</p>
+
+                    <em>Example:</em>
+                    <img src="assets/images/help-project.png" />
+                  </div>
+                </div>
+                <!-- /popup modal -->
+
               </div>
 
               <div class="grid-block" ng-controller="projectsController">
 
                 <section class="small-12 medium-6 large-4" ng-repeat="project in projects">
-                  <div class="project project-success">
+                  <div class="
+                    project
+                  ">
+                  <!--
+                    +
+                    project-success
+                    project-fail
+                    project-active
+                  -->
                     <a href="../brigade-ui/#!/project/{{project.id}}" class="">
                       <div class="status">
                         <i class="icon ion-checkmark-circled status-success"></i>

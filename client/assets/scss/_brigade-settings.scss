@@ -60,18 +60,21 @@ $active:  $brand2;
 }
 
 // link effect
-@mixin ripple($color: $pink) {
+@mixin ripple($color: $brand2) {
   position: relative;
-  display: inline-block;
+  // display: inline-block;
   text-align: center;
   @include transition;
 
   &::after {
     display: inline-block;
+    position: absolute;
     content: "";
     background: $color;
-    height: 3px;
+    height: 2px;
     width: 10%;
+    left: 40%;
+    bottom: -0.333em;
     opacity: 0;
     margin: -0.75em auto 0;
     @include transition;
@@ -79,6 +82,7 @@ $active:  $brand2;
 
   &:hover::after {
     width: 100%;
+    left: 0;
     opacity: 1;
   }
 }
@@ -94,4 +98,21 @@ $active:  $brand2;
 @mixin uppercase {
   text-transform: uppercase;
   letter-spacing: 0.125em;
+}
+
+@mixin wordwrap {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+@mixin ellipses {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
