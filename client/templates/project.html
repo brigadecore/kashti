@@ -151,14 +151,13 @@ controller: projectController
               <span class="act-message">
                 <em>#</em>{{build.id | limitTo:34 }}<small ng-if="build.id.length > 34">&#8230;</small>
               </span>
-              <span class="act-time-ago small-3 collapse">
-                Finished <span am-time-ago="build.worker.end_time"></span>.
-
-                <!--Ran for {{build.worker.start_time | amDurationFormat : 'minute' }}
-                {{ dateFrom | amDifference : dateTo : 'days' }}
-                {{ build.worker.start_time | date:'dd-M-yyyy H:mm Z' }} to {{ build.worker.end_time | date:'dd-M-yyyy H:mm Z'}}-->
+              <span class="act-time-ago">
+                {{build.worker.status}} <span am-time-ago="build.worker.end_time"></span>.
               </span>
-              <!-- <div class="act-child-jobs small-2 collapse">
+              <span class="act-time-duration">
+                Ran for <span>{{ build.worker.end_time | amDifference : build.worker.start_time : 'seconds' }} seconds.</span>
+              </span>
+              <!-- <div class="act-child-jobs">
                 {{ build.jobs.length }}
               </div> -->
             </a>
