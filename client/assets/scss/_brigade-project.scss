@@ -326,10 +326,13 @@
           .icon {
             font-size: 20px;
             float: left;
+            min-width: 20px;
+            text-align: center;
           }
 
           img {
             max-height: 18px;
+            max-width: 15px;
             margin-top: -4px;
             position: relative;
           }
