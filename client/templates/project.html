@@ -29,8 +29,11 @@ controller: projectController
       <ul>
         <li>
           <ul ng-controller="buildsController">
-            <li ng-class="{ 'active': $state.current.name === 'project'}" class="active"><a>All Events</a></li>
-            <li ng-repeat="build in builds | filter:provider""><a>{{build.provider}}</a></li>
+            <li ng-click="buildFilter = null" ng-class="{ 'active': $state.current.name == 'project' && buildFilter == null }" class="active"><a>All Events</a></li>
+            <li ng-click="buildFilter = 'brigade-cli'" ng-class="{ 'active': buildFilter == 'brigade-cli'}"><a>Brigade-cli</a></li>
+            <li ng-click="buildFilter = 'github'" ng-class="{ 'active': buildFilter == 'github'}"><a>Github</a></li>
+            <li ng-click="buildFilter = 'slack'" ng-class="{ 'active': buildFilter == 'slack'}"><a>Slack</a></li>
+            <li ng-click="buildFilter = 'trello'" ng-class="{ 'active': buildFilter == 'trello'}"><a>Trello</a></li>
           </ul>
         </li>
       </ul>
