@@ -240,7 +240,7 @@
         padding-left: 0.1rem;
         position: relative;
         line-height: 1.725;
-        min-width: 3%;
+        min-width: 3.5%;
 
         div {
           display: none;
@@ -313,10 +313,29 @@
 
       .act-author {
         min-width: 16%;
+        position: relative;
+        padding-left: 20px;
 
-        .avatar {
-          max-width: 30px;
-          border-radius: 0.25rem;
+        .act-avatar {
+          position: absolute;
+          top: -7px;
+          left: -5px;
+          opacity: 0.5;
+          @include transition;
+
+          .icon {
+            font-size: 20px;
+            float: left;
+            min-width: 20px;
+            text-align: center;
+          }
+
+          img {
+            max-height: 18px;
+            max-width: 15px;
+            margin-top: -4px;
+            position: relative;
+          }
         }
       }
 
@@ -356,6 +375,10 @@
         opacity: 1;
         width: auto;
         right: 0.925rem;
+      }
+
+      .act-avatar {
+        opacity: 1;
       }
 
       .act-state {
