@@ -137,7 +137,7 @@
       },
       isArray: true
     }).then(function successCallback(response) {
-        $scope.build = response.data;
+      $scope.build = response.data;
     },
       function errorCallback(response) {}
     );

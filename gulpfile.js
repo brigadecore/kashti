@@ -45,7 +45,7 @@ var paths = {
     'bower_components/angular-resource/angular-resource.js',
     'bower_components/angular-highlightjs/angular-highlightjs.js',
     'bower_components/moment/min/moment.min.js',
-    'bower_components/angular-moment/angular-moment.min.js',
+    'bower_components/angular-moment/angular-moment.js',
     'bower_components/foundation-apps/js/vendor/**/*.js',
     'bower_components/foundation-apps/js/angular/**/*.js',
     '!bower_components/foundation-apps/js/angular/app.js'
