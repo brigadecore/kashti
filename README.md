@@ -27,7 +27,7 @@ The UI prototype is deployed via a `gulp deploy`.
 To install the Brigade UI to a Kubernetes cluster:
 
 1. Ensure that Brigade is already running
-2. Install the chart: `helm install chart/kashti`
+2. Install the chart: `helm install charts/kashti`
 
 If you are running Minikube, you can do a full build of this repo into a Docker
 image:
@@ -35,7 +35,7 @@ image:
 ```
 $ eval $(minikube docker-env)
 $ npm run-script docker-build
-$ helm install -n brigade-ui chart/kashti --set brigade.apiServer=https://example.com:7745
+$ helm install -n brigade-ui charts/kashti --set brigade.apiServer=https://example.com:7745
 ```
 
 This will push a copy of the Docker image into your Minikube docker registry and
