@@ -34,7 +34,7 @@ image:
 
 ```
 $ eval $(minikube docker-env)
-$ npm docker-build
+$ npm run-script docker-build
 $ helm install -n brigade-ui chart/kashti --set brigade.apiServer=https://example.com:7745
 ```
 
