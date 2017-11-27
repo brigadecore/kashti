@@ -4,7 +4,8 @@
   "scripts": {
     "start": "gulp",
     "build": "gulp build --production",
-    "docker-build": "gulp docker-build && docker build -t technosophos/kashti:latest ."
+    "docker-build": "gulp docker-build && docker build -t deis/kashti:latest .",
+    "docker-push": "docker push deis/kashti"
   },
   "devDependencies": {
     "angular-cors": "^1.0.0",
