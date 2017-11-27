@@ -218,6 +218,14 @@
       border: none;
     }
 
+    // filters
+    a.visible {
+      display: block !important;
+    }
+    a.hidden {
+      display: none !important;
+    }
+
     a {
       text-align: left;
       padding: 0.25rem 1.25rem;
@@ -312,7 +320,7 @@
       }
 
       .act-author {
-        min-width: 16%;
+        min-width: 15%;
         position: relative;
         padding-left: 20px;
 
@@ -340,16 +348,16 @@
       }
 
       .act-message {
-        min-width: 28%;
+        min-width: 26%;
       }
       .act-hash {
-        min-width: 11%;
+        min-width: 9%;
       }
       .act-time-ago {
-        min-width: 18%;
+        min-width: 22%;
       }
       .act-time-duration {
-        min-width: 10%;
+        min-width: 16%;
       }
 
       &:after {
