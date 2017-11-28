@@ -3,7 +3,7 @@ brigade:
 
 replicaCount: 1
 image:
-  repository: technosophos/kashti
+  repository: deis/kashti
   tag: latest
   pullPolicy: IfNotPresent
 service:
