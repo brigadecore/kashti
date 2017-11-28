@@ -190,6 +190,18 @@
                 position: relative;
                 left: auto;
                 top: auto;
+                filter: gray;
+                -webkit-filter: grayscale(1);
+                filter: grayscale(1);
+                background-color: transparent;
+              }
+            }
+
+            &:hover {
+              img {
+                filter: none;
+                -webkit-filter: grayscale(0);
+                filter: grayscale(0);
               }
             }
           }
