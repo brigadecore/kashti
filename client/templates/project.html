@@ -26,14 +26,30 @@ controller: projectController
   </div>
   <div class="grid-content">
     <nav>
+      <h4>Event types:</h4>
       <ul>
         <li>
-          <ul ng-controller="buildsController" ng-model="filterMenu">
-            <li ng-click="buildFilter = null" ng-class="{ 'active': $state.current.name == 'project' && buildFilter == null }" class="active" ng-init="buildFilter(null)" ng-model="content"><a>All Events</a></li>
-            <li ng-click="buildFilter = 'brigade-cli'" ng-class="{ 'active': buildFilter == 'brigade-cli'}"><a>Brigade-cli</a></li>
-            <li ng-click="buildFilter = 'github'" ng-class="{ 'active': buildFilter == 'github'}"><a>Github</a></li>
-            <li ng-click="buildFilter = 'slack'" ng-class="{ 'active': buildFilter == 'slack'}"><a>Slack</a></li>
-            <li ng-click="buildFilter = 'trello'" ng-class="{ 'active': buildFilter == 'trello' }"><a>Trello</a></li>
+          <ul ng-controller="buildsController" ng-model="filterMenu" class="build-filter-menu">
+            <li ng-click="buildFilter = null" ng-class="{ 'active': $state.current.name == 'project' && buildFilter == null }" class="active" ng-init="buildFilter(null)" ng-model="content"><a>
+              <i class="icon ion-ios-pulse-strong"></i>
+              All
+            </a></li>
+            <li ng-click="buildFilter = 'brigade-cli'" ng-class="{ 'active': buildFilter == 'brigade-cli'}"><a>
+              <i class="icon ion-ios-bolt"></i>
+              Brigade-cli
+            </a></li>
+            <li ng-click="buildFilter = 'github'" ng-class="{ 'active': buildFilter == 'github'}"><a>
+              <i class="icon ion-social-github"></i>
+              Github
+            </a></li>
+            <li ng-click="buildFilter = 'slack'" ng-class="{ 'active': buildFilter == 'slack'}"><a>
+              <i class="icon avatar-slack"><img src="assets/images/slack.png" /></i>
+              Slack
+            </a></li>
+            <li ng-click="buildFilter = 'trello'" ng-class="{ 'active': buildFilter == 'trello' }"><a>
+              <i class="icon avatar-trello"><img src="assets/images/trello.png" /></i>
+              Trello
+            </a></li>
           </ul>
         </li>
       </ul>
