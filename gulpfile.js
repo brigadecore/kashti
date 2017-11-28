@@ -52,8 +52,7 @@ var paths = {
   ],
   // These files are for your app's JavaScript
   appJS: [
-    'client/assets/js/app.js',
-    'client/assets/js/settings/settings.js'
+    'client/assets/js/app.js'
   ]
 }
 
@@ -163,7 +162,7 @@ gulp.task('base-local', function() {
 // Prep the templates for Docker build
 gulp.task('base-docker', function() {
   return gulp.src('./client/index.html')
-    .pipe(replace('base href="/brigade-ui/"', 'base href="/"'))
+    .pipe(replace('base href="/"', 'base href="/brigade-ui/"'))
     .pipe(gulp.dest('./client/'))
     .pipe(gulp.dest('./dist/'))
 });
