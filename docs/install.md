@@ -65,7 +65,7 @@ $ kubectl port-forward kashti-kashti-54bf55b988-dsbhf 8080:80 &
 
 At this point, you have:
 
-- Kashti listening on `http://localhost:8080`. This is the URL you put in your browser.
+- Kashti listening on `http://localhost:8080/brigade-ui`. This is the URL you put in your browser.
 - Brigade API listening on `http://localhost:7745`, with Kashti automatically configed
   to talk to it.
 
@@ -107,6 +107,8 @@ endpoint shown by this command:
 ```
 $ kubectl get --no-headers svc kashti-kashti | awk '{ print $4 }'
 ```
+
+Thus, your URL will be something like `http://10.21.77.4/brigade-ui`.
 
 ## With SSL/TLS
 
