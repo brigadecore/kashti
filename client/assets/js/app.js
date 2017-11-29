@@ -105,6 +105,21 @@
     },
       function errorCallback(response) {}
     );
+
+    $scope.providers = [
+      {
+        name : 'github'
+      },
+      {
+        name : 'brigade-cli'
+      },
+      {
+        name : 'slack'
+      },
+      {
+        name : 'trello'
+      }
+    ];
   }]);
 
   app.controller("buildsController", ['$scope', '$stateParams', '$http',

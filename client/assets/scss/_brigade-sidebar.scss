@@ -147,60 +147,148 @@
     padding: 0;
   }
 
-  nav ul {
-    list-style: none;
-    margin: 0 0 -10px;
-    padding: 0;
+  nav {
 
-    li {
-      margin: 0;
-      padding-top: 0.425rem;
-      @include transition;
+    h4 {
+      @include uppercase;
+      font-size: 0.825rem;
+      opacity: 0.25;
+      margin: 1.75rem 0 -0.5rem 1.5rem;
+    }
 
-      a {
-        display: block;
-        padding: 0.75rem 1rem 0.75rem 1rem;
-        border-radius: 3px;
-        margin: 0 5%;
-        line-height: 0.8;
-        position: relative;
-        color: darken($dark3, 7.5%);
-        @include europaBold;
-        @include transition;
-      }
+    ul {
+      list-style: none;
+      margin: 0 0.25rem -10px;
+      padding: 0;
 
-      li:hover a {
-        color: $dark1;
-        background: $light1;
-      }
-
-      li.active a {
-        background: white;
-        color: $dark1;
-      }
-
-      ul {
-        margin: -0.5rem 0 0 0.425rem;
-        padding: 0;
+      &.build-filter-menu {
+        font-size: 1.5rem;
 
         li {
           a {
-            font-size: 0.925rem;
-            font-family: $europa;
-            font-weight: normal;
-            line-height: 1.636;
-            display: inline-block;
-            border-radius: 2rem;
-            padding: 0 0.65rem;
+            padding: 0.75rem 1.5rem 0.75rem 2.5rem;
+            display: block;
+            position: relative;
+            border-radius: 0.25rem;
+
+            .icon {
+              position: absolute;
+              left: 0.5rem;
+              top: 0.75rem;
+              background-color: transparent;
+              text-align: center;
+
+              &.ion-ios-bolt,
+              &.ion-social-github,
+              &.ion-ios-pulse-strong {
+                min-width: 20px;
+                top: 0.7rem;
+                text-align: center;
+              }
+
+              img {
+                position: relative;
+                left: auto;
+                top: auto;
+                filter: gray;
+                -webkit-filter: grayscale(1);
+                filter: grayscale(1);
+                background-color: transparent;
+              }
+            }
+
+            &:hover {
+              img {
+                filter: none;
+                -webkit-filter: grayscale(0);
+                filter: grayscale(0);
+              }
+            }
           }
         }
       }
 
-      &:first-child {
-        padding-top: 1rem;
-      }
-      &:last-child {
-        padding-bottom: 1.5rem;
+      li {
+        margin: 0;
+        padding-top: 0.425rem;
+        @include transition;
+
+        a {
+          display: block;
+          padding: 0.75rem 1rem 0.75rem 1rem;
+          border-radius: 3px;
+          margin: 0 5%;
+          line-height: 0.8;
+          position: relative;
+          color: darken($dark3, 7.5%);
+          @include europaBold;
+          @include transition;
+
+          .icon {
+            font-size: 1.5rem;
+            line-height: 0.5;
+            top: 3px;
+            left: -11px;
+            background: darken($light3, 3.5%);
+            // position: absolute;
+            z-index: 900;
+            @include transition;
+
+            &.ion-checkmark-circled {
+              color: $success;
+            }
+
+            &.ion-close-circled {
+              color: $fail;
+            }
+          }
+
+          img {
+            position: relative;
+            left: -11px;
+            top: 3px;
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            z-index: 900;
+            background-color: $light1;
+            border-radius: 50%;
+          }
+        }
+
+        li:hover a {
+          color: $dark1;
+          background: $light1;
+        }
+
+        li.active a {
+          background: white;
+          color: $dark1;
+        }
+
+        ul {
+          margin: -0.5rem 0 0 0.425rem;
+          padding: 0;
+
+          li {
+            a {
+              font-size: 0.925rem;
+              font-family: $europa;
+              font-weight: normal;
+              line-height: 1.636;
+              display: inline-block;
+              border-radius: 2rem;
+              padding: 0 0.65rem;
+            }
+          }
+        }
+
+        &:first-child {
+          padding-top: 1rem;
+        }
+        &:last-child {
+          padding-bottom: 1.5rem;
+        }
       }
     }
   }

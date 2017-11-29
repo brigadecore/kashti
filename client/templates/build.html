@@ -28,14 +28,13 @@ controller: buildController
   <div class="grid-content">
     <nav>
       <ul>
-        <li ng-class="{ 'active': $state.current.name === 'project'}">
-
-          <ul>
-            <li class="active"><a>All Events</a></li>
-            <li><a>Github</a></li>
-            <li><a>Docker</a></li>
-            <li><a>Slack</a></li>
-            <li><a>Trello</a></li>
+        <li>
+          <ul ng-controller="buildsController">
+            <li ng-click="buildFilter = null" ng-class="{ 'active': $state.current.name == 'project' && buildFilter == null }" class="active"><a href="../brigade-ui/#!/project/{{build.project_id}}">All Events</a></li>
+            <li ng-click="buildFilter = 'brigade-cli'" ng-class="{ 'active': buildFilter == 'brigade-cli'}"><a href="../brigade-ui/#!/project/{{build.project_id}}">Brigade-cli</a></li>
+            <li ng-click="buildFilter = 'github'" ng-class="{ 'active': buildFilter == 'github'}"><a href="../brigade-ui/#!/project/{{build.project_id}}">Github</a></li>
+            <li ng-click="buildFilter = 'slack'" ng-class="{ 'active': buildFilter == 'slack'}"><a href="../brigade-ui/#!/project/{{build.project_id}}">Slack</a></li>
+            <li ng-click="buildFilter = 'trello'" ng-class="{ 'active': buildFilter == 'trello'}"><a href="../brigade-ui/#!/project/{{build.project_id}}">Trello</a></li>
           </ul>
         </li>
       </ul>
