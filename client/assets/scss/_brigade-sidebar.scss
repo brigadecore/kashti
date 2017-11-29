@@ -93,6 +93,22 @@
         border-bottom: 2px solid darken($light2, 2%);
       }
 
+      h2 {
+        margin: 0;
+        color: $dark2;
+        display: block;
+        text-align: left;
+        font-size: 1rem;
+      }
+
+      h3 {
+        margin: 0;
+        color: $dark3;
+        display: block;
+        font-size: 0.575rem;
+        @include uppercase;
+      }
+
       a {
         display: block;
         padding: 1.125rem 10% 0 1rem;
@@ -113,22 +129,6 @@
           border-radius: 50%;
           border: 1px solid darken($light1, 2.5%);
           @include transition;
-        }
-
-        h2 {
-          margin: 0;
-          color: $dark2;
-          display: block;
-          text-align: left;
-          font-size: 1rem;
-        }
-
-        h3 {
-          margin: 0;
-          color: $dark3;
-          display: block;
-          font-size: 0.575rem;
-          @include uppercase;
         }
 
         &:hover {

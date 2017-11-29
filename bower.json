@@ -29,6 +29,7 @@
     "angular-gantt": "^1.3.3",
     "angular-moment": "^1.0.1",
     "angular-resource": "1.4.2",
-    "angular-highlightjs": "^0.7.1"
+    "angular-highlightjs": "^0.7.1",
+    "angular-dropdowns": "^1.5.1"
   }
 }
