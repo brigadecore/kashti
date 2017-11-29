@@ -47,7 +47,7 @@ Once Brigade is running, you can install Kashti, setting the API server endpoint
 to your localhost.
 
 ```console
-$ helm install -n kashti ./chart/kashti --set brigade.apiServer=localhost:7745
+$ helm install -n kashti ./charts/kashti --set brigade.apiServer=localhost:7745
 ```
 
 This will install Kashti, and configure it _specifically for tunneling_. Now you
