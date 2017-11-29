@@ -7,6 +7,7 @@
     'ngAnimate',
     'hljs',
     'angularMoment',
+    'ngDropdowns',
     'foundation',
     'foundation.dynamicRouting',
     'foundation.dynamicRouting.animations'
@@ -68,6 +69,7 @@
       $rootScope.$stateParams = $stateParams;
   }])
 
+
   app.controller("projectsController", ['$scope', '$stateParams', '$http',
        function ($scope, $stateParams, $http) {
     $http({
@@ -80,10 +82,20 @@
       }
     }).then(function successCallback(response) {
         $scope.projects = response.data;
+
+        // angular-dropdowns
+        // $scope.ddSelectOptions = response.data;
+        $scope.ddSelectOptions = [
+          {
+            text: response.data.name,
+            value: response.data.id
+          }
+        ];
     },
       function errorCallback(response) {}
     );
   }]);
+
 
   app.controller("projectController", ['$scope', '$stateParams', '$http',
        function ($scope, $stateParams, $http) {
@@ -102,10 +114,14 @@
 
         var projectID = $scope.project.name;
         console.log('the project is ' + projectID );
+
+        // angular-dropdowns
+        $scope.ddSelectSelected = projectID;
     },
       function errorCallback(response) {}
     );
   }]);
+
 
   app.controller("buildsController", ['$scope', '$stateParams', '$http',
        function ($scope, $stateParams, $http) {
