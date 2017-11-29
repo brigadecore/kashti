@@ -66,29 +66,6 @@ controller: projectController
             <li ng-show="$state.current.name === 'build'"><a href="/#!/build/{{build.id}}">Build {{ $stateParams.build.id}}</a></li>
           </ul>
         </div>
-        <div class="menu-group-right">
-          <ul class="icon-right menu-bar">
-            <li>
-              <a href="" zf-popup-toggle="account-menu">
-                <i class="icon ion-person rounded right"></i>
-                <small>
-                  <i class="icon ion-chevron-down right"></i>
-                </small>
-              </a>
-
-              <zf-popup id="account-menu" class="account-dropdown">
-                <ul class="block-list">
-                  <li class="account-user">
-                    <small>Logged in as:</small>
-                    <strong>roflynnc@microsoft.com</strong>
-                  </li>
-                  <li><a href="/">User Settings</a></li>
-                  <li><a href="/">Log Out</a></li>
-                </ul>
-              </zf-popup>
-            </li>
-          </ul>
-        </div>
       </div>
     </div>
     <!-- /#header -->
