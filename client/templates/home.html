@@ -68,7 +68,7 @@ controller: projectsbuildsController
                   }">
                     <a href="../brigade-ui/#!/project/{{projectsbuild.project.id}}" class="">
 
-                      <div class="status" ng-hide="projectsbuild.lastBuild.worker.status == null">
+                      <div class="status">
                         <div class="success" ng-show="projectsbuild.lastBuild.worker.status == 'Succeeded'"><i class="icon ion-checkmark-circled status-success"></i></div>
                         <div class="failed" ng-show="projectsbuild.lastBuild.worker.status == 'Failed'"><i class="icon ion-close-circled status-fail"></i></div>
                         <div class="active" ng-show="projectsbuild.lastBuild.worker.status == 'Active'"><img src="assets/images/rolling.svg" class="status-active" /></div>
@@ -79,11 +79,12 @@ controller: projectsbuildsController
 
                       <div class="activity">
                         <ul>
-                          <li ng-hide="projectsbuild.lastBuild.worker.status == null">
-                            {{projectsbuild.lastBuild.provider}}:{{projectsbuild.lastBuild.type}} {{projectsbuild.lastBuild.commit}} - <span am-time-ago="projectsbuild.lastBuild.worker.end_time"></span>
-                            <br>
-                            <em>#</em>{{projectsbuild.lastBuild.id}}
-
+                          <li>
+                            <span ng-hide="projectsbuild.lastBuild.worker.status == null">
+                                {{projectsbuild.lastBuild.provider}}:{{projectsbuild.lastBuild.type}} {{projectsbuild.lastBuild.commit}} - <span am-time-ago="projectsbuild.lastBuild.worker.end_time"></span>
+                              <br>
+                              <em>#</em>{{projectsbuild.lastBuild.id}}
+                            </span>
                           </li>
                         </ul>
                       </div>
