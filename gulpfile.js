@@ -89,27 +89,6 @@ gulp.task('copy:templates', function() {
   ;
 });
 
-// Compiles the Foundation for Apps directive partials into a single JavaScript file
-gulp.task('copy:foundation', function(cb) {
-  gulp.src('bower_components/foundation-apps/js/angular/components/**/*.html')
-    .pipe($.ngHtml2js({
-      prefix: 'components/',
-      moduleName: 'foundation',
-      declareModule: false
-    }))
-    .pipe($.uglify())
-    .pipe($.concat('templates.js'))
-    .pipe(gulp.dest('./dist/assets/js'))
-  ;
-
-  // Iconic SVG icons
-  gulp.src('./bower_components/foundation-apps/iconic/**/*')
-    .pipe(gulp.dest('./dist/assets/img/iconic/'))
-  ;
-
-  cb();
-});
-
 // Compiles Sass
 gulp.task('sass', function () {
   var minifyCss = $.if(isProduction, $.minifyCss());
@@ -130,6 +109,27 @@ gulp.task('sass', function () {
 
 // Compiles and copies the Foundation for Apps JavaScript, as well as your app's custom JS
 gulp.task('uglify', ['uglify:foundation', 'uglify:app'])
+
+// Compiles the Foundation for Apps directive partials into a single JavaScript file
+gulp.task('copy:foundation', function (cb) {
+  gulp.src('bower_components/foundation-apps/js/angular/components/**/*.html')
+    .pipe($.ngHtml2js({
+      prefix: 'components/',
+      moduleName: 'foundation',
+      declareModule: false
+    }))
+    .pipe($.uglify())
+    .pipe($.concat('foundation_templates.js'))
+    .pipe(gulp.dest('./dist/assets/js'))
+    ;
+
+  // Iconic SVG icons
+  gulp.src('./bower_components/foundation-apps/iconic/**/*')
+    .pipe(gulp.dest('./dist/assets/images/iconic/'))
+    ;
+
+  cb();
+});
 
 gulp.task('uglify:foundation', function(cb) {
   var uglify = $.if(isProduction, $.uglify()
