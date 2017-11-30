@@ -6,16 +6,16 @@ This guide explains how to work on the Kashti codebase.
 
 Begin by cloning this repository with your favorite Git tool.
 
-Install dependancies and run the app with these commands. If bower asks for clarification, opt to install angular `1.4.14`.
+Install dependancies and run the app with these commands. 
 
 ```
-npm install && bower install
-npm start
+yarn        #install project dependencies
+npm start   #start a local server
 ```
 
 ### Deployment
 
-The UI prototype can be deployed locally via a `gulp deploy`.
+Kashti can be run locally via a `npm start`.
 
 To install in a Kubernetes development cluster, we recommend using the chart.
 
@@ -37,4 +37,3 @@ may need to use the outside IP address, not the cluster IP.
 
 The example above can be used along with a few `kubectl port-forward` commands to
 locally access your Kashti UI. SEe the [Install Guide](install.md) for more.
-
