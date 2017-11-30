@@ -6,10 +6,6 @@
   version "0.0.0"
   resolved "https://codeload.github.com/driftyco/ionicons/tar.gz/ecb4b806831005c25b97ed9089fbb1d7dcc0879c"
 
-"@bower_components/angular-animate@angular/bower-angular-animate#~1.4.7":
-  version "1.4.14"
-  resolved "https://codeload.github.com/angular/bower-angular-animate/tar.gz/e7f778fc054a086ba3326d898a00fa1bc78650a8"
-
 "@bower_components/angular-gantt@angular-gantt/angular-gantt#^1.3.3":
   version "1.3.3"
   resolved "https://codeload.github.com/angular-gantt/angular-gantt/tar.gz/bb3a3995081d3f75fb942c791c919689889ec54c"
@@ -34,10 +30,6 @@
 "@bower_components/angular-ui-router@angular-ui/angular-ui-router-bower#~0.2.12":
   version "0.0.0"
   resolved "https://codeload.github.com/angular-ui/angular-ui-router-bower/tar.gz/2b8d5241b4c631ca2aef079bb96690b213eff449"
-
-"@bower_components/angular@angular/bower-angular#1.4.14":
-  version "1.4.14"
-  resolved "https://codeload.github.com/angular/bower-angular/tar.gz/63133dadd7831af4226b7ceaf8be8b68a7e284d9"
 
 "@bower_components/fastclick@ftlabs/fastclick#~1.0.6":
   version "1.0.6"
@@ -95,6 +87,10 @@ amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
 
+angular-animate@~1.4.7:
+  version "1.4.14"
+  resolved "https://registry.yarnpkg.com/angular-animate/-/angular-animate-1.4.14.tgz#ee4068cafdb7e230026319ec6cb9207aca898038"
+
 angular-cors@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/angular-cors/-/angular-cors-1.0.0.tgz#84764dcc9f3541c399011a02f88b52f21ee5e6a4"
@@ -102,6 +98,10 @@ angular-cors@^1.0.0:
 angular@^1.0.1:
   version "1.6.7"
   resolved "https://registry.yarnpkg.com/angular/-/angular-1.6.7.tgz#0f89837dae1776b01ccb1fa2096db0d9373d9897"
+
+angular@~1.4.14:
+  version "1.4.14"
+  resolved "https://registry.yarnpkg.com/angular/-/angular-1.4.14.tgz#9d0feaf60ce6e52ce50f49ee328656d1e1875c37"
 
 ansi-regex@^0.2.0, ansi-regex@^0.2.1:
   version "0.2.1"
