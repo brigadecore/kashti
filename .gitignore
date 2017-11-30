@@ -7,3 +7,4 @@ build/
 dist/
 bower_components/
 node_modules/
+yarn-error.log

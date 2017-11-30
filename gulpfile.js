@@ -30,25 +30,25 @@ var paths = {
   // Sass will check these folders for files when you use @import.
   sass: [
     'client/assets/scss',
-    'bower_components/foundation-apps/scss'
+    'node_modules/@bower_components/foundation-apps/scss'
   ],
   // These files include Foundation for Apps and its dependencies
   foundationJS: [
-    'bower_components/fastclick/lib/fastclick.js',
-    'bower_components/viewport-units-buggyfill/viewport-units-buggyfill.js',
-    'bower_components/tether/tether.js',
-    'bower_components/hammerjs/hammer.js',
+    'node_modules/@bower_components/fastclick/lib/fastclick.js',
+    'node_modules/@bower_components/viewport-units-buggyfill/viewport-units-buggyfill.js',
+    'node_modules/@bower_components/tether/tether.js',
+    'node_modules/@bower_components/hammerjs/hammer.js',
     'node_modules/highlight.js/lib/highlight.js',
-    'bower_components/angular/angular.js',
-    'bower_components/angular-animate/angular-animate.js',
-    'bower_components/angular-ui-router/release/angular-ui-router.js',
-    'bower_components/angular-resource/angular-resource.js',
-    'bower_components/angular-highlightjs/angular-highlightjs.js',
-    'bower_components/moment/min/moment.min.js',
-    'bower_components/angular-moment/angular-moment.js',
-    'bower_components/foundation-apps/js/vendor/**/*.js',
-    'bower_components/foundation-apps/js/angular/**/*.js',
-    '!bower_components/foundation-apps/js/angular/app.js'
+    'node_modules/@bower_components/angular/angular.js',
+    'node_modules/@bower_components/angular-animate/angular-animate.js',
+    'node_modules/@bower_components/angular-ui-router/release/angular-ui-router.js',
+    'node_modules/@bower_components/angular-resource/angular-resource.js',
+    'node_modules/@bower_components/angular-highlightjs/angular-highlightjs.js',
+    'node_modules/@bower_components/moment/min/moment.min.js',
+    'node_modules/@bower_components/angular-moment/angular-moment.js',
+    'node_modules/@bower_components/foundation-apps/js/vendor/**/*.js',
+    'node_modules/@bower_components/foundation-apps/js/angular/**/*.js',
+    '!node_modules/@bower_components/foundation-apps/js/angular/app.js'
   ],
   // These files are for your app's JavaScript
   appJS: [
@@ -112,7 +112,7 @@ gulp.task('uglify', ['uglify:foundation', 'uglify:app'])
 
 // Compiles the Foundation for Apps directive partials into a single JavaScript file
 gulp.task('copy:foundation', function (cb) {
-  gulp.src('bower_components/foundation-apps/js/angular/components/**/*.html')
+  gulp.src('node_modules/@bower_components/foundation-apps/js/angular/components/**/*.html')
     .pipe($.ngHtml2js({
       prefix: 'components/',
       moduleName: 'foundation',
@@ -124,7 +124,7 @@ gulp.task('copy:foundation', function (cb) {
     ;
 
   // Iconic SVG icons
-  gulp.src('./bower_components/foundation-apps/iconic/**/*')
+  gulp.src('./node_modules/@bower_components/foundation-apps/iconic/**/*')
     .pipe(gulp.dest('./dist/assets/images/iconic/'))
     ;
 
