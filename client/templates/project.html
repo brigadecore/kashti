@@ -9,18 +9,7 @@ controller: projectController
   <div class="grid-content collapse shrink">
     <ul class="menu-bar primary">
       <li id="organization" ng-controller="projectController">
-        <a zf-popup-toggle="switcher">
-          <h2>{{ project.name | limitTo:18 }}<small ng-if="project.name.length > 18">&#8230;</small></h2>
-
-          <i class="icon ion-chevron-down right"></i>
-        </a>
-
-        <zf-popup id="switcher" class="switcher-wrap" ng-show="!hideSwitcher">
-          <small>Projects</small>
-          <ul class="block-list" id="switcher-project" ng-controller="projectsController">
-            <li ng-repeat="project in projects"><a href="../brigade-ui/#!/project/{{project.id}}" ng-click="hideSwitcher = true">{{project.name}}</a></li>
-          </ul>
-        </zf-popup>
+        <h2>{{ project.name | limitTo:18 }}<small ng-if="project.name.length > 18">&#8230;</small></h2>
       </li>
     </ul>
   </div>
