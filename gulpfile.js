@@ -72,6 +72,11 @@ gulp.task('copy', function() {
     .pipe(gulp.dest('./dist'))
   ;
 });
+gulp.task('copy-settings', function() {
+  return gulp.src('./client/assets/js/settings/settings.js')
+    .pipe(gulp.dest('./dist/assets/js/settings/'))
+  ;
+});
 
 // Copies your app's page templates and generates URLs for them
 gulp.task('copy:templates', function() {
@@ -155,7 +160,7 @@ gulp.task('uglify:app', function() {
 // Prep the templates for local server
 gulp.task('base-local', function() {
   return gulp.src('./client/index.html')
-    .pipe(replace('base href="/brigade-ui/"', 'base href="/"'))
+    .pipe(replace('base href="/kashti/"', 'base href="/"'))
     .pipe(gulp.dest('./client/'))
 });
 
@@ -172,15 +177,16 @@ gulp.task('docker-build', function(cb) {
 });
 
 // Prep the templates for deploy to gh-pages
-gulp.task('base-prod', function() {
+gulp.task('base-gh-pages', function() {
   return gulp.src('./client/index.html')
-    .pipe(replace('base href="/"', 'base href="/brigade-ui/"'))
+    .pipe(replace('base href="/"', 'base href="/kashti/"'))
     .pipe(gulp.dest('./client/'))
     .pipe(gulp.dest('./dist/'))
+  ;
 });
 
 // Deploys the dist app to gh-pages
-gulp.task('deploy', ['base-prod'], function() {
+gulp.task('deploy', ['base-gh-pages'], function() {
   return gulp.src('./dist/**/*')
     .pipe(deploy());
 });
@@ -209,7 +215,7 @@ gulp.task('server', ['build'], function() {
 
 // Builds your entire app once, without starting a server
 gulp.task('build', function(cb) {
-  sequence('clean', 'base-local', ['copy', 'copy:foundation', 'sass', 'uglify'], 'copy:templates', cb);
+  sequence('clean', 'base-local', ['copy', 'copy-settings', 'copy:foundation', 'sass', 'uglify'], 'copy:templates', cb);
 });
 
 // Default task: builds your app, starts a server, and recompiles assets when they change

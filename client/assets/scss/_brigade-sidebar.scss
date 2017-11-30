@@ -19,10 +19,10 @@
     height: 58px;
 
     img {
-      max-width: 32px;
+      width: 36px;
       position: absolute;
-      top: 12px;
-      left: 11px;
+      top: 11px;
+      left: 10px;
     }
 
     &:hover {
@@ -93,52 +93,13 @@
         border-bottom: 2px solid darken($light2, 2%);
       }
 
-      a {
+      h2 {
+        margin: 0;
+        color: $dark2;
         display: block;
+        text-align: left;
+        font-size: 1rem;
         padding: 1.125rem 10% 0 1rem;
-        @include transition;
-
-        .icon {
-          position: absolute;
-          width: 1.2rem;
-          height: 1.2rem;
-          line-height: 1.5;
-          top: 1.12rem;
-          left: auto;
-          right: 0.5rem;
-          font-size: 0.825rem;
-          color: darken($light1, 8%);
-          text-align: center;
-          background: rgba(255,255,255,0.825);
-          border-radius: 50%;
-          border: 1px solid darken($light1, 2.5%);
-          @include transition;
-        }
-
-        h2 {
-          margin: 0;
-          color: $dark2;
-          display: block;
-          text-align: left;
-          font-size: 1rem;
-        }
-
-        h3 {
-          margin: 0;
-          color: $dark3;
-          display: block;
-          font-size: 0.575rem;
-          @include uppercase;
-        }
-
-        &:hover {
-          background: darken($light2, 2.5%);
-
-          .icon {
-            color: lighten($dark2, 8%);
-            background: rgba(255,255,255,1);
-          }
-        }
       }
     }
   }

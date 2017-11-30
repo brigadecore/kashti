@@ -74,7 +74,7 @@
       font-size: 0.667rem;
       letter-spacing: 0.15em;
       color: darken($light1, 15%);
-      margin: 0.825rem 0 1rem 4rem;
+      margin: 0.5rem 0 1rem 4rem;
     }
 
     &:hover {
@@ -148,8 +148,8 @@
         li {
           font-family: $mono;
           color: $dark3;
-          line-height: 1.9;
-          font-size: 0.75rem;
+          line-height: 1.6;
+          font-size: 0.667rem;
           position: relative;
 
           &:before {
@@ -199,14 +199,14 @@
     }
 
     &.project-success {
-      .icon.status-success {
+      .icon {
         display: block;
         color: $success;
       }
     }
 
-    &.project-fail {
-      .icon.status-fail {
+    &.project-failed {
+      .icon {
         display: block;
         color: $fail;
       }

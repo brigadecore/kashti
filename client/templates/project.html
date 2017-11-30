@@ -9,18 +9,7 @@ controller: projectController
   <div class="grid-content collapse shrink">
     <ul class="menu-bar primary">
       <li id="organization" ng-controller="projectController">
-        <a zf-popup-toggle="switcher">
-          <h2>{{ project.name | limitTo:18 }}<small ng-if="project.name.length > 18">&#8230;</small></h2>
-
-          <i class="icon ion-chevron-down right"></i>
-        </a>
-
-        <zf-popup id="switcher" class="switcher-wrap" ng-show="!hideSwitcher">
-          <small>Projects</small>
-          <ul class="block-list" id="switcher-project" ng-controller="projectsController">
-            <li ng-repeat="project in projects"><a href="../brigade-ui/#!/project/{{project.id}}" ng-click="hideSwitcher = true">{{project.name}}</a></li>
-          </ul>
-        </zf-popup>
+        <h2>{{ project.name | limitTo:18 }}<small ng-if="project.name.length > 18">&#8230;</small></h2>
       </li>
     </ul>
   </div>
@@ -39,10 +28,10 @@ controller: projectController
   <div class="grid-content collapse shrink avatar-section">
     <nav>
       <ul>
-        <li><a href="https://github.com/azure/brigade/tree/master/docs" target="_blank">
+        <li><a href="https://github.com/azure/kashti/tree/master/docs" target="_blank">
           Docs
         </a></li>
-        <li><a href="https://github.com/azure/brigade/issues/" target="_blank">
+        <li><a href="https://github.com/azure/kashti/issues/" target="_blank">
           Support
         </a></li>
       </ul>
@@ -84,30 +73,26 @@ controller: projectController
                   <li>Namespace: {{project.kubernetes.namespace}}</li>
                 </ul>
 
-                <!-- <div class="build-status" ng-init="buildResult='success'" ng-class="{
-                  'build-success': buildResult == 'success',
-                  'build-failed': buildResult == 'failed',
-                  'build-active': buildResult == 'active'
-                }">
-                  <div class="success" ng-show="buildResult == 'success'"><i class="icon ion-checkmark-circled"></i> Passing</div>
-                  <div class="failed" ng-show="buildResult == 'failed'"><i class="icon ion-close-circled"></i> Failing</div>
-                  <div class="active" ng-show="buildResult == 'active'"><img src="assets/images/rolling.svg" /> In Progress</div>
+                <!-- <div ng-controller="projectsbuildsController">
+                    <div class="build-status" ng-class="{
+                    'build-success': buildResult == 'success',
+                    'build-failed': buildResult == 'failed',
+                    'build-active': buildResult == 'active'
+                  }">
+                    <div class="success" ng-show="buildResult == 'success'"><i class="icon ion-checkmark-circled"></i> Passing</div>
+                    <div class="failed" ng-show="buildResult == 'failed'"><i class="icon ion-close-circled"></i> Failing</div>
+                    <div class="active" ng-show="buildResult == 'active'"><img src="assets/images/rolling.svg" /> In Progress</div>
+                  </div>
                 </div> -->
               </div>
 
-              <div class="project-status-bar">
-                <div class="grid-content icon-blue small-12 collapse columns">
-                  <img src="assets/images/ripple.svg" />
-                  <span>Watching for events.</span>
-                </div>
-              </div>
             </div>
 
           </div>
         </div>
 
         <ul class="grid-content build-list" ng-controller="buildsController">
-          <li ng-repeat="build in builds" class="medium-grid-block build-item">
+          <li ng-repeat="build in builds | orderBy: reverse:true" class="medium-grid-block build-item">
             <a href="../brigade-ui/#!/build/{{build.id}}" class="grid-block">
 
               <span class="act-state collapse {{ build.worker.status }}" ng-class="{
@@ -149,10 +134,6 @@ controller: projectController
             </a>
           </li>
         </ul>
-
-        <div class="text-center">
-          <button class="secondary round small">Load More</button>
-        </div>
       </div>
 
       <!-- app footer -->
@@ -161,10 +142,10 @@ controller: projectController
           <li class="right microsoft-logo">
             <a href="https://open.microsoft.com/" target="_blank"><img src="assets/images/microsoft.png" /></a>
           </li>
-          <li><span><a href="https://github.com/azure/brigade" target="_blank">BRIGADE</a> is licensed under the The MIT License.</span></li>
-          <li><a href="https://github.com/azure/brigade/releases" target="_blank">Changelog</a></li>
-          <li><a href="https://github.com/azure/brigade/tree/master/docs" target="_blank">Documentation</a></li>
-          <li><a href="https://github.com/azure/brigade/" target="_blank">Github</a></li>
+          <li><span><a href="https://github.com/azure/brigade" target="_blank">KASHTI</a> and <a href="https://github.com/azure/kashti" target="_blank">BRIGADE</a> are licensed under the The MIT License.</span></li>
+          <li><a href="https://github.com/azure/kashti/releases" target="_blank">Changelog</a></li>
+          <li><a href="https://github.com/azure/kashti/tree/master/docs" target="_blank">Documentation</a></li>
+          <li><a href="https://github.com/azure/kashti/" target="_blank">Github</a></li>
         </ul>
       </footer>
 
