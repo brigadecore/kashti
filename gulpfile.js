@@ -167,7 +167,7 @@ gulp.task('base-local', function() {
 // Prep the templates for Docker build
 gulp.task('base-docker', function() {
   return gulp.src('./client/index.html')
-    .pipe(replace('base href="/"', 'base href="/brigade-ui/"'))
+    .pipe(replace('base href="/"', 'base href="/kashti/"'))
     .pipe(gulp.dest('./client/'))
     .pipe(gulp.dest('./dist/'))
 });

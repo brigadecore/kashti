@@ -16,12 +16,12 @@ controller: projectsbuildsController
             <li 
               ng-controller="projectController" 
               ng-hide="$state.current.name === 'home'">
-              <a href="../brigade-ui/#!/project/{{project.id}}">{{project.name}}</a></li>
+              <a href="../kashti/#!/project/{{project.id}}">{{project.name}}</a></li>
             <li 
               ng-controller="buildController" 
               ng-class="{ 'active': $state.current.name === 'project'}" 
               ng-hide="$state.current.name === 'home'">
-              <a href="../brigade-ui/#!/project">Master</a></li>
+              <a href="../kashti/#!/project">Master</a></li>
             <li ng-show="$state.current.name === 'build'"><a href="/#!/build/{{build.id}}">Build {{ $stateParams.build.id}}</a></li>
           </ul>
         </div>
@@ -47,7 +47,7 @@ controller: projectsbuildsController
                     <h3>How to Add Projects</h3>
                     <p>Projects are defined by a <code>brigade.js</code> file in your source code, which links your repo with <a target="_blank" href="//brigade.sh">Brigade</a>, to start listening for events (such as pushes to Github).</p>
 
-                    <p>Check out the <a target="_blank" href="https://deis.github.io/brigade/topics/scripting.html#brigade-scripts-projects-and-repositories">Brigade Docs</a> for details on configuring projects and repositories.</p>
+                    <p>Check out the <a target="_blank" href="https://azure.github.io/brigade/topics/scripting.html#brigade-scripts-projects-and-repositories">Brigade Docs</a> for details on configuring projects and repositories.</p>
 
                     <em>Example:</em>
                     <img src="assets/images/help-project.png" />
@@ -66,7 +66,7 @@ controller: projectsbuildsController
                     'project-failed': projectsbuild.lastBuild.worker.status == 'Failed',
                     'project-active': projectsbuild.lastBuild.worker.status == 'Active'
                   }">
-                    <a href="../brigade-ui/#!/project/{{projectsbuild.project.id}}" class="">
+                    <a href="../kashti/#!/project/{{projectsbuild.project.id}}" class="">
 
                       <div class="status">
                         <div class="success" ng-show="projectsbuild.lastBuild.worker.status == 'Succeeded'"><i class="icon ion-checkmark-circled status-success"></i></div>
@@ -104,7 +104,7 @@ controller: projectsbuildsController
           <li class="right microsoft-logo">
             <a href="https://open.microsoft.com/" target="_blank"><img src="assets/images/microsoft.png" /></a>
           </li>
-          <li><span><a href="https://github.com/azure/brigade" target="_blank">KASHTI</a> and <a href="https://github.com/azure/kashti" target="_blank">BRIGADE</a> are licensed under the The MIT License.</span></li>
+          <li><span><a href="https://github.com/azure/kashti" target="_blank">KASHTI</a> and <a href="https://github.com/azure/brigade" target="_blank">BRIGADE</a> are licensed under the The MIT License.</span></li>
           <li><a href="https://github.com/azure/kashti/releases" target="_blank">Changelog</a></li>
           <li><a href="https://github.com/azure/kashti/tree/master/docs" target="_blank">Documentation</a></li>
           <li><a href="https://github.com/azure/kashti/" target="_blank">Github</a></li>

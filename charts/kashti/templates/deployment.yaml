@@ -31,7 +31,7 @@ spec:
               port: {{ .Values.service.internalPort }}
           volumeMounts:
             - name: config-js
-              mountPath: /usr/share/nginx/html/brigade-ui/assets/js/settings
+              mountPath: /usr/share/nginx/html/kashti/assets/js/settings
           resources:
 {{ toYaml .Values.resources | indent 12 }}
       volumes:

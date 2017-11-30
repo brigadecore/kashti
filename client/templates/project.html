@@ -51,7 +51,7 @@ controller: projectController
               ng-controller="buildController" 
               ng-class="{ 'active': $state.current.name === 'project'}" 
               ng-hide="$state.current.name === 'home'">
-              <a href="../brigade-ui/#!/project/{{project.id}}">Project Overview</a></li>
+              <a href="../kashti/#!/project/{{project.id}}">Project Overview</a></li>
             <li ng-show="$state.current.name === 'build'"><a href="/#!/build/{{build.id}}">Build {{ $stateParams.build.id}}</a></li>
           </ul>
         </div>
@@ -93,7 +93,7 @@ controller: projectController
 
         <ul class="grid-content build-list" ng-controller="buildsController">
           <li ng-repeat="build in builds | orderBy: reverse:true" class="medium-grid-block build-item">
-            <a href="../brigade-ui/#!/build/{{build.id}}" class="grid-block">
+            <a href="../kashti/#!/build/{{build.id}}" class="grid-block">
 
               <span class="act-state collapse {{ build.worker.status }}" ng-class="{
                 'success': build.worker.status == 'Succeeded',
@@ -142,7 +142,7 @@ controller: projectController
           <li class="right microsoft-logo">
             <a href="https://open.microsoft.com/" target="_blank"><img src="assets/images/microsoft.png" /></a>
           </li>
-          <li><span><a href="https://github.com/azure/brigade" target="_blank">KASHTI</a> and <a href="https://github.com/azure/kashti" target="_blank">BRIGADE</a> are licensed under the The MIT License.</span></li>
+          <li><span><a href="https://github.com/azure/kashti" target="_blank">KASHTI</a> and <a href="https://github.com/azure/brigade" target="_blank">BRIGADE</a> are licensed under the The MIT License.</span></li>
           <li><a href="https://github.com/azure/kashti/releases" target="_blank">Changelog</a></li>
           <li><a href="https://github.com/azure/kashti/tree/master/docs" target="_blank">Documentation</a></li>
           <li><a href="https://github.com/azure/kashti/" target="_blank">Github</a></li>
