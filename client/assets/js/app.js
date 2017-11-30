@@ -35,12 +35,6 @@
       }
   });
 
-  app.filter('reverse', function() {
-    return function(items) {
-      return items.slice().reverse();
-    };
-  });
-
   app.filter('trim', function () {
     return function(value) {
       if(!angular.isString(value)) {

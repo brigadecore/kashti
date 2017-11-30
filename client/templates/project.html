@@ -92,7 +92,7 @@ controller: projectController
         </div>
 
         <ul class="grid-content build-list" ng-controller="buildsController">
-          <li ng-repeat="build in builds | orderBy: 'build.worker.end_time' | reverse" class="medium-grid-block build-item">
+          <li ng-repeat="build in builds | orderBy: reverse:true" class="medium-grid-block build-item">
             <a href="../brigade-ui/#!/build/{{build.id}}" class="grid-block">
 
               <span class="act-state collapse {{ build.worker.status }}" ng-class="{
