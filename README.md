@@ -1,6 +1,6 @@
 Kashti is a dashboard for your [Brigade](https://github.com/azure/brigade) pipelines.
 
-[![demo-ui](https://user-images.githubusercontent.com/686194/29797449-f7be1f90-8c0b-11e7-8b39-92133d91c2d5.gif)](https://azure.github.io/kashti/)
+[![demo-ui](https://user-images.githubusercontent.com/686194/33452869-789e89fa-d5c8-11e7-9610-8946de060a90.gif)](https://azure.github.io/kashti/)
 
 --
 
