@@ -33,10 +33,10 @@ controller: buildController
   <div class="grid-content collapse shrink avatar-section">
     <nav>
       <ul>
-        <li><a href="https://github.com/azure/kashti/tree/master/docs" target="_blank">
+        <li><a href="https://github.com/Azure/kashti/tree/master/docs" target="_blank">
           Docs
         </a></li>
-        <li><a href="https://github.com/azure/kashti/issues/" target="_blank">
+        <li><a href="https://github.com/Azure/kashti/issues/" target="_blank">
           Support
         </a></li>
       </ul>
@@ -55,7 +55,7 @@ controller: buildController
             ng-controller="buildController" 
             ng-class="{ 'active': $state.current.name === 'project'}" 
             ng-hide="$state.current.name === 'home'">
-            <a href="../brigade-ui/#!/project/{{ build.project_id }}">Project Overview</a></li>
+            <a href="../kashti/#!/project/{{ build.project_id }}">Project Overview</a></li>
           <li ng-show="$state.current.name === 'build'"><a>Build <em>{{ build.id}}</em></a></li>
         </ul>
       </div>
@@ -74,7 +74,7 @@ controller: buildController
 
               <div class="build-header">
                 <h1>
-                  <a href="../brigade-ui/#!/project/{{ build.project_id }}" title="Back to Build list"><i class="ion-chevron-left icon"></i></a>
+                  <a href="../kashti/#!/project/{{ build.project_id }}" title="Back to Build list"><i class="ion-chevron-left icon"></i></a>
                   Build &nbsp;<em>{{ build.id }}</em>
                 </h1>
 
@@ -217,10 +217,10 @@ controller: buildController
           <li class="right microsoft-logo">
             <a href="https://open.microsoft.com/" target="_blank"><img src="assets/images/microsoft.png" /></a>
           </li>
-          <li><span><a href="https://github.com/azure/brigade" target="_blank">KASHTI</a> and <a href="https://github.com/azure/kashti" target="_blank">BRIGADE</a> are licensed under the The MIT License.</span></li>
-          <li><a href="https://github.com/azure/kashti/releases" target="_blank">Changelog</a></li>
-          <li><a href="https://github.com/azure/kashti/tree/master/docs" target="_blank">Documentation</a></li>
-          <li><a href="https://github.com/azure/kashti/" target="_blank">Github</a></li>
+          <li><span><a href="https://github.com/Azure/kashti" target="_blank">KASHTI</a> and <a href="https://github.com/Azure/brigade" target="_blank">BRIGADE</a> are licensed under the The MIT License.</span></li>
+          <li><a href="https://github.com/Azure/kashti/releases" target="_blank">Changelog</a></li>
+          <li><a href="https://github.com/Azure/kashti/tree/master/docs" target="_blank">Documentation</a></li>
+          <li><a href="https://github.com/Azure/kashti/" target="_blank">Github</a></li>
         </ul>
       </footer>
 

@@ -1,7 +1,12 @@
 .template-build {
   position: relative;
-  // padding: 1.5rem 1rem 0;
   margin: 0;
+
+  .content-wrap {
+    // background: yellow;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
 
   .grid-container {
     max-width: 60rem !important;
@@ -12,7 +17,7 @@
 
     .button {
       position: absolute;
-      bottom: -1rem;
+      bottom: -.9rem;
       right: 1.75rem;
       transition: none;
       padding-left: 0.75rem;
@@ -33,7 +38,7 @@
 }
 
 .build-chart-0 {
-  height: 4.5rem;
+  height: 0.95rem !important;
 
   .build-chart-bg {
     height: 210px !important;
@@ -49,7 +54,7 @@
   height: 2.25rem !important;
 
   .build-chart-bg {
-    height: 180px !important;
+    height: 238px !important;
   }
 
   &.build-chart {
@@ -90,17 +95,19 @@
 .build-header {
   padding: 1.25rem 1.75rem;
   position: relative;
+  overflow-x: hidden;
 
   h1 {
     font-size: 1.75rem;
     color: $dark2;
     margin-bottom: 1.25rem;
+    padding-left: 1rem;
     margin: -0.25em 0 1em;
     position: relative;
 
     a {
       position: absolute;
-      left: -2rem;
+      left: -1rem;
       padding-right: 1.5rem;
       color: $brand2;
       font-size: 1.25rem;
@@ -116,7 +123,6 @@
       font-family: $mono;
       font-style: normal;
       font-size: 1.667rem;
-      // font-weight: normal;
       letter-spacing: 0.01em;
       text-transform: uppercase;
 
@@ -146,18 +152,17 @@
   .build-chart {
     height: 13.5rem;
     position: relative;
-    // overflow-x: hidden;
 
     .build-chart-bg {
       background: linear-gradient(5deg, darken(#F0F1F6, 7.5%) 0%, lighten(#e6e9f0, 1%) 100%);
       display: block;
       content: " ";
-      top: -140px;
-      left: -100%;
-      right: -100%;
-      width: 1000%;
+      top: 0px;
+      left: 0%;
+      right: 0%;
+      width: 100%;
       height: 150px;
-      position: absolute;
+      position: fixed;
       z-index: -100;
       @include transition;
     }
@@ -240,7 +245,6 @@
       top: 0;
       width: 4%;
       left: 0%;
-      // position: relative;
       z-index: 1101;
 
       &:after {
@@ -290,7 +294,7 @@
 
 .job-list {
   h4 {
-    margin: 0 1.125rem 2rem;
+    margin: 0.5rem 1.125rem 2rem;
     @include europaBold;
     font-size: 1.125rem;
     color: $dark3;
