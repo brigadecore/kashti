@@ -10,7 +10,7 @@ controller: buildController
   <div class="grid-content collapse shrink">
     <ul class="menu-bar primary">
       <li id="organization" ng-controller="projectController">
-        <h2>{{ project.name | limitTo:18 }}<small ng-if="project.name.length > 18">&#8230;</small></h2>
+        <h2>{{ build.project_id | limitTo:18 }}<small ng-if="project.name.length > 18">&#8230;</small></h2>
       </li>
     </ul>
   </div>
@@ -68,7 +68,7 @@ controller: buildController
 
       <div class="grid-container build-chart-{{jobs.length}}" ng-class="{'active-chart': showChart }">
 
-        <div class="grid-content build-header-wrap" ng-controller="ScrollCtrl">
+        <div class="grid-content build-header-wrap>
           <div class="grid-block horizontal">
             <div class="small-12">
 
