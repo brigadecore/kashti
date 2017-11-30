@@ -35,6 +35,21 @@
       }
   });
 
+  app.filter('reverse', function() {
+    return function(items) {
+      return items.slice().reverse();
+    };
+  });
+
+  app.filter('trim', function () {
+    return function(value) {
+      if(!angular.isString(value)) {
+          return value;
+      };
+      return value.replace(/^\s+|\s+$/g, '');
+    };
+  });
+
   function config($urlProvider, $locationProvider) {
     $urlProvider.otherwise('/');
 
@@ -49,15 +64,6 @@
   function run() {
     FastClick.attach(document.body);
   }
-
-  app.filter('trim', function () {
-    return function(value) {
-      if(!angular.isString(value)) {
-          return value;
-      };
-      return value.replace(/^\s+|\s+$/g, '');
-    };
-  });
 
   // use service to share IDs between controllers
   // app.factory('jobService', function() {
