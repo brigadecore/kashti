@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var app =  angular.module('kashti', [
+  angular.module('kashti', [
     'ui.router',
     'ngResource',
     'ngAnimate',
@@ -15,12 +15,12 @@
     .run(run)
   ;
 
-  app.config(['$httpProvider', function ($httpProvider) {
+  angular.module('kashti').config(['$httpProvider', function ($httpProvider) {
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
   }])
 
-  app.config(function (hljsServiceProvider) {
+  angular.module('kashti').config(function (hljsServiceProvider) {
     hljsServiceProvider.setOptions({
       // replace tab with 4 spaces
       tabReplace: '    '
@@ -29,13 +29,13 @@
 
   config.$inject = ['$urlRouterProvider', '$locationProvider'];
 
-  app.filter('capitalize', function() {
+  angular.module('kashti').filter('capitalize', function() {
       return function(input) {
         return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
       }
   });
 
-  app.filter('trim', function () {
+  angular.module('kashti').filter('trim', function () {
     return function(value) {
       if(!angular.isString(value)) {
           return value;
@@ -60,7 +60,7 @@
   }
 
   // use service to share IDs between controllers
-  // app.factory('jobService', function() {
+  // angular.module('kashti').factory('jobService', function() {
   //   return {
   //     theJob: {}
   //   };
@@ -68,13 +68,13 @@
 
 
   // consume api for templates/views
-  app.run(['$rootScope', '$state', '$stateParams',
+  angular.module('kashti').run(['$rootScope', '$state', '$stateParams',
     function ($rootScope, $state, $stateParams) {
       $rootScope.$state = $state;
       $rootScope.$stateParams = $stateParams;
   }])
 
-  app.controller("ProjectBuildsController", ProjectBuildsController);
+  angular.module('kashti').controller("ProjectBuildsController", ProjectBuildsController);
 
   /* @ngInject */
   function ProjectBuildsController($scope, $stateParams, $http) {
@@ -94,7 +94,7 @@
   }
   ProjectBuildsController.$inject = ['$scope', '$stateParams', '$http']
 
-  app.controller("ProjectController", ProjectController)
+  angular.module('kashti').controller("ProjectController", ProjectController)
 
   /* @ngInject */
   function ProjectController($scope, $stateParams, $http) {
@@ -120,7 +120,7 @@
 
   ProjectController.$inject = ['$scope', '$stateParams', '$http']
 
-  app.controller("buildsController", ['$scope', '$stateParams', '$http',
+  angular.module('kashti').controller("buildsController", ['$scope', '$stateParams', '$http',
        function ($scope, $stateParams, $http) {
     var currentProject = $stateParams;
 
@@ -138,7 +138,7 @@
     );
   }]);
 
-  app.controller("buildController", ['$scope', '$stateParams', '$http',
+  angular.module('kashti').controller("buildController", ['$scope', '$stateParams', '$http',
        function ($scope, $stateParams, $http) {
     var currentBuild = $stateParams;
 
@@ -156,7 +156,7 @@
     );
   }]);
 
-  app.controller("jobsController", ['$scope', '$stateParams', '$http',
+  angular.module('kashti').controller("jobsController", ['$scope', '$stateParams', '$http',
        function ($scope, $stateParams, $http) {
     var currentBuild = $stateParams;
 
@@ -174,7 +174,7 @@
     );
   }]);
 
-  app.controller("jobController", ['$scope', '$stateParams', '$http',
+  angular.module('kashti').controller("jobController", ['$scope', '$stateParams', '$http',
          function ($scope, $stateParams, $http) {
 
     var currentJobID = $stateParams.id;
@@ -194,7 +194,7 @@
     });
   }]);
 
-  app.controller("logController", ['$scope', '$stateParams', '$http',
+  angular.module('kashti').controller("logController", ['$scope', '$stateParams', '$http',
     function ($scope, $stateParams, $http) {
     var currentJobID = $scope.job.id;
 
