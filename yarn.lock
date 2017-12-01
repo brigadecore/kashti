@@ -18,10 +18,6 @@
   version "1.0.6"
   resolved "https://codeload.github.com/ftlabs/fastclick/tar.gz/9977a916739360ad4ffd7aa19b0016bf375e934b"
 
-"@bower_components/foundation-apps@zurb/foundation-apps#~1.2.0":
-  version "1.2.0"
-  resolved "https://codeload.github.com/zurb/foundation-apps/tar.gz/aeb6a9dd4debde3449cf9415da3820deb973c30f"
-
 "@bower_components/viewport-units-buggyfill@rodneyrehm/viewport-units-buggyfill#~0.4.1":
   version "0.4.1"
   resolved "https://codeload.github.com/rodneyrehm/viewport-units-buggyfill/tar.gz/78773d57c98637e1461da53c4917ca44dc1b3d33"
@@ -835,6 +831,10 @@ form-data@~2.3.1:
     asynckit "^0.4.0"
     combined-stream "^1.0.5"
     mime-types "^2.1.12"
+
+foundation-apps@~1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/foundation-apps/-/foundation-apps-1.2.0.tgz#efa154406a0c4f40715e100f072af0e460bbe96b"
 
 fresh@0.5.2:
   version "0.5.2"
