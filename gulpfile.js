@@ -36,8 +36,8 @@ var paths = {
   foundationJS: [
     'node_modules/@bower_components/fastclick/lib/fastclick.js',
     'node_modules/@bower_components/viewport-units-buggyfill/viewport-units-buggyfill.js',
-    'node_modules/@bower_components/tether/tether.js',
-    'node_modules/@bower_components/hammerjs/hammer.js',
+    'node_modules/tether/tether.js',
+    'node_modules/hammerjs/hammer.js',
     'node_modules/highlight.js/lib/highlight.js',
     'node_modules/angular/angular.js',
     'node_modules/angular-animate/angular-animate.js',
