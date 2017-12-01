@@ -74,8 +74,10 @@
       $rootScope.$stateParams = $stateParams;
   }])
 
-  app.controller("projectsbuildsController", ['$scope', '$stateParams', '$http',
-       function ($scope, $stateParams, $http) {
+  app.controller("ProjectBuildsController", ProjectBuildsController);
+
+  /* @ngInject */
+  function ProjectBuildsController($scope, $stateParams, $http) {
     $http({
       method: 'GET',
       url: baseURL + '/v1/projects-build',
@@ -85,11 +87,12 @@
         'Content-Type': 'application/json; charset=utf-8'
       }
     }).then(function successCallback(response) {
-        $scope.projectsbuilds = response.data;
+      $scope.projectsbuilds = response.data;
     },
-      function errorCallback(response) {}
-    );
-  }]);
+      function errorCallback(response) { }
+      );
+  }
+  ProjectBuildsController.$inject = ['$scope', '$stateParams', '$http']
 
   app.controller("projectController", ['$scope', '$stateParams', '$http',
        function ($scope, $stateParams, $http) {

@@ -47,9 +47,9 @@ controller: projectController
       <div class="menu-group primary">
         <div class="menu-group-left">
           <ul class="menu-bar">
-            <li 
-              ng-controller="buildController" 
-              ng-class="{ 'active': $state.current.name === 'project'}" 
+            <li
+              ng-controller="buildController"
+              ng-class="{ 'active': $state.current.name === 'project'}"
               ng-hide="$state.current.name === 'home'">
               <a href="../kashti/#!/project/{{project.id}}">Project Overview</a></li>
             <li ng-show="$state.current.name === 'build'"><a href="/#!/build/{{build.id}}">Build {{ $stateParams.build.id}}</a></li>
@@ -73,7 +73,7 @@ controller: projectController
                   <li>Namespace: {{project.kubernetes.namespace}}</li>
                 </ul>
 
-                <!-- <div ng-controller="projectsbuildsController">
+                <!-- <div ng-controller="ProjectBuildsController">
                     <div class="build-status" ng-class="{
                     'build-success': buildResult == 'success',
                     'build-failed': buildResult == 'failed',
