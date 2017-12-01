@@ -34,8 +34,8 @@ var paths = {
   ],
   // These files include Foundation for Apps and its dependencies
   foundationJS: [
-    'node_modules/@bower_components/fastclick/lib/fastclick.js',
-    'node_modules/@bower_components/viewport-units-buggyfill/viewport-units-buggyfill.js',
+    'node_modules/fastclick/lib/fastclick.js',
+    'node_modules/viewport-units-buggyfill/viewport-units-buggyfill.js',
     'node_modules/tether/tether.js',
     'node_modules/hammerjs/hammer.js',
     'node_modules/highlight.js/lib/highlight.js',
