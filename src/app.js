@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var app =  angular.module('application', [
+  var app =  angular.module('kashti', [
     'ui.router',
     'ngResource',
     'ngAnimate',
@@ -73,23 +73,6 @@
       $rootScope.$state = $state;
       $rootScope.$stateParams = $stateParams;
   }])
-
-  app.controller("projectsController", ['$scope', '$stateParams', '$http',
-       function ($scope, $stateParams, $http) {
-    $http({
-      method: 'GET',
-      url: baseURL + '/v1/projects',
-      isArray: true,
-      headers: {
-        'Accept': 'application/json, text/javascript',
-        'Content-Type': 'application/json; charset=utf-8'
-      }
-    }).then(function successCallback(response) {
-        $scope.projects = response.data;
-    },
-      function errorCallback(response) {}
-    );
-  }]);
 
   app.controller("projectsbuildsController", ['$scope', '$stateParams', '$http',
        function ($scope, $stateParams, $http) {
