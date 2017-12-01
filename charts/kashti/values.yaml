@@ -1,5 +1,5 @@
 brigade:
-  apiServer: "http://localhost:7744"
+  apiServer: "http://localhost:7745"
 
 replicaCount: 1
 image:
