@@ -94,12 +94,14 @@
   }
   ProjectBuildsController.$inject = ['$scope', '$stateParams', '$http']
 
-  app.controller("projectController", ['$scope', '$stateParams', '$http',
-       function ($scope, $stateParams, $http) {
+  app.controller("ProjectController", ProjectController)
 
+  /* @ngInject */
+  function ProjectController($scope, $stateParams, $http) {
     var currentProject = $stateParams;
 
-    $http({method: 'GET',
+    $http({
+      method: 'GET',
       url: baseURL + '/v1/project/' + currentProject.id,
       isArray: true,
       headers: {
@@ -107,14 +109,16 @@
         'Content-Type': 'application/json; charset=utf-8'
       }
     }).then(function successCallback(response) {
-        $scope.project = response.data;
+      $scope.project = response.data;
 
-        var projectID = $scope.project.name;
-        console.log('the project is ' + projectID );
+      var projectID = $scope.project.name;
+      console.log('the project is ' + projectID);
     },
-      function errorCallback(response) {}
-    );
-  }]);
+      function errorCallback(response) { }
+      );
+  }
+
+  ProjectController.$inject = ['$scope', '$stateParams', '$http']
 
   app.controller("buildsController", ['$scope', '$stateParams', '$http',
        function ($scope, $stateParams, $http) {

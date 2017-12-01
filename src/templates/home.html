@@ -14,7 +14,7 @@ controllerAs: ProjectBuildsController
         <div class="menu-group-left">
           <ul class="menu-bar">
             <li
-              ng-controller="projectController"
+              ng-controller="ProjectController as project"
               ng-hide="$state.current.name === 'home'">
               <a href="../kashti/#!/project/{{project.id}}">{{project.name}}</a></li>
             <li
