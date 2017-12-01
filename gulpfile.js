@@ -44,8 +44,8 @@ var paths = {
     'node_modules/@bower_components/angular-ui-router/release/angular-ui-router.js',
     'node_modules/@bower_components/angular-resource/angular-resource.js',
     'node_modules/@bower_components/angular-highlightjs/angular-highlightjs.js',
-    'node_modules/@bower_components/moment/min/moment.min.js',
-    'node_modules/@bower_components/angular-moment/angular-moment.js',
+    'node_modules/moment/min/moment.min.js',
+    'node_modules/angular-moment/angular-moment.js',
     'node_modules/@bower_components/foundation-apps/js/vendor/**/*.js',
     'node_modules/@bower_components/foundation-apps/js/angular/**/*.js',
     '!node_modules/@bower_components/foundation-apps/js/angular/app.js'

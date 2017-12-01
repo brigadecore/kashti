@@ -35,17 +35,17 @@
     "@bower_components/Ionicons": "driftyco/ionicons#^2.0.1",
     "@bower_components/angular-gantt": "angular-gantt/angular-gantt#^1.3.3",
     "@bower_components/angular-highlightjs": "pc035860/angular-highlightjs#^0.7.1",
-    "@bower_components/angular-moment": "urish/angular-moment#^1.0.1",
     "@bower_components/angular-resource": "angular/bower-angular-resource#1.4.2",
     "@bower_components/angular-ui-router": "angular-ui/angular-ui-router-bower#~0.2.12",
     "@bower_components/fastclick": "ftlabs/fastclick#~1.0.6",
     "@bower_components/foundation-apps": "zurb/foundation-apps#~1.2.0",
     "@bower_components/hammerjs": "EightMedia/hammer.js#~2.0.4",
-    "@bower_components/moment": "moment/moment#>=2.8.0 <3.0.0",
     "@bower_components/tether": "HubSpot/tether#~0.6.5",
     "@bower_components/viewport-units-buggyfill": "rodneyrehm/viewport-units-buggyfill#~0.4.1",
     "angular": "~1.4.14",
-    "angular-animate": "~1.4.7"
+    "angular-animate": "~1.4.7",
+    "angular-moment": "^1.0.1",
+    "moment": "<3.0.0"
   },
   "engines": {
     "yarn": ">= 1.0.0"
