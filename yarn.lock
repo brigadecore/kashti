@@ -10,10 +10,6 @@
   version "1.3.3"
   resolved "https://codeload.github.com/angular-gantt/angular-gantt/tar.gz/bb3a3995081d3f75fb942c791c919689889ec54c"
 
-"@bower_components/angular-resource@angular/bower-angular-resource#1.4.2":
-  version "1.4.2"
-  resolved "https://codeload.github.com/angular/bower-angular-resource/tar.gz/e1aa7d2ffcea85037b73082526c5db8858f86d91"
-
 "@bower_components/fastclick@ftlabs/fastclick#~1.0.6":
   version "1.0.6"
   resolved "https://codeload.github.com/ftlabs/fastclick/tar.gz/9977a916739360ad4ffd7aa19b0016bf375e934b"
@@ -74,6 +70,10 @@ angular-moment@^1.0.1:
   resolved "https://registry.yarnpkg.com/angular-moment/-/angular-moment-1.1.0.tgz#9a7c4688151b08ee308623d958d98b0a4f4fb61b"
   dependencies:
     moment ">=2.8.0 <3.0.0"
+
+angular-resource@1.4.2:
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/angular-resource/-/angular-resource-1.4.2.tgz#ddf43a961f10cff012245754df9d3ff11d6110c5"
 
 angular-ui-router@~0.2.12:
   version "0.2.18"
