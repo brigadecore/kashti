@@ -2,10 +2,6 @@
 # yarn lockfile v1
 
 
-"@bower_components/Ionicons@driftyco/ionicons#^2.0.1":
-  version "0.0.0"
-  resolved "https://codeload.github.com/driftyco/ionicons/tar.gz/ecb4b806831005c25b97ed9089fbb1d7dcc0879c"
-
 "@bower_components/angular-gantt@angular-gantt/angular-gantt#^1.3.3":
   version "1.3.3"
   resolved "https://codeload.github.com/angular-gantt/angular-gantt/tar.gz/bb3a3995081d3f75fb942c791c919689889ec54c"
@@ -1437,6 +1433,10 @@ interpret@^1.0.0:
 invert-kv@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/invert-kv/-/invert-kv-1.0.0.tgz#104a8e4aaca6d3d8cd157a8ef8bfab2d7a3ffdb6"
+
+ionicons@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/ionicons/-/ionicons-2.0.1.tgz#ca398113293ea870244f538f0aabbd4b5b209a3e"
 
 is-absolute@^0.2.3:
   version "0.2.6"
