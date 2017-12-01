@@ -9,13 +9,15 @@ Begin by cloning this repository with your favorite Git tool.
 Install dependancies and run the app with these commands. 
 
 ```
-yarn        #install project dependencies
-npm start   #start a local server
+yarn         #install project dependencies
+yarn start   #start a local server
 ```
+
+(You can use `npm` instead of `yarn` if you prefer.)
 
 ### Deployment
 
-Kashti can be run locally via a `npm start`.
+Kashti can be run locally via a `yarn start`.
 
 To install in a Kubernetes development cluster, we recommend using the chart.
 
@@ -24,7 +26,7 @@ image:
 
 ```
 $ eval $(minikube docker-env)
-$ npm run-script docker-build
+$ yarn docker-build
 $ helm install -n brigade-ui chart/kashti --set brigade.apiServer=http://localhost:7745
 ```
 
@@ -36,4 +38,5 @@ installation's API server. This is the URL that the _client_ will see, so you
 may need to use the outside IP address, not the cluster IP.
 
 The example above can be used along with a few `kubectl port-forward` commands to
-locally access your Kashti UI. SEe the [Install Guide](install.md) for more.
+locally access your Kashti UI. See the [Install Guide](install.md) for more.
+
