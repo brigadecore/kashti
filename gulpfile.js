@@ -40,7 +40,7 @@ var paths = {
     'node_modules/highlight.js/lib/highlight.js',
     'node_modules/angular/angular.js',
     'node_modules/angular-animate/angular-animate.js',
-    'node_modules/angular-ui-router/release/angular-ui-router.js',
+    'node_modules/@uirouter/angularjs/release/angular-ui-router.js',
     'node_modules/angular-resource/angular-resource.js',
     'node_modules/angular-highlightjs/angular-highlightjs.js',
     'node_modules/moment/min/moment.min.js',
