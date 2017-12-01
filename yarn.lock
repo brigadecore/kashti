@@ -2,6 +2,16 @@
 # yarn lockfile v1
 
 
+"@uirouter/angularjs@1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@uirouter/angularjs/-/angularjs-1.0.4.tgz#c89efe2d071573d92c2fd486e35a22effc8dc017"
+  dependencies:
+    "@uirouter/core" "5.0.3"
+
+"@uirouter/core@5.0.3":
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/@uirouter/core/-/core-5.0.3.tgz#e2b5b1e45190e20c67ba4e15c013de5d4e0ccab3"
+
 abbrev@1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
@@ -34,48 +44,38 @@ amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
 
-angular-animate@~1.4.7:
-  version "1.4.14"
-  resolved "https://registry.yarnpkg.com/angular-animate/-/angular-animate-1.4.14.tgz#ee4068cafdb7e230026319ec6cb9207aca898038"
+angular-animate@~1.6.7:
+  version "1.6.7"
+  resolved "https://registry.yarnpkg.com/angular-animate/-/angular-animate-1.6.7.tgz#bc6dbe6a190d019a6fbb2c7373d40f01cfd75899"
 
 angular-cors@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/angular-cors/-/angular-cors-1.0.0.tgz#84764dcc9f3541c399011a02f88b52f21ee5e6a4"
 
-angular-gantt@^1.3.3:
+angular-gantt@~1.3.3:
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/angular-gantt/-/angular-gantt-1.3.3.tgz#58a5b0618d8b29fa31ddee65f91d0e6f9ad0e7d6"
 
-angular-highlightjs@^0.7.1:
+angular-highlightjs@~0.7.1:
   version "0.7.1"
   resolved "https://registry.yarnpkg.com/angular-highlightjs/-/angular-highlightjs-0.7.1.tgz#d7e0e1f59db4de63f00573218a6472a59ff183f4"
   dependencies:
     angular "^1.0.1"
     highlight.js ">7.0.0"
 
-angular-moment@^1.0.1:
+angular-moment@~1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/angular-moment/-/angular-moment-1.1.0.tgz#9a7c4688151b08ee308623d958d98b0a4f4fb61b"
   dependencies:
     moment ">=2.8.0 <3.0.0"
 
-angular-resource@1.4.2:
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/angular-resource/-/angular-resource-1.4.2.tgz#ddf43a961f10cff012245754df9d3ff11d6110c5"
+angular-resource@~1.6.7:
+  version "1.6.7"
+  resolved "https://registry.yarnpkg.com/angular-resource/-/angular-resource-1.6.7.tgz#1ac9a33d1715f2042c1321c82ca307e694ffdc93"
 
-angular-ui-router@~0.2.12:
-  version "0.2.18"
-  resolved "https://registry.yarnpkg.com/angular-ui-router/-/angular-ui-router-0.2.18.tgz#1dad70415c73d7046fd2e130df03d62fb7464360"
-  dependencies:
-    angular "^1.0.8"
-
-angular@^1.0.1, angular@^1.0.8:
+angular@^1.0.1, angular@~1.6.7:
   version "1.6.7"
   resolved "https://registry.yarnpkg.com/angular/-/angular-1.6.7.tgz#0f89837dae1776b01ccb1fa2096db0d9373d9897"
-
-angular@~1.4.14:
-  version "1.4.14"
-  resolved "https://registry.yarnpkg.com/angular/-/angular-1.4.14.tgz#9d0feaf60ce6e52ce50f49ee328656d1e1875c37"
 
 ansi-regex@^0.2.0, ansi-regex@^0.2.1:
   version "0.2.1"
@@ -1296,7 +1296,7 @@ gulplog@^1.0.0:
   dependencies:
     glogg "^1.0.0"
 
-hammerjs@~2.0.4:
+hammerjs@~2.0.8:
   version "2.0.8"
   resolved "https://registry.yarnpkg.com/hammerjs/-/hammerjs-2.0.8.tgz#04ef77862cff2bb79d30f7692095930222bf60f1"
 
@@ -2041,7 +2041,7 @@ minimist@^1.1.0, minimist@^1.1.3:
   dependencies:
     minimist "0.0.8"
 
-moment@<3.0.0, "moment@>=2.8.0 <3.0.0":
+"moment@>=2.8.0 <3.0.0", moment@~2.19.3:
   version "2.19.3"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.19.3.tgz#bdb99d270d6d7fda78cc0fbace855e27fe7da69f"
 
