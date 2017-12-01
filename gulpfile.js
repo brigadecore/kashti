@@ -23,13 +23,12 @@ var isProduction = !!(argv.production);
 
 var paths = {
   assets: [
-    './client/**/*.*',
-    '!./client/templates/**/*.*',
-    '!./client/assets/{scss,js}/**/*.*'
+    './src/*.html',
+    './src/assets/{fonts,images}/**/*.*'
   ],
   // Sass will check these folders for files when you use @import.
   sass: [
-    'client/assets/scss',
+    'src/assets/scss',
     'node_modules/foundation-apps/scss'
   ],
   // These files include Foundation for Apps and its dependencies
@@ -52,7 +51,7 @@ var paths = {
   ],
   // These files are for your app's JavaScript
   appJS: [
-    'client/assets/js/app.js'
+    'src/app.js'
   ]
 }
 
@@ -67,23 +66,23 @@ gulp.task('clean', function(cb) {
 // Copies everything in the client folder except templates, Sass, and JS
 gulp.task('copy', function() {
   return gulp.src(paths.assets, {
-    base: './client/'
+    base: './src/'
   })
     .pipe(gulp.dest('./dist'))
   ;
 });
 gulp.task('copy-settings', function() {
-  return gulp.src('./client/assets/js/settings/settings.js')
+  return gulp.src('./src/settings.js')
     .pipe(gulp.dest('./dist/assets/js/settings/'))
   ;
 });
 
 // Copies your app's page templates and generates URLs for them
 gulp.task('copy:templates', function() {
-  return gulp.src('./client/templates/**/*.html')
+  return gulp.src('./src/templates/**/*.html')
     .pipe(router({
       path: 'dist/assets/js/routes.js',
-      root: 'client'
+      root: 'src'
     }))
     .pipe(gulp.dest('./dist/templates'))
   ;
@@ -93,7 +92,7 @@ gulp.task('copy:templates', function() {
 gulp.task('sass', function () {
   var minifyCss = $.if(isProduction, $.minifyCss());
 
-  return gulp.src('client/assets/scss/app.scss')
+  return gulp.src('src/assets/scss/app.scss')
     .pipe($.sass({
       includePaths: paths.sass,
       outputStyle: (isProduction ? 'compressed' : 'nested'),
@@ -159,16 +158,16 @@ gulp.task('uglify:app', function() {
 
 // Prep the templates for local server
 gulp.task('base-local', function() {
-  return gulp.src('./client/index.html')
+  return gulp.src('./src/index.html')
     .pipe(replace('base href="/kashti/"', 'base href="/"'))
-    .pipe(gulp.dest('./client/'))
+    .pipe(gulp.dest('./src/'))
 });
 
 // Prep the templates for Docker build
 gulp.task('base-docker', function() {
-  return gulp.src('./client/index.html')
+  return gulp.src('./src/index.html')
     .pipe(replace('base href="/"', 'base href="/kashti/"'))
-    .pipe(gulp.dest('./client/'))
+    .pipe(gulp.dest('./src/'))
     .pipe(gulp.dest('./dist/'))
 });
 
@@ -178,9 +177,9 @@ gulp.task('docker-build', function(cb) {
 
 // Prep the templates for deploy to gh-pages
 gulp.task('base-gh-pages', function() {
-  return gulp.src('./client/index.html')
+  return gulp.src('./src/index.html')
     .pipe(replace('base href="/"', 'base href="/kashti/"'))
-    .pipe(gulp.dest('./client/'))
+    .pipe(gulp.dest('./src/'))
     .pipe(gulp.dest('./dist/'))
   ;
 });
@@ -221,14 +220,14 @@ gulp.task('build', function(cb) {
 // Default task: builds your app, starts a server, and recompiles assets when they change
 gulp.task('default', ['server'], function () {
   // Watch Sass
-  gulp.watch(['./client/assets/scss/**/*', './scss/**/*'], ['sass']);
+  gulp.watch(['./src/assets/scss/**/*', './scss/**/*'], ['sass']);
 
   // Watch JavaScript
-  gulp.watch(['./client/assets/js/**/*', './js/**/*'], ['uglify:app']);
+  gulp.watch(['./src/assets/js/**/*', './js/**/*'], ['uglify:app']);
 
   // Watch static files
-  gulp.watch(['./client/**/*.*', '!./client/templates/**/*.*', '!./client/assets/{scss,js}/**/*.*'], ['copy']);
+  gulp.watch(['./src/**/*.*', '!./src/templates/**/*.*', '!./src/assets/{scss,js}/**/*.*'], ['copy']);
 
   // Watch app templates
-  gulp.watch(['./client/templates/**/*.html'], ['copy:templates']);
+  gulp.watch(['./src/templates/**/*.html'], ['copy:templates']);
 });
