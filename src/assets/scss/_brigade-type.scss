@@ -3,16 +3,16 @@
 //
 @font-face {
   font-family: 'europabold';
-  src: url('../fonts/europa-bold-webfont.woff2') format('woff2'),
-       url('../fonts/europa-bold-webfont.woff') format('woff');
+  src: url('assets/fonts/europa-bold-webfont.woff2') format('woff2'),
+       url('assets/fonts/europa-bold-webfont.woff') format('woff');
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'europa';
-  src: url('../fonts/europa-regular-webfont.woff2') format('woff2'),
-       url('../fonts/europa-regular-webfont.woff') format('woff');
+  src: url('assets/fonts/europa-regular-webfont.woff2') format('woff2'),
+       url('assets/fonts/europa-regular-webfont.woff') format('woff');
   font-weight: 400;
   font-style: normal;
 }
