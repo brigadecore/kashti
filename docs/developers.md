@@ -6,11 +6,16 @@ This guide explains how to work on the Kashti codebase.
 
 Begin by cloning this repository with your favorite Git tool.
 
+```console
+$ git clone git@github.com:Azure/kashti.git
+$ cd kashti
+```
+
 Install dependancies and run the app with these commands. 
 
-```
-yarn         #install project dependencies
-yarn start   #start a local server
+```console
+$ yarn         #install project dependencies
+$ yarn start   #start a local server
 ```
 
 (You can use `npm` instead of `yarn` if you prefer.)
@@ -24,7 +29,7 @@ To install in a Kubernetes development cluster, we recommend using the chart.
 If you are running Minikube, you can do a full build of this repo into a Docker
 image:
 
-```
+```console
 $ eval $(minikube docker-env)
 $ yarn docker-build
 $ helm install -n brigade-ui chart/kashti --set brigade.apiServer=http://localhost:7745
