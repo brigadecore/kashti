@@ -10,7 +10,8 @@
     'foundation',
     'foundation.dynamicRouting',
     'foundation.dynamicRouting.animations',
-    'app.projects'
+    'app.projects',
+    'app.builds'
   ])
     .config(config)
     .run(run)
@@ -66,42 +67,6 @@
       $rootScope.$state = $state;
       $rootScope.$stateParams = $stateParams;
   }])
-
-  angular.module('app').controller("buildsController", ['$scope', '$stateParams', '$http',
-       function ($scope, $stateParams, $http) {
-    var currentProject = $stateParams;
-
-    $http({method: 'GET',
-      url: baseURL + '/v1/project/' + currentProject.id + '/builds',
-      headers: {
-        'Accept': 'application/json, text/javascript',
-        'Content-Type': 'application/json; charset=utf-8'
-      },
-      isArray: true
-    }).then(function successCallback(response) {
-        $scope.builds = response.data;
-    },
-      function errorCallback(response) {}
-    );
-  }]);
-
-  angular.module('app').controller("buildController", ['$scope', '$stateParams', '$http',
-       function ($scope, $stateParams, $http) {
-    var currentBuild = $stateParams;
-
-    $http({method: 'GET',
-      url: baseURL + '/v1/build/' + currentBuild.id,
-      headers: {
-        'Accept': 'application/json, text/javascript',
-        'Content-Type': 'application/json; charset=utf-8'
-      },
-      isArray: true
-    }).then(function successCallback(response) {
-      $scope.build = response.data;
-    },
-      function errorCallback(response) {}
-    );
-  }]);
 
   angular.module('app').controller("jobsController", ['$scope', '$stateParams', '$http',
        function ($scope, $stateParams, $http) {

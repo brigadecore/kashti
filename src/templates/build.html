@@ -2,7 +2,8 @@
 name: build
 url: /build/:id
 animationIn: slideInLeft
-controller: buildController
+controllerAs: BuildController
+controller: BuildController
 ---
 
 <!-- left sidebar -->
@@ -52,7 +53,7 @@ controller: buildController
       <div class="menu-group-left">
         <ul class="menu-bar">
           <li
-            ng-controller="buildController"
+            ng-controller="BuildController"
             ng-class="{ 'active': $state.current.name === 'project'}"
             ng-hide="$state.current.name === 'home'">
             <a href="../kashti/#!/project/{{ build.project_id }}">Project Overview</a></li>
