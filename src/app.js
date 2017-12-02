@@ -12,7 +12,8 @@
     'foundation.dynamicRouting.animations',
     'app.projects',
     'app.builds',
-    'app.jobs'
+    'app.jobs',
+    'app.logs'
   ])
     .config(config)
     .run(run)
@@ -68,25 +69,4 @@
       $rootScope.$state = $state;
       $rootScope.$stateParams = $stateParams;
   }])
-
-  angular.module('app').controller("logController", ['$scope', '$stateParams', '$http',
-    function ($scope, $stateParams, $http) {
-    var currentJobID = $scope.job.id;
-
-    $http({method: 'GET',
-      url: baseURL + '/v1/job/' + currentJobID + '/logs?stream=true',
-      responseType: 'text',
-      headers: {
-        'Accept': 'plain/text, text/javascript',
-        'Content-Type': 'plain/text; charset=utf-8'
-      }
-    }).then(function successCallback(response) {
-      $scope.logs = response.data;
-    },
-    function errorCallback(response) {
-      $scope.logerror = response.status;
-      console.log('Job > Logs endpoint returned ' + response.status + ', citing \'' + response.message + '\'.');
-    });
-  }]);
-
 })();
