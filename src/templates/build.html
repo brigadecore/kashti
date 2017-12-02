@@ -93,7 +93,7 @@ controller: BuildController
                   <div class="grid-content small-6 text-right">Finished at {{build.worker.end_time}}</div>
                 </div>
 
-                <div class="horizontal build-chart build-chart-{{jobs.length}}" gantt data="data" ng-init="showChart = true" ng-hide="!showChart" ng-controller="jobsController">
+                <div class="horizontal build-chart build-chart-{{jobs.length}}" gantt data="data" ng-init="showChart = true" ng-hide="!showChart" ng-controller="JobsController">
 
                   <div class="build-chart-bg"></div>
 
@@ -126,7 +126,7 @@ controller: BuildController
           </div>
         </div>
 
-        <div class="job-list" ng-controller="jobsController">
+        <div class="job-list" ng-controller="JobsController">
           <h4>
             <span ng-show="jobs.length == '0'">There are currently no jobs inside this build.</span>
             <span ng-show="jobs.length == '1'"><span class="job-count">1</span> job ran inside this build:</span>

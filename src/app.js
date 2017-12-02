@@ -11,7 +11,8 @@
     'foundation.dynamicRouting',
     'foundation.dynamicRouting.animations',
     'app.projects',
-    'app.builds'
+    'app.builds',
+    'app.jobs'
   ])
     .config(config)
     .run(run)
@@ -67,44 +68,6 @@
       $rootScope.$state = $state;
       $rootScope.$stateParams = $stateParams;
   }])
-
-  angular.module('app').controller("jobsController", ['$scope', '$stateParams', '$http',
-       function ($scope, $stateParams, $http) {
-    var currentBuild = $stateParams;
-
-    $http({method: 'GET',
-      url: baseURL + '/v1/build/' + currentBuild.id + '/jobs',
-      headers: {
-        'Accept': 'application/json, text/javascript',
-        'Content-Type': 'application/json; charset=utf-8'
-      },
-      isArray: true
-    }).then(function successCallback(response) {
-        $scope.jobs = response.data;
-    },
-      function errorCallback(response) {}
-    );
-  }]);
-
-  angular.module('app').controller("jobController", ['$scope', '$stateParams', '$http',
-         function ($scope, $stateParams, $http) {
-
-    var currentJobID = $stateParams.id;
-
-    $http({method: 'GET',
-      url: baseURL + '/v1/job/' + currentJobID,
-      headers: {
-        'Accept': 'application/json, text/javascript',
-        'Content-Type': 'application/json; charset=utf-8'
-      },
-      isArray: true
-    }).then(function successCallback(response) {
-      $scope.job = response.data;
-    },
-    function errorCallback(response) {
-      console.log('Build > Job endpoint returned ' + response.status + ', citing \'' + response.message + '\'.');
-    });
-  }]);
 
   angular.module('app').controller("logController", ['$scope', '$stateParams', '$http',
     function ($scope, $stateParams, $http) {
