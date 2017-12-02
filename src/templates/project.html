@@ -73,18 +73,6 @@ controller: ProjectController
                   <li>Sidecar: {{project.kubernetes.vcsSidecar}}</li>
                   <li>Namespace: {{project.kubernetes.namespace}}</li>
                 </ul>
-
-                <!-- <div ng-controller="ProjectBuildsController">
-                    <div class="build-status" ng-class="{
-                    'build-success': buildResult == 'success',
-                    'build-failed': buildResult == 'failed',
-                    'build-active': buildResult == 'active'
-                  }">
-                    <div class="success" ng-show="buildResult == 'success'"><i class="icon ion-checkmark-circled"></i> Passing</div>
-                    <div class="failed" ng-show="buildResult == 'failed'"><i class="icon ion-close-circled"></i> Failing</div>
-                    <div class="active" ng-show="buildResult == 'active'"><img src="assets/images/rolling.svg" /> In Progress</div>
-                  </div>
-                </div> -->
               </div>
 
             </div>

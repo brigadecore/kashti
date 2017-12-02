@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  angular.module('kashti', [
+  angular.module('app', [
     'ui.router',
     'ngResource',
     'ngAnimate',
@@ -9,18 +9,19 @@
     'angularMoment',
     'foundation',
     'foundation.dynamicRouting',
-    'foundation.dynamicRouting.animations'
+    'foundation.dynamicRouting.animations',
+    'app.projects'
   ])
     .config(config)
     .run(run)
   ;
 
-  angular.module('kashti').config(['$httpProvider', function ($httpProvider) {
+  angular.module('app').config(['$httpProvider', function ($httpProvider) {
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
   }])
 
-  angular.module('kashti').config(function (hljsServiceProvider) {
+  angular.module('app').config(function (hljsServiceProvider) {
     hljsServiceProvider.setOptions({
       // replace tab with 4 spaces
       tabReplace: '    '
@@ -29,13 +30,13 @@
 
   config.$inject = ['$urlRouterProvider', '$locationProvider'];
 
-  angular.module('kashti').filter('capitalize', function() {
+  angular.module('app').filter('capitalize', function() {
       return function(input) {
         return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
       }
   });
 
-  angular.module('kashti').filter('trim', function () {
+  angular.module('app').filter('trim', function () {
     return function(value) {
       if(!angular.isString(value)) {
           return value;
@@ -59,68 +60,14 @@
     FastClick.attach(document.body);
   }
 
-  // use service to share IDs between controllers
-  // angular.module('kashti').factory('jobService', function() {
-  //   return {
-  //     theJob: {}
-  //   };
-  // });
-
-
   // consume api for templates/views
-  angular.module('kashti').run(['$rootScope', '$state', '$stateParams',
+  angular.module('app').run(['$rootScope', '$state', '$stateParams',
     function ($rootScope, $state, $stateParams) {
       $rootScope.$state = $state;
       $rootScope.$stateParams = $stateParams;
   }])
 
-  angular.module('kashti').controller("ProjectBuildsController", ProjectBuildsController);
-
-  /* @ngInject */
-  function ProjectBuildsController($scope, $stateParams, $http) {
-    $http({
-      method: 'GET',
-      url: baseURL + '/v1/projects-build',
-      isArray: true,
-      headers: {
-        'Accept': 'application/json, text/javascript',
-        'Content-Type': 'application/json; charset=utf-8'
-      }
-    }).then(function successCallback(response) {
-      $scope.projectsbuilds = response.data;
-    },
-      function errorCallback(response) { }
-      );
-  }
-  ProjectBuildsController.$inject = ['$scope', '$stateParams', '$http']
-
-  angular.module('kashti').controller("ProjectController", ProjectController)
-
-  /* @ngInject */
-  function ProjectController($scope, $stateParams, $http) {
-    var currentProject = $stateParams;
-
-    $http({
-      method: 'GET',
-      url: baseURL + '/v1/project/' + currentProject.id,
-      isArray: true,
-      headers: {
-        'Accept': 'application/json, text/javascript',
-        'Content-Type': 'application/json; charset=utf-8'
-      }
-    }).then(function successCallback(response) {
-      $scope.project = response.data;
-
-      var projectID = $scope.project.name;
-      console.log('the project is ' + projectID);
-    },
-      function errorCallback(response) { }
-      );
-  }
-
-  ProjectController.$inject = ['$scope', '$stateParams', '$http']
-
-  angular.module('kashti').controller("buildsController", ['$scope', '$stateParams', '$http',
+  angular.module('app').controller("buildsController", ['$scope', '$stateParams', '$http',
        function ($scope, $stateParams, $http) {
     var currentProject = $stateParams;
 
@@ -138,7 +85,7 @@
     );
   }]);
 
-  angular.module('kashti').controller("buildController", ['$scope', '$stateParams', '$http',
+  angular.module('app').controller("buildController", ['$scope', '$stateParams', '$http',
        function ($scope, $stateParams, $http) {
     var currentBuild = $stateParams;
 
@@ -156,7 +103,7 @@
     );
   }]);
 
-  angular.module('kashti').controller("jobsController", ['$scope', '$stateParams', '$http',
+  angular.module('app').controller("jobsController", ['$scope', '$stateParams', '$http',
        function ($scope, $stateParams, $http) {
     var currentBuild = $stateParams;
 
@@ -174,7 +121,7 @@
     );
   }]);
 
-  angular.module('kashti').controller("jobController", ['$scope', '$stateParams', '$http',
+  angular.module('app').controller("jobController", ['$scope', '$stateParams', '$http',
          function ($scope, $stateParams, $http) {
 
     var currentJobID = $stateParams.id;
@@ -194,7 +141,7 @@
     });
   }]);
 
-  angular.module('kashti').controller("logController", ['$scope', '$stateParams', '$http',
+  angular.module('app').controller("logController", ['$scope', '$stateParams', '$http',
     function ($scope, $stateParams, $http) {
     var currentJobID = $scope.job.id;
 

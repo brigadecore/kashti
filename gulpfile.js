@@ -51,6 +51,8 @@ var paths = {
   ],
   // These files are for your app's JavaScript
   appJS: [
+    'src/modules/modules.js',
+    'src/modules/**/*.js',
     'src/app.js'
   ]
 }
