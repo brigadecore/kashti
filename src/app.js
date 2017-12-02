@@ -39,15 +39,6 @@
       }
   });
 
-  angular.module('app').filter('trim', function () {
-    return function(value) {
-      if(!angular.isString(value)) {
-          return value;
-      };
-      return value.replace(/^\s+|\s+$/g, '');
-    };
-  });
-
   function config($urlProvider, $locationProvider) {
     $urlProvider.otherwise('/');
 
