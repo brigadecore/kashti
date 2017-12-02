@@ -18,7 +18,8 @@ requires:
 
 1. Tag the release with `git tag v1.2.3`, where `1.2.3` is the SemVer-compliant version
   number.
-2. Run a `yarn docker-build docker-push` (You can use `npm run-script` instead of yarn)
+2. Execute `git push --tags origin` to push the tags to GitHub
+2. Run a `yarn docker-build && yarn docker-push` (You can use `npm run-script` instead of yarn)
 3. Run a `docker tag deis/kashti:latest deis/kashti:1.2.3`, where `1.2.3` is the same
   version as above
 4. Run a `docker push deis/kashti:1.2.3` where `1.2.3` is the samve version as above
