@@ -16,7 +16,6 @@ function ProjectController($scope, $stateParams, $http) {
     $scope.project = response.data;
 
     var projectID = $scope.project.name;
-    console.log('the project is ' + projectID);
   },
     function errorCallback(response) { }
     );
