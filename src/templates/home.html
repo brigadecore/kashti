@@ -2,7 +2,7 @@
 name: home
 url: /
 animationIn: slideInRight
-controller: projectsbuildsController
+controllerAs: ProjectBuildsController
 ---
 
 <div class="medium-grid-block collapse medium-12 large-12 vertical">
@@ -13,13 +13,13 @@ controller: projectsbuildsController
       <div class="menu-group primary">
         <div class="menu-group-left">
           <ul class="menu-bar">
-            <li 
-              ng-controller="projectController" 
+            <li
+              ng-controller="ProjectController as project"
               ng-hide="$state.current.name === 'home'">
               <a href="../kashti/#!/project/{{project.id}}">{{project.name}}</a></li>
-            <li 
-              ng-controller="buildController" 
-              ng-class="{ 'active': $state.current.name === 'project'}" 
+            <li
+              ng-controller="buildController"
+              ng-class="{ 'active': $state.current.name === 'project'}"
               ng-hide="$state.current.name === 'home'">
               <a href="../kashti/#!/project">Master</a></li>
             <li ng-show="$state.current.name === 'build'"><a href="/#!/build/{{build.id}}">Build {{ $stateParams.build.id}}</a></li>
@@ -57,7 +57,7 @@ controller: projectsbuildsController
 
               </div>
 
-              <div class="grid-block" ng-controller="projectsbuildsController">
+              <div class="grid-block" ng-controller="ProjectBuildsController as projectsbuilds">
 
                 <section class="small-12 medium-6 large-4" ng-repeat="projectsbuild in projectsbuilds">
                   <div class="project"

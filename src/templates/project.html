@@ -2,13 +2,14 @@
 name: project
 url: /project/:id
 animationIn: fadeIn
-controller: projectController
+controllerAs: ProjectController
+controller: ProjectController
 ---
 
 <div zf-panel position="left" id="sidebar" class="medium-grid-block collapse medium-2 large-2 vertical" ng-hide="$state.current.name === 'home'" ng-init="{projectID:project.id}">
   <div class="grid-content collapse shrink">
     <ul class="menu-bar primary">
-      <li id="organization" ng-controller="projectController">
+      <li id="organization" ng-controller="ProjectController as project">
         <h2>{{ project.name | limitTo:18 }}<small ng-if="project.name.length > 18">&#8230;</small></h2>
       </li>
     </ul>
@@ -47,9 +48,9 @@ controller: projectController
       <div class="menu-group primary">
         <div class="menu-group-left">
           <ul class="menu-bar">
-            <li 
-              ng-controller="buildController" 
-              ng-class="{ 'active': $state.current.name === 'project'}" 
+            <li
+              ng-controller="buildController"
+              ng-class="{ 'active': $state.current.name === 'project'}"
               ng-hide="$state.current.name === 'home'">
               <a href="../kashti/#!/project/{{project.id}}">Project Overview</a></li>
             <li ng-show="$state.current.name === 'build'"><a href="/#!/build/{{build.id}}">Build {{ $stateParams.build.id}}</a></li>
@@ -72,18 +73,6 @@ controller: projectController
                   <li>Sidecar: {{project.kubernetes.vcsSidecar}}</li>
                   <li>Namespace: {{project.kubernetes.namespace}}</li>
                 </ul>
-
-                <!-- <div ng-controller="projectsbuildsController">
-                    <div class="build-status" ng-class="{
-                    'build-success': buildResult == 'success',
-                    'build-failed': buildResult == 'failed',
-                    'build-active': buildResult == 'active'
-                  }">
-                    <div class="success" ng-show="buildResult == 'success'"><i class="icon ion-checkmark-circled"></i> Passing</div>
-                    <div class="failed" ng-show="buildResult == 'failed'"><i class="icon ion-close-circled"></i> Failing</div>
-                    <div class="active" ng-show="buildResult == 'active'"><img src="assets/images/rolling.svg" /> In Progress</div>
-                  </div>
-                </div> -->
               </div>
 
             </div>

@@ -9,7 +9,7 @@ controller: buildController
 <div zf-panel position="left" id="sidebar" class="medium-grid-block collapse medium-2 large-2 vertical" ng-hide="$state.current.name === 'home'" ng-init="{projectID:build.project_id}">
   <div class="grid-content collapse shrink">
     <ul class="menu-bar primary">
-      <li id="organization" ng-controller="projectController">
+      <li id="organization" ng-controller="ProjectController as project">
         <h2>{{ build.project_id | limitTo:18 }}<small ng-if="project.name.length > 18">&#8230;</small></h2>
       </li>
     </ul>
@@ -51,9 +51,9 @@ controller: buildController
     <div class="menu-group primary">
       <div class="menu-group-left">
         <ul class="menu-bar">
-          <li 
-            ng-controller="buildController" 
-            ng-class="{ 'active': $state.current.name === 'project'}" 
+          <li
+            ng-controller="buildController"
+            ng-class="{ 'active': $state.current.name === 'project'}"
             ng-hide="$state.current.name === 'home'">
             <a href="../kashti/#!/project/{{ build.project_id }}">Project Overview</a></li>
           <li ng-show="$state.current.name === 'build'"><a>Build <em>{{ build.id}}</em></a></li>
@@ -136,13 +136,13 @@ controller: buildController
             <li class="parent">
                 <em ng-show="build.provider == 'github'"><i class="icon ion-social-github"></i> {{ build.provider }}</em>
                 <em ng-show="build.provider == 'dockerhub'"><img src="assets/images/docker.png" alt="dockerhub" /> {{ build.provider }}</em>
-                <em ng-show="build.provider == 'slackbot'"><img src="assets/images/slack.png" alt="Slack" /> {{ build.provider }}</em> 
+                <em ng-show="build.provider == 'slackbot'"><img src="assets/images/slack.png" alt="Slack" /> {{ build.provider }}</em>
                 <em ng-show="!(
-                  build.provider === 'slackbot' || 
-                  build.provider === 'dockerhub' || 
+                  build.provider === 'slackbot' ||
+                  build.provider === 'dockerhub' ||
                   build.provider === 'github'
-                )"> {{ build.provider }}</em> 
-                : <em>{{ build.type }}</em> 
+                )"> {{ build.provider }}</em>
+                : <em>{{ build.type }}</em>
                 started a build via <em>commit #{{ build.commit  | limitTo : -6: number.length }}</em>
             </li>
             <li ng-repeat="job in jobs" class="job" ng-class="{
@@ -187,9 +187,9 @@ controller: buildController
                   </dl>
                   <div class="log-wrap" ng-class="{'log-expand': expandLog == true }">
 
-                    <div 
-                      hljs 
-                      hljs-source="logs" 
+                    <div
+                      hljs
+                      hljs-source="logs"
                       class="log-inner">
                     </div>
 
