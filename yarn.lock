@@ -44,7 +44,7 @@ amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
 
-angular-animate@~1.6.7:
+angular-animate@1.6.7:
   version "1.6.7"
   resolved "https://registry.yarnpkg.com/angular-animate/-/angular-animate-1.6.7.tgz#bc6dbe6a190d019a6fbb2c7373d40f01cfd75899"
 
@@ -69,11 +69,11 @@ angular-moment@~1.1.0:
   dependencies:
     moment ">=2.8.0 <3.0.0"
 
-angular-resource@~1.6.7:
+angular-resource@1.6.7:
   version "1.6.7"
   resolved "https://registry.yarnpkg.com/angular-resource/-/angular-resource-1.6.7.tgz#1ac9a33d1715f2042c1321c82ca307e694ffdc93"
 
-angular@^1.0.1, angular@~1.6.7:
+angular@1.6.7, angular@^1.0.1:
   version "1.6.7"
   resolved "https://registry.yarnpkg.com/angular/-/angular-1.6.7.tgz#0f89837dae1776b01ccb1fa2096db0d9373d9897"
 
