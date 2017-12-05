@@ -18,7 +18,7 @@ controller: ProjectController
     <nav>
       <ul>
         <li>
-          <ul ng-controller="buildsController">
+          <ul ng-controller="BuildsController">
             <li ng-class="{ 'active': $state.current.name === 'project'}" class="active"><a>All Events</a></li>
             <li ng-repeat="build in builds | filter:provider""><a>{{build.provider}}</a></li>
           </ul>
@@ -49,7 +49,7 @@ controller: ProjectController
         <div class="menu-group-left">
           <ul class="menu-bar">
             <li
-              ng-controller="buildController"
+              ng-controller="BuildController"
               ng-class="{ 'active': $state.current.name === 'project'}"
               ng-hide="$state.current.name === 'home'">
               <a href="../kashti/#!/project/{{project.id}}">Project Overview</a></li>
@@ -80,7 +80,7 @@ controller: ProjectController
           </div>
         </div>
 
-        <ul class="grid-content build-list" ng-controller="buildsController">
+        <ul class="grid-content build-list" ng-controller="BuildsController">
           <li ng-repeat="build in builds | orderBy: reverse:true" class="medium-grid-block build-item">
             <a href="../kashti/#!/build/{{build.id}}" class="grid-block">
 

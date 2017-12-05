@@ -2,7 +2,8 @@
 name: build
 url: /build/:id
 animationIn: slideInLeft
-controller: buildController
+controllerAs: BuildController
+controller: BuildController
 ---
 
 <!-- left sidebar -->
@@ -52,7 +53,7 @@ controller: buildController
       <div class="menu-group-left">
         <ul class="menu-bar">
           <li
-            ng-controller="buildController"
+            ng-controller="BuildController"
             ng-class="{ 'active': $state.current.name === 'project'}"
             ng-hide="$state.current.name === 'home'">
             <a href="../kashti/#!/project/{{ build.project_id }}">Project Overview</a></li>
@@ -92,7 +93,7 @@ controller: buildController
                   <div class="grid-content small-6 text-right">Finished at {{build.worker.end_time}}</div>
                 </div>
 
-                <div class="horizontal build-chart build-chart-{{jobs.length}}" gantt data="data" ng-init="showChart = true" ng-hide="!showChart" ng-controller="jobsController">
+                <div class="horizontal build-chart build-chart-{{jobs.length}}" gantt data="data" ng-init="showChart = true" ng-hide="!showChart" ng-controller="JobsController">
 
                   <div class="build-chart-bg"></div>
 
@@ -125,7 +126,7 @@ controller: buildController
           </div>
         </div>
 
-        <div class="job-list" ng-controller="jobsController">
+        <div class="job-list" ng-controller="JobsController">
           <h4>
             <span ng-show="jobs.length == '0'">There are currently no jobs inside this build.</span>
             <span ng-show="jobs.length == '1'"><span class="job-count">1</span> job ran inside this build:</span>
@@ -166,7 +167,7 @@ controller: buildController
               </div>
 
               <!-- log output -->
-              <div ng-controller="logController">
+              <div ng-controller="LogController">
                 <div ng-show="logerror == '404'">
                   <dl>
                     <dt>Image:</dt>

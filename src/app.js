@@ -10,7 +10,10 @@
     'foundation',
     'foundation.dynamicRouting',
     'foundation.dynamicRouting.animations',
-    'app.projects'
+    'app.projects',
+    'app.builds',
+    'app.jobs',
+    'app.logs'
   ])
     .config(config)
     .run(run)
@@ -36,15 +39,6 @@
       }
   });
 
-  angular.module('app').filter('trim', function () {
-    return function(value) {
-      if(!angular.isString(value)) {
-          return value;
-      };
-      return value.replace(/^\s+|\s+$/g, '');
-    };
-  });
-
   function config($urlProvider, $locationProvider) {
     $urlProvider.otherwise('/');
 
@@ -66,99 +60,4 @@
       $rootScope.$state = $state;
       $rootScope.$stateParams = $stateParams;
   }])
-
-  angular.module('app').controller("buildsController", ['$scope', '$stateParams', '$http',
-       function ($scope, $stateParams, $http) {
-    var currentProject = $stateParams;
-
-    $http({method: 'GET',
-      url: baseURL + '/v1/project/' + currentProject.id + '/builds',
-      headers: {
-        'Accept': 'application/json, text/javascript',
-        'Content-Type': 'application/json; charset=utf-8'
-      },
-      isArray: true
-    }).then(function successCallback(response) {
-        $scope.builds = response.data;
-    },
-      function errorCallback(response) {}
-    );
-  }]);
-
-  angular.module('app').controller("buildController", ['$scope', '$stateParams', '$http',
-       function ($scope, $stateParams, $http) {
-    var currentBuild = $stateParams;
-
-    $http({method: 'GET',
-      url: baseURL + '/v1/build/' + currentBuild.id,
-      headers: {
-        'Accept': 'application/json, text/javascript',
-        'Content-Type': 'application/json; charset=utf-8'
-      },
-      isArray: true
-    }).then(function successCallback(response) {
-      $scope.build = response.data;
-    },
-      function errorCallback(response) {}
-    );
-  }]);
-
-  angular.module('app').controller("jobsController", ['$scope', '$stateParams', '$http',
-       function ($scope, $stateParams, $http) {
-    var currentBuild = $stateParams;
-
-    $http({method: 'GET',
-      url: baseURL + '/v1/build/' + currentBuild.id + '/jobs',
-      headers: {
-        'Accept': 'application/json, text/javascript',
-        'Content-Type': 'application/json; charset=utf-8'
-      },
-      isArray: true
-    }).then(function successCallback(response) {
-        $scope.jobs = response.data;
-    },
-      function errorCallback(response) {}
-    );
-  }]);
-
-  angular.module('app').controller("jobController", ['$scope', '$stateParams', '$http',
-         function ($scope, $stateParams, $http) {
-
-    var currentJobID = $stateParams.id;
-
-    $http({method: 'GET',
-      url: baseURL + '/v1/job/' + currentJobID,
-      headers: {
-        'Accept': 'application/json, text/javascript',
-        'Content-Type': 'application/json; charset=utf-8'
-      },
-      isArray: true
-    }).then(function successCallback(response) {
-      $scope.job = response.data;
-    },
-    function errorCallback(response) {
-      console.log('Build > Job endpoint returned ' + response.status + ', citing \'' + response.message + '\'.');
-    });
-  }]);
-
-  angular.module('app').controller("logController", ['$scope', '$stateParams', '$http',
-    function ($scope, $stateParams, $http) {
-    var currentJobID = $scope.job.id;
-
-    $http({method: 'GET',
-      url: baseURL + '/v1/job/' + currentJobID + '/logs?stream=true',
-      responseType: 'text',
-      headers: {
-        'Accept': 'plain/text, text/javascript',
-        'Content-Type': 'plain/text; charset=utf-8'
-      }
-    }).then(function successCallback(response) {
-      $scope.logs = response.data;
-    },
-    function errorCallback(response) {
-      $scope.logerror = response.status;
-      console.log('Job > Logs endpoint returned ' + response.status + ', citing \'' + response.message + '\'.');
-    });
-  }]);
-
 })();

@@ -18,7 +18,7 @@ controllerAs: ProjectBuildsController
               ng-hide="$state.current.name === 'home'">
               <a href="../kashti/#!/project/{{project.id}}">{{project.name}}</a></li>
             <li
-              ng-controller="buildController"
+              ng-controller="BuildController"
               ng-class="{ 'active': $state.current.name === 'project'}"
               ng-hide="$state.current.name === 'home'">
               <a href="../kashti/#!/project">Master</a></li>
