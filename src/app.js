@@ -4,7 +4,6 @@
   angular.module('app', [
     'ui.router',
     'ngResource',
-    'ngAnimate',
     'hljs',
     'angularMoment',
     'foundation',
