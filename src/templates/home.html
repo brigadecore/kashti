@@ -6,28 +6,6 @@ controllerAs: ProjectBuildsController
 
 <div class="medium-grid-block collapse medium-12 large-12 vertical">
   <div class="grid-block collapse vertical">
-
-    <!-- topbar #header -->
-    <div id="header" class="shrink collapse grid-content">
-      <div class="menu-group primary">
-        <div class="menu-group-left">
-          <ul class="menu-bar">
-            <li
-              ng-controller="ProjectController as project"
-              ng-hide="$state.current.name === 'home'">
-              <a href="../kashti/#!/project/{{project.id}}">{{project.name}}</a></li>
-            <li
-              ng-controller="BuildController"
-              ng-class="{ 'active': $state.current.name === 'project'}"
-              ng-hide="$state.current.name === 'home'">
-              <a href="../kashti/#!/project">Master</a></li>
-            <li ng-show="$state.current.name === 'build'"><a href="/#!/build/{{build.id}}">Build {{ $stateParams.build.id}}</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <!-- /#header -->
-
     <div class="grid-block vertical">
       <div class="grid-content content-wrap">
 
@@ -65,8 +43,7 @@ controllerAs: ProjectBuildsController
                     'project-failed': projectsbuild.lastBuild.worker.status == 'Failed',
                     'project-active': projectsbuild.lastBuild.worker.status == 'Active'
                   }">
-                    <a href="../kashti/#!/project/{{projectsbuild.project.id}}" class="">
-
+                    <a ui-sref="project({ id: projectsbuild.project.id })">
                       <div class="status">
                         <div class="success" ng-show="projectsbuild.lastBuild.worker.status == 'Succeeded'"><i class="icon ion-checkmark-circled status-success"></i></div>
                         <div class="failed" ng-show="projectsbuild.lastBuild.worker.status == 'Failed'"><i class="icon ion-close-circled status-fail"></i></div>

@@ -55,7 +55,7 @@ controller: BuildController
             ng-controller="BuildController"
             ng-class="{ 'active': $state.current.name === 'project'}"
             ng-hide="$state.current.name === 'home'">
-            <a href="../kashti/#!/project/{{ build.project_id }}">Project Overview</a></li>
+            <a ui-sref="project({ id: build.project_id })">Project Overview</a></li>
           <li ng-show="$state.current.name === 'build'"><a>Build <em>{{ build.id}}</em></a></li>
         </ul>
       </div>
@@ -74,7 +74,7 @@ controller: BuildController
 
               <div class="build-header">
                 <h1>
-                  <a href="../kashti/#!/project/{{ build.project_id }}" title="Back to Build list"><i class="ion-chevron-left icon"></i></a>
+                  <a ui-sref="project({ id: build.project_id })" title="Back to Build list"><i class="ion-chevron-left icon"></i></a>
                   Build &nbsp;<em>{{ build.id }}</em>
                 </h1>
 

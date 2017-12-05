@@ -42,23 +42,6 @@ controller: ProjectController
 <div class="medium-grid-block collapse medium-10 large-10 vertical">
   <div class="grid-block collapse vertical">
 
-    <!-- topbar #header -->
-    <div id="header" class="shrink collapse grid-content vertical">
-      <div class="menu-group primary">
-        <div class="menu-group-left">
-          <ul class="menu-bar">
-            <li
-              ng-controller="BuildController"
-              ng-class="{ 'active': $state.current.name === 'project'}"
-              ng-hide="$state.current.name === 'home'">
-              <a href="../kashti/#!/project/{{project.id}}">Project Overview</a></li>
-            <li ng-show="$state.current.name === 'build'"><a href="/#!/build/{{build.id}}">Build {{ $stateParams.build.id}}</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <!-- /#header -->
-
     <div class="grid-block vertical">
       <div class="grid-content content-wrap">
 
@@ -81,7 +64,7 @@ controller: ProjectController
 
         <ul class="grid-content build-list" ng-controller="BuildsController">
           <li ng-repeat="build in builds | orderBy: reverse:true" class="medium-grid-block build-item">
-            <a href="../kashti/#!/build/{{build.id}}" class="grid-block">
+            <a ui-sref="build({ id: build.id })" class="grid-block">
 
               <span class="act-state collapse {{ build.worker.status }}" ng-class="{
                 'success': build.worker.status == 'Succeeded',
