@@ -65,7 +65,7 @@ controller: ProjectController
 
         <ul class="grid-content build-list" ng-controller="BuildsController">
           <li ng-repeat="build in builds | orderBy: reverse:true" class="medium-grid-block build-item">
-            <a href="../kashti/#!/build/{{build.id}}" class="grid-block">
+            <a ui-sref="build({ id: build.id })" class="grid-block">
 
               <span class="act-state collapse {{ build.worker.status }}" ng-class="{
                 'success': build.worker.status == 'Succeeded',

@@ -44,7 +44,7 @@ controllerAs: ProjectBuildsController
                     'project-failed': projectsbuild.lastBuild.worker.status == 'Failed',
                     'project-active': projectsbuild.lastBuild.worker.status == 'Active'
                   }">
-                    <a ui-sref="project({ id: projectsbuild.project.id   })">
+                    <a ui-sref="project({ id: projectsbuild.project.id })">
                       <div class="status">
                         <div class="success" ng-show="projectsbuild.lastBuild.worker.status == 'Succeeded'"><i class="icon ion-checkmark-circled status-success"></i></div>
                         <div class="failed" ng-show="projectsbuild.lastBuild.worker.status == 'Failed'"><i class="icon ion-close-circled status-fail"></i></div>
