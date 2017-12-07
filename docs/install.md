@@ -60,7 +60,7 @@ and the other to the Brigade API server:
 ```console
 $ kubectl get po | grep brigade-server-brigade-api | awk '{ print $1 }'
 brigade-server-brigade-api-559fb8df99-kz5wl
-$ kubectl port-forward brigade-server-brigade-api-559fb8df99-kz5wl 7745 
+$ kubectl port-forward brigade-server-brigade-api-559fb8df99-kz5wl 7745 &
 $ kubectl get po | grep kashti | awk '{ print $1 }'
 kashti-kashti-54bf55b988-dsbhf
 $ kubectl port-forward kashti-kashti-54bf55b988-dsbhf 8080:80 &
