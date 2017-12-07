@@ -12,7 +12,7 @@ _must_ have access to the Brigade API server.**
 To install the Brigade UI to a Kubernetes cluster:
 
 1. [Install Brigade](https://github.com/Azure/brigade)
-2. Get the IP address or hostname of the Brigade API service. You can often do this with `helm status brigade`
+2. Get the IP address or hostname of the Brigade API service. You can often do this with `helm status brigade-server`
 3. Clone this repo and `cd` into the root of the repo
 3. Install the chart: `helm install chart/kashti --brigade.apiServer=http://IP:7745`, where IP is the
   IP or hostname of the Brigade API service. See Option 1 and Option 2 below to
