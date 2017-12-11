@@ -9,20 +9,6 @@ body {
   overflow-x: hidden;
 }
 
-// $MinWidth: 1024px;
-// $InnerMinWidth: ($MinWidth - 56px);
-
-//   html,
-//   body,
-//   .grid-frame {
-//     min-width: $MinWidth;
-//     overflow-x: scroll;
-//   }
-
-//   .view-wrap {
-//     min-width: $InnerMinWidth;
-//   }
-
 h1, h2, h3 {
   @include europaBold;
 }
@@ -43,7 +29,6 @@ h1, h2, h3 {
 
   .grid-container {
     max-width: 65rem;
-    // margin-right: -1.5rem;
     padding-top: 1.5rem;
   }
 
