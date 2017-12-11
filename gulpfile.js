@@ -22,17 +22,26 @@ var isProduction = !!(argv.production);
 // - - - - - - - - - - - - - - -
 
 var paths = {
-  assets: [
-    './src/*.html',
-    './src/assets/{fonts,images}/**/*.*'
+  // These files are for your app's JavaScript
+  appJS: [
+    'src/modules/modules.js',
+    'src/modules/**/*.js',
+    'src/app.js'
   ],
   // Sass will check these folders for files when you use @import.
-  sass: [
+  css: [
     'src/assets/scss',
     'node_modules/foundation-apps/scss'
   ],
+  templates: [
+    './src/templates/**/*.html'
+  ],
+  staticAssets: [
+    './src/*.html',
+    './src/assets/{fonts,images}/**/*.*'
+  ],
   // These files include Foundation for Apps and its dependencies
-  foundationJS: [
+  vendorJS: [
     'node_modules/fastclick/lib/fastclick.js',
     'node_modules/viewport-units-buggyfill/viewport-units-buggyfill.js',
     'node_modules/tether/tether.js',
@@ -49,12 +58,6 @@ var paths = {
     'node_modules/foundation-apps/js/angular/**/*.js',
     '!node_modules/foundation-apps/js/angular/app.js'
   ],
-  // These files are for your app's JavaScript
-  appJS: [
-    'src/modules/modules.js',
-    'src/modules/**/*.js',
-    'src/app.js'
-  ]
 }
 
 // 3. TASKS
@@ -67,7 +70,7 @@ gulp.task('clean', function(cb) {
 
 // Copies everything in the client folder except templates, Sass, and JS
 gulp.task('copy', function() {
-  return gulp.src(paths.assets, {
+  return gulp.src(paths.staticAssets, {
     base: './src/'
   })
     .pipe(gulp.dest('./dist'))
@@ -81,7 +84,7 @@ gulp.task('copy-settings', function() {
 
 // Copies your app's page templates and generates URLs for them
 gulp.task('copy:templates', function() {
-  return gulp.src('./src/templates/**/*.html')
+  return gulp.src(paths.templates)
     .pipe(router({
       path: 'dist/assets/js/routes.js',
       root: 'src'
@@ -96,7 +99,7 @@ gulp.task('sass', function () {
 
   return gulp.src('src/assets/scss/app.scss')
     .pipe($.sass({
-      includePaths: paths.sass,
+      includePaths: paths.css,
       outputStyle: (isProduction ? 'compressed' : 'nested'),
       errLogToConsole: true
     }))
@@ -138,7 +141,7 @@ gulp.task('uglify:foundation', function(cb) {
       console.log(e);
     }));
 
-  return gulp.src(paths.foundationJS)
+  return gulp.src(paths.vendorJS)
     .pipe(uglify)
     .pipe($.concat('foundation.js'))
     .pipe(gulp.dest('./dist/assets/js/'))
