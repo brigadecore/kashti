@@ -1,6 +1,11 @@
 {
-  "name": "foundation-apps-template",
-  "version": "1.2.0",
+  "name": "kashti",
+  "version": "0.1.0",
+  "description": "Kashti is a dashboard for your Brigade pipelines.",
+  "bugs": {
+    "url": "https://github.com/Azure/kashti/issues"
+  },
+  "license": "MIT",
   "scripts": {
     "start": "gulp",
     "build": "gulp build --production",
