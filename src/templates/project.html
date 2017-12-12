@@ -19,7 +19,7 @@ controller: ProjectController
         <li>
           <ul ng-controller="BuildsController">
             <li ng-class="{ 'active': $state.current.name === 'project'}" class="active"><a>All Events</a></li>
-            <li ng-repeat="build in builds | filter:provider""><a>{{build.provider}}</a></li>
+            <li ng-repeat="build in builds | filter:provider"><a>{{build.provider}}</a></li>
           </ul>
         </li>
       </ul>
