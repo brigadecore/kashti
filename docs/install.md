@@ -12,7 +12,7 @@ _must_ have access to the Brigade API server.**
 To install the Brigade UI to a Kubernetes cluster:
 
 1. [Install Brigade](https://github.com/Azure/brigade)
-2. Get the IP address or hostname of the Brigade API service. You can often do this with `helm status brigade`
+2. Get the IP address or hostname of the Brigade API service. You can often do this with `helm status brigade-server`
 3. Clone this repo and `cd` into the root of the repo
 3. Install the chart: `helm install charts/kashti --name kashti --set brigade.apiServer=http://IP:7745`, where IP is the
   IP or hostname of the Brigade API service. See Option 1 and Option 2 below to
@@ -43,7 +43,7 @@ First, you must setup Brigade. The normal Brigade installation will work fine he
 
 ```console
 $ helm repo add brigade https://azure.github.io/brigade
-$ helm install -n brigade brigade/brigade
+$ helm install brigade/brigade --name brigade-server
 ```
 
 Once Brigade is running, you can install Kashti, setting the API server endpoint
@@ -58,9 +58,9 @@ will need to start two port-forwarding tunnels in the background: One to Kashti
 and the other to the Brigade API server:
 
 ```console
-$ kubectl get po | grep brigade-brigade-api | awk '{ print $1 }'
-brigade-brigade-api-559fb8df99-kz5wl
-$ kubectl port-forward brigade-brigade-api-559fb8df99-kz5wl 7745 
+$ kubectl get po | grep brigade-server-brigade-api | awk '{ print $1 }'
+brigade-server-brigade-api-559fb8df99-kz5wl
+$ kubectl port-forward brigade-server-brigade-api-559fb8df99-kz5wl 7745 &
 $ kubectl get po | grep kashti | awk '{ print $1 }'
 kashti-kashti-54bf55b988-dsbhf
 $ kubectl port-forward kashti-kashti-54bf55b988-dsbhf 8080:80 &
@@ -90,7 +90,7 @@ For example, to use built-in service load balancers, run these commands:
 
 ```console
 $ helm repo add brigade https://azure.github.io/brigade
-$ helm install -n brigade brigade/brigade --set api.service.type=LoadBalancer
+$ helm install brigade/brigade --name brigade-server --set api.service.type=LoadBalancer
 ```
 
 (If your cluster does not support LoadBalancer, look at the Ingress control
@@ -100,7 +100,7 @@ Now you need to wait until the Brigade API service gets a public IP, and then
 install Kashti
 
 ```
-$ kubectl get --no-headers svc brigade-brigade-api | awk '{ print $4 }'
+$ kubectl get --no-headers svc brigade-server-brigade-api | awk '{ print $4 }'
 10.0.0.77  # Should be a public IP, not like this example
 $ helm install -n kashti ./charts/kashti --set service.type=LoadBalancer \
   --set brigade.apiServer=http://10.0.0.77:7745
