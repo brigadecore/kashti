@@ -92,7 +92,7 @@ controller: BuildController
                   <div class="grid-content small-6 text-right">Finished at {{build.worker.end_time}}</div>
                 </div>
 
-                <div class="horizontal build-chart build-chart-{{jobs.length}}" gantt data="data" ng-init="showChart = true" ng-hide="!showChart" ng-controller="JobsController">
+                <div class="horizontal build-chart build-chart-{{jobs.length}}" gantt data="data" ng-init="showChart = true" ng-hide="!showChart" ng-controller="JobsController as job">
 
                   <div class="build-chart-bg"></div>
 
@@ -101,14 +101,6 @@ controller: BuildController
                   <div class="task task-{{$index + 1}}" ng-repeat="job in jobs">
                     <a ng-click="gotoElement('{{job.id}}')"><span title="job.name">{{job.name}}</span></a>
                   </div>
-
-                  <!-- <div class="task task-0"><a href=""><span title="git"><i class="icon ion-social-github"></i></span></a></div>
-                  <div class="task task-1"><a href=""><span title="event.push">event.push</span></a></div>
-                  <div class="task task-2"><a href=""><span title="goBuild.tasks">goBuild.tasks</span></a></div>
-                  <div class="task task-3"><a href=""><span title="jsLint.images">jsLint.images</span></a></div>
-                  <div class="task task-4"><a href=""><span title="jsLint.images">jsLint.images</span></a></div>
-                  <div class="task task-5"><a href=""><span title="Tasks complete.">Tasks complete.</span></a></div>
-                  <div class="task task-6"><a href=""><span title="Slack: Post to #ci"><strong>#</strong> Post to #ci</span></a></div> -->
 
                   <em></em>
                   <em></em>
@@ -125,7 +117,7 @@ controller: BuildController
           </div>
         </div>
 
-        <div class="job-list" ng-controller="JobsController">
+        <div class="job-list" ng-controller="JobsController as job">
           <h4>
             <span ng-show="jobs.length == '0'">There are currently no jobs inside this build.</span>
             <span ng-show="jobs.length == '1'"><span class="job-count">1</span> job ran inside this build:</span>
@@ -200,8 +192,6 @@ controller: BuildController
                   </div>
                 </div>
               </div>
-
-              </dl>
 
               <small>Finished at {{job.end_time | date:'MM/dd/yyyy @ h:mma Z'}}</small>
 
