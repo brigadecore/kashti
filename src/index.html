@@ -1,15 +1,13 @@
 <!doctype html>
-<html lang="en" ng-app="app">
+<html lang="en">
 
 <head>
+  <base href="/">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>
-    Kashti | {{ $state.current.name | capitalize }}
-  </title>
-
-  <base href="/">
+  <title>Kashti</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link href="assets/css/app.css" rel="stylesheet" type="text/css">
   <link rel="icon" type="image/png" href="assets/images/favicon.png">
@@ -18,7 +16,7 @@
 
 </head>
 
-<body zf-close-all zf-esc-close>
+<body zf-close-all zf-esc-close ng-app="app">
 
   <div class="grid-frame">
 
