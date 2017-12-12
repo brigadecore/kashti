@@ -1,4 +1,4 @@
-(function() {
+function() {
   'use strict';
 
   angular.module('app', [
@@ -59,4 +59,4 @@
       $rootScope.$state = $state;
       $rootScope.$stateParams = $stateParams;
   }])
-})();
+});
