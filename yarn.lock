@@ -55,6 +55,26 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
+"@types/angular-mocks@^1.5.11":
+  version "1.5.11"
+  resolved "https://registry.yarnpkg.com/@types/angular-mocks/-/angular-mocks-1.5.11.tgz#d5bbefbf742f2196071bda0fe051878b6f4fd72c"
+  dependencies:
+    "@types/angular" "*"
+
+"@types/angular-ui-router@^1.1.40":
+  version "1.1.40"
+  resolved "https://registry.yarnpkg.com/@types/angular-ui-router/-/angular-ui-router-1.1.40.tgz#d8a10fe4af86a069f8c3302946363f1149e5a6b3"
+  dependencies:
+    "@types/angular" "*"
+
+"@types/angular@*", "@types/angular@^1.6.39":
+  version "1.6.39"
+  resolved "https://registry.yarnpkg.com/@types/angular/-/angular-1.6.39.tgz#0c34938fc546f360c14817686f2e453ebf22312f"
+
+"@types/jquery@^3.2.16":
+  version "3.2.16"
+  resolved "https://registry.yarnpkg.com/@types/jquery/-/jquery-3.2.16.tgz#04419c404a3194350e7d3f339a90e72c88db3111"
+
 "@uirouter/angularjs@1.0.4":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@uirouter/angularjs/-/angularjs-1.0.4.tgz#c89efe2d071573d92c2fd486e35a22effc8dc017"

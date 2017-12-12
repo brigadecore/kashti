@@ -13,6 +13,10 @@
     "docker-push": "docker push deis/kashti"
   },
   "devDependencies": {
+    "@types/angular": "^1.6.39",
+    "@types/angular-mocks": "^1.5.11",
+    "@types/angular-ui-router": "^1.1.40",
+    "@types/jquery": "^3.2.16",
     "angular-cors": "^1.0.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.3",
@@ -84,5 +88,19 @@
   },
   "engines": {
     "yarn": ">= 1.0.0"
+  },
+  "eslintConfig": {
+    "globals": {
+      "expect": true
+    },
+    "root": true,
+    "env": {
+      "browser": true,
+      "jasmine": true
+    },
+    "parser": "babel-eslint",
+    "extends": [
+      "xo-space/esnext"
+    ]
   }
 }
