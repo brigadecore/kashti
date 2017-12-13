@@ -26,7 +26,7 @@ angular.module('app.modules', [uiRouter])
   .controller('LogController', LogController)
 ;
 
-/** @ngInject */
+/* @ngInject */
 function routes($stateProvider) {
   $stateProvider
     .state({
@@ -52,7 +52,7 @@ function routes($stateProvider) {
   ;
 }
 
-/** @ngInject */
+/* @ngInject */
 angular.module('app', [
   uiRouter,
   ngResource,
@@ -67,7 +67,7 @@ angular.module('app', [
   .run(['$rootScope', '$state', '$stateParams', setupState])
 ;
 
-/** @ngInject */
+/* @ngInject */
 function routingConfig($urlRouterProvider, $locationProvider) {
   $urlRouterProvider.otherwise('/');
 
@@ -79,13 +79,13 @@ function routingConfig($urlRouterProvider, $locationProvider) {
   $locationProvider.hashPrefix('!');
 }
 
-/** @ngInject */
+/* @ngInject */
 function httpConfig($httpProvider) {
   $httpProvider.defaults.useXDomain = true;
   delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }
 
-/** @ngInject */
+/* @ngInject */
 function hljsSetup(hljsServiceProvider) {
   hljsServiceProvider.setOptions({
     // Replace tab with 4 spaces
