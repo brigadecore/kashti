@@ -1,10 +1,9 @@
 FROM nginx:stable-alpine
 
 RUN mkdir -p /usr/share/nginx/html/kashti
-COPY dist/redirect.html /usr/share/nginx/html/index.html
 COPY dist/index.html /usr/share/nginx/html/kashti
-COPY dist/assets/  /usr/share/nginx/html/kashti/assets/
-COPY dist/templates/  /usr/share/nginx/html/kashti/templates/
+COPY dist /usr/share/nginx/html
+COPY src/redirect.html /usr/share/nginx/html/index.html
 
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]

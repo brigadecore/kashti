@@ -9,7 +9,7 @@
   "scripts": {
     "start": "gulp",
     "start:dist": "gulp serve:dist",
-    "docker-build": "gulp docker-build && docker build -t deis/kashti:latest .",
+    "docker-build": "gulp build && docker build -t deis/kashti:latest .",
     "docker-push": "docker push deis/kashti"
   },
   "devDependencies": {
