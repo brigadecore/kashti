@@ -1,12 +1,19 @@
 const webpack = require('webpack');
 const conf = require('./gulp.conf');
 const path = require('path');
+const pkg = require('../package.json');
 
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FailPlugin = require('webpack-fail-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const pkg = require('../package.json');
 const autoprefixer = require('autoprefixer');
+
+const cleanOptions = {
+  root: process.cwd(),
+  verbose: true,
+  dry: false
+};
 
 module.exports = {
   module: {
@@ -43,10 +50,25 @@ module.exports = {
         loaders: [
           'html-loader'
         ]
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        exclude: /node_modules/,
+        use: [
+          'file-loader'
+        ]
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        exclude: /node_modules/,
+        use: [
+          'file-loader'
+        ]
       }
     ]
   },
   plugins: [
+    new CleanWebpackPlugin([conf.paths.dist], cleanOptions),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     FailPlugin,
@@ -54,23 +76,32 @@ module.exports = {
       template: conf.path.src('index.html')
     }),
     new webpack.optimize.UglifyJsPlugin({
-      output: { comments: false },
-      compress: { unused: true, dead_code: true, warnings: false } // eslint-disable-line camelcase
+      output: {comments: false},
+      compress: {unused: true, dead_code: true, warnings: false} // eslint-disable-line camelcase
     }),
     new ExtractTextPlugin('index-[contenthash].css'),
-    new webpack.optimize.CommonsChunkPlugin({ name: 'vendor' }),
+    new webpack.optimize.CommonsChunkPlugin({name: 'vendor'}),
     new webpack.LoaderOptionsPlugin({
       options: {
         postcss: () => [autoprefixer]
       }
-    })
+    }),
+    new webpack.HashedModuleIdsPlugin()
   ],
   output: {
     path: path.join(process.cwd(), conf.paths.dist),
-    filename: '[name]-[hash].js'
+    filename: '[name].[chunkhash].js'
   },
   entry: {
-    app: `./${conf.path.src('index')}`,
-    vendor: Object.keys(pkg.dependencies)
+    bundle: `./${conf.path.src('app.js')}`,
+    vendor: [
+      'angular',
+      'angular-resource',
+      'angular-gantt',
+      'angular-highlightjs',
+      'angular-moment',
+      '@uirouter/angularjs',
+      'fastclick'
+    ]
   }
 };

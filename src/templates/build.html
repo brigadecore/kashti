@@ -77,7 +77,9 @@
                   'active': build.worker.status == 'Pending'}">
                   <div class="success" ng-show="build.worker.status == 'Succeeded'"><i class="icon ion-checkmark-circled"></i> Passed</div>
                   <div class="failed" ng-show="build.worker.status == 'Failed'"><i class="icon ion-close-circled"></i> Failed</div>
-                  <div class="active" ng-show="build.worker.status == 'Pending'"><img src="assets/images/rolling.svg" /> In Progress</div>
+                  <div class="active" ng-show="build.worker.status == 'Pending'">
+                    <img src="/assets/images/rolling.svg" /> In Progress
+                  </div>
                 </div>
 
                 <div class="grid-block horizontal build-metadata">
@@ -120,8 +122,8 @@
           <ul class="build-details" ng-hide="jobs.length == '0'" id="build-details">
             <li class="parent">
                 <em ng-show="build.provider == 'github'"><i class="icon ion-social-github"></i> {{ build.provider }}</em>
-                <em ng-show="build.provider == 'dockerhub'"><img src="assets/images/docker.png" alt="dockerhub" /> {{ build.provider }}</em>
-                <em ng-show="build.provider == 'slackbot'"><img src="assets/images/slack.png" alt="Slack" /> {{ build.provider }}</em>
+                <em ng-show="build.provider == 'dockerhub'"><img src="/assets/images/docker.png" alt="dockerhub" /> {{ build.provider }}</em>
+                <em ng-show="build.provider == 'slackbot'"><img src="/assets/images/slack.png" alt="Slack" /> {{ build.provider }}</em>
                 <em ng-show="!(
                   build.provider === 'slackbot' ||
                   build.provider === 'dockerhub' ||
@@ -143,7 +145,7 @@
                 Complete
               </div>
               <div class="job-response active" ng-show="job.status == 'Pending'">
-                <img src="assets/images/rolling.svg" class="status-active" />
+                <img src="/assets/images/rolling.svg" class="status-active" />
                 Pending
               </div>
               <div class="job-response fail" ng-show="job.status = Failed">

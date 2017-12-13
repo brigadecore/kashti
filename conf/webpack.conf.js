@@ -5,7 +5,7 @@ const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FailPlugin = require('webpack-fail-plugin');
-// const autoprefixer = require('autoprefixer');
+const autoprefixer = require('autoprefixer');
 
 const cleanOptions = {
   root: process.cwd(),
@@ -33,7 +33,8 @@ module.exports = {
         loaders: [
           'style-loader',
           'css-loader',
-          'sass-loader'
+          'sass-loader',
+          'postcss-loader'
         ]
       },
       {
@@ -75,10 +76,13 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: conf.path.src('index.html')
     }),
-    new webpack.HashedModuleIdsPlugin(),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor'
-    })
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        postcss: () => [autoprefixer]
+      },
+      debug: true
+    }),
+    new webpack.HashedModuleIdsPlugin()
   ],
   devtool: 'source-map',
   devServer: {
@@ -86,19 +90,9 @@ module.exports = {
   },
   output: {
     path: path.join(process.cwd(), conf.paths.dist),
-    filename: '[name].[chunkhash].js'
+    filename: 'app.js'
   },
   entry: {
-    bundle: `./${conf.path.src('app.js')}`,
-    vendor: [
-      'angular',
-      'angular-resource',
-      'angular-gantt',
-      'angular-highlightjs',
-      'angular-moment',
-      '@uirouter/angularjs',
-      'fastclick'
-    ]
+    app: `./${conf.path.src('app.js')}`
   }
-
 };

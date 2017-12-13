@@ -66,16 +66,19 @@
               }">
                 <div class="success" title="Passed"><i class="icon ion-checkmark-circled"></i></div>
                 <div class="failed" title="Failed"><i class="icon ion-close-circled"></i></div>
-                <div class="active" title="In progress"><img src="assets/images/rolling.svg" /></div>
+                <div class="active" title="In progress">
+                  <img src="/assets/images/rolling.svg" />
+                </div>
               </span>
               <span class="act-author">
                 <span class="act-avatar">
-                  <!-- <i class="icon ion-ios-bolt" ng-show="
-                    build.provider !== 'github' | build.provider !== 'slack' | build.provider !== 'trello' | build.provider !== 'brigade-cli'
-                  "></i> -->
                   <i class="icon ion-social-github" ng-show="build.provider === 'github' "></i>
-                  <i class="icon avatar-slack" ng-show="build.provider === 'slack' "><img src="assets/images/slack.png" /></i>
-                  <i class="icon avatar-trello" ng-show="build.provider === 'trello' "><img src="assets/images/trello.png" /></i>
+                  <i class="icon avatar-slack" ng-show="build.provider === 'slack' ">
+                    <img src="/assets/images/slack.png" />
+                  </i>
+                  <i class="icon avatar-trello" ng-show="build.provider === 'trello' ">
+                    <img src="/assets/images/trello.png" />
+                    </i>
                   <i class="icon ion-ios-bolt" ng-show="build.provider === 'brigade-cli' "></i>
                 </span>
                 {{build.provider | limitTo:18 }}<small ng-if="build.provider.length > 18">&#8230;</small>
@@ -92,9 +95,6 @@
               <span class="act-time-duration">
                 Ran for <span>{{ build.worker.end_time | amDifference : build.worker.start_time : 'seconds' }} seconds.</span>
               </span>
-              <!-- <div class="act-child-jobs">
-                {{ build.jobs.length }}
-              </div> -->
             </a>
           </li>
         </ul>

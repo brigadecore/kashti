@@ -33,21 +33,21 @@ function routes($stateProvider) {
       name: 'home',
       url: '/',
       controllerAs: 'ProjectBuildsController',
-      templateUrl: 'templates/home.html'
+      template: require('./templates/home.html')
     })
     .state({
       name: 'build',
       url: '/build/:id',
       controllerAs: 'BuildController',
       controller: 'BuildController',
-      templateUrl: 'templates/build.html'
+      template: require('./templates/build.html')
     })
     .state({
       name: 'project',
       url: '/project/:id',
       controllerAs: 'ProjectController',
       controller: 'ProjectController',
-      templateUrl: 'templates/project.html'
+      template: require('./templates/project.html')
     })
   ;
 }
@@ -103,6 +103,7 @@ function fastClick($document) {
   fastclick.attach($document[0].body);
 }
 
+/* @ngInject */
 function setupState($rootScope, $state, $stateParams) {
   $rootScope.$state = $state;
   $rootScope.$stateParams = $stateParams;
