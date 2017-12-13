@@ -61,10 +61,10 @@ angular.module('app', [
   'app.modules'
 ])
   .config(routingConfig)
-  .config(['$httpProvider', httpConfig])
+  .config(httpConfig)
   .config(hljsSetup)
   .run(fastClick)
-  .run(['$rootScope', '$state', '$stateParams', setupState])
+  .run(setupState)
 ;
 
 /* @ngInject */
@@ -82,6 +82,7 @@ function routingConfig($urlRouterProvider, $locationProvider) {
 /* @ngInject */
 function httpConfig($httpProvider) {
   $httpProvider.defaults.useXDomain = true;
+  // Needed for CORS support with the default brigade API configured for kashti
   delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }
 
