@@ -17,30 +17,7 @@ import './assets/scss/app.scss';
 const baseURL = 'https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745';
 
 angular.module('app.modules', [uiRouter])
-  .config($stateProvider => {
-    $stateProvider
-      .state({
-        name: 'home',
-        url: '/',
-        controllerAs: 'ProjectBuildsController',
-        templateUrl: 'templates/home.html'
-      })
-      .state({
-        name: 'build',
-        url: '/build/:id',
-        controllerAs: 'BuildController',
-        controller: 'BuildController',
-        templateUrl: 'templates/build.html'
-      })
-      .state({
-        name: 'project',
-        url: '/project/:id',
-        controllerAs: 'ProjectController',
-        controller: 'ProjectController',
-        templateUrl: 'templates/project.html'
-      })
-    ;
-  })
+  .config(routes)
   .controller('ProjectController', ProjectController)
   .controller('ProjectBuildsController', ProjectBuildsController)
   .controller('BuildController', BuildController)
@@ -49,6 +26,33 @@ angular.module('app.modules', [uiRouter])
   .controller('LogController', LogController)
 ;
 
+/** @ngInject */
+function routes($stateProvider) {
+  $stateProvider
+    .state({
+      name: 'home',
+      url: '/',
+      controllerAs: 'ProjectBuildsController',
+      templateUrl: 'templates/home.html'
+    })
+    .state({
+      name: 'build',
+      url: '/build/:id',
+      controllerAs: 'BuildController',
+      controller: 'BuildController',
+      templateUrl: 'templates/build.html'
+    })
+    .state({
+      name: 'project',
+      url: '/project/:id',
+      controllerAs: 'ProjectController',
+      controller: 'ProjectController',
+      templateUrl: 'templates/project.html'
+    })
+  ;
+}
+
+/** @ngInject */
 angular.module('app', [
   uiRouter,
   ngResource,
@@ -58,12 +62,7 @@ angular.module('app', [
 ])
   .config(routingConfig)
   .config(['$httpProvider', httpConfig])
-  .config(hljsServiceProvider => {
-    hljsServiceProvider.setOptions({
-      // Replace tab with 4 spaces
-      tabReplace: '    '
-    });
-  })
+  .config(hljsSetup)
   .filter('capitalize', () => {
     return function (input) {
       return (input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
@@ -72,11 +71,6 @@ angular.module('app', [
   .run(fastClick)
   .run(['$rootScope', '$state', '$stateParams', setupState])
 ;
-
-function httpConfig($httpProvider) {
-  $httpProvider.defaults.useXDomain = true;
-  delete $httpProvider.defaults.headers.common['X-Requested-With'];
-}
 
 /** @ngInject */
 function routingConfig($urlRouterProvider, $locationProvider) {
@@ -88,6 +82,20 @@ function routingConfig($urlRouterProvider, $locationProvider) {
   });
 
   $locationProvider.hashPrefix('!');
+}
+
+/** @ngInject */
+function httpConfig($httpProvider) {
+  $httpProvider.defaults.useXDomain = true;
+  delete $httpProvider.defaults.headers.common['X-Requested-With'];
+}
+
+/** @ngInject */
+function hljsSetup(hljsServiceProvider) {
+  hljsServiceProvider.setOptions({
+    // Replace tab with 4 spaces
+    tabReplace: '    '
+  });
 }
 
 /* @ngInject */
