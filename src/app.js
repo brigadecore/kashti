@@ -63,11 +63,6 @@ angular.module('app', [
   .config(routingConfig)
   .config(['$httpProvider', httpConfig])
   .config(hljsSetup)
-  .filter('capitalize', () => {
-    return function (input) {
-      return (input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
-    };
-  })
   .run(fastClick)
   .run(['$rootScope', '$state', '$stateParams', setupState])
 ;
