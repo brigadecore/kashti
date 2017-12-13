@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "serve": "gulp serve",
-    "serve:dist": "gulp serve:dist",
+    "serve:prod": "gulp serve:prod",
     "docker-build": "gulp build && docker build -t deis/kashti:latest .",
     "docker-push": "docker push deis/kashti"
   },

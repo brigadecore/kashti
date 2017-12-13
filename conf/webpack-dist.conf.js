@@ -91,7 +91,7 @@ module.exports = {
     filename: '[name].[chunkhash].js'
   },
   entry: {
-    bundle: `./${conf.path.src('app.js')}`,
+    app: `./${conf.path.src('app.js')}`,
     vendor: [
       'angular',
       'angular-resource',

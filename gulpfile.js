@@ -11,7 +11,7 @@ gulp.task('default', gulp.series('build'));
 gulp.task('test', gulp.series('karma:single-run'));
 gulp.task('test:auto', gulp.series('karma:auto-run'));
 gulp.task('serve', gulp.series('webpack:watch', 'watch', 'browsersync'));
-gulp.task('serve:dist', gulp.series('default', 'browsersync:dist'));
+gulp.task('serve:prod', gulp.series('default', 'browsersync:dist'));
 
 function reloadBrowserSync(cb) {
   browserSync.reload();

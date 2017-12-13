@@ -16,7 +16,7 @@ Install dependancies and run the app with these commands.
 ```console
 $ yarn                  # install project dependencies
 $ yarn serve            # start a local server in development mode
-$ yarn serve:dist       # start a local server in production mode (minification, uglification, etc.)
+$ yarn serve:prod       # start a local server in production mode (minification, uglification, etc.)
 ```
 
 ### Deployment
