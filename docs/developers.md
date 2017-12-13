@@ -15,10 +15,8 @@ Install dependancies and run the app with these commands.
 
 ```console
 $ yarn         #install project dependencies
-$ yarn start   #start a local server
+$ gulp serve   #start a local server
 ```
-
-(You can use `npm` instead of `yarn` if you prefer.)
 
 ### Deployment
 
