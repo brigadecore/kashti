@@ -14,8 +14,9 @@ $ cd kashti
 Install dependancies and run the app with these commands. 
 
 ```console
-$ yarn         #install project dependencies
-$ gulp serve   #start a local server
+$ yarn                  #install project dependencies
+$ npm run serve         #start a local server in development mode
+$ npm run serve:dist    #start a local server in production mode (minification, uglification, etc.)
 ```
 
 ### Deployment
@@ -29,7 +30,7 @@ image:
 
 ```console
 $ eval $(minikube docker-env)
-$ yarn docker-build
+$ npm run docker-build
 $ helm install -n brigade-ui chart/kashti --set brigade.apiServer=http://localhost:7745
 ```
 
