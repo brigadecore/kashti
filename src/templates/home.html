@@ -27,9 +27,9 @@
                 </div>
               </div> -->
 
-              <div class="grid-block" ng-controller="ProjectBuildsController as projectsbuilds">
+              <div class="grid-block">
 
-                <section class="small-12 medium-6 large-4" ng-repeat="projectsbuild in projectsbuilds">
+                <section class="small-12 medium-6 large-4" ng-repeat="projectsbuild in ctrl.projectsbuilds">
                   <div class="project" ng-class="{
                     'project-success': projectsbuild.lastBuild.worker.status == 'Succeeded',
                     'project-failed': projectsbuild.lastBuild.worker.status == 'Failed',

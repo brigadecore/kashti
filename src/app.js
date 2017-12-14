@@ -9,6 +9,24 @@ import fastclick from 'fastclick';
 
 import './assets/scss/app.scss';
 
+class ProjectBuildsController {
+  /* @ngInject */
+  constructor($http) {
+    this.projectsbuilds = [];
+    this.$http = $http;
+
+    this.$http({
+      method: 'GET',
+      url: brigadeApiURL + '/v1/projects-build',
+      isArray: true
+    }).then(response => {
+      this.projectsbuilds = response.data;
+    },
+    response => { }
+    );
+  }
+}
+
 angular.module('app.modules', [uiRouter])
   .config(routes)
   .controller('ProjectController', ProjectController)
@@ -25,7 +43,7 @@ function routes($stateProvider) {
     .state({
       name: 'home',
       url: '/',
-      controllerAs: 'ProjectBuildsController',
+      controller: 'ProjectBuildsController as ctrl',
       template: require('./templates/home.html')
     })
     .state({
@@ -116,18 +134,6 @@ function ProjectController($scope, $stateParams, $http) {
   response => { }
   );
 }
-/* @ngInject */
-function ProjectBuildsController($scope, $stateParams, $http) {
-  $http({
-    method: 'GET',
-    url: brigadeApiURL + '/v1/projects-build',
-    isArray: true,
-  }).then(response => {
-    $scope.projectsbuilds = response.data;
-  },
-  response => { }
-  );
-}
 
 /* @ngInject */
 function BuildController($scope, $stateParams, $http) {
@@ -189,4 +195,3 @@ function LogController($scope, $stateParams, $http) {
     console.log('Job > Logs endpoint returned ' + response.status + ', citing \'' + response.message + '\'.');
   });
 }
-
