@@ -14,11 +14,10 @@ $ cd kashti
 Install dependancies and run the app with these commands. 
 
 ```console
-$ yarn         #install project dependencies
-$ yarn start   #start a local server
+$ yarn                  # install project dependencies
+$ yarn serve            # start a local server in development mode
+$ yarn serve:prod       # start a local server in production mode (minification, uglification, etc.)
 ```
-
-(You can use `npm` instead of `yarn` if you prefer.)
 
 ### Deployment
 

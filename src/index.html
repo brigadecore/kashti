@@ -1,27 +1,23 @@
 <!doctype html>
-<html lang="en" ng-app="app">
+<html lang="en">
 
 <head>
+  <base href="/">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kashti</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>
-    Kashti | {{ $state.current.name | capitalize }}
-  </title>
-
-  <base href="/">
-
-  <link href="assets/css/app.css" rel="stylesheet" type="text/css">
   <link rel="icon" type="image/png" href="assets/images/favicon.png">
   <link rel="icon" type="image/x-icon" href="assets/images/kashti-icon.png">
   <link rel="apple-touch-icon-precomposed" href="assets/images/kashti-icon.png">
 
 </head>
 
-<body zf-close-all zf-esc-close>
+<body zf-close-all zf-esc-close ng-app="app" ng-strict-di>
 
   <div class="grid-frame">
-
     <div position="left" id="primary" class="vertical shrink grid-block">
       <a href="/kashti/" class="logo"><img src="assets/images/kashti-logo.svg" /></a>
 
@@ -29,13 +25,8 @@
       <a href="https://github.com/Azure/kashti/issues"><i class="icon ion-help right"></i></a>
     </div>
 
-    <div ui-view class="view-wrap grid-block template-{{$state.current.name}}" id="main"></div>
+    <ui-view class="view-wrap grid-block template-{{$state.current.name}}" id="main"></ui-view>
 
   </div>
-  <script src="assets/js/settings/settings.js"></script>
-  <script src="assets/js/foundation.js"></script>
-  <script src="assets/js/foundation_templates.js"></script>
-  <script src="assets/js/routes.js"></script>
-  <script src="assets/js/app.js"></script>
 </body>
 </html>
