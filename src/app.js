@@ -38,11 +38,85 @@ class ProjectController {
       isArray: true
     }).then(response => {
       this.project = response.data;
-      console.log(this.project);
     },
     response => { }
     );
   }
+}
+
+class BuildsController {
+  /* @ngInject */
+  constructor($stateParams, $http) {
+    this.currentProject = $stateParams;
+    this.$http = $http;
+    this.builds = [];
+
+    this.$http({
+      method: 'GET',
+      url: brigadeApiURL + '/v1/project/' + this.currentProject.id + '/builds',
+      isArray: true
+    }).then(response => {
+      this.builds = response.data;
+    },
+    response => { }
+    );
+  }
+}
+
+class BuildController {
+  /* @ngInject */
+  constructor($stateParams, $http) {
+    this.currentBuild = $stateParams;
+    this.$http = $http;
+    this.build = '';
+
+    this.$http({
+      method: 'GET',
+      url: brigadeApiURL + '/v1/build/' + this.currentBuild.id,
+      isArray: true
+    }).then(response => {
+      this.build = response.data;
+    },
+    response => { }
+    );
+  }
+}
+
+// Foo
+// class LogController {
+//   /* @ngInject */
+//   constructor($scope, $stateParams, $http, config) {
+//     this.currentJobID = $scope.job.id;
+//     this.$http = $http;
+//     this.config = config;
+//     this.logs = [];
+
+//     this.$http({
+//       method: 'GET',
+//       url: this.config.apiUrl + '/v1/job/' + this.currentJobID + '/logs?stream=true',
+//       isArray: true
+//     }).then(response => {
+//       this.build = response.data;
+//     },
+//     response => { }
+//     );
+//   }
+// }
+
+/* @ngInject */
+function LogController($scope, $stateParams, $http) {
+  const currentJobID = $scope.job.id;
+
+  $http({
+    method: 'GET',
+    url: brigadeApiURL + '/v1/job/' + currentJobID + '/logs?stream=true',
+    responseType: 'text'
+  }).then(response => {
+    $scope.logs = response.data;
+  }, response => {
+    $scope.logerror = response.status;
+    console.log('Job > Logs endpoint returned ' + response.status + ', citing \'' + response.message + '\'.');
+  });
 }
 
 angular.module('app.modules', [uiRouter])
@@ -67,8 +141,7 @@ function routes($stateProvider) {
     .state({
       name: 'build',
       url: '/build/:id',
-      controllerAs: 'BuildController',
-      controller: 'BuildController',
+      controller: 'BuildController as buildCtrl',
       template: require('./templates/build.html')
     })
     .state({
@@ -180,20 +253,4 @@ function JobsController($scope, $stateParams, $http) {
   },
   response => { }
   );
-}
-
-/* @ngInject */
-function LogController($scope, $stateParams, $http) {
-  const currentJobID = $scope.job.id;
-
-  $http({
-    method: 'GET',
-    url: brigadeApiURL + '/v1/job/' + currentJobID + '/logs?stream=true',
-    responseType: 'text',
-  }).then(response => {
-    $scope.logs = response.data;
-  }, response => {
-    $scope.logerror = response.status;
-    console.log('Job > Logs endpoint returned ' + response.status + ', citing \'' + response.message + '\'.');
-  });
 }

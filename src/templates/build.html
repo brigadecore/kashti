@@ -45,11 +45,10 @@
       <div class="menu-group-left">
         <ul class="menu-bar">
           <li
-            ng-controller="BuildController"
             ng-class="{ 'active': $state.current.name === 'project'}"
             ng-hide="$state.current.name === 'home'">
-            <a ui-sref="project({ id: build.project_id })">Project Overview</a></li>
-          <li ng-show="$state.current.name === 'build'"><a>Build <em>{{ build.id}}</em></a></li>
+            <a ui-sref="project({ id: buildCtrl.build.project_id })">Project Overview</a></li>
+          <li ng-show="$state.current.name === 'build'"><a>Build <em>{{ buildCtrl.build.id}}</em></a></li>
         </ul>
       </div>
     </div>
@@ -68,7 +67,7 @@
               <div class="build-header">
                 <h1>
                   <a ui-sref="project({ id: build.project_id })" title="Back to Build list"><i class="ion-chevron-left icon"></i></a>
-                  Build &nbsp;<em>{{ build.id }}</em>
+                  Build &nbsp;<em>{{ buildCtrl.build.id }}</em>
                 </h1>
 
                 <div class="build-status" ng-class="{
@@ -121,16 +120,16 @@
 
           <ul class="build-details" ng-hide="jobs.length == '0'" id="build-details">
             <li class="parent">
-                <em ng-show="build.provider == 'github'"><i class="icon ion-social-github"></i> {{ build.provider }}</em>
-                <em ng-show="build.provider == 'dockerhub'"><img src="/assets/images/docker.png" alt="dockerhub" /> {{ build.provider }}</em>
-                <em ng-show="build.provider == 'slackbot'"><img src="/assets/images/slack.png" alt="Slack" /> {{ build.provider }}</em>
+                <em ng-show="build.provider == 'github'"><i class="icon ion-social-github"></i> {{ buildCtrl.build.provider }}</em>
+                <em ng-show="build.provider == 'dockerhub'"><img src="/assets/images/docker.png" alt="dockerhub" /> {{ buildCtrl.build.provider }}</em>
+                <em ng-show="build.provider == 'slackbot'"><img src="/assets/images/slack.png" alt="Slack" /> {{ buildCtrl.build.provider }}</em>
                 <em ng-show="!(
                   build.provider === 'slackbot' ||
                   build.provider === 'dockerhub' ||
                   build.provider === 'github'
-                )"> {{ build.provider }}</em>
-                : <em>{{ build.type }}</em>
-                started a build via <em>commit #{{ build.commit  | limitTo : -6: number.length }}</em>
+                )"> {{ buildCtrl.build.provider }}</em>
+                : <em>{{ buildCtrl.build.type }}</em>
+                started a build via <em>commit #{{ buildCtrl.build.commit  | limitTo : -6: number.length }}</em>
             </li>
             <li ng-repeat="job in jobs" class="job" ng-class="{
               'active': job.status == 'Pending',
