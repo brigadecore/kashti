@@ -9,12 +9,7 @@ import fastclick from 'fastclick';
 
 import './assets/scss/app.scss';
 
-/*
- * This file contains the settings for the application.
- * Settings MUST be stored in a separate directory, because this directory may
- * be mounted from a different filesystem
- */
-const baseURL = 'https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745';
+const conf = require('./settings');
 
 angular.module('app.modules', [uiRouter])
   .config(routes)
@@ -24,6 +19,9 @@ angular.module('app.modules', [uiRouter])
   .controller('BuildsController', BuildsController)
   .controller('JobsController', JobsController)
   .controller('LogController', LogController)
+  .constant('config', {
+    apiUrl: conf.brigadeApiURL
+  })
 ;
 
 /* @ngInject */
@@ -106,12 +104,12 @@ function setupState($rootScope, $state, $stateParams) {
 }
 
 /* @ngInject */
-function ProjectController($scope, $stateParams, $http) {
+function ProjectController($scope, $stateParams, $http, config) {
   const currentProject = $stateParams;
 
   $http({
     method: 'GET',
-    url: baseURL + '/v1/project/' + currentProject.id,
+    url: config.apiUrl + '/v1/project/' + currentProject.id,
     isArray: true,
     headers: {
       Accept: 'application/json, text/javascript',
@@ -124,10 +122,10 @@ function ProjectController($scope, $stateParams, $http) {
   );
 }
 /* @ngInject */
-function ProjectBuildsController($scope, $stateParams, $http) {
+function ProjectBuildsController($scope, $stateParams, $http, config) {
   $http({
     method: 'GET',
-    url: baseURL + '/v1/projects-build',
+    url: config.apiUrl + '/v1/projects-build',
     isArray: true,
     headers: {
       Accept: 'application/json, text/javascript',
@@ -141,12 +139,12 @@ function ProjectBuildsController($scope, $stateParams, $http) {
 }
 
 /* @ngInject */
-function BuildController($scope, $stateParams, $http) {
+function BuildController($scope, $stateParams, $http, config) {
   const currentBuild = $stateParams;
 
   $http({
     method: 'GET',
-    url: baseURL + '/v1/build/' + currentBuild.id,
+    url: config.apiUrl + '/v1/build/' + currentBuild.id,
     headers: {
       Accept: 'application/json, text/javascript',
       'Content-Type': 'application/json; charset=utf-8'
@@ -160,12 +158,12 @@ function BuildController($scope, $stateParams, $http) {
 }
 
 /* @ngInject */
-function BuildsController($scope, $stateParams, $http) {
+function BuildsController($scope, $stateParams, $http, config) {
   const currentProject = $stateParams;
 
   $http({
     method: 'GET',
-    url: baseURL + '/v1/project/' + currentProject.id + '/builds',
+    url: config.apiUrl + '/v1/project/' + currentProject.id + '/builds',
     headers: {
       Accept: 'application/json, text/javascript',
       'Content-Type': 'application/json; charset=utf-8'
@@ -179,12 +177,12 @@ function BuildsController($scope, $stateParams, $http) {
 }
 
 /* @ngInject */
-function JobsController($scope, $stateParams, $http) {
+function JobsController($scope, $stateParams, $http, config) {
   const currentBuild = $stateParams;
 
   $http({
     method: 'GET',
-    url: baseURL + '/v1/build/' + currentBuild.id + '/jobs',
+    url: config.apiUrl + '/v1/build/' + currentBuild.id + '/jobs',
     headers: {
       Accept: 'application/json, text/javascript',
       'Content-Type': 'application/json; charset=utf-8'
@@ -198,12 +196,12 @@ function JobsController($scope, $stateParams, $http) {
 }
 
 /* @ngInject */
-function LogController($scope, $stateParams, $http) {
+function LogController($scope, $stateParams, $http, config) {
   const currentJobID = $scope.job.id;
 
   $http({
     method: 'GET',
-    url: baseURL + '/v1/job/' + currentJobID + '/logs?stream=true',
+    url: config.apiUrl + '/v1/job/' + currentJobID + '/logs?stream=true',
     responseType: 'text',
     headers: {
       Accept: 'plain/text, text/javascript',
