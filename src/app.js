@@ -199,36 +199,6 @@ function setupState($rootScope, $state, $stateParams) {
 }
 
 /* @ngInject */
-function BuildController($scope, $stateParams, $http) {
-  const currentBuild = $stateParams;
-
-  $http({
-    method: 'GET',
-    url: brigadeApiURL + '/v1/build/' + currentBuild.id,
-    isArray: true
-  }).then(response => {
-    $scope.build = response.data;
-  },
-  response => { }
-  );
-}
-
-/* @ngInject */
-function BuildsController($scope, $stateParams, $http) {
-  const currentProject = $stateParams;
-
-  $http({
-    method: 'GET',
-    url: brigadeApiURL + '/v1/project/' + currentProject.id + '/builds',
-    isArray: true
-  }).then(response => {
-    $scope.builds = response.data;
-  },
-  response => { }
-  );
-}
-
-/* @ngInject */
 function JobsController($scope, $stateParams, $http) {
   const currentBuild = $stateParams;
 
