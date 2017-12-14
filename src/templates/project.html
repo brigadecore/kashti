@@ -1,8 +1,8 @@
 <div zf-panel position="left" id="sidebar" class="medium-grid-block collapse medium-2 large-2 vertical" ng-hide="$state.current.name === 'home'" ng-init="{projectID:project.id}">
   <div class="grid-content collapse shrink">
     <ul class="menu-bar primary">
-      <li id="organization" ng-controller="ProjectController as project">
-        <h2>{{ project.name | limitTo:18 }}<small ng-if="project.name.length > 18">&#8230;</small></h2>
+      <li id="organization">
+        <h2>{{ ctrl.project.name | limitTo:18 }}<small ng-if="ctrl.project.name.length > 18">&#8230;</small></h2>
       </li>
     </ul>
   </div>
@@ -42,11 +42,11 @@
           <div class="grid-block horizontal collapse">
             <div class="small-12 vertical">
               <div class="project-header">
-                <h1>{{project.name}}</h1>
+                <h1>{{ctrl.project.name}}</h1>
                 <ul>
-                  <li>{{project.repo.cloneURL}}</li>
-                  <li>Sidecar: {{project.kubernetes.vcsSidecar}}</li>
-                  <li>Namespace: {{project.kubernetes.namespace}}</li>
+                  <li>{{ctrl.project.repo.cloneURL}}</li>
+                  <li>Sidecar: {{ctrl.project.kubernetes.vcsSidecar}}</li>
+                  <li>Namespace: {{ctrl.project.kubernetes.namespace}}</li>
                 </ul>
               </div>
 

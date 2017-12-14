@@ -2,7 +2,7 @@
 <div zf-panel position="left" id="sidebar" class="medium-grid-block collapse medium-2 large-2 vertical" ng-hide="$state.current.name === 'home'" ng-init="{projectID:build.project_id}">
   <div class="grid-content collapse shrink">
     <ul class="menu-bar primary">
-      <li id="organization" ng-controller="ProjectController as project">
+      <li id="organization">
         <h2>{{ build.project_id | limitTo:18 }}<small ng-if="project.name.length > 18">&#8230;</small></h2>
       </li>
     </ul>
