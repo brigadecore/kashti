@@ -9,8 +9,6 @@ import fastclick from 'fastclick';
 
 import './assets/scss/app.scss';
 
-const conf = require('./settings');
-
 angular.module('app.modules', [uiRouter])
   .config(routes)
   .controller('ProjectController', ProjectController)
@@ -19,9 +17,6 @@ angular.module('app.modules', [uiRouter])
   .controller('BuildsController', BuildsController)
   .controller('JobsController', JobsController)
   .controller('LogController', LogController)
-  .constant('config', {
-    apiUrl: conf.brigadeApiURL
-  })
 ;
 
 /* @ngInject */
@@ -104,12 +99,12 @@ function setupState($rootScope, $state, $stateParams) {
 }
 
 /* @ngInject */
-function ProjectController($scope, $stateParams, $http, config) {
+function ProjectController($scope, $stateParams, $http) {
   const currentProject = $stateParams;
 
   $http({
     method: 'GET',
-    url: config.apiUrl + '/v1/project/' + currentProject.id,
+    url: brigadeApiURL + '/v1/project/' + currentProject.id,
     isArray: true,
     headers: {
       Accept: 'application/json, text/javascript',
@@ -122,10 +117,10 @@ function ProjectController($scope, $stateParams, $http, config) {
   );
 }
 /* @ngInject */
-function ProjectBuildsController($scope, $stateParams, $http, config) {
+function ProjectBuildsController($scope, $stateParams, $http) {
   $http({
     method: 'GET',
-    url: config.apiUrl + '/v1/projects-build',
+    url: brigadeApiURL + '/v1/projects-build',
     isArray: true,
     headers: {
       Accept: 'application/json, text/javascript',
@@ -139,12 +134,12 @@ function ProjectBuildsController($scope, $stateParams, $http, config) {
 }
 
 /* @ngInject */
-function BuildController($scope, $stateParams, $http, config) {
+function BuildController($scope, $stateParams, $http) {
   const currentBuild = $stateParams;
 
   $http({
     method: 'GET',
-    url: config.apiUrl + '/v1/build/' + currentBuild.id,
+    url: brigadeApiURL + '/v1/build/' + currentBuild.id,
     headers: {
       Accept: 'application/json, text/javascript',
       'Content-Type': 'application/json; charset=utf-8'
@@ -158,12 +153,12 @@ function BuildController($scope, $stateParams, $http, config) {
 }
 
 /* @ngInject */
-function BuildsController($scope, $stateParams, $http, config) {
+function BuildsController($scope, $stateParams, $http) {
   const currentProject = $stateParams;
 
   $http({
     method: 'GET',
-    url: config.apiUrl + '/v1/project/' + currentProject.id + '/builds',
+    url: brigadeApiURL + '/v1/project/' + currentProject.id + '/builds',
     headers: {
       Accept: 'application/json, text/javascript',
       'Content-Type': 'application/json; charset=utf-8'
@@ -177,12 +172,12 @@ function BuildsController($scope, $stateParams, $http, config) {
 }
 
 /* @ngInject */
-function JobsController($scope, $stateParams, $http, config) {
+function JobsController($scope, $stateParams, $http) {
   const currentBuild = $stateParams;
 
   $http({
     method: 'GET',
-    url: config.apiUrl + '/v1/build/' + currentBuild.id + '/jobs',
+    url: brigadeApiURL + '/v1/build/' + currentBuild.id + '/jobs',
     headers: {
       Accept: 'application/json, text/javascript',
       'Content-Type': 'application/json; charset=utf-8'
@@ -196,12 +191,12 @@ function JobsController($scope, $stateParams, $http, config) {
 }
 
 /* @ngInject */
-function LogController($scope, $stateParams, $http, config) {
+function LogController($scope, $stateParams, $http) {
   const currentJobID = $scope.job.id;
 
   $http({
     method: 'GET',
-    url: config.apiUrl + '/v1/job/' + currentJobID + '/logs?stream=true',
+    url: brigadeApiURL + '/v1/job/' + currentJobID + '/logs?stream=true',
     responseType: 'text',
     headers: {
       Accept: 'plain/text, text/javascript',

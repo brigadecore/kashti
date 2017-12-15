@@ -8,5 +8,5 @@ metadata:
     heritage: {{ .Release.Service }}
 data:
   "settings.js": |-
-    exports.brigadeApiURL = '{{ default "http://localhost:7744" .Values.brigade.apiServer }}'
+    var brigadeApiURL = '{{ default "http://localhost:7744" .Values.brigade.apiServer }};'
     // End

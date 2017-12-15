@@ -1,11 +1,11 @@
 const webpack = require('webpack');
 const conf = require('./gulp.conf');
 const path = require('path');
-const pkg = require('../package.json');
 
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
 const cleanOptions = {
@@ -22,12 +22,6 @@ module.exports = {
         loaders: [
           'json-loader'
         ]
-      },
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'eslint-loader',
-        enforce: 'pre'
       },
       {
         test: /\.(css|scss)$/,
@@ -70,6 +64,9 @@ module.exports = {
     new CleanWebpackPlugin([conf.paths.dist], cleanOptions),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
+    new CopyWebpackPlugin([
+      {from: './src/settings.js', to: './assets/js/settings'}
+    ]),
     new HtmlWebpackPlugin({
       template: conf.path.src('index.html')
     }),
