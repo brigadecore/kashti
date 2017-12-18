@@ -1,16 +1,60 @@
 const { events, Job, Group } = require("brigadier");
 
-events.on("build", (e, p) => {
+events.on("push", (e, project) => {
+  // Make sure this matches your host Kubernetes' Docker settings, even though
+  // this is DinD.
+  var driver = project.secrets.DOCKER_DRIVER || "overlay"
 
-  // This is just a canary build to make sure everything is working.
-  const build = new Job("build", "node:8")
-  build.tasks = [
+  // Build and test in prod configuration.
+  const prodBuild = new Job("prod", "node:8")
+  /*
+  prodBuild.cache.enabled = true
+  prodBuild.cache.path = "/src/node_modules"
+  */
+  prodBuild.tasks = [
     "cd /src",
     "yarn install",
-    "yarn gulp build"
+    "yarn build"
   ]
 
-  build.run()
+  // Build and test in dev configuration.
+  const devBuild = new Job("dev", "node:8")
+  devBuild.tasks = [
+    "cd /src",
+    "yarn install",
+    "yarn build"
+  ]
+
+  // Build and push a Docker image.
+  const docker = new Job("dind", "docker:stable-dind")
+  docker.privileged = true;
+  docker.env = {
+    DOCKER_DRIVER: driver
+  }
+  docker.tasks = [
+    "dockerd-entrypoint.sh &",
+    "sleep 20",
+    "cd /src",
+    "docker pull deis/kashti:canary || true",
+    "docker build -t deis/kashti:canary ."
+  ];
+
+  // If a Docker user is specified, we push.
+  if (project.secrets.DOCKER_USER) {
+    docker.env.DOCKER_USER = project.secrets.DOCKER_USER
+    docker.env.DOCKER_PASS = project.secrets.DOCKER_PASS
+    docker.env.DOCKER_REGISTRY = project.secrets.DOCKER_REGISTRY
+    docker.tasks.push("docker login -u $DOCKER_USER -p $DOCKER_PASS $DOCKER_REGISTRY")
+    docker.tasks.push("docker push deis/kashti:canary")
+  } else {
+    console.log("skipping push. DOCKER_USER is not set.");
+  }
+
+  // Run prod/dev in parallel. Once both finish, run docker build.
+  Group.runAll([prodBuild, devBuild]).then( () => {
+    return docker.run()
+  });
+
 
 });
 
