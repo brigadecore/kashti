@@ -65,7 +65,7 @@ module.exports = {
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new CopyWebpackPlugin([
-      {from: './src/settings.js', to: './assets/js/settings'}
+      {from: './src/assets/js/settings/settings.js', to: './assets/js/settings'}
     ]),
     new HtmlWebpackPlugin({
       template: conf.path.src('index.html')

@@ -9,6 +9,104 @@ import fastclick from 'fastclick';
 
 import './assets/scss/app.scss';
 
+class ProjectBuildsController {
+  /* @ngInject */
+  constructor($http) {
+    this.projectsbuilds = [];
+    this.$http = $http;
+
+    this.$http({
+      method: 'GET',
+      url: brigadeApiURL + '/v1/projects-build',
+      isArray: true
+    }).then(response => {
+      this.projectsbuilds = response.data;
+    },
+    response => { }
+    );
+  }
+}
+class ProjectController {
+  /* @ngInject */
+  constructor($stateParams, $http) {
+    this.currentProject = $stateParams;
+    this.$http = $http;
+
+    this.$http({
+      method: 'GET',
+      url: `${brigadeApiURL}/v1/project/${this.currentProject.id}`,
+      isArray: true
+    }).then(response => {
+      this.project = response.data;
+    },
+    response => { }
+    );
+  }
+}
+
+class BuildsController {
+  /* @ngInject */
+  constructor($stateParams, $http) {
+    this.currentProject = $stateParams;
+    this.$http = $http;
+    this.builds = [];
+
+    this.$http({
+      method: 'GET',
+      url: brigadeApiURL + '/v1/project/' + this.currentProject.id + '/builds',
+      isArray: true
+    }).then(response => {
+      this.builds = response.data;
+    },
+    response => { }
+    );
+  }
+}
+
+class BuildController {
+  /* @ngInject */
+  constructor($stateParams, $http) {
+    this.currentBuild = $stateParams;
+    this.$http = $http;
+    this.build = '';
+
+    this.$http({
+      method: 'GET',
+      url: brigadeApiURL + '/v1/build/' + this.currentBuild.id,
+      isArray: true
+    }).then(response => {
+      this.build = response.data;
+    },
+    response => { }
+    );
+  }
+}
+
+class LogController {
+  /* @ngInject */
+  constructor($scope, $stateParams, $http) {
+    this.currentJobID = $scope.job.id;
+    this.$http = $http;
+    this.logs = [];
+    this.logerror = '';
+
+    this.$scope = $scope;
+
+    this.$http({
+      method: 'GET',
+      url: brigadeApiURL + '/v1/job/' + this.currentJobID + '/logs?stream=true',
+      isArray: true
+    }).then(response => {
+      this.logs = response.data;
+      $scope.logs = this.logs;
+    },
+    response => {
+      this.logerror = response.status;
+      console.log('Job > Logs endpoint returned ' + this.logerror + ', citing \'' + response.message + '\'.');
+    });
+  }
+}
+
 angular.module('app.modules', [uiRouter])
   .config(routes)
   .controller('ProjectController', ProjectController)
@@ -25,21 +123,19 @@ function routes($stateProvider) {
     .state({
       name: 'home',
       url: '/',
-      controllerAs: 'ProjectBuildsController',
+      controller: 'ProjectBuildsController as ctrl',
       template: require('./templates/home.html')
     })
     .state({
       name: 'build',
       url: '/build/:id',
-      controllerAs: 'BuildController',
-      controller: 'BuildController',
+      controller: 'BuildController as buildCtrl',
       template: require('./templates/build.html')
     })
     .state({
       name: 'project',
       url: '/project/:id',
-      controllerAs: 'ProjectController',
-      controller: 'ProjectController',
+      controller: 'ProjectController as ctrl',
       template: require('./templates/project.html')
     })
   ;
@@ -74,9 +170,13 @@ function routingConfig($urlRouterProvider, $locationProvider) {
 
 /* @ngInject */
 function httpConfig($httpProvider) {
-  $httpProvider.defaults.useXDomain = true;
   // Needed for CORS support with the default brigade API configured for kashti
+  $httpProvider.defaults.useXDomain = true;
   delete $httpProvider.defaults.headers.common['X-Requested-With'];
+  $httpProvider.defaults.headers.common = {
+    Accept: 'application/json, text/javascript',
+    'Content-Type': 'application/json; charset=utf-8'
+  };
 }
 
 /* @ngInject */
@@ -99,51 +199,12 @@ function setupState($rootScope, $state, $stateParams) {
 }
 
 /* @ngInject */
-function ProjectController($scope, $stateParams, $http) {
-  const currentProject = $stateParams;
-
-  $http({
-    method: 'GET',
-    url: brigadeApiURL + '/v1/project/' + currentProject.id,
-    isArray: true,
-    headers: {
-      Accept: 'application/json, text/javascript',
-      'Content-Type': 'application/json; charset=utf-8'
-    }
-  }).then(response => {
-    $scope.project = response.data;
-  },
-  response => { }
-  );
-}
-/* @ngInject */
-function ProjectBuildsController($scope, $stateParams, $http) {
-  $http({
-    method: 'GET',
-    url: brigadeApiURL + '/v1/projects-build',
-    isArray: true,
-    headers: {
-      Accept: 'application/json, text/javascript',
-      'Content-Type': 'application/json; charset=utf-8'
-    }
-  }).then(response => {
-    $scope.projectsbuilds = response.data;
-  },
-  response => { }
-  );
-}
-
-/* @ngInject */
 function BuildController($scope, $stateParams, $http) {
   const currentBuild = $stateParams;
 
   $http({
     method: 'GET',
     url: brigadeApiURL + '/v1/build/' + currentBuild.id,
-    headers: {
-      Accept: 'application/json, text/javascript',
-      'Content-Type': 'application/json; charset=utf-8'
-    },
     isArray: true
   }).then(response => {
     $scope.build = response.data;
@@ -159,10 +220,6 @@ function BuildsController($scope, $stateParams, $http) {
   $http({
     method: 'GET',
     url: brigadeApiURL + '/v1/project/' + currentProject.id + '/builds',
-    headers: {
-      Accept: 'application/json, text/javascript',
-      'Content-Type': 'application/json; charset=utf-8'
-    },
     isArray: true
   }).then(response => {
     $scope.builds = response.data;
@@ -178,10 +235,6 @@ function JobsController($scope, $stateParams, $http) {
   $http({
     method: 'GET',
     url: brigadeApiURL + '/v1/build/' + currentBuild.id + '/jobs',
-    headers: {
-      Accept: 'application/json, text/javascript',
-      'Content-Type': 'application/json; charset=utf-8'
-    },
     isArray: true
   }).then(response => {
     $scope.jobs = response.data;
@@ -189,24 +242,3 @@ function JobsController($scope, $stateParams, $http) {
   response => { }
   );
 }
-
-/* @ngInject */
-function LogController($scope, $stateParams, $http) {
-  const currentJobID = $scope.job.id;
-
-  $http({
-    method: 'GET',
-    url: brigadeApiURL + '/v1/job/' + currentJobID + '/logs?stream=true',
-    responseType: 'text',
-    headers: {
-      Accept: 'plain/text, text/javascript',
-      'Content-Type': 'plain/text; charset=utf-8'
-    }
-  }).then(response => {
-    $scope.logs = response.data;
-  }, response => {
-    $scope.logerror = response.status;
-    console.log('Job > Logs endpoint returned ' + response.status + ', citing \'' + response.message + '\'.');
-  });
-}
-
