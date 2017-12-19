@@ -152,7 +152,7 @@
               </div>
 
               <!-- log output -->
-              <div ng-controller="LogController">
+              <div ng-controller="LogController as logCtrl">
                 <div ng-show="logerror == '404'">
                   <dl>
                     <dt>Image:</dt>
@@ -175,7 +175,7 @@
 
                     <div
                       hljs
-                      hljs-source="logs"
+                      hljs-source="logCtrl.logs"
                       class="log-inner">
                     </div>
 

@@ -82,41 +82,29 @@ class BuildController {
   }
 }
 
-// Foo
-// class LogController {
-//   /* @ngInject */
-//   constructor($scope, $stateParams, $http, config) {
-//     this.currentJobID = $scope.job.id;
-//     this.$http = $http;
-//     this.config = config;
-//     this.logs = [];
+class LogController {
+  /* @ngInject */
+  constructor($scope, $stateParams, $http) {
+    this.currentJobID = $scope.job.id;
+    this.$http = $http;
+    this.logs = [];
+    this.logerror = '';
 
-//     this.$http({
-//       method: 'GET',
-//       url: this.config.apiUrl + '/v1/job/' + this.currentJobID + '/logs?stream=true',
-//       isArray: true
-//     }).then(response => {
-//       this.build = response.data;
-//     },
-//     response => { }
-//     );
-//   }
-// }
+    this.$scope = $scope;
 
-/* @ngInject */
-function LogController($scope, $stateParams, $http) {
-  const currentJobID = $scope.job.id;
-
-  $http({
-    method: 'GET',
-    url: brigadeApiURL + '/v1/job/' + currentJobID + '/logs?stream=true',
-    responseType: 'text'
-  }).then(response => {
-    $scope.logs = response.data;
-  }, response => {
-    $scope.logerror = response.status;
-    console.log('Job > Logs endpoint returned ' + response.status + ', citing \'' + response.message + '\'.');
-  });
+    this.$http({
+      method: 'GET',
+      url: brigadeApiURL + '/v1/job/' + this.currentJobID + '/logs?stream=true',
+      isArray: true
+    }).then(response => {
+      this.logs = response.data;
+      $scope.logs = this.logs;
+    },
+    response => {
+      this.logerror = response.status;
+      console.log('Job > Logs endpoint returned ' + this.logerror + ', citing \'' + response.message + '\'.');
+    });
+  }
 }
 
 angular.module('app.modules', [uiRouter])
