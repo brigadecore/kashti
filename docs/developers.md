@@ -15,18 +15,18 @@ Install dependancies and run the app with these commands.
 
 ```console
 $ yarn                  # install project dependencies
+$ yarn build            # generate assets
 $ yarn serve            # start a local server in development mode
 $ yarn serve:prod       # start a local server in production mode (minification, uglification, etc.)
 ```
 
 ### Deployment
 
-Kashti can be run locally via a `yarn start`.
+Kashti can be run locally via a `yarn serve`.
 
 To install in a Kubernetes development cluster, we recommend using the chart.
 
-If you are running Minikube, you can do a full build of this repo into a Docker
-image:
+If you are running Minikube, you can do a full build of this repo into a Docker image:
 
 ```console
 $ eval $(minikube docker-env)
