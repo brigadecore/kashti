@@ -14,14 +14,17 @@ $ cd kashti
 Install dependancies and run the app with these commands. 
 
 ```console
-$ yarn                  # install project dependencies
-$ yarn serve            # start a local server in development mode
-$ yarn serve:prod       # start a local server in production mode (minification, uglification, etc.)
+$ yarn                              # install project dependencies
+$ ng serve                          # start a local server in development mode
+$ ng serve --environment prod       # start a local server in production mode (minification, uglification, etc.)
+$ ng lint                           # run linters 
+$ ng test                           # run unit tests
+$ ng e2e                            # run e2e tests in Chrome
 ```
 
 ### Deployment
 
-Kashti can be run locally via a `yarn start`.
+Kashti can be run locally via a `ng serve`.
 
 To install in a Kubernetes development cluster, we recommend using the chart.
 
