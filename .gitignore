@@ -1,9 +1,0 @@
-.tmp
-.idea
-.DS_Store
-.sass-cache/
-.publish/
-build/
-dist/
-node_modules/
-yarn-error.log
