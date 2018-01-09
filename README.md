@@ -2,8 +2,7 @@ Kashti is a dashboard for your [Brigade](https://github.com/azure/brigade) pipel
 
 ![kashti-animation](https://user-images.githubusercontent.com/686194/33646819-7d19d222-da06-11e7-8513-82e521fda608.gif)
 
-
---
+---
 
 [Brigade](//brigade.sh) provides event-driven scripting for Kubernetes. With a simple JavaScript
 file, you can build elaborate pipelines composed of multiple containers running
@@ -22,7 +21,5 @@ Kashti is built atop Brigade. You can read the full [Installation Guide](docs/in
 
 ## Kashti is Experimental
 
-Kashti is in an early stage of development.
-
-Built on the foundation app framework, as an angular app. To get started coding on Kashti, check out the [Developer Guide](docs/developers.md)
+Kashti is in an early stage of development. To get started coding on Kashti, check out the [Developer Guide](docs/developers.md)
 
