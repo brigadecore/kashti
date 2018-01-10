@@ -2,3 +2,22 @@
 
 @import "~foundation-sites/scss/foundation";
 @include foundation-everything($prototype: true);
+@include foundation-flex-classes;
+@include foundation-flex-grid;
+
+#sidebar {
+  // Use the full column count (100%)
+  // @include xy-cell(); // Use a column count (33%);
+  // @include xy-cell(4); // Use a percentage (15%)
+  @include xy-cell(5%); // Use a custom fraction (20%)
+  margin-left: 0;
+  // height: 100vh;
+  // @include xy-cell(1 of 5);
+  background: #50a1d8;
+
+}
+
+.no-margin {
+  margin: 0;
+}
+
