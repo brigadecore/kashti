@@ -11,7 +11,7 @@
 
 // kashti sidebar styles
 
-#sidebar-wrap {
+.full-height {
   flex: 0 0 56px;
   margin: 0;
   min-height: 100vh;
@@ -79,11 +79,11 @@
       font-style: normal;
     }
 
-    &.ion-document-text {
+    &.ion-md-document {
       bottom: 60px;
     }
 
-    &.ion-help {
+    &.ion-md-help {
       bottom: 19px;
     }
   }
