@@ -7,10 +7,45 @@
 
 @import 'ionicons';
 
-// @import '~ionicons/dist/css/ionicons';
+$brand1: #2541b2;
+$brand2: #37b0e7;
+
+$dark1: #342e37;
+$dark2: #2d3047;
+$dark3: #93b7be;
+
+$light1: #e1e6ee;
+$light2: #f4f5f7;
+$light3: #fbfbfd;
+$light4: #fff;
+
+$success: #70ae29;
+$fail: #d10015;
+$error: $fail;
+$warn: darken(#f5a623, 2.5%);
+$active: $brand2;
+
+.success {
+  color: $success;
+}
+
+.fail {
+  color: $fail;
+}
+
+.error {
+  color: $error;
+}
+
+.warn {
+  color: $warn;
+}
+
+.active {
+  color: $active;
+}
 
 // kashti sidebar styles
-
 .full-height {
   flex: 0 0 56px;
   margin: 0;
@@ -49,7 +84,7 @@
     }
 
     &:hover {
-      background-color: lighten(#37b0e7, 10%);
+      background-color: lighten($brand1, 10%);
     }
   }
 
