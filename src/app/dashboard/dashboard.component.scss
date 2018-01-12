@@ -1,0 +1,81 @@
+@import "../../global_variables";
+
+// kashti sidebar styles
+#sidebar {
+  background: #37b0e7 url('../../assets/images/topo-pattern-white.png') repeat 20px 0;
+  background-size: 376px auto;
+  width: 56px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background-position: -6px 0;
+  }
+
+  // app logo
+  a.logo {
+    background-color: #2541b2;
+    position: relative;
+    display: block;
+    height: 58px;
+
+    img {
+      width: 36px;
+      position: absolute;
+      top: 11px;
+      left: 10px;
+    }
+
+    &:hover {
+      background-color: lighten($brand1, 10%);
+    }
+  }
+
+  .icon {
+    color: white;
+    position: absolute;
+    font-size: 1.25rem;
+    left: 0;
+    width: 56px;
+    line-height: 50px;
+    text-align: center;
+
+    &:after {
+      border: 1px solid #eee;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      content: ' ';
+      display: block;
+      margin: -40px 0 0 12px;
+    }
+
+    em {
+      margin-left: 75px;
+      font-size: 0.75rem;
+      opacity: 0;
+      font-style: normal;
+    }
+
+    &.ion-md-document {
+      bottom: 60px;
+    }
+
+    &.ion-md-help {
+      bottom: 19px;
+    }
+  }
+}
+
+#main {
+  height: 100vh;
+  flex-grow: 1;
+
+  padding-top: 1.75rem;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+  padding-bottom: 3.5rem;
+}
