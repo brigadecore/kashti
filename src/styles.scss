@@ -1,10 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "~foundation-sites/scss/foundation";
+@import '~foundation-sites/scss/foundation';
 @include foundation-everything($prototype: true);
 @include foundation-flex-classes;
 @include foundation-flex-grid;
 
+@import 'ionicons';
+
+// @import '~ionicons/dist/css/ionicons';
 
 // kashti sidebar styles
 
@@ -17,7 +20,7 @@
 }
 
 #sidebar {
-  background: #37B0E7 url('assets/images/topo-pattern-white.png') repeat 20px 0;
+  background: #37b0e7 url('assets/images/topo-pattern-white.png') repeat 20px 0;
   background-size: 376px auto;
   width: 56px;
   z-index: 500;
@@ -33,7 +36,7 @@
 
   // app logo
   a.logo {
-    background-color: #2541B2;
+    background-color: #2541b2;
     position: relative;
     display: block;
     height: 58px;
@@ -46,7 +49,7 @@
     }
 
     &:hover {
-      background-color: lighten(#37B0E7, 10%);
+      background-color: lighten(#37b0e7, 10%);
     }
   }
 
@@ -64,7 +67,7 @@
       border-radius: 50%;
       width: 30px;
       height: 30px;
-      content: " ";
+      content: ' ';
       display: block;
       margin: -40px 0 0 12px;
     }
