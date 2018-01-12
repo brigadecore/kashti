@@ -11,7 +11,7 @@ $ git clone git@github.com:Azure/kashti.git
 $ cd kashti
 ```
 
-Install dependancies and run the app with these commands. 
+Install dependencies and run the app with these commands. 
 
 ```console
 $ yarn                              # install project dependencies
