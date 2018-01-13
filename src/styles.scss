@@ -13,3 +13,13 @@
   flex: 0 0 3.5em;
   min-height: 100vh;
 }
+
+#main {
+  height: 100vh;
+  flex-grow: 1;
+
+  padding-top: 1.75rem;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+  padding-bottom: 3.5rem;
+}
