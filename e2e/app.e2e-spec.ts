@@ -27,18 +27,18 @@ describe('kashti App', () => {
     });
 
     it('should have a link to the kashti main page', () => {
-      link = page.getSidebar().element(by.id('kashti-homepage'));
+      link = page.getHomePageLink();
       link.click();
       expect(page.getCurrentUrl()).toContain('/dashboard');
     });
 
     it('should have a link to the Kashti docs', () => {
-      link = page.getSidebar().element(by.id('kashti-docs'));
+      link = page.getDocLink();
       expect(link.getAttribute('href')).toEqual('https://github.com/Azure/kashti/tree/master/docs');
     });
 
     it('should have a link to the Kashti issues', () => {
-      link = page.getSidebar().element(by.id('kashti-issues'));
+      link = page.getIssuesLink();
       expect(link.getAttribute('href')).toEqual('https://github.com/Azure/kashti/issues');
     });
   });

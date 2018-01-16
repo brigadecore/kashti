@@ -17,6 +17,18 @@ export class AppPage {
     return element(by.id('sidebar'));
   }
 
+  getHomePageLink() {
+    return this.getSidebar().element(by.id('kashti-homepage'));
+  }
+
+  getDocLink() {
+    return this.getSidebar().element(by.id('kashti-docs'));
+  }
+
+  getIssuesLink() {
+    return this.getSidebar().element(by.id('kashti-issues'));
+  }
+
   getTitle() {
     return browser.getTitle();
   }
