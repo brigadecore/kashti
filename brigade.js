@@ -5,24 +5,20 @@ events.on("push", (e, project) => {
   // this is DinD.
   var driver = project.secrets.DOCKER_DRIVER || "overlay"
 
-  // Build and test in prod configuration.
-  const prodBuild = new Job("prod", "node:8")
-  /*
-  prodBuild.cache.enabled = true
-  prodBuild.cache.path = "/src/node_modules"
-  */
-  prodBuild.tasks = [
+  const unitTests = new Job("dev", "node:8")
+  unitTests.tasks = [
     "cd /src",
     "yarn install",
-    "yarn build"
+    "ng lint",
+    "ng test --single-run",
+    "ng e2e"
   ]
 
-  // Build and test in dev configuration.
-  const devBuild = new Job("dev", "node:8")
-  devBuild.tasks = [
+  const e2e = new Job("dev", "node:8")
+  e2e.tasks = [
     "cd /src",
     "yarn install",
-    "yarn build"
+    "ng e2e"
   ]
 
   // Build and push a Docker image.
@@ -40,22 +36,20 @@ events.on("push", (e, project) => {
   ];
 
   // If a Docker user is specified, we push.
-  if (project.secrets.DOCKER_USER) {
-    docker.env.DOCKER_USER = project.secrets.DOCKER_USER
-    docker.env.DOCKER_PASS = project.secrets.DOCKER_PASS
-    docker.env.DOCKER_REGISTRY = project.secrets.DOCKER_REGISTRY
-    docker.tasks.push("docker login -u $DOCKER_USER -p $DOCKER_PASS $DOCKER_REGISTRY")
-    docker.tasks.push("docker push deis/kashti:canary")
-  } else {
-    console.log("skipping push. DOCKER_USER is not set.");
-  }
+  // if (project.secrets.DOCKER_USER) {
+  //   docker.env.DOCKER_USER = project.secrets.DOCKER_USER
+  //   docker.env.DOCKER_PASS = project.secrets.DOCKER_PASS
+  //   docker.env.DOCKER_REGISTRY = project.secrets.DOCKER_REGISTRY
+  //   docker.tasks.push("docker login -u $DOCKER_USER -p $DOCKER_PASS $DOCKER_REGISTRY")
+  //   docker.tasks.push("docker push deis/kashti:canary")
+  // } else {
+  //   console.log("skipping push. DOCKER_USER is not set.");
+  // }
 
-  // Run prod/dev in parallel. Once both finish, run docker build.
-  Group.runAll([prodBuild, devBuild]).then( () => {
+  // Run unit and e2e tests in parallel. Once both finish, run docker build.
+  Group.runAll([unitTests, e2e]).then( () => {
     return docker.run()
   });
-
-
 });
 
 events.on("exec", (e, p) => {
