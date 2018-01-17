@@ -32,6 +32,9 @@ $nunito-font-path: 'assets/fonts' !default;
 body {
   font-size: 16px;
   font-family: $nunito;
+  background: url("assets/images/topo-pattern-white.png") repeat 20px 0, linear-gradient(185deg, #F0F1F6 0%, #e9ecf2 100%);
+  background-size: auto auto, auto auto;
+  background-size: 376px auto, auto auto;
 }
 
 h1, h2, h3, h4, h5, h6, p, ul, {
