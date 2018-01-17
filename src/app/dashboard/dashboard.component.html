@@ -1,8 +1,40 @@
 <div class="row small-up-2 medium-up-3 large-up-3">
-  <div class="column">
-    <img class="thumbnail" src="http://placehold.it/550x550">
-    <h5>My Site</h5>
-  </div>
+
+  <section class="column">
+  <!-- ng-repeat="projectsbuild in projectsbuilds" -->
+    <div class="project project-failed" ng-class="{
+      'project-success': projectsbuild.lastBuild.worker.status == 'Succeeded',
+      'project-failed': projectsbuild.lastBuild.worker.status == 'Failed',
+      'project-active': projectsbuild.lastBuild.worker.status == 'Active'
+    }">
+      <a href="">
+
+        <div class="status">
+          <div class="success ng-hide" ng-show="projectsbuild.lastBuild.worker.status == 'Succeeded'"><i class="icon ion-checkmark-circled status-success"></i></div>
+          <div class="failed" ng-show="projectsbuild.lastBuild.worker.status == 'Failed'"><i class="icon ion-close-circled status-fail"></i></div>
+          <div class="active ng-hide" ng-show="projectsbuild.lastBuild.worker.status == 'Active'"><img src="assets/images/rolling.svg" class="status-active"></div>
+        </div>
+
+        <h2 class="ng-binding">technosophos/coffeesnob</h2>
+        <h4>Project</h4>
+
+        <div class="activity">
+          <ul>
+            <li>
+              <span ng-hide="projectsbuild.lastBuild.worker.status == null" class="ng-binding">
+                  github:pull_request ad0703ac08e80448764b34dc089d0f73a1242ae9 - <span am-time-ago="projectsbuild.lastBuild.worker.end_time">25 days ago</span>
+                <br>
+                <em>#</em>01c0matkmjpjkrbfcnhfyjerfh
+              </span>
+            </li>
+          </ul>
+        </div>
+      </a>
+    </div>
+  </section>
+
+
+
   <div class="column">
     <img class="thumbnail" src="http://placehold.it/550x550">
     <h5>My Site</h5>
