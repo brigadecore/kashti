@@ -3,9 +3,9 @@
 
 .project {
 	position: relative;
-	height: 170px;
+	height: 180px;
 	background: lighten($light3, 2.5%);
-	margin: 1rem 0.925rem;
+	margin: 1rem 0;
 	border: 2px solid transparent;
 	border-radius: 4px;
 	@include box-shadow(0,2px,12px,rgba(0,0,0,0.2));
