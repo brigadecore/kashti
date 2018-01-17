@@ -5,9 +5,42 @@
 @include foundation-flex-classes;
 @include foundation-flex-grid;
 
-@import 'ionicons';
+@import './ionicons';
 
-@import 'global_variables';
+@import './global_variables';
+
+
+$nunito-font-path: 'assets/fonts' !default;
+
+@font-face {
+  font-family: 'nunitobold';
+  src: url('#{$nunito-font-path}/nunito-bold-webfont.woff2') format('woff2'),
+       url('#{$nunito-font-path}/nunito-bold-webfont.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'nunito';
+  src: url('#{$nunito-font-path}/nunito-regular-webfont.woff2') format('woff2'),
+       url('#{$nunito-font-path}/nunito-regular-webfont.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+body {
+  font-size: 16px;
+  font-family: $nunito;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul, {
+  font-family: $nunito;
+}
+
+h1, h2, h3 {
+  @include nunitoBold;
+}
 
 .full-height {
   flex: 0 0 3.5em;
