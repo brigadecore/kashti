@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MomentModule } from 'angular2-moment';
 
 @Component({
   selector: 'app-dashboard',
