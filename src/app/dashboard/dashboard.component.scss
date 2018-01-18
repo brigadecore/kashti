@@ -23,7 +23,7 @@
 		font-size: 1.125rem;
 		line-height: 1.25;
 		color: $dark1;
-        @include nunitoBold;
+    @include nunitoBold;
 		@include transition;
 		@include wordwrap;
 	}
