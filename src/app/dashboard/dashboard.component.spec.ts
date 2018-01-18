@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { DashboardComponent } from './dashboard.component';
 import { MomentModule } from 'angular2-moment/moment.module';
@@ -16,7 +17,8 @@ describe('DashboardComponent', () => {
         RouterTestingModule.withRoutes(
           [{ path: '', component: DashboardComponent }]
         ),
-        MomentModule
+        MomentModule,
+        HttpClientTestingModule
       ],
       providers: [ ProjectService ]
     })
