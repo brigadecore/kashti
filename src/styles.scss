@@ -50,6 +50,10 @@ h1, h2, h3 {
   min-height: 100vh;
 }
 
+.full-width {
+  max-width: 100%;
+}
+
 #main {
   height: 100vh;
   flex-grow: 1;
