@@ -3,6 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { DashboardComponent } from './dashboard.component';
 import { MomentModule } from 'angular2-moment/moment.module';
+import { ProjectService } from '../project.service';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -16,7 +17,8 @@ describe('DashboardComponent', () => {
           [{ path: '', component: DashboardComponent }]
         ),
         MomentModule
-      ]
+      ],
+      providers: [ ProjectService ]
     })
     .compileComponents();
   }));

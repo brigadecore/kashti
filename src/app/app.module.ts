@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { StyleGuideComponent } from './style-guide/style-guide.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
+import { ProjectService } from './project.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { FooterComponent } from './footer/footer.component';
     BrowserModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [ProjectService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

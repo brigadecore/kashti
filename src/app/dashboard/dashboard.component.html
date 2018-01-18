@@ -1,271 +1,33 @@
 <div class="row small-up-2 medium-up-3 large-up-3">
-
-  <section class="column">
-    <!-- ng-repeat="projectsbuild in projectsbuilds" -->
+  <section class="column" *ngFor="let project of projects">
     <div class="project project-failed" ng-class="{
-      'project-success': projectsbuild.lastBuild.worker.status == 'Succeeded',
-      'project-failed': projectsbuild.lastBuild.worker.status == 'Failed',
-      'project-active': projectsbuild.lastBuild.worker.status == 'Active'
+      'project-success': project.lastBuild.worker.status == 'Succeeded',
+      'project-failed': project.lastBuild.worker.status == 'Failed',
+      'project-active': project.lastBuild.worker.status == 'Active'
     }">
-      <a href="">
-
+      <a routerLink="/project/{{project.id}}">
         <div class="status">
-          <div class="success ng-hide" ng-show="projectsbuild.lastBuild.worker.status == 'Succeeded'">
+          <div class="success ng-hide" ng-show="project.lastBuild.worker.status == 'Succeeded'">
             <i class="icon ion-checkmark-circled status-success"></i>
           </div>
-          <div class="failed" ng-show="projectsbuild.lastBuild.worker.status == 'Failed'">
+          <div class="failed" ng-show="project.lastBuild.worker.status == 'Failed'">
             <i class="icon ion-close-circled status-fail"></i>
           </div>
-          <div class="active ng-hide" ng-show="projectsbuild.lastBuild.worker.status == 'Active'">
+          <div class="active ng-hide" ng-show="project.lastBuild.worker.status == 'Active'">
             <img src="assets/images/rolling.svg" class="status-active">
           </div>
         </div>
 
-        <h2 class="ng-binding">technosophos/coffeesnob</h2>
-        <h4>Project</h4>
+        <h2>{{ project.name }}</h2>
 
         <div class="activity">
           <ul>
             <li>
-              <span ng-hide="projectsbuild.lastBuild.worker.status == null" class="ng-binding">
-                github:pull_request ad0703ac08e80448764b34dc089d0f73a1242ae9 -
-                <span am-time-ago="projectsbuild.lastBuild.worker.end_time">25 days ago</span>
+              <span ng-hide="project.lastBuild.worker.status == null">
+                {{ project.lastBuild.provider}}:{{ project.lastBuild.type}} {{ project.lastBuild.commit }} -
+                <span>{{project.lastBuild.worker.end_time | amTimeAgo}}</span>
                 <br>
-                <em>#</em>01c0matkmjpjkrbfcnhfyjerfh
-              </span>
-            </li>
-          </ul>
-        </div>
-      </a>
-    </div>
-  </section>
-
-  <section class="column">
-    <div class="project project-failed" ng-class="{
-                      'project-success': projectsbuild.lastBuild.worker.status == 'Succeeded',
-                      'project-failed': projectsbuild.lastBuild.worker.status == 'Failed',
-                      'project-active': projectsbuild.lastBuild.worker.status == 'Active'
-                    }">
-      <a href="../kashti/#!/project/brigade-29d38c7477ecee18e184b69bec354fc350605c51bc16d4dd2b6073" class="">
-
-        <div class="status">
-          <div class="success ng-hide" ng-show="projectsbuild.lastBuild.worker.status == 'Succeeded'">
-            <i class="icon ion-checkmark-circled status-success"></i>
-          </div>
-          <div class="failed" ng-show="projectsbuild.lastBuild.worker.status == 'Failed'">
-            <i class="icon ion-close-circled status-fail"></i>
-          </div>
-          <div class="active ng-hide" ng-show="projectsbuild.lastBuild.worker.status == 'Active'">
-            <img src="assets/images/rolling.svg" class="status-active">
-          </div>
-        </div>
-
-        <h2 class="ng-binding">technosophos/coffeesnob</h2>
-        <h4>Project</h4>
-
-        <div class="activity">
-          <ul>
-            <li>
-              <span ng-hide="projectsbuild.lastBuild.worker.status == null" class="ng-binding">
-                github:pull_request ad0703ac08e80448764b34dc089d0f73a1242ae9 -
-                <span am-time-ago="projectsbuild.lastBuild.worker.end_time">a month ago</span>
-                <br>
-                <em>#</em>01c0matkmjpjkrbfcnhfyjerfh
-              </span>
-            </li>
-          </ul>
-        </div>
-      </a>
-    </div>
-  </section>
-
-  <section class="column">
-    <div class="project project-failed" ng-class="{
-                      'project-success': projectsbuild.lastBuild.worker.status == 'Succeeded',
-                      'project-failed': projectsbuild.lastBuild.worker.status == 'Failed',
-                      'project-active': projectsbuild.lastBuild.worker.status == 'Active'
-                    }">
-      <a href="../kashti/#!/project/brigade-455e0b882e798304cf2773a8f62b472e26b1619b858c1d8ce520d5" class="">
-
-        <div class="status">
-          <div class="success ng-hide" ng-show="projectsbuild.lastBuild.worker.status == 'Succeeded'">
-            <i class="icon ion-checkmark-circled status-success"></i>
-          </div>
-          <div class="failed" ng-show="projectsbuild.lastBuild.worker.status == 'Failed'">
-            <i class="icon ion-close-circled status-fail"></i>
-          </div>
-          <div class="active ng-hide" ng-show="projectsbuild.lastBuild.worker.status == 'Active'">
-            <img src="assets/images/rolling.svg" class="status-active">
-          </div>
-        </div>
-
-        <h2 class="ng-binding">technosophos/ulid</h2>
-        <h4>Project</h4>
-
-        <div class="activity">
-          <ul>
-            <li>
-              <span ng-hide="projectsbuild.lastBuild.worker.status == null" class="ng-binding">
-                github:push 98b01cc3615f2a2699a61c640736c0c1849a7d80 -
-                <span am-time-ago="projectsbuild.lastBuild.worker.end_time">a month ago</span>
-                <br>
-                <em>#</em>01c0cv49e4s6z5mmye0acfbzme
-              </span>
-            </li>
-          </ul>
-        </div>
-      </a>
-    </div>
-  </section>
-
-  <section class="column">
-    <div class="project" ng-class="{
-                      'project-success': projectsbuild.lastBuild.worker.status == 'Succeeded',
-                      'project-failed': projectsbuild.lastBuild.worker.status == 'Failed',
-                      'project-active': projectsbuild.lastBuild.worker.status == 'Active'
-                    }">
-      <a href="../kashti/#!/project/brigade-635e505c74ad679bb9144d19950504fbe86b136ac3770bcff51ac6" class="">
-
-        <div class="status">
-          <div class="success ng-hide" ng-show="projectsbuild.lastBuild.worker.status == 'Succeeded'">
-            <i class="icon ion-checkmark-circled status-success"></i>
-          </div>
-          <div class="failed ng-hide" ng-show="projectsbuild.lastBuild.worker.status == 'Failed'">
-            <i class="icon ion-close-circled status-fail"></i>
-          </div>
-          <div class="active ng-hide" ng-show="projectsbuild.lastBuild.worker.status == 'Active'">
-            <img src="assets/images/rolling.svg" class="status-active">
-          </div>
-        </div>
-
-        <h2 class="ng-binding">technosophos/brigade-trello</h2>
-        <h4>Project</h4>
-
-        <div class="activity">
-          <ul>
-            <li>
-              <span ng-hide="projectsbuild.lastBuild.worker.status == null" class="ng-binding ng-hide">
-                : -
-                <span am-time-ago="projectsbuild.lastBuild.worker.end_time"></span>
-                <br>
-                <em>#</em>
-              </span>
-            </li>
-          </ul>
-        </div>
-      </a>
-    </div>
-  </section>
-
-  <section class="column">
-    <div class="project project-success" ng-class="{
-                      'project-success': projectsbuild.lastBuild.worker.status == 'Succeeded',
-                      'project-failed': projectsbuild.lastBuild.worker.status == 'Failed',
-                      'project-active': projectsbuild.lastBuild.worker.status == 'Active'
-                    }">
-      <a href="../kashti/#!/project/brigade-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac" class="">
-
-        <div class="status">
-          <div class="success" ng-show="projectsbuild.lastBuild.worker.status == 'Succeeded'">
-            <i class="icon ion-checkmark-circled status-success"></i>
-          </div>
-          <div class="failed ng-hide" ng-show="projectsbuild.lastBuild.worker.status == 'Failed'">
-            <i class="icon ion-close-circled status-fail"></i>
-          </div>
-          <div class="active ng-hide" ng-show="projectsbuild.lastBuild.worker.status == 'Active'">
-            <img src="assets/images/rolling.svg" class="status-active">
-          </div>
-        </div>
-
-        <h2 class="ng-binding">deis/empty-testbed</h2>
-        <h4>Project</h4>
-
-        <div class="activity">
-          <ul>
-            <li>
-              <span ng-hide="projectsbuild.lastBuild.worker.status == null" class="ng-binding">
-                brigade-cli:exec master -
-                <span am-time-ago="projectsbuild.lastBuild.worker.end_time">a month ago</span>
-                <br>
-                <em>#</em>01bzzn45f0p5bjtsffw9m8chts
-              </span>
-            </li>
-          </ul>
-        </div>
-      </a>
-    </div>
-  </section>
-
-  <section class="column">
-    <div class="project" ng-class="{
-                      'project-success': projectsbuild.lastBuild.worker.status == 'Succeeded',
-                      'project-failed': projectsbuild.lastBuild.worker.status == 'Failed',
-                      'project-active': projectsbuild.lastBuild.worker.status == 'Active'
-                    }">
-      <a href="../kashti/#!/project/brigade-cf0858d449971e79083aacddc565450b8bf65a2b9f5d66ea76fdb4" class="">
-
-        <div class="status">
-          <div class="success ng-hide" ng-show="projectsbuild.lastBuild.worker.status == 'Succeeded'">
-            <i class="icon ion-checkmark-circled status-success"></i>
-          </div>
-          <div class="failed ng-hide" ng-show="projectsbuild.lastBuild.worker.status == 'Failed'">
-            <i class="icon ion-close-circled status-fail"></i>
-          </div>
-          <div class="active ng-hide" ng-show="projectsbuild.lastBuild.worker.status == 'Active'">
-            <img src="assets/images/rolling.svg" class="status-active">
-          </div>
-        </div>
-
-        <h2 class="ng-binding">technosophos/twitter-t</h2>
-        <h4>Project</h4>
-
-        <div class="activity">
-          <ul>
-            <li>
-              <span ng-hide="projectsbuild.lastBuild.worker.status == null" class="ng-binding ng-hide">
-                : -
-                <span am-time-ago="projectsbuild.lastBuild.worker.end_time"></span>
-                <br>
-                <em>#</em>
-              </span>
-            </li>
-          </ul>
-        </div>
-      </a>
-    </div>
-  </section>
-
-  <section class="column">
-    <div class="project project-success" ng-class="{
-                      'project-success': projectsbuild.lastBuild.worker.status == 'Succeeded',
-                      'project-failed': projectsbuild.lastBuild.worker.status == 'Failed',
-                      'project-active': projectsbuild.lastBuild.worker.status == 'Active'
-                    }">
-      <a href="../kashti/#!/project/brigade-fa34fe5c2ef16cc4f35dd772602dd7476fca6366626be26d7893cb" class="">
-
-        <div class="status">
-          <div class="success" ng-show="projectsbuild.lastBuild.worker.status == 'Succeeded'">
-            <i class="icon ion-checkmark-circled status-success"></i>
-          </div>
-          <div class="failed ng-hide" ng-show="projectsbuild.lastBuild.worker.status == 'Failed'">
-            <i class="icon ion-close-circled status-fail"></i>
-          </div>
-          <div class="active ng-hide" ng-show="projectsbuild.lastBuild.worker.status == 'Active'">
-            <img src="assets/images/rolling.svg" class="status-active">
-          </div>
-        </div>
-
-        <h2 class="ng-binding">Azure/kashti</h2>
-        <h4>Project</h4>
-
-        <div class="activity">
-          <ul>
-            <li>
-              <span ng-hide="projectsbuild.lastBuild.worker.status == null" class="ng-binding">
-                brigade-cli:build master -
-                <span am-time-ago="projectsbuild.lastBuild.worker.end_time">a month ago</span>
-                <br>
-                <em>#</em>01c0hx5s1gh7a0tzbja2eyg7r1
+                <em>#</em>{{ project.lastBuild.id }}
               </span>
             </li>
           </ul>
