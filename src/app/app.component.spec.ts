@@ -9,7 +9,8 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-        SidebarComponent
+        SidebarComponent,
+        FooterComponent
       ],
       imports: [
         RouterTestingModule.withRoutes(
