@@ -1,7 +1,12 @@
 <div class="row">
   <app-sidebar></app-sidebar>
-  <div class="column" id="main">
-    <router-outlet></router-outlet>
+
+  <div class="cell flex-container flex-dir-column">
+    <div class="column flex-child-auto" id="main">
+      <router-outlet></router-outlet>
+    </div>
+    <div class="column flex-child-shrink" id="footer">
+      <app-footer></app-footer>
+    </div>
   </div>
-  <app-footer></app-footer>
 </div>
