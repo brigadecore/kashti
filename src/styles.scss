@@ -13,7 +13,7 @@
 $nunito-font-path: 'assets/fonts' !default;
 
 @font-face {
-  font-family: 'nunitobold';
+  font-family: 'nunito';
   src: url('#{$nunito-font-path}/nunito-bold-webfont.woff2') format('woff2'),
        url('#{$nunito-font-path}/nunito-bold-webfont.woff') format('woff');
   font-weight: 700;
@@ -48,6 +48,10 @@ h1, h2, h3 {
 .full-height {
   flex: 0 0 3.5em;
   min-height: 100vh;
+}
+
+.full-width {
+  max-width: 100%;
 }
 
 #main {

@@ -1,0 +1,34 @@
+@import 'global_variables';
+
+footer {
+  border-top: 2px solid rgba(55,55,55,0.025);
+  opacity: 1;
+  position: relative;
+  min-height: 80px;
+  @include transition;
+
+  ul {
+    margin: 0.5rem 3rem 0;
+    display: block;
+
+    li {
+      margin-right: 1.5rem;
+      float: left;
+      padding: 0.5rem 0rem 0.667rem 0rem;
+      font-size: 0.825rem;
+
+      a,
+      span {
+        display: inline-block;
+        color: $dark3;
+      }
+
+      a {
+        color: $brand2;
+        padding: 0.5rem 0.5rem 0.25rem 0.5rem;
+
+        @include ripple;
+      }
+    }
+  }
+}

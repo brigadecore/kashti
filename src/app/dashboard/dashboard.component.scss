@@ -20,9 +20,10 @@
 
 	h2 {
 		margin: 1.2rem 2rem 0 4rem;
-		font-size: 1.25rem;
+		font-size: 1.125rem;
 		line-height: 1.25;
 		color: $dark1;
+    @include nunitoBold;
 		@include transition;
 		@include wordwrap;
 	}
