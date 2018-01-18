@@ -108,7 +108,6 @@ $active: $brand2;
 // link effect
 @mixin ripple($color: $brand2) {
   position: relative;
-  // display: inline-block;
   text-align: center;
   @include transition;
 
