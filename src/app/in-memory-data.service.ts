@@ -37,28 +37,96 @@ export class InMemoryDataService implements InMemoryDbService {
     };
 
     const projects = [
-      {
-        id: 'projectid123',
-        name: 'technosophos/coffeesnob',
-        lastBuild: failedBuild
-      },
-      { id: 'projectid1234', name: 'technosophos/ulid', lastBuild: failedBuild },
-      {
-        id: 'projectid12345',
-        name: 'technosophos/brigade-trello',
-        lastBuild: failedBuild
-      },
-      {
-        id: 'projectid123456',
-        name: 'deis/empty-testbed',
-        lastBuild: successfulBuild
-      },
-      {
-        id: 'projectid1234567',
-        name: 'technosophos/twitter-t',
-        lastBuild: failedBuild
-      },
-      { id: 'projectid1234568', name: 'Azure/kashti', lastBuild: successfulBuild }
+        {
+          id: 'projectid123',
+          name: 'technosophos/coffeesnob',
+          repo: {
+            name: 'github.com/technosophos/coffeesnob',
+            cloneURL: 'https://github.com/technosophos/coffeesnob.git'
+          },
+          kubernetes: {
+            namespace: 'default',
+            vcsSidecar: ''
+          },
+          github: {},
+          secrets: {},
+          lastBuild: failedBuild
+        },
+        {
+          id: 'projectid1234',
+          name: 'technosophos/ulid',
+          repo: {
+            name: 'github.com/technosophos/ulid',
+            cloneURL: 'https://github.com/technosophos/ulid.git'
+          },
+          kubernetes: {
+            namespace: 'default',
+            vcsSidecar: ''
+          },
+          github: {},
+          secrets: {},
+          lastBuild: failedBuild
+        },
+        {
+          id: 'projectid12345',
+          name: 'technosophos/brigade-trello',
+          repo: {
+            name: 'github.com/technosophos/brigade-trello',
+            cloneURL: 'https://github.com/technosophos/brigade-trello.git'
+          },
+          kubernetes: {
+            namespace: 'default',
+            vcsSidecar: ''
+          },
+          github: {},
+          secrets: {},
+          lastBuild: failedBuild
+        },
+        {
+          id: 'projectid123456',
+          name: 'deis/empty-testbed',
+          repo: {
+            name: 'github.com/technosophos/empty-testbed',
+            cloneURL: 'https://github.com/technosophos/empty-testbed.git'
+          },
+          kubernetes: {
+            namespace: 'default',
+            vcsSidecar: ''
+          },
+          github: {},
+          secrets: {},
+          lastBuild: successfulBuild
+        },
+        {
+          id: 'projectid1234567',
+          name: 'technosophos/twitter-t',
+          repo: {
+            name: 'github.com/technosophos/twitter-t',
+            cloneURL: 'https://github.com/technosophos/twitter-t.git'
+          },
+          kubernetes: {
+            namespace: 'default',
+            vcsSidecar: ''
+          },
+          github: {},
+          secrets: {},
+          lastBuild: failedBuild
+        },
+        {
+          id: 'projectid1234568',
+          name: 'Azure/kashti',
+          repo: {
+            name: 'github.com/Azure/kashti',
+            cloneURL: 'https://github.com/Azure/kashti.git'
+          },
+          kubernetes: {
+            namespace: 'default',
+            vcsSidecar: ''
+          },
+          github: {},
+          secrets: {},
+          lastBuild: successfulBuild
+        }
     ];
     return { projects };
   }
