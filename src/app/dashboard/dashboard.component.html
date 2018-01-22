@@ -1,6 +1,6 @@
-<div class="row small-up-2 medium-up-3 large-up-3">
+<div class="row small-up-2 medium-up-2 large-up-3 xlarge-up-3">
   <section class="column" *ngFor="let project of projects">
-    <div class="project project-failed" ng-class="{
+    <div class="project" ng-class="{
       'project-success': project.lastBuild.worker.status == 'Succeeded',
       'project-failed': project.lastBuild.worker.status == 'Failed',
       'project-active': project.lastBuild.worker.status == 'Active'
