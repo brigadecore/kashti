@@ -2,11 +2,7 @@
 
   <section class="column">
   <!-- ng-repeat="projectsbuild in projectsbuilds" -->
-    <div class="project project-success" ng-class="{
-      'project-success': projectsbuild.lastBuild.worker.status == 'Succeeded',
-      'project-failed': projectsbuild.lastBuild.worker.status == 'Failed',
-      'project-active': projectsbuild.lastBuild.worker.status == 'Active'
-    }">
+    <div class="project project-success">
       <a href="">
 
         <div class="status">
