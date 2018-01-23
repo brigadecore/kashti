@@ -1,5 +1,5 @@
 @import 'global_variables';
-
+@import 'global_states';
 
 .project {
 	position: relative;
@@ -19,9 +19,9 @@
 	}
 
 	h2 {
-		margin: 1.2rem 2rem 0 4rem;
+		margin: 1.25rem 2rem 0 4rem;
 		font-size: 1.125rem;
-		line-height: 1.25;
+		line-height: 1.5;
 		color: $dark1;
     @include nunitoBold;
 		@include transition;
@@ -58,7 +58,6 @@
 			top: 1.125rem;
 			left: 1.25rem;
 			z-index: 500;
-			display: none;
 			background: white;
 			border-radius: 50%;
 		}
