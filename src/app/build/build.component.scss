@@ -1,3 +1,7 @@
+@import 'global_variables';
+@import 'global_states';
+
+
 .template-build {
   position: relative;
   margin: 0;
@@ -9,10 +13,6 @@
 
   .grid-container {
     max-width: 60rem !important;
-
-    @include breakpoint(xlarge up) {
-      max-width: 65rem !important;
-    }
 
     .button {
       position: absolute;
@@ -157,8 +157,8 @@
       display: block;
       content: " ";
       top: 0px;
-      left: 0%;
-      right: 0%;
+      left: 3.5rem;
+      right: 0;
       width: 100%;
       height: 150px;
       position: fixed;
@@ -294,7 +294,7 @@
 .job-list {
   h4 {
     margin: 0.5rem 1.125rem 2rem;
-    @include europaBold;
+    @include nunitoBold;
     font-size: 1.125rem;
     color: $dark3;
 
@@ -376,7 +376,7 @@ ul.build-details {
     position: relative;
 
     h5 {
-      @include europaBold;
+      @include nunitoBold;
       font-size: 1.5rem;
       padding: 0.333em 1.5rem 0 0;
       float: left;
@@ -412,7 +412,7 @@ ul.build-details {
       dd {
         display: inline-block;
         color: $dark3;
-        font-family: $europa;
+        font-family: $nunito;
         font-size: 0.925rem;
         line-height: 0.9;
         margin: 0;

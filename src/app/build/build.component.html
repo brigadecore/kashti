@@ -1,40 +1,38 @@
-<div class="grid-container build-chart-{{jobs.length}}" ng-class="{'active-chart': showChart }">
+<div class="grid-container build-chart-" ng-class="{'active-chart': showChart }">
 
-  <div class="grid-content build-header-wrap>
+  <div class="grid-content build-header-wrap">
     <div class="grid-block horizontal">
       <div class="small-12">
 
         <div class="build-header">
           <h1>
-            <a ui-sref="project({ id: build.project_id })" title="Back to Build list"><i class="ion-chevron-left icon"></i></a>
-            Build &nbsp;<em>{{ buildCtrl.build.id }}</em>
+            <a href="../kashti/#!/project/brigade-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac" title="Back to Build list"><i class="icon ios-arrow-back-outline"></i></a>
+            Build &nbsp;<em class="ng-binding">01bzzn45f0p5bjtsffw9m8chts</em>
           </h1>
 
-          <div class="build-status" ng-class="{
+          <div class="build-status success" ng-class="{
             'success': build.worker.status == 'Succeeded',
             'failed': build.worker.status == 'Failed',
-            'active': build.worker.status == 'Pending'}">
-            <div class="success" ng-show="build.worker.status == 'Succeeded'"><i class="icon ion-checkmark-circled"></i> Passed</div>
-            <div class="failed" ng-show="build.worker.status == 'Failed'"><i class="icon ion-close-circled"></i> Failed</div>
-            <div class="active" ng-show="build.worker.status == 'Pending'">
-              <img src="/assets/images/rolling.svg" /> In Progress
-            </div>
+            'active': build.worker.status == 'Pending'}" style="">
+            <div class="success" ng-show="build.worker.status == 'Succeeded'" style=""><i class="icon ion-checkmark-circled"></i> Passed</div>
+            <div class="failed ng-hide" ng-show="build.worker.status == 'Failed'"><i class="icon md-close-circle"></i> Failed</div>
+            <div class="active ng-hide" ng-show="build.worker.status == 'Pending'"><img src="assets/images/rolling.svg"> In Progress</div>
           </div>
 
           <div class="grid-block horizontal build-metadata">
-            <div class="grid-content small-6 text-left">Started at {{build.worker.start_time}}</div>
-            <div class="grid-content small-6 text-right">Finished at {{build.worker.end_time}}</div>
+            <div class="grid-content small-6 text-left ng-binding">Started at 2017-12-23T07:31:48Z</div>
+            <div class="grid-content small-6 text-right ng-binding">Finished at 2017-12-23T07:32:36Z</div>
           </div>
 
-          <div class="horizontal build-chart build-chart-{{jobs.length}}" gantt data="data" ng-init="showChart = true" ng-hide="!showChart" ng-controller="JobsController as job">
+          <div class="horizontal build-chart build-chart-1" gantt="" data="data" ng-init="showChart = true" ng-hide="!showChart" ng-controller="jobsController" style="">
 
             <div class="build-chart-bg"></div>
 
-            <div class="task task-0"><a href=""><span title="git"><i class="icon ion-social-github"></i></span></a></div>
+            <div class="task task-0"><a href=""><span title="git"><i class="icon logo-github"></i></span></a></div>
 
-            <div class="task task-{{$index + 1}}" ng-repeat="job in jobs">
-              <a ng-click="gotoElement('{{job.id}}')"><span title="job.name">{{job.name}}</span></a>
-            </div>
+            <!-- ngRepeat: job in jobs --><div class="task task-1" ng-repeat="job in jobs" style="">
+              <a ng-click="gotoElement('dind-1514014311816-master')"><span title="job.name" class="ng-binding">dind</span></a>
+            </div><!-- end ngRepeat: job in jobs -->
 
             <em></em>
             <em></em>
@@ -43,94 +41,157 @@
             <em></em>
           </div>
 
-          <a href="" class="button button secondary small" ng-hide="showChart" ng-click="showChart = true"><i class="icon ion-arrow-up-b"></i> Hide Build Timeline</a>
-          <a href="" class="button button secondary small" ng-hide="!showChart" ng-click="showChart = false"><i class="icon ion-arrow-down-b"></i> Show Build Timeline</a>
+          <a href="" class="button button secondary small" ng-hide="showChart" ng-click="showChart = true"><i class="icon ios-arrow-up-outline"></i> Hide Build Timeline</a>
+          <a href="" class="button button secondary small ng-hide" ng-hide="!showChart" ng-click="showChart = false"><i class="icon ios-arrow-down-outline"></i> Show Build Timeline</a>
         </div>
 
       </div>
     </div>
   </div>
 
-  <div class="job-list" ng-controller="JobsController as job">
+  <div class="job-list ng-scope" ng-controller="jobsController">
     <h4>
-      <span ng-show="jobs.length == '0'">There are currently no jobs inside this build.</span>
-      <span ng-show="jobs.length == '1'"><span class="job-count">1</span> job ran inside this build:</span>
-      <span ng-show="jobs.length > '1'"><span class="job-count">{{ jobs.length }}</span> jobs ran inside this build:</span>
+      <span ng-show="jobs.length == '0'" class="ng-hide">There are currently no jobs inside this build.</span>
+      <span ng-show="jobs.length == '1'" class="" style=""><span class="job-count">1</span> job ran inside this build:</span>
+      <span ng-show="jobs.length > '1'" class="ng-hide"><span class="job-count ng-binding">1</span> jobs ran inside this build:</span>
     </h4>
 
     <ul class="build-details" ng-hide="jobs.length == '0'" id="build-details">
       <li class="parent">
-          <em ng-show="build.provider == 'github'"><i class="icon ion-social-github"></i> {{ buildCtrl.build.provider }}</em>
-          <em ng-show="build.provider == 'dockerhub'"><img src="/assets/images/docker.png" alt="dockerhub" /> {{ buildCtrl.build.provider }}</em>
-          <em ng-show="build.provider == 'slackbot'"><img src="/assets/images/slack.png" alt="Slack" /> {{ buildCtrl.build.provider }}</em>
+          <em ng-show="build.provider == 'github'" class="ng-binding ng-hide"><i class="icon logo-github"></i> brigade-cli</em>
+          <em ng-show="build.provider == 'dockerhub'" class="ng-binding ng-hide"><img src="assets/images/docker.png" alt="dockerhub"> brigade-cli</em>
+          <em ng-show="build.provider == 'slackbot'" class="ng-binding ng-hide"><img src="assets/images/slack.png" alt="Slack"> brigade-cli</em> 
           <em ng-show="!(
-            build.provider === 'slackbot' ||
-            build.provider === 'dockerhub' ||
+            build.provider === 'slackbot' || 
+            build.provider === 'dockerhub' || 
             build.provider === 'github'
-          )"> {{ buildCtrl.build.provider }}</em>
-          : <em>{{ buildCtrl.build.type }}</em>
-          started a build via <em>commit #{{ buildCtrl.build.commit  | limitTo : -6: number.length }}</em>
+          )" class="ng-binding"> brigade-cli</em> 
+          : <em class="ng-binding">exec</em> 
+          started a build via <em class="ng-binding">commit #master</em>
       </li>
-      <li ng-repeat="job in jobs" class="job" ng-class="{
+
+      <!-- ngRepeat: job in jobs -->
+      <li class="job ng-scope" ng-class="{
         'active': job.status == 'Pending',
         'success':  job.status == 'Succeeded',
         'failed':  job.status == 'Failed'
-      }" id="{{job.id}}">
-        <small>Started at {{job.creation_time | date:'MM/dd/yyyy @ h:mma Z'}}</small>
-        <h5>{{job.name}}</h5>
+      }" id="dind-1514014311816-master" style="">
+        <small class="ng-binding">Started at 12/22/2017 @ 11:31PM -0800</small>
+        <h5 class="ng-binding">dind</h5>
 
-        <div class="job-response success" ng-show="job.status == 'Succeeded'">
-          <i class="icon ion-checkmark-circled status-success"></i>
+        <div class="job-response success ng-hide" ng-show="job.status == 'Succeeded'">
+          <i class="icon md-checkmark-circle status-success"></i>
           Complete
         </div>
-        <div class="job-response active" ng-show="job.status == 'Pending'">
-          <img src="/assets/images/rolling.svg" class="status-active" />
+        <div class="job-response active ng-hide" ng-show="job.status == 'Pending'">
+          <img src="assets/images/rolling.svg" class="status-active">
           Pending
         </div>
-        <div class="job-response fail" ng-show="job.status = Failed">
+        <div class="job-response fail ng-hide" ng-show="job.status = Failed">
           Failed
         </div>
 
         <!-- log output -->
-        <div ng-controller="LogController as logCtrl">
-          <div ng-show="logerror == '404'">
+        <div ng-controller="logController" class="ng-scope">
+          <div ng-show="logerror == '404'" class="ng-hide">
             <dl>
               <dt>Image:</dt>
-              <dd>{{job.image}}</dd>
+              <dd class="ng-binding">docker:edge-dind</dd>
               <dt>ID:</dt>
-              <dd>{{job.id}}</dd>
+              <dd class="ng-binding">dind-1514014311816-master</dd>
               <dt>Logs:</dt>
-              <dd>none <span>{{logerror}}</span></dd>
+              <dd>none <span class="ng-binding"></span></dd>
             </dl>
           </div>
-          <div ng-show="logerror == null">
+          <div ng-show="logerror == null" class="">
             <dl>
               <dt>Image:</dt>
-              <dd>{{job.image}}</dd>
+              <dd class="ng-binding">docker:edge-dind</dd>
               <dt>ID:</dt>
-              <dd>{{job.id}}</dd>
+              <dd class="ng-binding">dind-1514014311816-master</dd>
               <dt>Log output:</dt>
             </dl>
             <div class="log-wrap" ng-class="{'log-expand': expandLog == true }">
 
-              <div
-                hljs
-                hljs-source="logCtrl.logs"
-                class="log-inner">
-              </div>
+            <div hljs="" hljs-source="logs" class="log-inner"><pre><code class="hljs">
+waiting
+time="2017-12-23T07:32:07.953924244Z" level=warning msg="could not change group /var/run/docker.sock to docker: group docker not found"
+time="2017-12-23T07:32:07.955117945Z" level=warning msg="[!] DON'T BIND ON ANY IP ADDRESS WITHOUT setting --tlsverify IF YOU DON'T KNOW WHAT YOU'RE DOING [!]"
+time="2017-12-23T07:32:07.958649448Z" level=info msg="libcontainerd: started new docker-containerd process" pid=20
+time="2017-12-23T07:32:08Z" level=info msg="starting containerd" module=containerd revision=992280e8e265f491f7a624ab82f3e238be086e49 version=v1.0.0-beta.2-53-g992280e8 
+time="2017-12-23T07:32:08Z" level=info msg="changing OOM score to -500" module=containerd 
+time="2017-12-23T07:32:08Z" level=info msg="loading plugin "io.containerd.content.v1.content"..." module=containerd type=io.containerd.content.v1 
+time="2017-12-23T07:32:08Z" level=info msg="loading plugin "io.containerd.snapshotter.v1.btrfs"..." module=containerd type=io.containerd.snapshotter.v1 
+time="2017-12-23T07:32:08Z" level=warning msg="failed to load plugin io.containerd.snapshotter.v1.btrfs" error="path /var/lib/docker/containerd/daemon/io.containerd.snapshotter.v1.btrfs must be a btrfs filesystem to be used with the btrfs snapshotter" module=containerd 
+time="2017-12-23T07:32:08Z" level=info msg="loading plugin "io.containerd.snapshotter.v1.overlayfs"..." module=containerd type=io.containerd.snapshotter.v1 
+time="2017-12-23T07:32:08Z" level=info msg="loading plugin "io.containerd.metadata.v1.bolt"..." module=containerd type=io.containerd.metadata.v1 
+time="2017-12-23T07:32:08Z" level=warning msg="could not use snapshotter btrfs in metadata plugin" error="path /var/lib/docker/containerd/daemon/io.containerd.snapshotter.v1.btrfs must be a btrfs filesystem to be used with the btrfs snapshotter" module="containerd/io.containerd.metadata.v1.bolt" 
+time="2017-12-23T07:32:08Z" level=info msg="loading plugin "io.containerd.differ.v1.walking"..." module=containerd type=io.containerd.differ.v1 
+time="2017-12-23T07:32:08Z" level=info msg="loading plugin "io.containerd.grpc.v1.containers"..." module=containerd type=io.containerd.grpc.v1 
+time="2017-12-23T07:32:08Z" level=info msg="loading plugin "io.containerd.grpc.v1.content"..." module=containerd type=io.containerd.grpc.v1 
+time="2017-12-23T07:32:08Z" level=info msg="loading plugin "io.containerd.grpc.v1.diff"..." module=containerd type=io.containerd.grpc.v1 
+time="2017-12-23T07:32:08Z" level=info msg="loading plugin "io.containerd.grpc.v1.events"..." module=containerd type=io.containerd.grpc.v1 
+time="2017-12-23T07:32:08Z" level=info msg="loading plugin "io.containerd.grpc.v1.healthcheck"..." module=containerd type=io.containerd.grpc.v1 
+time="2017-12-23T07:32:08Z" level=info msg="loading plugin "io.containerd.grpc.v1.images"..." module=containerd type=io.containerd.grpc.v1 
+time="2017-12-23T07:32:08Z" level=info msg="loading plugin "io.containerd.grpc.v1.namespaces"..." module=containerd type=io.containerd.grpc.v1 
+time="2017-12-23T07:32:08Z" level=info msg="loading plugin "io.containerd.grpc.v1.snapshots"..." module=containerd type=io.containerd.grpc.v1 
+time="2017-12-23T07:32:08Z" level=info msg="loading plugin "io.containerd.monitor.v1.cgroups"..." module=containerd type=io.containerd.monitor.v1 
+time="2017-12-23T07:32:08Z" level=info msg="loading plugin "io.containerd.runtime.v1.linux"..." module=containerd type=io.containerd.runtime.v1 
+time="2017-12-23T07:32:08Z" level=info msg="loading plugin "io.containerd.grpc.v1.tasks"..." module=containerd type=io.containerd.grpc.v1 
+time="2017-12-23T07:32:08Z" level=info msg="loading plugin "io.containerd.grpc.v1.version"..." module=containerd type=io.containerd.grpc.v1 
+time="2017-12-23T07:32:08Z" level=info msg="loading plugin "io.containerd.grpc.v1.introspection"..." module=containerd type=io.containerd.grpc.v1 
+time="2017-12-23T07:32:08Z" level=info msg=serving... address="/var/run/docker/containerd/docker-containerd-debug.sock" module="containerd/debug" 
+time="2017-12-23T07:32:08Z" level=info msg=serving... address="/var/run/docker/containerd/docker-containerd.sock" module="containerd/grpc" 
+time="2017-12-23T07:32:08Z" level=info msg="containerd successfully booted in 0.201631s" module=containerd 
+time="2017-12-23T07:32:08.720748160Z" level=info msg="Graph migration to content-addressability took 0.00 seconds"
+time="2017-12-23T07:32:08.721075661Z" level=warning msg="Your kernel does not support swap memory limit"
+time="2017-12-23T07:32:08.721150861Z" level=warning msg="Your kernel does not support cgroup rt period"
+time="2017-12-23T07:32:08.721179161Z" level=warning msg="Your kernel does not support cgroup rt runtime"
+time="2017-12-23T07:32:08.722159362Z" level=info msg="Loading containers: start."
+time="2017-12-23T07:32:08.815585237Z" level=warning msg="Running modprobe bridge br_netfilter failed with message: ip: can't find device 'bridge'\nbridge                126976  1 br_netfilter\nstp                    16384  1 bridge\nllc                    16384  2 bridge,stp\nip: can't find device 'br_netfilter'\nbr_netfilter           24576  0 \nbridge                126976  1 br_netfilter\nmodprobe: can't change directory to '/lib/modules': No such file or directory\n, error: exit status 1"
+time="2017-12-23T07:32:08.838261755Z" level=warning msg="Running modprobe nf_nat failed with message: `ip: can't find device 'nf_nat'\nnf_nat_masquerade_ipv4    16384  1 ipt_MASQUERADE\nnf_nat_ipv4            16384  1 iptable_nat\nnf_nat                 24576  3 xt_nat,nf_nat_masquerade_ipv4,nf_nat_ipv4\nnf_conntrack          106496  6 nf_conntrack_netlink,nf_nat_masquerade_ipv4,nf_conntrack_ipv4,nf_nat_ipv4,xt_conntrack,nf_nat\nmodprobe: can't change directory to '/lib/modules': No such file or directory`, error: exit status 1"
+time="2017-12-23T07:32:08.867561078Z" level=warning msg="Running modprobe xt_conntrack failed with message: `ip: can't find device 'xt_conntrack'\nxt_conntrack           16384  1 \nnf_conntrack          106496  6 nf_conntrack_netlink,nf_nat_masquerade_ipv4,nf_conntrack_ipv4,nf_nat_ipv4,xt_conntrack,nf_nat\nx_tables               36864 15 xt_statistic,ebt_ip,xt_nat,xt_recent,ipt_REJECT,xt_tcpudp,xt_mark,xt_comment,ebtables,ipt_MASQUERADE,xt_addrtype,iptable_filter,xt_conntrack,iptable_security,ip_tables\nmodprobe: can't change directory to '/lib/modules': No such file or directory`, error: exit status 1"
+time="2017-12-23T07:32:10.052014831Z" level=info msg="Default bridge (docker0) is assigned with an IP address 172.17.0.0/16. Daemon option --bip can be used to set a preferred IP address"
+time="2017-12-23T07:32:10.580463956Z" level=info msg="Loading containers: done."
+time="2017-12-23T07:32:10.661371521Z" level=info msg="Docker daemon" commit=1caf76c graphdriver(s)=overlay2 version=17.11.0-ce
+time="2017-12-23T07:32:10.661867721Z" level=info msg="Daemon has completed initialization"
+time="2017-12-23T07:32:10.727635374Z" level=info msg="API listen on [::]:2375"
+time="2017-12-23T07:32:10.727796775Z" level=info msg="API listen on /var/run/docker.sock"
+PID   USER     TIME   COMMAND
+    1 root       0:00 /bin/sh /hook/main.sh
+    6 root       0:00 dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375
+   20 root       0:00 docker-containerd --config /var/run/docker/containerd/containerd.toml
+  122 root       0:00 ps -ef
+Client:
+ Version:      17.11.0-ce
+ API version:  1.34
+ Go version:   go1.8.3
+ Git commit:   1caf76c
+ Built:        Mon Nov 20 18:32:34 2017
+ OS/Arch:      linux/amd64
+
+Server:
+ Version:      17.11.0-ce
+ API version:  1.34 (minimum version 1.12)
+ Go version:   go1.8.5
+ Git commit:   1caf76c
+ Built:        Mon Nov 20 18:39:28 2017
+ OS/Arch:      linux/amd64
+ Experimental: false
+time="2017-12-23T07:32:28.012819280Z" level=info msg="Processing signal 'terminated'"
+              </code></pre></div>
 
               <a ng-click="expandLog = !expandLog">
-                <span ng-show="!expandLog"><i class="icon ion-arrow-down-b"></i> Expand log</span>
-                <span ng-show="expandLog"><i class="icon ion-arrow-up-b"></i> Collapse log</span>
+                <span ng-show="!expandLog" class=""><i class="icon ios-arrow-down-outline"></i> Expand log</span>
+                <span ng-show="expandLog" class="ng-hide"><i class="icon ios-arrow-up-outline"></i> Collapse log</span>
               </a>
             </div>
           </div>
         </div>
 
-        <small>Finished at {{job.end_time | date:'MM/dd/yyyy @ h:mma Z'}}</small>
+        <small class="ng-binding">Finished at 12/22/2017 @ 11:32PM -0800</small>
+      </li><!-- end ngRepeat: job in jobs -->
 
-      </li>
     </ul>
-  </div>
-
+  <!-- </div> -->
 </div>
