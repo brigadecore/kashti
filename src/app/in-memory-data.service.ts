@@ -36,6 +36,40 @@ export class InMemoryDataService implements InMemoryDbService {
       }
     };
 
+    const activeBuild = {
+      id: 'buildId999123',
+      project_id:
+        'brigade-29d38c7477ecee18e184b69bec354fc350605c51bc16d4dd2b6073',
+      type: 'pull_request',
+      provider: 'github',
+      commit: 'e744c3ad736f8b3fec067c05f9620e7f401b2bbf',
+      worker: {
+        id: 'workerId999999999',
+        build_id: 'buildId1234444',
+        start_time: new Date('January 15, 2018 03:24:00'),
+        end_time: new Date('January 15, 2018 03:31:00'),
+        exit_code: 0,
+        status: 'Active'
+      }
+    };
+
+    const unknownBuildStatus = {
+      id: 'buildId999123',
+      project_id:
+        'brigade-29d38c7477ecee18e184b69bec354fc350605c51bc16d4dd2b6073',
+      type: 'pull_request',
+      provider: 'github',
+      commit: 'e744c3ad736f8b3fec067c05f9620e7f401b2bbf',
+      worker: {
+        id: 'workerId999999999',
+        build_id: 'buildId1234444',
+        start_time: new Date('January 15, 2018 03:24:00'),
+        end_time: new Date('January 15, 2018 03:31:00'),
+        exit_code: 256,
+        status: 'foobarbaz'
+      }
+    };
+
     const projects = [
         {
           id: 'projectid123',
@@ -50,7 +84,7 @@ export class InMemoryDataService implements InMemoryDbService {
           },
           github: {},
           secrets: {},
-          lastBuild: failedBuild
+          lastBuild: successfulBuild
         },
         {
           id: 'projectid1234',
@@ -80,7 +114,7 @@ export class InMemoryDataService implements InMemoryDbService {
           },
           github: {},
           secrets: {},
-          lastBuild: failedBuild
+          lastBuild: activeBuild
         },
         {
           id: 'projectid123456',
@@ -95,7 +129,7 @@ export class InMemoryDataService implements InMemoryDbService {
           },
           github: {},
           secrets: {},
-          lastBuild: successfulBuild
+          lastBuild: activeBuild
         },
         {
           id: 'projectid1234567',
@@ -110,7 +144,7 @@ export class InMemoryDataService implements InMemoryDbService {
           },
           github: {},
           secrets: {},
-          lastBuild: failedBuild
+          lastBuild: unknownBuildStatus
         },
         {
           id: 'projectid1234568',

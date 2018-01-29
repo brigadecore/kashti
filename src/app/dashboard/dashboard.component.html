@@ -1,19 +1,10 @@
 <div class="row small-up-2 medium-up-2 large-up-2 xlarge-up-3">
   <section class="column" *ngFor="let project of projects">
-    <div class="project" ng-class="{
-      'project-success': project.lastBuild.worker.status == 'Succeeded',
-      'project-failed': project.lastBuild.worker.status == 'Failed',
-      'project-active': project.lastBuild.worker.status == 'Active'
-    }">
+    <div class="project">
       <a routerLink="/project/{{project.id}}">
         <div class="status">
-          <div class="success ng-hide" ng-show="project.lastBuild.worker.status == 'Succeeded'"><i class="icon ion-md-checkmark-circle status-success"></i></div>
-          <div class="failed" ng-show="project.lastBuild.worker.status == 'Failed'"><i class="icon ion-close-circled status-fail"></i></div>
-          <div class="active ng-hide" ng-show="project.lastBuild.worker.status == 'Active'"><img src="assets/images/rolling.svg" class="status-active"></div>
-          <div class="failed" ng-show="project.lastBuild.worker.status == 'Failed'"><i class="icon md-close-circle status-fail status-fail"></i></div>
-          <div class="active" ng-show="project.lastBuild.worker.status == 'Active'"><img src="assets/images/rolling.svg" class="status-active"></div>
+          <i [ngClass]="calculateStatusClasses(project.lastBuild)"></i>
         </div>
-
         <h2>{{ project.name }}</h2>
 
         <div class="activity">
