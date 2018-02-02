@@ -50,6 +50,13 @@ h1, h2, h3 {
   min-height: 100vh;
 }
 
+.grid-width,
+.row:not(.expanded) .grid-width {
+  max-width: 75rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .full-width {
   max-width: 100%;
 }
