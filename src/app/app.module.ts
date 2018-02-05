@@ -14,6 +14,7 @@ import { StyleGuideComponent } from './style-guide/style-guide.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProjectService } from './project.service';
+import { ProjectComponent } from './project/project.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ProjectService } from './project.service';
     DashboardComponent,
     StyleGuideComponent,
     SidebarComponent,
-    FooterComponent
+    FooterComponent,
+    ProjectComponent
   ],
   imports: [
     MomentModule,
