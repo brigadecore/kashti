@@ -1,6 +1,11 @@
 @import 'global_variables';
 @import 'global_states';
 
+.dash-wrapper {
+  padding: 0.925rem 4.5% 5rem;
+
+}
+
 @mixin icon {
   font-size: 2rem;
   text-align: left;
