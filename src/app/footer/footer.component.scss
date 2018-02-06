@@ -2,20 +2,22 @@
 
 footer {
   border-top: 2px solid rgba(55,55,55,0.025);
+  background: rgba(255,255,255,0.125);
   opacity: 1;
   position: relative;
   min-height: 80px;
+  text-align: center;
+  // z-index: -1;
   @include transition;
 
   ul {
-    margin: 0.5rem 3rem 0;
-    display: block;
+    margin: 0.5rem 5rem 0;
 
     li {
-      margin-right: 1.5rem;
-      float: left;
+      margin-right: 2.5rem;
       padding: 0.5rem 0rem 0.667rem 0rem;
       font-size: 0.825rem;
+      display: inline-block;
 
       a,
       span {
@@ -25,7 +27,7 @@ footer {
 
       a {
         color: $brand2;
-        padding: 0.5rem 0.5rem 0.25rem 0.5rem;
+        padding: 0.5rem 0.15rem 0.25rem 0.15rem;
 
         @include ripple;
       }
