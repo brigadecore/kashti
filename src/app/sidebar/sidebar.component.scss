@@ -63,16 +63,19 @@
       bottom: 19px;
     }
 
-    &:hover {
-      &:after {
-        background: darken($brand2, 12.5%);
-        @include box-shadow(0, 0, 25px, darken($brand2, 12.5%));
-      }
-    }
+
   }
 
   .kashti-issues,
   .kashti-docs {
+
+    &:hover {
+      .icon:after {
+        background: darken($brand2, 12.5%);
+        @include box-shadow(0, 0, 25px, darken($brand2, 12.5%));
+      }
+    }
+
     em {
       display: block;
       min-height: 1rem;
