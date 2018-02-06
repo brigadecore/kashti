@@ -5,13 +5,13 @@ footer {
   background: rgba(255,255,255,0.125);
   opacity: 1;
   position: relative;
-  min-height: 80px;
+  min-height: 75px;
   text-align: center;
-  // z-index: -1;
+  margin-left: 3rem;
   @include transition;
 
   ul {
-    margin: 0.5rem 5rem 0;
+    margin: 0.636rem 5rem 0;
 
     li {
       margin-right: 2.5rem;
