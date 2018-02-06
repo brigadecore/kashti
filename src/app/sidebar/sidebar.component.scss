@@ -52,13 +52,7 @@
       content: ' ';
       display: block;
       margin: -40px 0 0 12px;
-    }
-
-    em {
-      margin-left: 75px;
-      font-size: 0.75rem;
-      opacity: 0;
-      font-style: normal;
+      @include transition;
     }
 
     &.ion-md-document {
@@ -68,5 +62,46 @@
     &.ion-md-help {
       bottom: 19px;
     }
+
+    &:hover {
+      &:after {
+        background: darken($brand2, 12.5%);
+        @include box-shadow(0, 0, 25px, darken($brand2, 12.5%));
+      }
+    }
+  }
+
+  .kashti-issues,
+  .kashti-docs {
+    em {
+      display: block;
+      min-height: 1rem;
+      padding: 0.5em;
+      position: absolute;
+      left: 12px;
+      opacity: 0;
+      background: darken($brand2, 12.5%);
+      border-radius: 0.2em;
+      text-align: center;
+      color: white;
+      font-style: normal;
+      font-size: 0.75rem;
+      @include transition;
+    }
+
+    &:hover em {
+      left: 48px;
+      opacity: 1;
+    }
+  }
+
+  .kashti-docs em {
+    bottom: 3.75rem;
+    min-width: 4.75rem;
+  }
+
+  .kashti-issues em {
+    bottom: 1.2rem;
+    min-width: 5.5rem;
   }
 }
