@@ -13,6 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { StyleGuideComponent } from './style-guide/style-guide.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
+import { BuildComponent } from './build/build.component';
 import { ProjectService } from './project.service';
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ProjectService } from './project.service';
     DashboardComponent,
     StyleGuideComponent,
     SidebarComponent,
-    FooterComponent
+    FooterComponent,
+    BuildComponent
   ],
   imports: [
     MomentModule,
