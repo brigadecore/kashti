@@ -6,6 +6,7 @@ image:
   repository: deis/kashti
   tag: latest
   pullPolicy: IfNotPresent
+  # pullSecret: pull-secret-name
 service:
   name: kashti
   type: LoadBalancer
