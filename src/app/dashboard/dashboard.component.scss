@@ -7,14 +7,15 @@
 }
 
 @mixin icon {
-  font-size: 2rem;
-  text-align: left;
-  width: 36px;
-  height: 36px;
+  font-size: 2.333rem;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
   display: block;
   position: absolute;
-  top: 1.125rem;
-  left: 1.25rem;
+  top: 1rem;
+  left: 1rem;
   z-index: 500;
   background: white;
   border-radius: 50%;
@@ -32,12 +33,14 @@
 
 .project-active {
   @include icon;
-  color: $active;
+  background: url('../../assets/images/icons/active/active.svg') no-repeat 50% 50%;
+  background-size: 36px 36px;
 }
 
-.project-warn {
+.project-unknown {
   @include icon;
-  color: $warn;
+  background-color: transparent;
+  color: darken($light1, 25%);
 }
 
 .project {
@@ -58,7 +61,7 @@
   }
 
   h2 {
-    margin: 1.25rem 2rem 0 4rem;
+    margin: 1.25rem 2rem 0 4.5rem;
     font-size: 1.125rem;
     line-height: 1.5;
     color: $dark1;
@@ -109,12 +112,12 @@
     &::before {
       font-size: 2rem;
       text-align: left;
-      width: 28px;
-      height: 28px;
+      width: 40px;
+      height: 40px;
       display: inline-block;
       position: absolute;
-      top: 1.25rem;
-      left: 1.25rem;
+      top: 1rem;
+      left: 1rem;
       z-index: 500;
       display: block;
       background: $light2;
@@ -125,13 +128,13 @@
 
     &:after {
       width: 2px;
-      height: 136px;
-      background-color: $light1;
+      height: 138px;
+      background-color: lighten($light1, 5%);
       display: block;
       content: ' ';
       position: absolute;
-      left: 2rem;
-      top: 2rem;
+      left: 2.15rem;
+      top: 2.5rem;
       z-index: 300;
     }
   }
@@ -139,13 +142,13 @@
   .activity {
     ul {
       list-style: none;
-      margin: 10px 0 0 4rem;
+      margin: 28px 0 0 4.5rem;
 
       li {
         font-family: $mono;
         color: $dark3;
         line-height: 1.6;
-        font-size: 0.667rem;
+        font-size: 0.75rem;
         position: relative;
 
         &:before {
@@ -159,7 +162,7 @@
           border: 2px solid white;
           position: absolute;
           z-index: 650;
-          left: -2.35rem;
+          left: -43px;
           top: 3px;
         }
 

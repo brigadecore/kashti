@@ -56,16 +56,15 @@ export class DashboardComponent implements OnInit {
 
   activeStateClasses() {
     return {
-      'project-active': true,
-      'ion-ios-timer': true
+      'project-active': true
     };
   }
 
   unknownStateClasses() {
     return {
       icon: true,
-      'project-warn': true,
-      'ion-md-alert': true
+      'project-unknown': true,
+      'ion-android-radio-button-off': true
     };
   }
 }

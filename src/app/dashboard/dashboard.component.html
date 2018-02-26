@@ -11,10 +11,9 @@
           <ul>
             <li>
               <span ng-hide="project.lastBuild.worker.status == null">
-                {{ project.lastBuild.provider}}:{{ project.lastBuild.type}} {{ project.lastBuild.commit }} -
-                <span>{{project.lastBuild.worker.end_time | amTimeAgo}}</span>
+                {{ project.lastBuild.provider}}:{{ project.lastBuild.type}} {{ project.lastBuild.commit }}
                 <br>
-                <em>#</em>{{ project.lastBuild.id }}
+                <span>{{project.lastBuild.worker.end_time | amTimeAgo}}</span>
               </span>
             </li>
           </ul>
