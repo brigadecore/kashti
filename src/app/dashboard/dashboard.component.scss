@@ -41,7 +41,7 @@
   @include icon;
   background-color: $light1;
   color: $light2;
-  font-size: 40px;
+  font-size: 2.5rem;
 }
 
 .project {
@@ -93,8 +93,8 @@
     img {
       font-size: 2rem;
       text-align: left;
-      width: 36px;
-      height: 36px;
+      width: 2rem;
+      height: 2rem;
       display: none;
       position: absolute;
       top: 1.125rem;
@@ -113,8 +113,8 @@
     &::before {
       font-size: 2rem;
       text-align: left;
-      width: 40px;
-      height: 40px;
+      width: 2.5rem;
+      height: 2.5rem;
       display: inline-block;
       position: absolute;
       top: 1rem;
