@@ -13,6 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { StyleGuideComponent } from './style-guide/style-guide.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
+import { BuildComponent } from './build/build.component';
 import { ProjectService } from './project.service';
 import { ProjectComponent } from './project/project.component';
 
@@ -23,7 +24,8 @@ import { ProjectComponent } from './project/project.component';
     StyleGuideComponent,
     SidebarComponent,
     FooterComponent,
-    ProjectComponent
+    ProjectComponent,
+    BuildComponent
   ],
   imports: [
     MomentModule,
