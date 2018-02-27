@@ -62,9 +62,9 @@ export class DashboardComponent implements OnInit {
 
   unknownStateClasses() {
     return {
-      icon: true,
+      'icon': true,
       'project-unknown': true,
-      'ion-android-radio-button-off': true
+      'ion-md-radio-button-off': true
     };
   }
 }

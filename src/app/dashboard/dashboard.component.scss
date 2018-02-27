@@ -39,8 +39,9 @@
 
 .project-unknown {
   @include icon;
-  background-color: transparent;
-  color: darken($light1, 25%);
+  background-color: $light1;
+  color: $light2;
+  font-size: 40px;
 }
 
 .project {
