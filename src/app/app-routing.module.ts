@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'project', component: ProjectComponent },
   { path: 'build', component: BuildComponent },
-  { path: 'project', component: ProjectComponent },
+  { path: 'project/:id', component: ProjectComponent },
   { path: 'styleguide', component: StyleGuideComponent }
 ];
 
