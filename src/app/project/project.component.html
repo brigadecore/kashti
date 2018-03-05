@@ -14,9 +14,10 @@
     </div>
 
 
-    <ul class="grid-content build-list columns" ng-controller="buildsController">
-      <!-- ngRepeat: build in builds | orderBy: reverse:true --><li ng-repeat="build in builds | orderBy: reverse:true" class="medium-grid-block build-item ng-scope" style="">
-        <a href="../kashti/#!/build/01bzzn45f0p5bjtsffw9m8chts" class="grid-block">
+    <ul class="grid-content build-list columns">
+      <!-- ngRepeat: build in builds | orderBy: reverse:true -->
+      <li ng-repeat="build in builds | orderBy: reverse:true" class="medium-grid-block build-item ng-scope" style="">
+        <a routerLink="/build/{{build.id}}" class="grid-block">
 
           <span class="act-state collapse success">
             <div class="success" title="Passed"><i class="icon ion-md-checkmark-circle"></i></div>
