@@ -9,6 +9,7 @@ import { ProjectService } from '../project.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
+
 export class DashboardComponent implements OnInit {
 
   projects: Project[];

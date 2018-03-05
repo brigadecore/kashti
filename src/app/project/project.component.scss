@@ -4,7 +4,8 @@
 .template-project {
   position: relative;
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
+  width: 100%;
 
   &:after {
     background: linear-gradient(adeg, darken(#F0F1F6, 2%) 0%, lighten(#e6e9f0, 1%) 100%);
@@ -20,9 +21,9 @@
 }
 
 .project-header-wrap {
-  position: relative;
-  z-index: 200;
-  padding: .75rem 2.75rem;
+  // position: relative;
+  // z-index: 200;
+  // padding: .75rem 2.75rem;
 }
 
 .project-header {
@@ -67,7 +68,7 @@
   border: 1px solid $light1;
   margin-top: -1px;
   margin-bottom: 1rem;
-  overflow: hidden;
+  overflow-x: hidden;
   position: relative;
   z-index: 1100;
   @include box-shadow(0,2px,4px,rgba(0,0,0,0.15));
@@ -89,7 +90,7 @@
       display: block;
       content: " ";
       position: absolute;
-      left: 112.5%;
+      right: 0;
       top: 0.45rem;
       @include border-radius(1rem,1rem);
     }
@@ -201,10 +202,7 @@
 }
 
 .build-list {
-  margin-top: 1rem;
-  margin-right: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  margin: 1rem auto;
 
   .build-item {
     border: none;
@@ -221,6 +219,10 @@
       margin: 0 0 0.25rem 0;
       border-radius: 4px;
       overflow: hidden;
+      width: 100%;
+      display: inline-block;
+      min-height: 35px;
+      position: relative;
       @include transition;
 
       span {
@@ -229,6 +231,7 @@
         line-height: 2.25;
         letter-spacing: -0.05em;
         color: darken($dark3, 10%);
+        display: inline-block;
         @include transition;
       }
 
@@ -266,8 +269,8 @@
         .icon {
           font-size: 1.5rem;
           line-height: 0.5;
-          top: 3px;
-          left: -11px;
+          top: 1px;
+          left: -8px;
           background: darken($light3, 3.5%);
           position: absolute;
           z-index: 900;
@@ -297,7 +300,7 @@
         &:after {
           width: 2px;
           height: 42px;
-          left: -2px;
+          left: 2px;
           top: -4px;
           background: $light1;
           position: absolute;
@@ -311,12 +314,12 @@
       .act-author {
         min-width: 16%;
         position: relative;
-        padding-left: 20px;
+        padding-left: 32px;
 
         .act-avatar {
           position: absolute;
           top: -7px;
-          left: -5px;
+          left: -12px;
           opacity: 0.5;
           @include transition;
 
@@ -355,7 +358,7 @@
         font-size: 0.75rem;
         position: absolute;
         right: 1.5rem;
-        top: 0.667rem;
+        top: 0.6rem;
         opacity: 0;
         text-align: right;
         @include nunitoBold;

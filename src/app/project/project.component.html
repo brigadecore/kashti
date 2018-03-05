@@ -1,404 +1,58 @@
-<div class="medium-grid-block collapse medium-10 large-10 vertical">
-  <div class="grid-block collapse vertical">
+<div class="template-project">
+  <section class="row align-center small-up-1">
 
-    <div class="grid-block vertical">
-      <div class="grid-content content-wrap">
-
-        <div class="grid-content project-header-wrap">
-          <div class="grid-block horizontal collapse">
-            <div class="small-12 vertical">
-              <div class="project-header">
-                <h1 class="ng-binding">deis/empty-testbed</h1>
-                <ul>
-                  <li class="ng-binding">https://github.com/deis/empty-testbed.git</li>
-                  <li class="ng-binding">Sidecar: </li>
-                  <li class="ng-binding">Namespace: default</li>
-                </ul>
-
-                <!-- <div ng-controller="projectsbuildsController">
-                    <div class="build-status" ng-class="{
-                    'build-success': buildResult == 'success',
-                    'build-failed': buildResult == 'failed',
-                    'build-active': buildResult == 'active'
-                  }">
-                    <div class="success" ng-show="buildResult == 'success'"><i class="icon ion-checkmark-circled"></i> Passing</div>
-                    <div class="failed" ng-show="buildResult == 'failed'"><i class="icon ion-close-circled"></i> Failing</div>
-                    <div class="active" ng-show="buildResult == 'active'"><img src="assets/images/rolling.svg" /> In Progress</div>
-                  </div>
-                </div> -->
-              </div>
-
-            </div>
-
-          </div>
-        </div>
-
-        <ul class="grid-content build-list ng-scope" ng-controller="buildsController">
-          <!-- ngRepeat: build in builds | orderBy: reverse:true --><li ng-repeat="build in builds | orderBy: reverse:true" class="medium-grid-block build-item ng-scope" style="">
-            <a href="../kashti/#!/build/01bzzn45f0p5bjtsffw9m8chts" class="grid-block">
-
-              <span class="act-state collapse Succeeded success" ng-class="{
-                'success': build.worker.status == 'Succeeded',
-                'failed': build.worker.status == 'Failed',
-                'active': build.worker.status == 'Pending'
-              }">
-                <div class="success" title="Passed"><i class="icon ion-checkmark-circled"></i></div>
-                <div class="failed" title="Failed"><i class="icon ion-close-circled"></i></div>
-                <div class="active" title="In progress"><img src="assets/images/rolling.svg"></div>
-              </span>
-              <span class="act-author ng-binding">
-                <span class="act-avatar">
-                  <!-- <i class="icon ion-ios-bolt" ng-show="
-                    build.provider !== 'github' | build.provider !== 'slack' | build.provider !== 'trello' | build.provider !== 'brigade-cli'
-                  "></i> -->
-                  <i class="icon ion-social-github ng-hide" ng-show="build.provider === 'github' "></i>
-                  <i class="icon avatar-slack ng-hide" ng-show="build.provider === 'slack' "><img src="assets/images/slack.png"></i>
-                  <i class="icon avatar-trello ng-hide" ng-show="build.provider === 'trello' "><img src="assets/images/trello.png"></i>
-                  <i class="icon ion-ios-bolt" ng-show="build.provider === 'brigade-cli' "></i>
-                </span>
-                brigade-cli<!-- ngIf: build.provider.length > 18 -->
-              </span>
-              <span class="act-hash ng-binding">
-                master
-              </span>
-              <span class="act-message ng-binding">
-                <em>#</em>01bzzn45f0p5bjtsffw9m8chts<!-- ngIf: build.id.length > 34 -->
-              </span>
-              <span class="act-time-ago ng-binding">
-                Succeeded <span am-time-ago="build.worker.end_time">a month ago</span>.
-              </span>
-              <span class="act-time-duration">
-                Ran for <span class="ng-binding">48 seconds.</span>
-              </span>
-              <!-- <div class="act-child-jobs">
-                {{ build.jobs.length }}
-              </div> -->
-            </a>
-          </li><!-- end ngRepeat: build in builds | orderBy: reverse:true --><li ng-repeat="build in builds | orderBy: reverse:true" class="medium-grid-block build-item ng-scope">
-            <a href="../kashti/#!/build/01bzzn07g488przds1x7n21p2v" class="grid-block">
-
-              <span class="act-state collapse Succeeded success" ng-class="{
-                'success': build.worker.status == 'Succeeded',
-                'failed': build.worker.status == 'Failed',
-                'active': build.worker.status == 'Pending'
-              }">
-                <div class="success" title="Passed"><i class="icon ion-checkmark-circled"></i></div>
-                <div class="failed" title="Failed"><i class="icon ion-close-circled"></i></div>
-                <div class="active" title="In progress"><img src="assets/images/rolling.svg"></div>
-              </span>
-              <span class="act-author ng-binding">
-                <span class="act-avatar">
-                  <!-- <i class="icon ion-ios-bolt" ng-show="
-                    build.provider !== 'github' | build.provider !== 'slack' | build.provider !== 'trello' | build.provider !== 'brigade-cli'
-                  "></i> -->
-                  <i class="icon ion-social-github ng-hide" ng-show="build.provider === 'github' "></i>
-                  <i class="icon avatar-slack ng-hide" ng-show="build.provider === 'slack' "><img src="assets/images/slack.png"></i>
-                  <i class="icon avatar-trello ng-hide" ng-show="build.provider === 'trello' "><img src="assets/images/trello.png"></i>
-                  <i class="icon ion-ios-bolt" ng-show="build.provider === 'brigade-cli' "></i>
-                </span>
-                brigade-cli<!-- ngIf: build.provider.length > 18 -->
-              </span>
-              <span class="act-hash ng-binding">
-                master
-              </span>
-              <span class="act-message ng-binding">
-                <em>#</em>01bzzn07g488przds1x7n21p2v<!-- ngIf: build.id.length > 34 -->
-              </span>
-              <span class="act-time-ago ng-binding">
-                Succeeded <span am-time-ago="build.worker.end_time">2 months ago</span>.
-              </span>
-              <span class="act-time-duration">
-                Ran for <span class="ng-binding">6 seconds.</span>
-              </span>
-              <!-- <div class="act-child-jobs">
-                {{ build.jobs.length }}
-              </div> -->
-            </a>
-          </li><!-- end ngRepeat: build in builds | orderBy: reverse:true --><li ng-repeat="build in builds | orderBy: reverse:true" class="medium-grid-block build-item ng-scope">
-            <a href="../kashti/#!/build/01bzzmz498aqh18hc7j5erjxmm" class="grid-block">
-
-              <span class="act-state collapse Succeeded success" ng-class="{
-                'success': build.worker.status == 'Succeeded',
-                'failed': build.worker.status == 'Failed',
-                'active': build.worker.status == 'Pending'
-              }">
-                <div class="success" title="Passed"><i class="icon ion-checkmark-circled"></i></div>
-                <div class="failed" title="Failed"><i class="icon ion-close-circled"></i></div>
-                <div class="active" title="In progress"><img src="assets/images/rolling.svg"></div>
-              </span>
-              <span class="act-author ng-binding">
-                <span class="act-avatar">
-                  <!-- <i class="icon ion-ios-bolt" ng-show="
-                    build.provider !== 'github' | build.provider !== 'slack' | build.provider !== 'trello' | build.provider !== 'brigade-cli'
-                  "></i> -->
-                  <i class="icon ion-social-github ng-hide" ng-show="build.provider === 'github' "></i>
-                  <i class="icon avatar-slack ng-hide" ng-show="build.provider === 'slack' "><img src="assets/images/slack.png"></i>
-                  <i class="icon avatar-trello ng-hide" ng-show="build.provider === 'trello' "><img src="assets/images/trello.png"></i>
-                  <i class="icon ion-ios-bolt" ng-show="build.provider === 'brigade-cli' "></i>
-                </span>
-                brigade-cli<!-- ngIf: build.provider.length > 18 -->
-              </span>
-              <span class="act-hash ng-binding">
-                master
-              </span>
-              <span class="act-message ng-binding">
-                <em>#</em>01bzzmz498aqh18hc7j5erjxmm<!-- ngIf: build.id.length > 34 -->
-              </span>
-              <span class="act-time-ago ng-binding">
-                Succeeded <span am-time-ago="build.worker.end_time">a month ago</span>.
-              </span>
-              <span class="act-time-duration">
-                Ran for <span class="ng-binding">49 seconds.</span>
-              </span>
-              <!-- <div class="act-child-jobs">
-                {{ build.jobs.length }}
-              </div> -->
-            </a>
-          </li><!-- end ngRepeat: build in builds | orderBy: reverse:true --><li ng-repeat="build in builds | orderBy: reverse:true" class="medium-grid-block build-item ng-scope">
-            <a href="../kashti/#!/build/01bzghz2ssqyhxn8gshy8m1ra0" class="grid-block">
-
-              <span class="act-state collapse Succeeded success" ng-class="{
-                'success': build.worker.status == 'Succeeded',
-                'failed': build.worker.status == 'Failed',
-                'active': build.worker.status == 'Pending'
-              }">
-                <div class="success" title="Passed"><i class="icon ion-checkmark-circled"></i></div>
-                <div class="failed" title="Failed"><i class="icon ion-close-circled"></i></div>
-                <div class="active" title="In progress"><img src="assets/images/rolling.svg"></div>
-              </span>
-              <span class="act-author ng-binding">
-                <span class="act-avatar">
-                  <!-- <i class="icon ion-ios-bolt" ng-show="
-                    build.provider !== 'github' | build.provider !== 'slack' | build.provider !== 'trello' | build.provider !== 'brigade-cli'
-                  "></i> -->
-                  <i class="icon ion-social-github ng-hide" ng-show="build.provider === 'github' "></i>
-                  <i class="icon avatar-slack ng-hide" ng-show="build.provider === 'slack' "><img src="assets/images/slack.png"></i>
-                  <i class="icon avatar-trello ng-hide" ng-show="build.provider === 'trello' "><img src="assets/images/trello.png"></i>
-                  <i class="icon ion-ios-bolt" ng-show="build.provider === 'brigade-cli' "></i>
-                </span>
-                brigade-cli<!-- ngIf: build.provider.length > 18 -->
-              </span>
-              <span class="act-hash ng-binding">
-                master
-              </span>
-              <span class="act-message ng-binding">
-                <em>#</em>01bzghz2ssqyhxn8gshy8m1ra0<!-- ngIf: build.id.length > 34 -->
-              </span>
-              <span class="act-time-ago ng-binding">
-                Succeeded <span am-time-ago="build.worker.end_time">a month ago</span>.
-              </span>
-              <span class="act-time-duration">
-                Ran for <span class="ng-binding">57 seconds.</span>
-              </span>
-              <!-- <div class="act-child-jobs">
-                {{ build.jobs.length }}
-              </div> -->
-            </a>
-          </li><!-- end ngRepeat: build in builds | orderBy: reverse:true --><li ng-repeat="build in builds | orderBy: reverse:true" class="medium-grid-block build-item ng-scope">
-            <a href="../kashti/#!/build/01bz3j29xmz4dhs99xahm1q9bh" class="grid-block">
-
-              <span class="act-state collapse Succeeded success" ng-class="{
-                'success': build.worker.status == 'Succeeded',
-                'failed': build.worker.status == 'Failed',
-                'active': build.worker.status == 'Pending'
-              }">
-                <div class="success" title="Passed"><i class="icon ion-checkmark-circled"></i></div>
-                <div class="failed" title="Failed"><i class="icon ion-close-circled"></i></div>
-                <div class="active" title="In progress"><img src="assets/images/rolling.svg"></div>
-              </span>
-              <span class="act-author ng-binding">
-                <span class="act-avatar">
-                  <!-- <i class="icon ion-ios-bolt" ng-show="
-                    build.provider !== 'github' | build.provider !== 'slack' | build.provider !== 'trello' | build.provider !== 'brigade-cli'
-                  "></i> -->
-                  <i class="icon ion-social-github ng-hide" ng-show="build.provider === 'github' "></i>
-                  <i class="icon avatar-slack ng-hide" ng-show="build.provider === 'slack' "><img src="assets/images/slack.png"></i>
-                  <i class="icon avatar-trello ng-hide" ng-show="build.provider === 'trello' "><img src="assets/images/trello.png"></i>
-                  <i class="icon ion-ios-bolt" ng-show="build.provider === 'brigade-cli' "></i>
-                </span>
-                brigade-cli<!-- ngIf: build.provider.length > 18 -->
-              </span>
-              <span class="act-hash ng-binding">
-                master
-              </span>
-              <span class="act-message ng-binding">
-                <em>#</em>01bz3j29xmz4dhs99xahm1q9bh<!-- ngIf: build.id.length > 34 -->
-              </span>
-              <span class="act-time-ago ng-binding">
-                Succeeded <span am-time-ago="build.worker.end_time">a month ago</span>.
-              </span>
-              <span class="act-time-duration">
-                Ran for <span class="ng-binding">63 seconds.</span>
-              </span>
-              <!-- <div class="act-child-jobs">
-                {{ build.jobs.length }}
-              </div> -->
-            </a>
-          </li><!-- end ngRepeat: build in builds | orderBy: reverse:true --><li ng-repeat="build in builds | orderBy: reverse:true" class="medium-grid-block build-item ng-scope">
-            <a href="../kashti/#!/build/01bz3j0gqz5t01vwhd5gen1mw7" class="grid-block">
-
-              <span class="act-state collapse Succeeded success" ng-class="{
-                'success': build.worker.status == 'Succeeded',
-                'failed': build.worker.status == 'Failed',
-                'active': build.worker.status == 'Pending'
-              }">
-                <div class="success" title="Passed"><i class="icon ion-checkmark-circled"></i></div>
-                <div class="failed" title="Failed"><i class="icon ion-close-circled"></i></div>
-                <div class="active" title="In progress"><img src="assets/images/rolling.svg"></div>
-              </span>
-              <span class="act-author ng-binding">
-                <span class="act-avatar">
-                  <!-- <i class="icon ion-ios-bolt" ng-show="
-                    build.provider !== 'github' | build.provider !== 'slack' | build.provider !== 'trello' | build.provider !== 'brigade-cli'
-                  "></i> -->
-                  <i class="icon ion-social-github ng-hide" ng-show="build.provider === 'github' "></i>
-                  <i class="icon avatar-slack ng-hide" ng-show="build.provider === 'slack' "><img src="assets/images/slack.png"></i>
-                  <i class="icon avatar-trello ng-hide" ng-show="build.provider === 'trello' "><img src="assets/images/trello.png"></i>
-                  <i class="icon ion-ios-bolt" ng-show="build.provider === 'brigade-cli' "></i>
-                </span>
-                brigade-cli<!-- ngIf: build.provider.length > 18 -->
-              </span>
-              <span class="act-hash ng-binding">
-                master
-              </span>
-              <span class="act-message ng-binding">
-                <em>#</em>01bz3j0gqz5t01vwhd5gen1mw7<!-- ngIf: build.id.length > 34 -->
-              </span>
-              <span class="act-time-ago ng-binding">
-                Succeeded <span am-time-ago="build.worker.end_time">a month ago</span>.
-              </span>
-              <span class="act-time-duration">
-                Ran for <span class="ng-binding">48 seconds.</span>
-              </span>
-              <!-- <div class="act-child-jobs">
-                {{ build.jobs.length }}
-              </div> -->
-            </a>
-          </li><!-- end ngRepeat: build in builds | orderBy: reverse:true --><li ng-repeat="build in builds | orderBy: reverse:true" class="medium-grid-block build-item ng-scope">
-            <a href="../kashti/#!/build/01byy7kmx6abe3te3afmsm3q6h" class="grid-block">
-
-              <span class="act-state collapse Failed failed" ng-class="{
-                'success': build.worker.status == 'Succeeded',
-                'failed': build.worker.status == 'Failed',
-                'active': build.worker.status == 'Pending'
-              }">
-                <div class="success" title="Passed"><i class="icon ion-checkmark-circled"></i></div>
-                <div class="failed" title="Failed"><i class="icon ion-close-circled"></i></div>
-                <div class="active" title="In progress"><img src="assets/images/rolling.svg"></div>
-              </span>
-              <span class="act-author ng-binding">
-                <span class="act-avatar">
-                  <!-- <i class="icon ion-ios-bolt" ng-show="
-                    build.provider !== 'github' | build.provider !== 'slack' | build.provider !== 'trello' | build.provider !== 'brigade-cli'
-                  "></i> -->
-                  <i class="icon ion-social-github ng-hide" ng-show="build.provider === 'github' "></i>
-                  <i class="icon avatar-slack ng-hide" ng-show="build.provider === 'slack' "><img src="assets/images/slack.png"></i>
-                  <i class="icon avatar-trello ng-hide" ng-show="build.provider === 'trello' "><img src="assets/images/trello.png"></i>
-                  <i class="icon ion-ios-bolt" ng-show="build.provider === 'brigade-cli' "></i>
-                </span>
-                brigade-cli<!-- ngIf: build.provider.length > 18 -->
-              </span>
-              <span class="act-hash ng-binding">
-                master
-              </span>
-              <span class="act-message ng-binding">
-                <em>#</em>01byy7kmx6abe3te3afmsm3q6h<!-- ngIf: build.id.length > 34 -->
-              </span>
-              <span class="act-time-ago ng-binding">
-                Failed <span am-time-ago="build.worker.end_time">3 months ago</span>.
-              </span>
-              <span class="act-time-duration">
-                Ran for <span class="ng-binding">9 seconds.</span>
-              </span>
-              <!-- <div class="act-child-jobs">
-                {{ build.jobs.length }}
-              </div> -->
-            </a>
-          </li><!-- end ngRepeat: build in builds | orderBy: reverse:true --><li ng-repeat="build in builds | orderBy: reverse:true" class="medium-grid-block build-item ng-scope">
-            <a href="../kashti/#!/build/01byy6ymq8p9md8z31rcmtry4a" class="grid-block">
-
-              <span class="act-state collapse Succeeded success" ng-class="{
-                'success': build.worker.status == 'Succeeded',
-                'failed': build.worker.status == 'Failed',
-                'active': build.worker.status == 'Pending'
-              }">
-                <div class="success" title="Passed"><i class="icon ion-checkmark-circled"></i></div>
-                <div class="failed" title="Failed"><i class="icon ion-close-circled"></i></div>
-                <div class="active" title="In progress"><img src="assets/images/rolling.svg"></div>
-              </span>
-              <span class="act-author ng-binding">
-                <span class="act-avatar">
-                  <!-- <i class="icon ion-ios-bolt" ng-show="
-                    build.provider !== 'github' | build.provider !== 'slack' | build.provider !== 'trello' | build.provider !== 'brigade-cli'
-                  "></i> -->
-                  <i class="icon ion-social-github ng-hide" ng-show="build.provider === 'github' "></i>
-                  <i class="icon avatar-slack ng-hide" ng-show="build.provider === 'slack' "><img src="assets/images/slack.png"></i>
-                  <i class="icon avatar-trello ng-hide" ng-show="build.provider === 'trello' "><img src="assets/images/trello.png"></i>
-                  <i class="icon ion-ios-bolt" ng-show="build.provider === 'brigade-cli' "></i>
-                </span>
-                brigade-cli<!-- ngIf: build.provider.length > 18 -->
-              </span>
-              <span class="act-hash ng-binding">
-                master
-              </span>
-              <span class="act-message ng-binding">
-                <em>#</em>01byy6ymq8p9md8z31rcmtry4a<!-- ngIf: build.id.length > 34 -->
-              </span>
-              <span class="act-time-ago ng-binding">
-                Succeeded <span am-time-ago="build.worker.end_time">a month ago</span>.
-              </span>
-              <span class="act-time-duration">
-                Ran for <span class="ng-binding">70 seconds.</span>
-              </span>
-              <!-- <div class="act-child-jobs">
-                {{ build.jobs.length }}
-              </div> -->
-            </a>
-          </li><!-- end ngRepeat: build in builds | orderBy: reverse:true --><li ng-repeat="build in builds | orderBy: reverse:true" class="medium-grid-block build-item ng-scope">
-            <a href="../kashti/#!/build/01byy6vn3fanaypqpve7m1jwsf" class="grid-block">
-
-              <span class="act-state collapse Succeeded success" ng-class="{
-                'success': build.worker.status == 'Succeeded',
-                'failed': build.worker.status == 'Failed',
-                'active': build.worker.status == 'Pending'
-              }">
-                <div class="success" title="Passed"><i class="icon ion-checkmark-circled"></i></div>
-                <div class="failed" title="Failed"><i class="icon ion-close-circled"></i></div>
-                <div class="active" title="In progress"><img src="assets/images/rolling.svg"></div>
-              </span>
-              <span class="act-author ng-binding">
-                <span class="act-avatar">
-                  <!-- <i class="icon ion-ios-bolt" ng-show="
-                    build.provider !== 'github' | build.provider !== 'slack' | build.provider !== 'trello' | build.provider !== 'brigade-cli'
-                  "></i> -->
-                  <i class="icon ion-social-github ng-hide" ng-show="build.provider === 'github' "></i>
-                  <i class="icon avatar-slack ng-hide" ng-show="build.provider === 'slack' "><img src="assets/images/slack.png"></i>
-                  <i class="icon avatar-trello ng-hide" ng-show="build.provider === 'trello' "><img src="assets/images/trello.png"></i>
-                  <i class="icon ion-ios-bolt" ng-show="build.provider === 'brigade-cli' "></i>
-                </span>
-                brigade-cli<!-- ngIf: build.provider.length > 18 -->
-              </span>
-              <span class="act-hash ng-binding">
-                master
-              </span>
-              <span class="act-message ng-binding">
-                <em>#</em>01byy6vn3fanaypqpve7m1jwsf<!-- ngIf: build.id.length > 34 -->
-              </span>
-              <span class="act-time-ago ng-binding">
-                Succeeded <span am-time-ago="build.worker.end_time">a month ago</span>.
-              </span>
-              <span class="act-time-duration">
-                Ran for <span class="ng-binding">64 seconds.</span>
-              </span>
-              <!-- <div class="act-child-jobs">
-                {{ build.jobs.length }}
-              </div> -->
-            </a>
-          </li><!-- end ngRepeat: build in builds | orderBy: reverse:true -->
+    <div class="project-header-wrap columns">
+      <div class="project-header">
+        <h1>Project Name {{ project.name }}</h1>
+        <ul>
+          <li>https://github.com/deis/empty-testbed.git {{ project.url }}</li>
+          <li>Sidecar: {{ project.sidecar }}</li>
+          <li>Namespace: default {{ project.namespace }}</li>
         </ul>
+
       </div>
-
     </div>
-  </div>
 
+
+    <ul class="grid-content build-list columns" ng-controller="buildsController">
+      <!-- ngRepeat: build in builds | orderBy: reverse:true --><li ng-repeat="build in builds | orderBy: reverse:true" class="medium-grid-block build-item ng-scope" style="">
+        <a href="../kashti/#!/build/01bzzn45f0p5bjtsffw9m8chts" class="grid-block">
+
+          <span class="act-state collapse success">
+            <div class="success" title="Passed"><i class="icon ion-md-checkmark-circle"></i></div>
+            <!-- <div class="failed" title="Failed"><i class="icon ion-close-circled"></i></div>
+            <div class="active" title="In progress"><img src="assets/images/rolling.svg"></div> -->
+          </span>
+          <span class="act-author ng-binding">
+            <span class="act-avatar">
+              <!-- <i class="icon ion-ios-bolt" ng-show="
+                build.provider !== 'github' | build.provider !== 'slack' | build.provider !== 'trello' | build.provider !== 'brigade-cli'
+              "></i> -->
+              <i class="icon ion-logo-github" ng-show="build.provider === 'github' "></i>
+              <!-- <i class="icon avatar-slack" ng-show="build.provider === 'slack' "><img src="assets/images/slack.png"></i>
+              <i class="icon avatar-trello ng-hide" ng-show="build.provider === 'trello' "><img src="assets/images/trello.png"></i>
+              <i class="icon ion-ios-bolt" ng-show="build.provider === 'brigade-cli' "></i> -->
+            </span>
+            brigade-cli<!-- ngIf: build.provider.length > 18 -->
+          </span>
+          <span class="act-hash ng-binding">
+            master
+          </span>
+          <span class="act-message ng-binding">
+            <em>#</em>01bzzn45f0p5bjtsffw9m8chts<!-- ngIf: build.id.length > 34 -->
+          </span>
+          <span class="act-time-ago ng-binding">
+            Succeeded <span am-time-ago="build.worker.end_time">a month ago</span>.
+          </span>
+          <span class="act-time-duration">
+            Ran for <span class="ng-binding">48 seconds.</span>
+          </span>
+          <!-- <div class="act-child-jobs">
+            {{ build.jobs.length }}
+          </div> -->
+        </a>
+      </li><!-- end ngRepeat: build in builds | orderBy: reverse:true -->
+    </ul>
+
+  </section>
 </div>
