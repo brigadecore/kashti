@@ -1,6 +1,18 @@
 @import 'global_variables';
 @import 'global_states';
 
+.breadcrumb-bar {
+  background: #fff;
+  position: fixed;
+  top: 0;
+  left: 56px;
+  right: 0;
+  min-height: 3.667rem;
+  line-height: 2;
+  padding: 0.825rem 2rem;
+  background: lighten($light1, 5%);
+}
+
 .template-project {
   position: relative;
   padding: 0;
