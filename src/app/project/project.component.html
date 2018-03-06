@@ -3,7 +3,8 @@
 
     <div class="breadcrumb-bar columns">
       <a routerLink="/">Home</a>
-      <a>{{ project.name }}</a>
+      <i class="icon ion-ios-arrow-forward"></i>
+      <a routerLink="project/:id">Project ID {{ project.id }}</a>
     </div>
 
     <div class="project-header-wrap columns">
@@ -116,7 +117,7 @@
             <em>#</em>01bzzn45f0p5bjtsffw9m8chts
           </span>
           <span class="act-time-ago">
-            <code>State Unknown</code>
+            <code>Log details are unavailable.</code>
           </span>
         </a>
       </li>
