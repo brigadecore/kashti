@@ -10,13 +10,13 @@
   min-height: 3.667rem;
   line-height: 2;
   padding: 0.825rem 2rem;
-  background: lighten($light1, 5%);
+  background: lighten($light1, 3.5%);
 }
 
 .template-project {
   position: relative;
   padding: 0;
-  margin: 5rem auto 0;
+  margin: 3.75rem auto 0;
   width: 100%;
 
   &:after {
@@ -176,6 +176,8 @@
 
       &.active {
         color: lighten($dark2, 7.5%);
+        width: 40px;
+        height: 40px;
       }
 
       &:hover {
@@ -253,6 +255,7 @@
         position: relative;
         line-height: 1.725;
         min-width: 3.5%;
+        z-index: 900;
 
         div {
           display: none;
@@ -271,10 +274,13 @@
           }
         }
         &.active {
-          div.active {
+          .spinner {
             display: inline-block;
-            width: 40px;
-            height: 40px;
+            position: absolute;
+            background: darken($light2, 2.5%);
+            top: -0.925rem;
+            left: -0.667rem;
+            @include spinnerDonut($brand1, 1.5rem, 0.2rem);
           }
         }
 
@@ -299,27 +305,37 @@
 
         img {
           position: relative;
-          left: -11px;
-          top: 3px;
-          width: 24px;
-          height: 24px;
+          left: -0.75rem;
+          top: -0.25rem;
+          width: 1.5rem;
+          height: 1.5rem;
           position: absolute;
           z-index: 900;
           background-color: $light1;
           border-radius: 50%;
         }
 
+        .spinner {
+          z-index: 900;
+          position: relative;
+          @include transition;
+        }
+
+        .unknown {
+          color: darken($light2, 12.5%);
+        }
+
         &:after {
-          width: 2px;
-          height: 42px;
-          left: 2px;
-          top: -4px;
+          width: 0.125rem;
+          height: 2.75rem;
+          left: 0;
+          top: -0.25rem;
           background: $light1;
           position: absolute;
           display: block;
           content: " ";
-          z-index: 500;
-          opacity: 0.5;
+          z-index: 50;
+          opacity: 0.05;
         }
       }
 
@@ -331,7 +347,7 @@
         .act-avatar {
           position: absolute;
           top: -7px;
-          left: -12px;
+          left: -11px;
           opacity: 0.5;
           @include transition;
 
@@ -343,9 +359,10 @@
           }
 
           img {
-            max-height: 18px;
-            max-width: 15px;
-            margin-top: -4px;
+            max-height: 1rem;
+            // max-width: 1rem;
+            margin-left: 0.1rem;
+            margin-top: 0.75rem;
             position: relative;
           }
         }
@@ -359,6 +376,16 @@
       }
       .act-time-ago {
         min-width: 18%;
+
+        code,
+        pre {
+          border: none;
+          outline: none;
+          background: transparent;
+          color: darken($dark3, 5%);
+          padding: 0;
+          font-family: $mono;
+        }
       }
       .act-time-duration {
         min-width: 10%;
@@ -396,6 +423,14 @@
       .act-state {
         .icon {
           background: white;
+        }
+
+        .spinner {
+          background: white;
+        }
+
+        &:after {
+          opacity: 0.5;
         }
       }
 
