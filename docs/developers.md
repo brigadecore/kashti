@@ -38,16 +38,10 @@ image:
 ```console
 $ eval $(minikube docker-env)
 $ yarn docker-build
-$ helm install -n brigade-ui chart/kashti --set brigade.apiServer=http://localhost:7745
+$ helm install -n kashti ./charts/kashti
 ```
 
 This will push a copy of the Docker image into your Minikube docker registry and
 then install the chart.
 
-The value of `brigade.apiServer` should be the fully qualified URL to your Brigade
-installation's API server. This is the URL that the _client_ will see, so you
-may need to use the outside IP address, not the cluster IP.
-
-The example above can be used along with a few `kubectl port-forward` commands to
-locally access your Kashti UI. See the [Install Guide](install.md) for more.
-
+Then, use `brig proxy` to start a tunnel to the Kashti pod inside your cluster.
