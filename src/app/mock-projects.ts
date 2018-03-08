@@ -32,11 +32,29 @@ const successfulBuild = {
   }
 };
 
-export const PROJECTS: Project[] = [
-  { id: 'projectid123', name: 'technosophos/coffeesnob', lastBuild: failedBuild },
-  { id: 'projectid1234', name: 'technosophos/ulid', lastBuild: failedBuild },
-  { id: 'projectid12345', name: 'technosophos/brigade-trello', lastBuild: failedBuild },
-  { id: 'projectid123456', name: 'deis/empty-testbed', lastBuild: successfulBuild },
-  { id: 'projectid1234567', name: 'technosophos/twitter-t', lastBuild: failedBuild },
-  { id: 'projectid1234568', name: 'Azure/kashti', lastBuild: successfulBuild }
+export const PROJECTS: Project[] = [ 
+  {
+    project:
+      { id: 'projectid123', name: 'technosophos/coffeesnob', lastBuild: failedBuild },
+  },
+  {
+    project: 
+      { id: 'projectid1234', name: 'technosophos/ulid', lastBuild: failedBuild },
+  },
+  {
+    project: 
+      { id: 'projectid12345', name: 'technosophos/brigade-trello', lastBuild: failedBuild },
+  },
+  {
+    project: 
+      { id: 'projectid123456', name: 'deis/empty-testbed', lastBuild: successfulBuild },
+  },
+  {
+    project: 
+      { id: 'projectid1234567', name: 'technosophos/twitter-t', lastBuild: failedBuild },
+  },
+  {
+    project: 
+      { id: 'projectid1234568', name: 'Azure/kashti', lastBuild: successfulBuild }
+  }
 ];
