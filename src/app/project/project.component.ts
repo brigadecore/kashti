@@ -24,32 +24,4 @@ export class ProjectComponent implements OnInit {
     this.projectService.getProjects()
       .subscribe(projects => this.projects = projects);
   }
-
-  successStateClasses() {
-    return {
-      'project-success': true,
-      'ion-md-checkmark-circle': true
-    };
-  }
-
-  failureStateClasses() {
-    return {
-      'project-fail': true,
-      'ion-md-close-circle': true
-    };
-  }
-
-  activeStateClasses() {
-    return {
-      'project-active': true
-    };
-  }
-
-  unknownStateClasses() {
-    return {
-      'icon': true,
-      'project-unknown': true,
-      'ion-md-radio-button-off': true
-    };
-  }
 }
