@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MomentModule } from 'angular2-moment';
 
 import { ProjectBuild } from '../models/project';
-import { ProjectBuildService } from '../project-build.service';
+import { ProjectService } from '../project.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,14 +14,14 @@ export class DashboardComponent implements OnInit {
 
   projectBuilds: ProjectBuild[];
 
-  constructor(private projectBuildService: ProjectBuildService) { }
+  constructor(private projectService: ProjectService) { }
 
   ngOnInit() {
     this.getProjectBuilds();
   }
 
   getProjectBuilds(): void {
-    this.projectBuildService.getProjectBuilds()
+    this.projectService.getProjectBuilds()
       .subscribe(projectBuilds => this.projectBuilds = projectBuilds);
   }
 

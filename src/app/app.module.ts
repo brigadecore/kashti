@@ -14,7 +14,7 @@ import { StyleGuideComponent } from './style-guide/style-guide.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
 import { BuildComponent } from './build/build.component';
-import { ProjectBuildService } from './project-build.service';
+import { ProjectService } from './project.service';
 import { BuildService } from './build.service';
 import { ProjectComponent } from './project/project.component';
 
@@ -41,7 +41,7 @@ import { ProjectComponent } from './project/project.component';
       dataEncapsulation: false
     })
   ],
-  providers: [ProjectBuildService, BuildService],
+  providers: [ProjectService, BuildService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

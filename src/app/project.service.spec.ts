@@ -9,12 +9,12 @@ import {
   HttpTestingController
 } from '@angular/common/http/testing';
 
-import { ProjectBuildService } from './project-build.service';
+import { ProjectService } from './project.service';
 
-describe('ProjectBuildService', () => {
+describe('ProjectService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [ProjectBuildService],
+      providers: [ProjectService],
       imports: [HttpClientModule, HttpClientTestingModule]
     });
   });
@@ -25,7 +25,7 @@ describe('ProjectBuildService', () => {
 
   it(
     'should be created',
-    inject([ProjectBuildService], (service: ProjectBuildService) => {
+    inject([ProjectService], (service: ProjectService) => {
       expect(service).toBeTruthy();
     })
   );
@@ -34,8 +34,8 @@ describe('ProjectBuildService', () => {
     'can get projects',
     async(
       inject(
-        [ProjectBuildService, HttpTestingController],
-        (service: ProjectBuildService, backend: HttpTestingController) => {
+        [ProjectService, HttpTestingController],
+        (service: ProjectService, backend: HttpTestingController) => {
 
           service.getProjectBuilds().subscribe();
 
