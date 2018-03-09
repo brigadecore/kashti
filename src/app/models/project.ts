@@ -17,6 +17,18 @@ export class Project {
   ) {}
 }
 
+export class Build {
+  constructor(
+    public id: string,
+    public project_id: string,
+    public type: string,
+    public provider: string,
+    public commit: string,
+    public script: string,
+    public worker: Worker
+  ) {}
+}
+
 export class Worker {
   constructor(
     public id: string,

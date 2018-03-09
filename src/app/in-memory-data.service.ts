@@ -2,6 +2,59 @@ import { InMemoryDbService } from 'angular-in-memory-web-api';
 
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
+    const builds = [
+      {
+        'id': '01byy6vn3fanaypqpve7m1jwsf',
+        'project_id': 'brigade-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
+        'type': 'exec',
+        'provider': 'brigade-cli',
+        'commit': 'master',
+        'script': 'Y29uc3QgeyBldmVudHMsIEpvYiwgR3JvdXAgfSA9IHJlcXVpcmUoImJyaWdhZGllciIpCgpldmVudHMub24oImV4ZWMiLCAoKSA9PiB7CiAgY29uc29sZS5sb2coIlxuID09PT4gd2VlZWVcbiIpCgogIHZhciBqMSA9IG5ldyBKb2IoImhlbGxvIiwgImFscGluZTozLjYiKQoKICBqMS50YXNrcyA9IFsKICAgICJlY2hvIGhlbGxvIgogIF0KCiAgdmFyIGoyID0gbmV3IEpvYigid29ybGQiLCAiYWxwaW5lOjMuNiIsIFsiZWNobyBoZWxsbzIiXSkKCiAgR3JvdXAucnVuRWFjaChbajEsIGoyXSkKfSkK',
+        'worker': {
+          'id': 'brigade-worker-01byy6vn3fanaypqpve7m1jwsf-master',
+          'build_id': '01byy6vn3fanaypqpve7m1jwsf',
+          'project_id': 'brigade-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
+          'start_time': '2017-12-23T07:31:55Z',
+          'end_time': '2017-12-23T07:32:59Z',
+          'exit_code': 0,
+          'status': 'Succeeded'
+        }
+      },
+      {
+        'id': '01byy6ymq8p9md8z31rcmtry4a',
+        'project_id': 'brigade-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
+        'type': 'exec',
+        'provider': 'brigade-cli',
+        'commit': 'master',
+        'script': 'Y29uc3QgeyBldmVudHMsIEpvYiwgR3JvdXAgfSA9IHJlcXVpcmUoImJyaWdhZGllciIpCgpldmVudHMub24oImV4ZWMiLCAoKSA9PiB7CiAgY29uc29sZS5sb2coIlxuID09PT4gd2VlZWVcbiIpCgogIHZhciBqMSA9IG5ldyBKb2IoImhlbGxvIiwgImFscGluZTozLjYiKQoKICBqMS50YXNrcyA9IFsKICAgICJlY2hvIGhlbGxvIgogIF0KCiAgdmFyIGoyID0gbmV3IEpvYigid29ybGQiLCAiYWxwaW5lOjMuNiIsIFsiZWNobyBoZWxsbzIiXSkKCiAgR3JvdXAucnVuRWFjaChbajEsIGoyXSkKfSkK',
+        'worker': {
+          'id': 'brigade-worker-01byy6ymq8p9md8z31rcmtry4a-master',
+          'build_id': '01byy6ymq8p9md8z31rcmtry4a',
+          'project_id': 'brigade-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
+          'start_time': '2018-02-26T22:57:27Z',
+          'end_time': '2018-02-26T22:57:56Z',
+          'exit_code': 0,
+          'status': 'Succeeded'
+        }
+      },
+      {
+        'id': '01byy7kmx6abe3te3afmsm3q6h',
+        'project_id': 'brigade-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
+        'type': 'exec',
+        'provider': 'brigade-cli',
+        'commit': 'master',
+        'script': 'Y29uc3QgeyBldmVudHMsIEpvYiwgR3JvdXAgfSA9IHJlcXVpcmUoImJyaWdhZGllciIpCgpldmVudHMub24oImV4ZWMiLCAoKSA9PiB7CiAgY29uc29sZS5sb2coIlxuID09PT4gd2VlZWVcbiIpCgogIHZhciBqMSA9IG5ldyBKb2IoImhlbGxvIiwgImFscGluZTozLjYiKQoKICBqMS50YXNrcyA9IFsKICAgICJlY2hvIGhlbGxvIgogIF0KCiAgdmFyIGoyID0gbmV3IEpvYigid29ybGQiLCAiYWxwaW5lOjMuNiIsIFsiZWNobyBoZWxsbzIiXSkKCiAgR3JvdXAucnVuRWFjaChbajEsIGoyXSkKfSkK',
+        'worker': {
+          'id': 'brigade-worker-01byy7kmx6abe3te3afmsm3q6h-master',
+          'build_id': '01byy7kmx6abe3te3afmsm3q6h',
+          'project_id': 'brigade-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
+          'start_time': '2017-11-14T21:40:22Z',
+          'end_time': '2017-11-14T21:40:31Z',
+          'exit_code': 1,
+          'status': 'Failed'
+        }
+      }
+    ];
     const projectBuilds = [
       {
         'project': {
@@ -106,6 +159,6 @@ export class InMemoryDataService implements InMemoryDbService {
         }
       }
     ];
-    return { projectBuilds };
+    return { projectBuilds, builds };
   }
 }
