@@ -14,7 +14,7 @@ import { StyleGuideComponent } from './style-guide/style-guide.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
 import { BuildComponent } from './build/build.component';
-import { ProjectService } from './project.service';
+import { ProjectBuildService } from './project-build.service';
 import { ProjectComponent } from './project/project.component';
 
 @NgModule({
@@ -40,7 +40,7 @@ import { ProjectComponent } from './project/project.component';
       dataEncapsulation: false
     })
   ],
-  providers: [ProjectService],
+  providers: [ProjectBuildService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

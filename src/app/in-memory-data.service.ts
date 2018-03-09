@@ -2,166 +2,110 @@ import { InMemoryDbService } from 'angular-in-memory-web-api';
 
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
-    const failedBuild = {
-      id: 'buildId1234444',
-      project_id:
-        'brigade-29d38c7477ecee18e184b69bec354fc350605c51bc16d4dd2b6073',
-      type: 'pull_request',
-      provider: 'github',
-      commit: 'ad0703ac08e80448764b34dc089d0f73a1242ae9',
-      worker: {
-        id: 'workerId999999999',
-        build_id: 'buildId1234444',
-        start_time: new Date('January 17, 2018 03:24:00'),
-        end_time: new Date('January 17, 2018 03:31:00'),
-        exit_code: 1,
-        status: 'Failed'
-      }
-    };
-
-    const successfulBuild = {
-      id: 'buildId999123',
-      project_id:
-        'brigade-29d38c7477ecee18e184b69bec354fc350605c51bc16d4dd2b6073',
-      type: 'pull_request',
-      provider: 'github',
-      commit: 'e744c3ad736f8b3fec067c05f9620e7f401b2bbf',
-      worker: {
-        id: 'workerId999999999',
-        build_id: 'buildId1234444',
-        start_time: new Date('January 15, 2018 03:24:00'),
-        end_time: new Date('January 15, 2018 03:31:00'),
-        exit_code: 0,
-        status: 'Success'
-      }
-    };
-
-    const activeBuild = {
-      id: 'buildId999123',
-      project_id:
-        'brigade-29d38c7477ecee18e184b69bec354fc350605c51bc16d4dd2b6073',
-      type: 'pull_request',
-      provider: 'github',
-      commit: 'e744c3ad736f8b3fec067c05f9620e7f401b2bbf',
-      worker: {
-        id: 'workerId999999999',
-        build_id: 'buildId1234444',
-        start_time: new Date('January 15, 2018 03:24:00'),
-        end_time: new Date('January 15, 2018 03:31:00'),
-        exit_code: 0,
-        status: 'Active'
-      }
-    };
-
-    const unknownBuildStatus = {
-      id: 'buildId999123',
-      project_id:
-        'brigade-29d38c7477ecee18e184b69bec354fc350605c51bc16d4dd2b6073',
-      type: 'pull_request',
-      provider: 'github',
-      commit: 'e744c3ad736f8b3fec067c05f9620e7f401b2bbf',
-      worker: {
-        id: 'workerId999999999',
-        build_id: 'buildId1234444',
-        start_time: new Date('January 15, 2018 03:24:00'),
-        end_time: new Date('January 15, 2018 03:31:00'),
-        exit_code: 256,
-        status: 'foobarbaz'
-      }
-    };
-
-    const projects = [
-        {
-          id: 'projectid123',
-          name: 'technosophos/coffeesnob',
-          repo: {
-            name: 'github.com/technosophos/coffeesnob',
-            cloneURL: 'https://github.com/technosophos/coffeesnob.git'
+    const projectBuilds = [
+      {
+        'project': {
+          'id': 'brigade-29d38c7477ecee18e184b69bec354fc350605c51bc16d4dd2b6073',
+          'name': 'technosophos/coffeesnob',
+          'repo': {
+            'name': 'github.com/technosophos/coffeesnob',
+            'cloneURL': 'https://github.com/technosophos/coffeesnob.git'
           },
-          kubernetes: {
-            namespace: 'default',
-            vcsSidecar: ''
+          'kubernetes': {
+            'namespace': 'default',
+            'vcsSidecar': ''
           },
-          github: {},
-          secrets: {},
-          lastBuild: successfulBuild
+          'github': {},
+          'secrets': {}
         },
-        {
-          id: 'projectid1234',
-          name: 'technosophos/ulid',
-          repo: {
-            name: 'github.com/technosophos/ulid',
-            cloneURL: 'https://github.com/technosophos/ulid.git'
-          },
-          kubernetes: {
-            namespace: 'default',
-            vcsSidecar: ''
-          },
-          github: {},
-          secrets: {},
-          lastBuild: failedBuild
-        },
-        {
-          id: 'projectid12345',
-          name: 'technosophos/brigade-trello',
-          repo: {
-            name: 'github.com/technosophos/brigade-trello',
-            cloneURL: 'https://github.com/technosophos/brigade-trello.git'
-          },
-          kubernetes: {
-            namespace: 'default',
-            vcsSidecar: ''
-          },
-          github: {},
-          secrets: {},
-          lastBuild: activeBuild
-        },
-        {
-          id: 'projectid123456',
-          name: 'deis/empty-testbed',
-          repo: {
-            name: 'github.com/technosophos/empty-testbed',
-            cloneURL: 'https://github.com/technosophos/empty-testbed.git'
-          },
-          kubernetes: {
-            namespace: 'default',
-            vcsSidecar: ''
-          },
-          github: {},
-          secrets: {},
-          lastBuild: activeBuild
-        },
-        {
-          id: 'projectid1234567',
-          name: 'technosophos/twitter-t',
-          repo: {
-            name: 'github.com/technosophos/twitter-t',
-            cloneURL: 'https://github.com/technosophos/twitter-t.git'
-          },
-          kubernetes: {
-            namespace: 'default',
-            vcsSidecar: ''
-          },
-          github: {},
-          secrets: {},
-          lastBuild: unknownBuildStatus
-        },
-        {
-          id: 'projectid1234568',
-          name: 'Azure/kashti',
-          repo: {
-            name: 'github.com/Azure/kashti',
-            cloneURL: 'https://github.com/Azure/kashti.git'
-          },
-          kubernetes: {
-            namespace: 'default',
-            vcsSidecar: ''
-          },
-          github: {},
-          secrets: {},
-          lastBuild: successfulBuild
+        'lastBuild': {
+          'id': '01c0matkmjpjkrbfcnhfyjerfh',
+          'project_id': 'brigade-29d38c7477ecee18e184b69bec354fc350605c51bc16d4dd2b6073',
+          'type': 'pull_request',
+          'provider': 'github',
+          'commit': '4ed6c77c221e5130f7b593a5705081f543c2762b',
+          'payload': '',
+          'script': 'Y29uc3QgeyBldmVudHMsIEpvYiB9ID0gcmVxdWlyZSgiYnJpZ2FkaWVyIik7CgpldmVudHMub24oInB1bGxfcmVxdWVzdCIpLCAoZSwgcCkgPT4gewogIGNvbnNvbGUubG9nKEpTT04ucGFyc2UoZS5wYXlsb2FkKSkKfSk7Cg==',
+          'worker': {
+            'id': 'brigade-worker-01c0matkmjpjkrbfcnhfyjerfh-ad0703ac',
+            'build_id': '01c0matkmjpjkrbfcnhfyjerfh',
+            'project_id': 'brigade-29d38c7477ecee18e184b69bec354fc350605c51bc16d4dd2b6073',
+            'start_time': '2017-12-23T07:32:08Z',
+            'end_time': '2018-03-07T07:32:21Z',
+            'exit_code': 1,
+            'status': 'Failed'
+          }
         }
+      },
+      {
+        'project': {
+          'id': 'brigade-69bec354fc350605c51bc16d4dd2b6073',
+          'name': 'Azure/kashti',
+          'repo': {
+            'name': 'github.com/Azure/kashti',
+            'cloneURL': 'https://github.com/Azure/kashti.git'
+          },
+          'kubernetes': {
+            'namespace': 'default',
+            'vcsSidecar': ''
+          },
+          'github': {},
+          'secrets': {}
+        },
+        'lastBuild': {
+          'id': '01c0matkmjpjkrbfcnhfyjerfh',
+          'project_id': 'brigade-29d38c7477ecee18e184b69bec354fc350605c51bc16d4dd2b6073',
+          'type': 'pull_request',
+          'provider': 'github',
+          'commit': 'ad0703ac08e80448764b34dc089d0f73a1242ae9',
+          'payload': '',
+          'script': 'Y29uc3QgeyBldmVudHMsIEpvYiB9ID0gcmVxdWlyZSgiYnJpZ2FkaWVyIik7CgpldmVudHMub24oInB1bGxfcmVxdWVzdCIpLCAoZSwgcCkgPT4gewogIGNvbnNvbGUubG9nKEpTT04ucGFyc2UoZS5wYXlsb2FkKSkKfSk7Cg==',
+          'worker': {
+            'id': 'brigade-worker-01c0matkmjpjkrbfcnhfyjerfh-ad0703ac',
+            'build_id': '01c0matkmjpjkrbfcnhfyjerfh',
+            'project_id': 'brigade-29d38c7477ecee18e184b69bec354fc350605c51bc16d4dd2b6073',
+            'start_time': '2017-12-23T07:32:08Z',
+            'end_time': '2017-12-23T07:32:21Z',
+            'exit_code': 1,
+            'status': 'Success'
+          }
+        }
+      },
+      {
+        'project': {
+          'id': 'brigade-69bec354fc350605c51bc16d4dd2b6073',
+          'name': 'seanknox/monkeys',
+          'repo': {
+            'name': 'github.com/seanknox/monkeys',
+            'cloneURL': 'https://github.com/seanknox/monkeys'
+          },
+          'kubernetes': {
+            'namespace': 'default',
+            'vcsSidecar': ''
+          },
+          'github': {},
+          'secrets': {}
+        },
+        'lastBuild': {
+          'id': '01c0matkmjpjkrbfcnhfyjerfh',
+          'project_id': 'brigade-29d38c7477ecee18e184b69bec354fc350605c51bc16d4dd2b6073',
+          'type': 'pull_request',
+          'provider': 'github',
+          'commit': '57708cbea25fa404f51d92e2d8c58e8a48c3030d',
+          'payload': '',
+          'script': 'Y29uc3QgeyBldmVudHMsIEpvYiB9ID0gcmVxdWlyZSgiYnJpZ2FkaWVyIik7CgpldmVudHMub24oInB1bGxfcmVxdWVzdCIpLCAoZSwgcCkgPT4gewogIGNvbnNvbGUubG9nKEpTT04ucGFyc2UoZS5wYXlsb2FkKSkKfSk7Cg==',
+          'worker': {
+            'id': 'brigade-worker-01c0matkmjpjkrbfcnhfyjerfh-ad0703ac',
+            'build_id': '01c0matkmjpjkrbfcnhfyjerfh',
+            'project_id': 'brigade-29d38c7477ecee18e184b69bec354fc350605c51bc16d4dd2b6073',
+            'start_time': '2017-12-23T07:32:08Z',
+            'end_time': '2018-01-23T07:32:21Z',
+            'exit_code': 1,
+            'status': 'Unknown'
+          }
+        }
+      }
     ];
-    return { projects };
+    return { projectBuilds };
   }
 }

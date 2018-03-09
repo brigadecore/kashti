@@ -5,23 +5,24 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { Project } from './models/project';
-
+import { ProjectBuild } from './models/project';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
+
+
 @Injectable()
-export class ProjectService {
-  private projectsUrl = 'api/projects'; // URL to web api
+export class ProjectBuildService {
+  private projectsUrl = 'api/projectBuilds'; // URL to web api
 
   constructor(private http: HttpClient) {}
 
-  getProjects(): Observable<Project[]> {
+  getProjectBuilds(): Observable<ProjectBuild[]> {
     return this.http
-      .get<Project[]>(this.projectsUrl, httpOptions)
+      .get<ProjectBuild[]>(this.projectsUrl, httpOptions)
       .pipe(
-        tap(projects => console.log(`fetched projects`)),
+        tap(projects => console.log(`fetched project buildss`)),
         catchError(this.handleError('getProjects', []))
       );
   }

@@ -1,19 +1,19 @@
 <div class="row small-up-1 medium-up-1 large-up-2 xlarge-up-3 dash-wrapper">
-  <section class="column" *ngFor="let project of projects">
+  <section class="column" *ngFor="let projectBuild of projectBuilds">
     <div class="project">
-      <a routerLink="/project/{{project.id}}">
+      <a routerLink="/project/{{projectBuild.project.id}}">
         <div class="status">
-          <i [ngClass]="calculateStatusClasses(project.lastBuild)"></i>
+          <i [ngClass]="calculateStatusClasses(projectBuild.lastBuild)"></i>
         </div>
-        <h2>{{ project.name }}</h2>
+        <h2>{{ projectBuild.project.name }}</h2>
 
         <div class="activity">
           <ul>
             <li>
-              <span ng-hide="project.lastBuild.worker.status == null">
-                {{ project.lastBuild.provider}}:{{ project.lastBuild.type}} {{ project.lastBuild.commit }}
+              <span ng-hide="projectBuild.lastBuild.worker.status == null">
+                {{ projectBuild.lastBuild.provider}}:{{ projectBuild.lastBuild.type}} {{ projectBuild.lastBuild.commit }}
                 <br>
-                <span>{{project.lastBuild.worker.end_time | amTimeAgo}}</span>
+                <span>{{projectBuild.lastBuild.worker.end_time | amTimeAgo}}</span>
               </span>
             </li>
           </ul>

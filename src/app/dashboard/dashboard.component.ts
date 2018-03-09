@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MomentModule } from 'angular2-moment';
 
-import { Project } from '../models/project';
-import { ProjectService } from '../project.service';
+import { ProjectBuild } from '../models/project';
+import { ProjectBuildService } from '../project-build.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,17 +12,17 @@ import { ProjectService } from '../project.service';
 
 export class DashboardComponent implements OnInit {
 
-  projects: Project[];
+  projectBuilds: ProjectBuild[];
 
-  constructor(private projectService: ProjectService) { }
+  constructor(private projectBuildService: ProjectBuildService) { }
 
   ngOnInit() {
-    this.getProjects();
+    this.getProjectBuilds();
   }
 
-  getProjects(): void {
-    this.projectService.getProjects()
-      .subscribe(projects => this.projects = projects);
+  getProjectBuilds(): void {
+    this.projectBuildService.getProjectBuilds()
+      .subscribe(projectBuilds => this.projectBuilds = projectBuilds);
   }
 
   calculateStatusClasses(lastBuild) {

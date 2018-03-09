@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MomentModule } from 'angular2-moment';
 
-import { Project } from '../models/project';
-import { ProjectService } from '../project.service';
+import { ProjectBuild } from '../models/project';
+import { ProjectBuildService } from '../project-build.service';
 
 @Component({
   selector: 'app-project',
@@ -12,16 +12,16 @@ import { ProjectService } from '../project.service';
 
 export class ProjectComponent implements OnInit {
 
-  projects: Project[];
+  projectBuilds: ProjectBuild[];
 
-  constructor(private projectService: ProjectService) { }
+  constructor(private projectBuildService: ProjectBuildService) { }
 
   ngOnInit() {
     this.getProjects();
   }
 
   getProjects(): void {
-    this.projectService.getProjects()
-      .subscribe(projects => this.projects = projects);
+    this.projectBuildService.getProjectBuilds()
+      .subscribe(projectBuilds => this.projectBuilds = projectBuilds);
   }
 }
