@@ -14,13 +14,14 @@ const httpOptions = {
 
 @Injectable()
 export class ProjectService {
-  projectBuildsUrl = 'api/projectBuilds';
 
   constructor(private http: HttpClient) {}
 
   getProjectBuilds(): Observable<ProjectBuild[]> {
+    const projectBuildsUrl = 'api/projectBuilds';
+
     return this.http
-      .get<ProjectBuild[]>(this.projectBuildsUrl, httpOptions)
+      .get<ProjectBuild[]>(projectBuildsUrl, httpOptions)
       .pipe(
         tap(projects => console.log(`fetched project buildss`)),
         catchError(this.handleError('getProjects', []))
