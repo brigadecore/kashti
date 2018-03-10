@@ -25,7 +25,19 @@ export class DashboardComponent implements OnInit {
       .subscribe(projectBuilds => this.projectBuilds = projectBuilds);
   }
 
+  showStatus(projectBuild) {
+    if (projectBuild.lastBuild === null || projectBuild.lastBuild.worker === undefined) {
+      return false;
+    }
+
+    return true;
+  }
+
   calculateStatusClasses(lastBuild) {
+    if (lastBuild === null || lastBuild.worker === undefined) {
+      return this.unknownStateClasses();
+    }
+
     const status = lastBuild.worker.status;
 
     switch (status) {

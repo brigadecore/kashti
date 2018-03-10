@@ -10,7 +10,7 @@
         <div class="activity">
           <ul>
             <li>
-              <span ng-hide="projectBuild.lastBuild.worker.status == null">
+              <span *ngIf="showStatus(projectBuild)">
                 {{ projectBuild.lastBuild.provider}}:{{ projectBuild.lastBuild.type}} {{ projectBuild.lastBuild.commit }}
                 <br>
                 <span>{{projectBuild.lastBuild.worker.end_time | amTimeAgo}}</span>
