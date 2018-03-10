@@ -19,158 +19,35 @@
       </div>
     </div>
 
-
     <ul class="grid-content build-list columns">
-      <li class="medium-grid-block build-item ng-scope" style="">
-        <a routerLink="/build/{{build.id}}" class="grid-block">
+      <div *ngFor="let build of builds">
+        <li class="medium-grid-block build-item ng-scope">
+          <a routerLink="/build/{{build.id}}" class="grid-block">
 
-          <span class="act-state collapse success">
-            <div class="success" title="Passed"><i class="icon ion-md-checkmark-circle"></i></div>
-          </span>
-          <span class="act-author ng-binding">
-            <span class="act-avatar">
-              <i class="icon ion-logo-github" ng-show="build.provider === 'github' "></i>
+            <span class="act-state collapse success">
+              <div class="success" title="Passed"><i class="icon ion-md-checkmark-circle"></i></div>
             </span>
-            github
-          </span>
-          <span class="act-hash ng-binding">
-            master
-          </span>
-          <span class="act-message ng-binding">
-            <em>#</em>01bzzn45f0p5bjtsffw9m8chts
-          </span>
-          <span class="act-time-ago ng-binding">
-            Succeeded <span am-time-ago="build.worker.end_time">42 mins ago</span>.
-          </span>
-          <span class="act-time-duration">
-            Ran for <span class="ng-binding">33 seconds.</span>
-          </span>
-        </a>
-      </li>
-      <li class="medium-grid-block build-item ng-scope" style="">
-        <a routerLink="/build/{{build.id}}" class="grid-block">
-
-          <span class="act-state collapse active">
-            <div class="spinner" title="In progress"></div>
-          </span>
-          <span class="act-author ng-binding">
-            <span class="act-avatar">
-              <img src="assets/images/slack.png" alt="Slack" />
+            <span class="act-author ng-binding">
+              <span class="act-avatar">
+                <i [ngClass]="calculateProviderLogoClass(build.provider)"></i>
+              </span>
+              {{ build.provider }}
             </span>
-            slack
-          </span>
-          <span class="act-hash ng-binding">
-            master
-          </span>
-          <span class="act-message ng-binding">
-            <em>#</em>01bzzn45f0p5bjtsffw9m8chts
-          </span>
-          <span class="act-time-ago ng-binding">
-            In progress...
-          </span>
-          <span class="act-time-duration">
-            Started <span class="ng-binding">12 mins</span> ago.
-          </span>
-        </a>
-      </li>
-      <li ng-repeat="build in builds | orderBy: reverse:true" class="medium-grid-block build-item ng-scope" style="">
-        <a routerLink="/build/{{build.id}}" class="grid-block">
-          <span class="act-state collapse success">
-            <div class="success" title="Succeeded"><i class="icon ion-md-checkmark-circle"></i></div>
-          </span>
-          <span class="act-author ng-binding">
-            <span class="act-avatar">
-             <i class="icon ion-ios-flash"></i>
+            <span class="act-hash ng-binding">
+              {{ build.commit }}
             </span>
-            brigade-cli
-          </span>
-          <span class="act-hash ng-binding">
-            master
-          </span>
-          <span class="act-message ng-binding">
-            <em>#</em>01bzzn45f0p5bjtsffw9m8chts
-          </span>
-          <span class="act-time-ago ng-binding">
-            Succeeded <span am-time-ago="build.worker.end_time">3 days ago</span>.
-          </span>
-          <span class="act-time-duration">
-            Ran for <span class="ng-binding">42 seconds.</span>
-          </span>
-        </a>
-      </li>
-      <li ng-repeat="build in builds | orderBy: reverse:true" class="medium-grid-block build-item ng-scope" style="">
-        <a routerLink="/build/{{build.id}}" class="grid-block">
-
-          <span class="act-state collapse unknown">
-            <span class="unknown"><i class="icon ion-md-radio-button-off"></i></span>
-          </span>
-          <span class="act-author">
-            <span class="act-avatar">
-              <img src="assets/images/trello.png" alt="Trello" />
+            <span class="act-message ng-binding">
+              <em>#</em>{{ build.id }}
             </span>
-            trello
-          </span>
-          <span class="act-hash">
-            master
-          </span>
-          <span class="act-message">
-            <em>#</em>01bzzn45f0p5bjtsffw9m8chts
-          </span>
-          <span class="act-time-ago">
-            <code>Log details are unavailable.</code>
-          </span>
-        </a>
-      </li>
-      <li ng-repeat="build in builds | orderBy: reverse:true" class="medium-grid-block build-item ng-scope" style="">
-        <a routerLink="/build/{{build.id}}" class="grid-block">
-          <span class="act-state collapse failed">
-            <div class="failed" title="Failed"><i class="icon ion-md-close-circle"></i></div>
-          </span>
-          <span class="act-author ng-binding">
-            <span class="act-avatar">
-             <i class="icon ion-ios-flash"></i>
+            <span class="act-time-ago ng-binding">
+              {{ build.worker.status }} <span>{{build.worker.end_time | amTimeAgo}}</span>.
             </span>
-            brigade-cli
-          </span>
-          <span class="act-hash ng-binding">
-            master
-          </span>
-          <span class="act-message ng-binding">
-            <em>#</em>01bzzn45f0p5bjtsffw9m8chts
-          </span>
-          <span class="act-time-ago ng-binding">
-            Failed <span am-time-ago="build.worker.end_time">a month ago</span>.
-          </span>
-          <span class="act-time-duration">
-            Ran for <span class="ng-binding">48 seconds.</span>
-          </span>
-        </a>
-      </li>
-      <li ng-repeat="build in builds | orderBy: reverse:true" class="medium-grid-block build-item ng-scope" style="">
-        <a routerLink="/build/{{build.id}}" class="grid-block">
-          <span class="act-state collapse success">
-            <div class="success" title="Success"><i class="icon ion-md-checkmark-circle"></i></div>
-          </span>
-          <span class="act-author ng-binding">
-            <span class="act-avatar">
-              <img src="assets/images/docker.png" alt="Docker" />
+            <span class="act-time-duration">
+              Ran for <span class="ng-binding">{{ build.worker.start_time | amDifference: build.worker.end_time :'seconds' : true | amDuration:'seconds' }}.</span>
             </span>
-            docker
-          </span>
-          <span class="act-hash ng-binding">
-            master
-          </span>
-          <span class="act-message ng-binding">
-            <em>#</em>01bzzn45f0p5bjtsffw9m8chts
-          </span>
-          <span class="act-time-ago ng-binding">
-            Failed <span am-time-ago="build.worker.end_time">a month ago</span>.
-          </span>
-          <span class="act-time-duration">
-            Ran for <span class="ng-binding">4 mins.</span>
-          </span>
-        </a>
-      </li>
+          </a>
+        </li>
+      </div>
     </ul>
 
   </section>

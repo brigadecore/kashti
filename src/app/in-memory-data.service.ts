@@ -51,7 +51,7 @@ export class InMemoryDataService implements InMemoryDbService {
         'id': '01byy6vn3fanaypqpve7m1jwsf',
         'project_id': 'brigade-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
         'type': 'exec',
-        'provider': 'brigade-cli',
+        'provider': 'github',
         'commit': 'master',
         'script': 'Y29uc3QgeyBldmVudHMsIEpvYiwgR3JvdXAgfSA9IHJlcXVpcmUoImJyaWdhZGllciIpCgpldmVudHMub24oImV4ZWMiLCAoKSA9PiB7CiAgY29uc29sZS5sb2coIlxuID09PT4gd2VlZWVcbiIpCgogIHZhciBqMSA9IG5ldyBKb2IoImhlbGxvIiwgImFscGluZTozLjYiKQoKICBqMS50YXNrcyA9IFsKICAgICJlY2hvIGhlbGxvIgogIF0KCiAgdmFyIGoyID0gbmV3IEpvYigid29ybGQiLCAiYWxwaW5lOjMuNiIsIFsiZWNobyBoZWxsbzIiXSkKCiAgR3JvdXAucnVuRWFjaChbajEsIGoyXSkKfSkK',
         'worker': {
