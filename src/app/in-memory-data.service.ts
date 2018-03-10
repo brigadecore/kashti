@@ -203,6 +203,6 @@ export class InMemoryDataService implements InMemoryDbService {
         }
       }
     ];
-    return { projectBuilds, builds };
+    return { projectBuilds, builds, projects };
   }
 }

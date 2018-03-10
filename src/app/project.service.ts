@@ -14,28 +14,28 @@ const httpOptions = {
 
 @Injectable()
 export class ProjectService {
+  projectBuildsUrl = 'api/projectBuilds';
 
   constructor(private http: HttpClient) {}
 
   getProjectBuilds(): Observable<ProjectBuild[]> {
-  const projectBuildsUrl = 'api/projectBuilds'; // URL to web api
     return this.http
-      .get<ProjectBuild[]>(projectBuildsUrl, httpOptions)
+      .get<ProjectBuild[]>(this.projectBuildsUrl, httpOptions)
       .pipe(
         tap(projects => console.log(`fetched project buildss`)),
         catchError(this.handleError('getProjects', []))
       );
   }
 
-  getProject(projectId): Observable<Project> {
-  const projectUrl = 'api/project'; // URL to web api
-    return this.http
-      .get<Project>(projectUrl, httpOptions);
-      // .pipe(
-      //   tap(projects => console.log(`fetched project buildss`)),
-      //   catchError(this.handleError('getProjects', []))
-      // );
+  getProject(projectId) {
+    const projectUrl = `api/projects/${projectId}`;
+    return this.http.get(projectUrl, httpOptions)
+      .pipe(
+        tap(projects => console.log(`fetched project buildss`)),
+        catchError(this.handleError('getProjects', []))
+      );
   }
+
 
   /**
    * Handle Http operation that failed.

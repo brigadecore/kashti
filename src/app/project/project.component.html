@@ -9,11 +9,11 @@
 
     <div class="project-header-wrap columns">
       <div class="project-header">
-        <h1>Project Name {{ project.name }}</h1>
+        <h1>{{ project.name }} </h1>
         <ul>
-          <li>https://github.com/deis/empty-testbed.git {{ project.url }}</li>
-          <li>Sidecar: {{ project.sidecar }}</li>
-          <li>Namespace: default {{ project.namespace }}</li>
+          <li>{{ project.repo.name }} </li>
+          <li>Sidecar: {{ project.kubernetes.vcsSidecar }} </li>
+          <li>Namespace: {{ project.kubernetes.namespace }} </li>
         </ul>
 
       </div>
