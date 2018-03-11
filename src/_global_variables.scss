@@ -131,3 +131,22 @@ $active: $brand2;
     opacity: 1;
   }
 }
+
+@keyframes donut-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@mixin spinnerDonut($color: $brand2, $size: 2rem, $stroke: 0.25rem) {
+  display: inline-block;
+  border: $stroke solid rgba(0, 0, 0, 0.1);
+  border-left-color: $brand2;
+  border-radius: 50%;
+  width: $size;
+  height: $size;
+  animation: donut-spin 1.2s linear infinite;
+}
+
+.spinner {
+  @include spinnerDonut();
+}

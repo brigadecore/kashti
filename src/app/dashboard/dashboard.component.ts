@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MomentModule } from 'angular2-moment';
 
-import { Project } from '../models/project';
+import { ProjectBuild } from '../models/project';
 import { ProjectService } from '../project.service';
 
 @Component({
@@ -9,22 +9,39 @@ import { ProjectService } from '../project.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
+
 export class DashboardComponent implements OnInit {
 
-  projects: Project[];
+  projectBuilds: ProjectBuild[];
 
   constructor(private projectService: ProjectService) { }
 
   ngOnInit() {
-    this.getProjects();
+    this.getProjectBuilds();
   }
 
-  getProjects(): void {
-    this.projectService.getProjects()
-      .subscribe(projects => this.projects = projects);
+  getProjectBuilds(): void {
+    this.projectService.getProjectBuilds()
+      .subscribe(projectBuilds => {
+        this.projectBuilds = projectBuilds;
+      },
+      error => console.error(error)
+    );
+  }
+
+  showStatus(projectBuild) {
+    if (projectBuild.lastBuild === null || projectBuild.lastBuild.worker === undefined) {
+      return false;
+    }
+
+    return true;
   }
 
   calculateStatusClasses(lastBuild) {
+    if (lastBuild === null || lastBuild.worker === undefined) {
+      return this.unknownStateClasses();
+    }
+
     const status = lastBuild.worker.status;
 
     switch (status) {

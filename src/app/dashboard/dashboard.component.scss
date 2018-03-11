@@ -33,8 +33,7 @@
 
 .project-active {
   @include icon;
-  background: url('../../assets/images/icons/active/active.svg') no-repeat 50% 50%;
-  background-size: 36px 36px;
+  @include spinnerDonut($brand1, 2.33rem, 0.25rem);
 }
 
 .project-unknown {

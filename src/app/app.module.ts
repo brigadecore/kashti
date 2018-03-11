@@ -15,6 +15,9 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
 import { BuildComponent } from './build/build.component';
 import { ProjectService } from './project.service';
+import { BuildService } from './build.service';
+import { ProjectComponent } from './project/project.component';
+import { BuildStatusBadgeComponent } from './build-status-badge/build-status-badge.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,9 @@ import { ProjectService } from './project.service';
     StyleGuideComponent,
     SidebarComponent,
     FooterComponent,
-    BuildComponent
+    ProjectComponent,
+    BuildComponent,
+    BuildStatusBadgeComponent
   ],
   imports: [
     MomentModule,
@@ -38,7 +43,7 @@ import { ProjectService } from './project.service';
       dataEncapsulation: false
     })
   ],
-  providers: [ProjectService],
+  providers: [ProjectService, BuildService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
