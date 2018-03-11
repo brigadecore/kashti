@@ -17,6 +17,7 @@ import { BuildComponent } from './build/build.component';
 import { ProjectService } from './project.service';
 import { BuildService } from './build.service';
 import { ProjectComponent } from './project/project.component';
+import { BuildStatusBadgeComponent } from './build-status-badge/build-status-badge.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ProjectComponent } from './project/project.component';
     SidebarComponent,
     FooterComponent,
     ProjectComponent,
-    BuildComponent
+    BuildComponent,
+    BuildStatusBadgeComponent
   ],
   imports: [
     MomentModule,

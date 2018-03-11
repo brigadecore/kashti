@@ -11,7 +11,7 @@
       <div class="project-header">
         <h1>{{ project.name }} </h1>
         <ul>
-          <li>{{ project.repo.name }} </li>
+          <li>Repo: {{ project.repo.name }} </li>
           <li>Sidecar: {{ project.kubernetes.vcsSidecar }} </li>
           <li>Namespace: {{ project.kubernetes.namespace }} </li>
         </ul>
@@ -20,13 +20,32 @@
     </div>
 
     <ul class="grid-content build-list columns">
-      <div *ngFor="let build of builds">
+      <div *ngFor="let build of project.builds">
         <li class="medium-grid-block build-item ng-scope">
           <a routerLink="/build/{{build.id}}" class="grid-block">
+            <!-- <app-build-status-badge [build]="build"></app-build-status-badge> -->
+            <span class="act-state collapse active">
+              <div class="spinner" title="In progress"></div>
+            </span>
 
             <span class="act-state collapse success">
-              <div class="success" title="Passed"><i class="icon ion-md-checkmark-circle"></i></div>
+              <div class="success" title="Succeeded">
+                <i class="icon ion-md-checkmark-circle"></i>
+              </div>
             </span>
+
+            <span class="act-state collapse failed">
+              <div class="failed" title="Failed">
+                <i class="icon ion-md-close-circle"></i>
+              </div>
+            </span>
+
+            <span class="act-state collapse unknown">
+              <span class="unknown">
+                <i class="icon ion-md-radio-button-off"></i>
+              </span>
+            </span>
+
             <span class="act-author ng-binding">
               <span class="act-avatar">
                 <i [ngClass]="calculateProviderLogoClass(build.provider)"></i>
@@ -40,10 +59,12 @@
               <em>#</em>{{ build.id }}
             </span>
             <span class="act-time-ago ng-binding">
-              {{ build.worker.status }} <span>{{build.worker.end_time | amTimeAgo}}</span>.
+              {{ build.worker.status }}
+              <span>{{build.worker.end_time | amTimeAgo}}</span>.
             </span>
             <span class="act-time-duration">
-              Ran for <span class="ng-binding">{{ build.worker.start_time | amDifference: build.worker.end_time :'seconds' : true | amDuration:'seconds' }}.</span>
+              Ran for
+              <span class="ng-binding">{{ build.worker.start_time | amDifference: build.worker.end_time :'seconds' : true | amDuration:'seconds' }}.</span>
             </span>
           </a>
         </li>

@@ -71,30 +71,6 @@ export const projectBuilds = [
   },
   {
     'project': {
-      'id': 'brigade-635e505c74ad679bb9144d19950504fbe86b136ac3770bcff51ac6',
-      'name': 'technosophos/brigade-trello',
-      'repo': {
-        'name': 'github.com/technosophos/brigade-trello',
-        'cloneURL': 'https://github.com/technosophos/brigade-trello.git'
-      },
-      'kubernetes': {
-        'namespace': 'default',
-        'vcsSidecar': ''
-      },
-      'github': {},
-      'secrets': {
-        'SLACK_WEBHOOK': 'REDACTED',
-        'cosmosKey': 'REDACTED',
-        'cosmosName': 'REDACTED',
-        'trelloKey': 'REDACTED',
-        'trelloModel': 'REDACTED',
-        'trelloToken': 'REDACTED'
-      }
-    },
-    'lastBuild': null
-  },
-  {
-    'project': {
       'id': 'brigade-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
       'name': 'deis/empty-testbed',
       'repo': {
@@ -127,53 +103,6 @@ export const projectBuilds = [
         'exit_code': 0,
         'status': 'Succeeded'
       }
-    }
-  },
-  {
-    'project': {
-      'id': 'brigade-cf0858d449971e79083aacddc565450b8bf65a2b9f5d66ea76fdb4',
-      'name': 'technosophos/twitter-t',
-      'repo': {
-        'name': 'github.com/technosophos/twitter-t',
-        'cloneURL': 'https://github.com/technosophos/twitter-t.git'
-      },
-      'kubernetes': {
-        'namespace': 'default',
-        'vcsSidecar': ''
-      },
-      'github': {},
-      'secrets': {
-        'ACCESS_SECRET': 'REDACTED',
-        'ACCESS_TOKEN': 'REDACTED',
-        'CONSUMER_KEY': 'REDACTED',
-        'CONSUMER_SECRET': 'REDACTED',
-        'OWNER': 'REDACTED'
-      }
-    },
-    'lastBuild': null
-  },
-  {
-    'project': {
-      'id': 'brigade-fa34fe5c2ef16cc4f35dd772602dd7476fca6366626be26d7893cb',
-      'name': 'Azure/kashti',
-      'repo': {
-        'name': 'github.com/Azure/kashti',
-        'cloneURL': 'https://github.com/Azure/kashti.git'
-      },
-      'kubernetes': {
-        'namespace': 'default',
-        'vcsSidecar': ''
-      },
-      'github': {},
-      'secrets': {}
-    },
-    'lastBuild': {
-      'id': '01c0hx5s1gh7a0tzbja2eyg7r1',
-      'project_id': 'brigade-fa34fe5c2ef16cc4f35dd772602dd7476fca6366626be26d7893cb',
-      'type': 'build',
-      'provider': 'brigade-cli',
-      'commit': 'master',
-      'script': 'Y29uc3QgeyBldmVudHMsIEpvYiwgR3JvdXAgfSA9IHJlcXVpcmUoImJyaWdhZGllciIpOwoKZXZlbnRzLm9uKCJidWlsZCIsIChlLCBwKSA9PiB7CgogIC8vIFRoaXMgaXMganVzdCBhIGNhbmFyeSBidWlsZCB0byBtYWtlIHN1cmUgZXZlcnl0aGluZyBpcyB3b3JraW5nLgogIGNvbnN0IGJ1aWxkID0gbmV3IEpvYigiYnVpbGQiLCAibm9kZTo4IikKICBidWlsZC50YXNrcyA9IFsKICAgICJjZCAvc3JjIiwKICAgICJ5YXJuIGluc3RhbGwiLAogICAgInlhcm4gZ3VscCBidWlsZCIKICBdCgogIGJ1aWxkLnJ1bigpCgp9KTsKCmV2ZW50cy5vbigiZXhlYyIsIChlLCBwKSA9PiB7CiAgLy8gVGhpcyBkb2VzIHNvbWUgcG9pbnRsZXNzbHkgY29tcGxleCBzdHVmZiBzbyB0aGF0IHlvdSBjYW4gdGVzdCB0aGUKICAvLyBkYXNoYm9hcmQuCiAgdmFyIGoxID0gYWxwaW5lSm9iKCJvbmUiKQogIHZhciBqMiA9IGFscGluZUpvYigidHdvIikKICB2YXIgajMgPSBhbHBpbmVKb2IoInRocmVlIikKICB2YXIgajQgPSBhbHBpbmVKb2IoImZvdXIiKQogIHZhciBqNSA9IGFscGluZUpvYigiZml2ZSIpCgogIGoxLnJ1bigpLnRoZW4oICgpID0+IHsgcmV0dXJuIGoyLnJ1bigpIH0pLnRoZW4oICgpID0+IHsKICAgIHZhciBnID0gbmV3IEdyb3VwKCkKICAgIGcuYWRkKGozKQogICAgZy5hZGQoajQpCiAgICBnLnJ1bkFsbCgpLnRoZW4oICgpID0+IHtqNS5ydW4oKX0pCiAgfSkKfSk7CgpmdW5jdGlvbiBhbHBpbmVKb2IobmFtZSkgewogIHJldHVybiBuZXcgSm9iKG5hbWUsICJhbHBpbmU6My43IiwgWyJlY2hvIGhlbGxvIGZyb20gIiArIG5hbWUsICJzbGVlcCA1Il0pCn0K'
     }
   }
 ];

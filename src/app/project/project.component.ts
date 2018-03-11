@@ -16,11 +16,9 @@ import { ProjectService } from '../project.service';
 })
 
 export class ProjectComponent implements OnInit {
-  builds: Build[];
   project;
 
   constructor(
-    private buildService: BuildService,
     private projectService: ProjectService,
     private route: ActivatedRoute,
 
@@ -29,19 +27,14 @@ export class ProjectComponent implements OnInit {
   ngOnInit() {
     const projectId = this.route.snapshot.paramMap.get('id');
     this.getProject(projectId);
-    this.getBuilds(projectId);
-  }
-
-  getBuilds(projectId): void {
-    this.buildService.getBuilds(projectId)
-      .subscribe(returnedBuilds => {
-        this.builds = returnedBuilds;
-      });
   }
 
   getProject(projectId): void {
     this.projectService.getProject(projectId)
-      .subscribe(returnedProject => this.project = returnedProject);
+      .subscribe(returnedProject => {
+        this.project = returnedProject;
+      },
+      error => console.error(error));
   }
 
   calculateProviderLogoClass(buildProvider) {

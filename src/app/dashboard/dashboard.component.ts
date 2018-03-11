@@ -22,7 +22,11 @@ export class DashboardComponent implements OnInit {
 
   getProjectBuilds(): void {
     this.projectService.getProjectBuilds()
-      .subscribe(projectBuilds => this.projectBuilds = projectBuilds);
+      .subscribe(projectBuilds => {
+        this.projectBuilds = projectBuilds;
+      },
+      error => console.error(error)
+    );
   }
 
   showStatus(projectBuild) {

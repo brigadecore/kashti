@@ -21,37 +21,11 @@ export class ProjectService {
     const projectBuildsUrl = 'api/projectBuilds';
 
     return this.http
-      .get<ProjectBuild[]>(projectBuildsUrl, httpOptions)
-      .pipe(
-        tap(projects => console.log(`fetched project buildss`)),
-        catchError(this.handleError('getProjects', []))
-      );
+      .get<ProjectBuild[]>(projectBuildsUrl, httpOptions);
   }
 
   getProject(projectId) {
     const projectUrl = `api/projects/${projectId}`;
-    return this.http.get(projectUrl, httpOptions)
-      .pipe(
-        tap(projects => console.log(`fetched project buildss`)),
-        catchError(this.handleError('getProjects', []))
-      );
-  }
-
-
-  /**
-   * Handle Http operation that failed.
-   * Let the app continue.
-   * @param operation - name of the operation that failed
-   * @param result - optional value to return as the observable result
-   */
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      console.error(error);
-
-      console.log(`${operation} failed: ${error.message}`);
-
-      // Let the app keep running by returning an empty result.
-      return of(result as T);
-    };
+    return this.http.get(projectUrl, httpOptions);
   }
 }
