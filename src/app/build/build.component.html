@@ -7,14 +7,14 @@
         <div class="build-header">
           <h1>
             <a href="../kashti/#!/project/brigade-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac" title="Back to Build list"><i class="icon ion-ios-arrow-back-outline"></i></a>
-            Build &nbsp;<em class="ng-binding">01bzzn45f0p5bjtsffw9m8chts</em>
+            Build &nbsp;<em class="ng-binding">{{ build.id }}</em>
           </h1>
 
           <div class="build-status success" ng-class="{
             'success': build.worker.status == 'Succeeded',
             'failed': build.worker.status == 'Failed',
             'active': build.worker.status == 'Pending'}" style="">
-            <div class="success" ng-show="build.worker.status == 'Succeeded'" style=""><i class="icon ion-md-checkmark-circle"></i> Passed</div>
+            <div class="success" ng-show="build.worker.status == 'Succeeded'" style=""><i class="icon ion-md-checkmark-circle"></i> {{ build.status }}</div>
             <!-- Pending API hookup:
             <div class="failed ng-hide" ng-show="build.worker.status == 'Failed'"><i class="icon ion-md-close-circle"></i> Failed</div>
             <div class="active ng-hide" ng-show="build.worker.status == 'Pending'"><img src="assets/images/rolling.svg"> In Progress</div>
@@ -33,7 +33,7 @@
             <div class="task task-0"><a href=""><span title="git"><i class="icon logo-github"></i></span></a></div>
 
             <!-- ngRepeat: job in jobs --><div class="task task-1" ng-repeat="job in jobs" style="">
-              <a ng-click="gotoElement('dind-1514014311816-master')"><span title="job.name" class="ng-binding">dind</span></a>
+              <a ng-click="gotoElement('dind-1514014311816-master')"><span title="job.name" class="ng-binding">{{ build.job.name }}</span></a>
             </div><!-- end ngRepeat: job in jobs -->
 
             <em></em>
@@ -50,7 +50,7 @@
 
   <div class="job-list ng-scope" ng-controller="jobsController">
     <h4>
-      <span ng-show="jobs.length == '1'" class="" style=""><span class="job-count">1</span> job ran inside this build:</span>
+      <span ng-show="jobs.length == '1'" class="" style=""><span class="job-count">{{ build.job.length }}</span> job ran inside this build:</span>
 
       <!-- Pending API hookup:
       <span ng-show="jobs.length == '0'" class="ng-hide">There are currently no jobs inside this build.</span>
@@ -59,7 +59,7 @@
 
     <ul class="build-details" ng-hide="jobs.length == '0'" id="build-details">
       <li class="parent">
-          <em ng-show="build.provider == 'github'" class="ng-binding ng-hide"><i class="icon logo-github"></i> brigade-cli</em> 
+          <em ng-show="build.provider == 'github'" class="ng-binding ng-hide"><i class="icon logo-github"></i> {{ build.provider }}</em> 
           <!-- Pending API hookup:
           <em ng-show="build.provider == 'dockerhub'" class="ng-binding ng-hide"><img src="assets/images/docker.png" alt="dockerhub"> brigade-cli</em>
           <em ng-show="build.provider == 'slackbot'" class="ng-binding ng-hide"><img src="assets/images/slack.png" alt="Slack"> brigade-cli</em> 
@@ -68,7 +68,7 @@
             build.provider === 'dockerhub' || 
             build.provider === 'github'
           )" class="ng-binding"> brigade-cli</em>  -->
-          : <em class="ng-binding">exec</em> 
+          : <em class="ng-binding">{{ build.type }}</em> 
           started a build via <em class="ng-binding">commit #master</em>
       </li>
 
