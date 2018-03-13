@@ -14,7 +14,7 @@ const httpOptions = {
 export class BuildService {
   constructor(private http: HttpClient) {}
 
-  getBuilds(buildId) {
+  getBuild(buildId) {
     const buildsUrl = `api/builds/${buildId}`;
     return this.http
       .get(buildsUrl, httpOptions);

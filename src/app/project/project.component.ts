@@ -17,9 +17,11 @@ import { ProjectService } from '../project.service';
 
 export class ProjectComponent implements OnInit {
   project;
+  builds;
 
   constructor(
     private projectService: ProjectService,
+    private buildService: BuildService,
     private route: ActivatedRoute,
 
   ) { }
@@ -35,7 +37,15 @@ export class ProjectComponent implements OnInit {
         this.project = returnedProject;
       },
       error => console.error(error));
-  }
+  },
+
+  getBuilds(projectId): void {
+    this.buildService.getBuilds(projectId)
+      .subscribe(returnedBuilds => {
+        this.builds = returnedBuilds;
+      },
+      error => console.error(error));
+  },
 
   calculateProviderLogoClass(buildProvider) {
     switch (buildProvider) {
