@@ -6,7 +6,6 @@ import 'rxjs/add/operator/switchMap';
 import { MomentModule } from 'angular2-moment';
 
 import { Build, Project } from '../models/project';
-import { BuildService } from '../build.service';
 import { ProjectService } from '../project.service';
 
 @Component({
@@ -17,11 +16,9 @@ import { ProjectService } from '../project.service';
 
 export class ProjectComponent implements OnInit {
   project;
-  builds;
 
   constructor(
     private projectService: ProjectService,
-    private buildService: BuildService,
     private route: ActivatedRoute,
 
   ) { }
@@ -37,15 +34,7 @@ export class ProjectComponent implements OnInit {
         this.project = returnedProject;
       },
       error => console.error(error));
-  },
-
-  getBuilds(projectId): void {
-    this.buildService.getBuilds(projectId)
-      .subscribe(returnedBuilds => {
-        this.builds = returnedBuilds;
-      },
-      error => console.error(error));
-  },
+  }
 
   calculateProviderLogoClass(buildProvider) {
     switch (buildProvider) {

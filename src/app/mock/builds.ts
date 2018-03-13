@@ -1,148 +1,29 @@
 export const builds =[
-   [
-      {
-         'id':'01byy6vn3fanaypqpve7m1jwsf',
-         'project_id':'brigade-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
-         'type':'exec',
-         'provider':'brigade-cli',
-         'commit':'master',
-         'script':'Y29uc3QgeyBldmVudHMsIEpvYiwgR3JvdXAgfSA9IHJlcXVpcmUoImJyaWdhZGllciIpCgpldmVudHMub24oImV4ZWMiLCAoKSA9PiB7CiAgY29uc29sZS5sb2coIlxuID09PT4gd2VlZWVcbiIpCgogIHZhciBqMSA9IG5ldyBKb2IoImhlbGxvIiwgImFscGluZTozLjYiKQoKICBqMS50YXNrcyA9IFsKICAgICJlY2hvIGhlbGxvIgogIF0KCiAgdmFyIGoyID0gbmV3IEpvYigid29ybGQiLCAiYWxwaW5lOjMuNiIsIFsiZWNobyBoZWxsbzIiXSkKCiAgR3JvdXAucnVuRWFjaChbajEsIGoyXSkKfSkK',
-         'worker':{
-            'id':'brigade-worker-01byy6vn3fanaypqpve7m1jwsf-master',
-            'build_id':'01byy6vn3fanaypqpve7m1jwsf',
-            'project_id':'brigade-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
-            'start_time':'2017-12-23T07:31:55Z',
-            'end_time':'2017-12-23T07:32:59Z',
-            'exit_code':0,
-            'status':'Succeeded'
-         }
-      },
-      {
-         'id':'01byy6ymq8p9md8z31rcmtry4a',
-         'project_id':'brigade-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
-         'type':'exec',
-         'provider':'brigade-cli',
-         'commit':'master',
-         'script':'Y29uc3QgeyBldmVudHMsIEpvYiwgR3JvdXAgfSA9IHJlcXVpcmUoImJyaWdhZGllciIpCgpldmVudHMub24oImV4ZWMiLCAoKSA9PiB7CiAgY29uc29sZS5sb2coIlxuID09PT4gd2VlZWVcbiIpCgogIHZhciBqMSA9IG5ldyBKb2IoImhlbGxvIiwgImFscGluZTozLjYiKQoKICBqMS50YXNrcyA9IFsKICAgICJlY2hvIGhlbGxvIgogIF0KCiAgdmFyIGoyID0gbmV3IEpvYigid29ybGQiLCAiYWxwaW5lOjMuNiIsIFsiZWNobyBoZWxsbzIiXSkKCiAgR3JvdXAucnVuRWFjaChbajEsIGoyXSkKfSkK',
-         'worker':{
-            'id':'brigade-worker-01byy6ymq8p9md8z31rcmtry4a-master',
-            'build_id':'01byy6ymq8p9md8z31rcmtry4a',
-            'project_id':'brigade-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
-            'start_time':'2018-02-26T22:57:27Z',
-            'end_time':'2018-02-26T22:57:56Z',
-            'exit_code':0,
-            'status':'Succeeded'
-         }
-      },
-      {
-         'id':'01byy7kmx6abe3te3afmsm3q6h',
-         'project_id':'brigade-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
-         'type':'exec',
-         'provider':'brigade-cli',
-         'commit':'master',
-         'script':'Y29uc3QgeyBldmVudHMsIEpvYiwgR3JvdXAgfSA9IHJlcXVpcmUoImJyaWdhZGllciIpCgpldmVudHMub24oImV4ZWMiLCAoKSA9PiB7CiAgY29uc29sZS5sb2coIlxuID09PT4gd2VlZWVcbiIpCgogIHZhciBqMSA9IG5ldyBKb2IoImhlbGxvIiwgImFscGluZTozLjYiKQoKICBqMS50YXNrcyA9IFsKICAgICJlY2hvIGhlbGxvIgogIF0KCiAgdmFyIGoyID0gbmV3IEpvYigid29ybGQiLCAiYWxwaW5lOjMuNiIsIFsiZWNobyBoZWxsbzIiXSkKCiAgR3JvdXAucnVuRWFjaChbajEsIGoyXSkKfSkK',
-         'worker':{
-            'id':'brigade-worker-01byy7kmx6abe3te3afmsm3q6h-master',
-            'build_id':'01byy7kmx6abe3te3afmsm3q6h',
-            'project_id':'brigade-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
-            'start_time':'2017-11-14T21:40:22Z',
-            'end_time':'2017-11-14T21:40:31Z',
-            'exit_code':1,
-            'status':'Failed'
-         }
-      },
-      {
-         'id':'01bz3j0gqz5t01vwhd5gen1mw7',
-         'project_id':'brigade-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
-         'type':'exec',
-         'provider':'brigade-cli',
-         'commit':'master',
-         'script':'Y29uc3QgeyBldmVudHMsIEpvYiwgR3JvdXAgfSA9IHJlcXVpcmUoImJyaWdhZGllciIpCgpldmVudHMub24oImV4ZWMiLCAoKSA9PiB7CiAgY29uc29sZS5sb2coIlxuID09PT4gd2VlZWVcbiIpCgogIHZhciBqMSA9IG5ldyBKb2IoImhlbGxvIiwgImFscGluZTozLjYiKQoKICBqMS50YXNrcyA9IFsKICAgICJlY2hvIGhlbGxvIgogIF0KCiAgdmFyIGoyID0gbmV3IEpvYigid29ybGQiLCAiYWxwaW5lOjMuNiIsIFsiZWNobyBoZWxsbzIiXSkKCiAgR3JvdXAucnVuRWFjaChbajEsIGoyXSkKfSkK',
-         'worker':{
-            'id':'brigade-worker-01bz3j0gqz5t01vwhd5gen1mw7-master',
-            'build_id':'01bz3j0gqz5t01vwhd5gen1mw7',
-            'project_id':'brigade-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
-            'start_time':'2018-02-26T22:57:31Z',
-            'end_time':'2018-02-26T22:58:07Z',
-            'exit_code':0,
-            'status':'Succeeded'
-         }
-      },
-      {
-         'id':'01bz3j29xmz4dhs99xahm1q9bh',
-         'project_id':'brigade-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
-         'type':'exec',
-         'provider':'brigade-cli',
-         'commit':'master',
-         'script':'Y29uc3QgeyBldmVudHMsIEpvYiwgR3JvdXAgfSA9IHJlcXVpcmUoImJyaWdhZGllciIpCgpldmVudHMub24oImV4ZWMiLCAoKSA9PiB7CiAgY29uc29sZS5sb2coIlxuID09PT4gd2VlZWVcbiIpCgogIHZhciBqMSA9IG5ldyBKb2IoImhlbGxvIiwgImFscGluZTozLjYiKQoKICBqMS50YXNrcyA9IFsKICAgICJlY2hvIGhlbGxvIgogIF0KCiAgdmFyIGoyID0gbmV3IEpvYigid29ybGQiLCAiYWxwaW5lOjMuNiIsIFsiZWNobyBoZWxsbzIiXSkKCiAgR3JvdXAucnVuRWFjaChbajEsIGoyXSkKfSkK',
-         'worker':{
-            'id':'brigade-worker-01bz3j29xmz4dhs99xahm1q9bh-master',
-            'build_id':'01bz3j29xmz4dhs99xahm1q9bh',
-            'project_id':'brigade-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
-            'start_time':'2018-02-26T22:57:35Z',
-            'end_time':'2018-02-26T22:58:07Z',
-            'exit_code':0,
-            'status':'Succeeded'
-         }
-      },
-      {
-         'id':'01bzghz2ssqyhxn8gshy8m1ra0',
-         'project_id':'brigade-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
-         'type':'quicktestX',
-         'provider':'brigade-cli',
-         'commit':'master',
-         'script':'Y29uc3Qge2V2ZW50cywgSm9iLCBHcm91cH0gPSByZXF1aXJlKCJicmlnYWRpZXIiKQoKZXZlbnRzLm9uKCJxdWlja3Rlc3RYIiwgZnVuY3Rpb24oZSwgcHJvamVjdCkgewogIHZhciBqID0gbmV3IEpvYigiYWxwaW5lIiwgImFscGluZTozLjQiLCBbImVjaG8gZG9uZSJdKQogIGoucnVuKCkudGhlbiggcmVzID0+IGNvbnNvbGUubG9nKHJlcy50b1N0cmluZygpKSkKfSkKCmV2ZW50cy5vbigiYWZ0ZXJYIiwgKCkgPT4gewogIHZhciBqID0gbmV3IEpvYigiYWxwaW5lLWFmdGVyIiwgImFscGluZTozLjQiLCBbInNsZWVwIDEwIiwgImVjaG8gYWZ0ZXIiXSkKICBqLnJ1bigpLnRoZW4oIHJlcyA9PiBjb25zb2xlLmxvZyhyZXMpKQp9KQoKZXZlbnRzLm9uKCJhZnRlciIsICgpID0+IHsKICBjb25zb2xlLmxvZygiID09PT09PT0+IEFGVEVSIDw9PT09PT09PSAiKQp9KQoKZXZlbnRzLm9uKCJ0ZXN0IiwgKCkgPT4gewogIHZhciBqID0gbmV3IEpvYigiYWxwaW5lLWFmdGVyIiwgImFscGluZTozLjQiLCBbInNsZWVwIDEwIiwgImVjaG8gYWZ0ZXIiXSkKICBqLnByaXZpbGVnZWQgPSB0cnVlCiAgai5ydW4oKS50aGVuKCByZXMgPT4gY29uc29sZS5sb2cocmVzKSkKfSkK'
-      },
-      {
-         'id':'01bzzmz498aqh18hc7j5erjxmm',
-         'project_id':'brigade-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
-         'type':'quicktestX',
-         'provider':'brigade-cli',
-         'commit':'master',
-         'script':'Y29uc3Qge2V2ZW50cywgSm9iLCBHcm91cH0gPSByZXF1aXJlKCJicmlnYWRpZXIiKQoKZXZlbnRzLm9uKCJxdWlja3Rlc3RYIiwgZnVuY3Rpb24oZSwgcHJvamVjdCkgewogIHZhciBqID0gbmV3IEpvYigiYWxwaW5lIiwgImFscGluZTozLjQiLCBbImVjaG8gZG9uZSJdKQogIGoucnVuKCkudGhlbiggcmVzID0+IGNvbnNvbGUubG9nKHJlcy50b1N0cmluZygpKSkKfSkKCmV2ZW50cy5vbigiYWZ0ZXJYIiwgKCkgPT4gewogIHZhciBqID0gbmV3IEpvYigiYWxwaW5lLWFmdGVyIiwgImFscGluZTozLjQiLCBbInNsZWVwIDEwIiwgImVjaG8gYWZ0ZXIiXSkKICBqLnJ1bigpLnRoZW4oIHJlcyA9PiBjb25zb2xlLmxvZyhyZXMpKQp9KQoKZXZlbnRzLm9uKCJhZnRlciIsICgpID0+IHsKICBjb25zb2xlLmxvZygiID09PT09PT0+IEFGVEVSIDw9PT09PT09PSAiKQp9KQoKZXZlbnRzLm9uKCJ0ZXN0IiwgKCkgPT4gewogIHZhciBqID0gbmV3IEpvYigiYWxwaW5lLWFmdGVyIiwgImFscGluZTozLjQiLCBbInNsZWVwIDEwIiwgImVjaG8gYWZ0ZXIiXSkKICBqLnByaXZpbGVnZWQgPSB0cnVlCiAgai5ydW4oKS50aGVuKCByZXMgPT4gY29uc29sZS5sb2cocmVzKSkKfSkK',
-         'worker':{
-            'id':'brigade-worker-01bzzmz498aqh18hc7j5erjxmm-master',
-            'build_id':'01bzzmz498aqh18hc7j5erjxmm',
-            'project_id':'brigade-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
-            'start_time':'2017-12-23T07:31:58Z',
-            'end_time':'2017-12-23T07:32:47Z',
-            'exit_code':0,
-            'status':'Succeeded'
-         }
-      },
-      {
-         'id':'01bzzn07g488przds1x7n21p2v',
-         'project_id':'brigade-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
-         'type':'exec',
-         'provider':'brigade-cli',
-         'commit':'master',
-         'script':'Y29uc3Qge2V2ZW50cywgSm9iLCBHcm91cH0gPSByZXF1aXJlKCJicmlnYWRpZXIiKQoKZXZlbnRzLm9uKCJxdWlja3Rlc3RYIiwgZnVuY3Rpb24oZSwgcHJvamVjdCkgewogIHZhciBqID0gbmV3IEpvYigiYWxwaW5lIiwgImFscGluZTozLjQiLCBbImVjaG8gZG9uZSJdKQogIGoucnVuKCkudGhlbiggcmVzID0+IGNvbnNvbGUubG9nKHJlcy50b1N0cmluZygpKSkKfSkKCmV2ZW50cy5vbigiYWZ0ZXJYIiwgKCkgPT4gewogIHZhciBqID0gbmV3IEpvYigiYWxwaW5lLWFmdGVyIiwgImFscGluZTozLjQiLCBbInNsZWVwIDEwIiwgImVjaG8gYWZ0ZXIiXSkKICBqLnJ1bigpLnRoZW4oIHJlcyA9PiBjb25zb2xlLmxvZyhyZXMpKQp9KQoKZXZlbnRzLm9uKCJhZnRlciIsICgpID0+IHsKICBjb25zb2xlLmxvZygiID09PT09PT0+IEFGVEVSIDw9PT09PT09PSAiKQp9KQoKZXZlbnRzLm9uKCJ0ZXN0IiwgKCkgPT4gewogIHZhciBqID0gbmV3IEpvYigiYWxwaW5lLWFmdGVyIiwgImFscGluZTozLjQiLCBbInNsZWVwIDEwIiwgImVjaG8gYWZ0ZXIiXSkKICBqLnByaXZpbGVnZWQgPSB0cnVlCiAgai5ydW4oKS50aGVuKCByZXMgPT4gY29uc29sZS5sb2cocmVzKSkKfSkK',
-         'worker':{
-            'id':'brigade-worker-01bzzn07g488przds1x7n21p2v-master',
-            'build_id':'01bzzn07g488przds1x7n21p2v',
-            'project_id':'brigade-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
-            'start_time':'2017-11-27T21:09:22Z',
-            'end_time':'2017-11-27T21:09:28Z',
-            'exit_code':0,
-            'status':'Succeeded'
-         }
-      },
-      {
-         'id':'01bzzn45f0p5bjtsffw9m8chts',
-         'project_id':'brigade-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
-         'type':'exec',
-         'provider':'brigade-cli',
-         'commit':'master',
-         'script':'Y29uc3QgeyBldmVudHMsIEpvYiB9ID0gcmVxdWlyZSgiYnJpZ2FkaWVyIikKCmV2ZW50cy5vbigiZXhlYyIsICgpID0+IHsKICBjb25zdCBkaW5kID0gbmV3IEpvYigiZGluZCIsICJkb2NrZXI6ZWRnZS1kaW5kIikKICBkaW5kLnByaXZpbGVnZWQgPSB0cnVlCiAgZGluZC50YXNrcyA9IFsKICAgICJkb2NrZXJkLWVudHJ5cG9pbnQuc2ggJiIsCiAgICAiZWNobyB3YWl0aW5nICYmIHNsZWVwIDIwIiwKICAgICJwcyAtZWYiLAogICAgImRvY2tlciB2ZXJzaW9uIiwKICAgICJraWxsYWxsIGRvY2tlcmQiCiAgXQogIGRpbmQucnVuKCkudGhlbiggKCkgPT4gewogICAgY29uc29sZS5sb2coIj09PT0gRE9ORSA9PT09IikKICB9KQp9KQo=',
-         'worker':{
-            'id':'brigade-worker-01bzzn45f0p5bjtsffw9m8chts-master',
-            'build_id':'01bzzn45f0p5bjtsffw9m8chts',
-            'project_id':'brigade-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
-            'start_time':'2017-12-23T07:31:48Z',
-            'end_time':'2017-12-23T07:32:36Z',
-            'exit_code':0,
-            'status':'Succeeded'
-         }
-      }
-   ]
+  {
+   'id': '01c0cjhn15whdxj72gh4q8qbep',
+   'provider': 'github',
+   'commit': 'master',
+   'script': 'Y29uc3QgeyBldmVudHMsIEpvYiB9ID0gcmVxdWlyZSgiYnJpZ2FkaWVyIik7CgpldmVudHMub24oInB1c2giLCAoZSwgcCkgPT4gewp9KTsKCmV2ZW50cy5vbigiZXhlYyIsIChlLCBwKSA9PiB7CiAgdmFyIHRlc3QgPSBuZXcgSm9iKCJ0ZXN0IiwgImdvOjEuOSIpCiAgdmFyIGRlc3QgPSAiJEdPUEFUSC9zcmMvZ2l0aHViLmNvbS90ZWNobm9zb3Bob3MvdWxpZCI7CiAgdGVzdC50YXNrcyA9IFsKICAgICJlY2hvICRHT1BBVEgiCiAgICAibWtkaXIgLXAgIiArIGRlc3QsCiAgICAiY3AgLWEgL3NyYy8qICIgKyBkZXN0LAogICAgImNkICIgKyBkZXN0OwogICAgImdvIGdldCAtdSBnaXRodWIuY29tL2dvbGFuZy9kZXAvY21kL2RlcCIKICAgICJkZXAgdXAiCiAgICAibWFrZSB0ZXN0IgogIF07CgogIHRlc3QucnVuKCkudGhlbiggKHIpID0+IGNvbnNvbGUubG9nKHIudG9TdHJpbmcoKSk7Cn0pOwo=',
+   'worker': {
+     'id': 'brigade-worker-01c0cjhn15whdxj72gh4q8qbep-master',
+     'start_time': '2017-12-23T07:31:49Z',
+     'end_time': '2017-12-23T07:31:54Z',
+     'exit_code': 0,
+     'status': 'Succeeded'
+   }
+  },
+  {
+   'id': '01c0cjjfyh0bka256dhm17qv6r',
+   'type': 'exec',
+   'provider': 'brigade-cli',
+   'commit': 'master',
+   'script': 'Y29uc3QgeyBldmVudHMsIEpvYiB9ID0gcmVxdWlyZSgiYnJpZ2FkaWVyIik7CgpldmVudHMub24oInB1c2giLCAoZSwgcCkgPT4gewp9KTsKCmV2ZW50cy5vbigiZXhlYyIsIChlLCBwKSA9PiB7CiAgdmFyIHRlc3QgPSBuZXcgSm9iKCJ0ZXN0IiwgImdvOjEuOSIpCiAgdmFyIGRlc3QgPSAiJEdPUEFUSC9zcmMvZ2l0aHViLmNvbS90ZWNobm9zb3Bob3MvdWxpZCI7CiAgdGVzdC50YXNrcyA9IFsKICAgICJlY2hvICRHT1BBVEgiLAogICAgIm1rZGlyIC1wICIgKyBkZXN0LAogICAgImNwIC1hIC9zcmMvKiAiICsgZGVzdCwKICAgICJjZCAiICsgZGVzdCwKICAgICJnbyBnZXQgLXUgZ2l0aHViLmNvbS9nb2xhbmcvZGVwL2NtZC9kZXAiLAogICAgImRlcCB1cCIsCiAgICAibWFrZSB0ZXN0IgogIF07CgogIHRlc3QucnVuKCkudGhlbiggKHIpID0+IGNvbnNvbGUubG9nKHIudG9TdHJpbmcoKSk7Cn0pOwo=',
+   'worker': {
+     'id': 'brigade-worker-01c0cjjfyh0bka256dhm17qv6r-master',
+     'start_time': '2017-12-23T07:32:05Z',
+     'end_time': '2017-12-23T07:32:31Z',
+     'exit_code': 1,
+     'status': 'Failed'
+   }
+  }
 ];
