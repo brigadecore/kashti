@@ -5,7 +5,7 @@ import 'rxjs/add/operator/switchMap';
 
 import { MomentModule } from 'angular2-moment';
 
-import { Build, Project } from '../models/project';
+import { Build } from '../models/project';
 import { BuildService } from '../build.service';
 import { ProjectService } from '../project.service';
 
@@ -19,18 +19,18 @@ export class BuildComponent implements OnInit {
   build;
 
   constructor(
-    private buildService: buildService,
+    private buildService: BuildService,
     private route: ActivatedRoute,
 
   ) { }
 
   ngOnInit() {
-    const projectId = this.route.snapshot.paramMap.get('id');
+    const buildId = this.route.snapshot.paramMap.get('id');
     this.getBuild(buildId);
   }
 
   getBuild(buildId): void {
-    this.buildService.getBuild(projectId)
+    this.buildService.getBuild(buildId)
       .subscribe(returnedBuild => {
         this.build = returnedBuild;
       },
