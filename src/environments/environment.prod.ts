@@ -1,4 +1,9 @@
+import { ApiBuildService } from "../app/services/build/ApiBuildService";
+import { ApiProjectService } from "../app/services/project/ApiProjectService";
+
 export const environment = {
   production: true,
-  brigadeApiHost: 'https://cors-anywhere.herokuapp.com/http://acid-api.technosophos.me:7745'
+
+  buildServiceType: ApiBuildService,
+  projectServiceType: ApiProjectService
 };

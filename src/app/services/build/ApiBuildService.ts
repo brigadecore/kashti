@@ -3,26 +3,23 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
+import { BRIGADE_API_HOST } from '../../app.config';
+import { BuildService } from './BuildService';
+import { Build } from '../../models/project';
 
-import { environment } from '../environments/environment';
 
-import { Build } from './models/project';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
 @Injectable()
-export class BuildService {
+export class ApiBuildService implements BuildService {
   constructor(private http: HttpClient) {}
 
-  getBuilds(projectId) {
-    let buildsUrl;
-    if (environment.production) {
-      buildsUrl = `${environment.brigadeApiHost}/v1/project/${projectId}/builds`;
-    } else {
-      buildsUrl = `${environment.brigadeApiHost}/v1/builds/?project_id=${projectId}`;
-    }
+  getBuilds(projectId): Observable<Build[]> {
+    
+    let buildsUrl = `${BRIGADE_API_HOST}/v1/project/${projectId}/builds`;
     return this.http
-      .get(buildsUrl, httpOptions);
+      .get<Build[]>(buildsUrl, httpOptions);
   }
 }
