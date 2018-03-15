@@ -17,7 +17,7 @@ import { ProjectService } from './services/project/ProjectService';
 import { ProjectComponent } from './project/project.component';
 import { BuildStatusBadgeComponent } from './build-status-badge/build-status-badge.component';
 import { ApiProjectService } from './services/project/ApiProjectService';
-import { PROJECT_SERVICE, BUILD_SERVICE } from './app.config';
+import { BuildService } from './services/build/BuildService';
 
 @NgModule({
   declarations: [
@@ -38,8 +38,9 @@ import { PROJECT_SERVICE, BUILD_SERVICE } from './app.config';
 
   ],
   providers: [
-    { provide: BUILD_SERVICE, useClass: environment.buildServiceType },
-    { provide: PROJECT_SERVICE, useClass: environment.projectServiceType },
+    { provide: BuildService, useClass: environment.buildServiceType },
+    { provide: ProjectService, useClass: environment.projectServiceType },
+
   ],
   bootstrap: [AppComponent]
 })

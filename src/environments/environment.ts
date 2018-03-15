@@ -10,5 +10,5 @@ export const environment = {
   production: false,
 
   buildServiceType: MockBuildService,
-  projectServiceType: MockProjectService,
+  projectServiceType: MockProjectService
 };

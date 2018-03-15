@@ -8,7 +8,6 @@ import { MomentModule } from 'angular2-moment';
 import { Build, Project } from '../models/project';
 import { ProjectService } from '../services/project/ProjectService';
 import { BuildService } from '../services/build/BuildService';
-import { PROJECT_SERVICE, BUILD_SERVICE } from '../app.config';
 
 @Component({
   selector: 'app-project',
@@ -21,8 +20,8 @@ export class ProjectComponent implements OnInit {
   builds;
 
   constructor(
-    @Inject(PROJECT_SERVICE) private projectService: ProjectService,
-    @Inject(BUILD_SERVICE) private buildService: BuildService,
+    private projectService: ProjectService,
+    private buildService: BuildService,
     private route: ActivatedRoute,
 
   ) { }

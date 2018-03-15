@@ -4,11 +4,11 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 
-
 import { environment } from '../../../environments/environment.prod';
 import { ProjectBuild, Project } from '../../models/project';
 import { ProjectService } from './ProjectService';
 import { BRIGADE_API_HOST } from '../../app.config';
+
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
