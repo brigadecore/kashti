@@ -5,6 +5,7 @@ import { MomentModule } from 'angular2-moment';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
+import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
 
@@ -36,12 +37,8 @@ import { BuildStatusBadgeComponent } from './build-status-badge/build-status-bad
     HttpClientModule,
     AppRoutingModule,
 
-    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
-    // and returns simulated server responses.
-    // Remove it when a real server is ready to receive requests.
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
-      dataEncapsulation: false
-    })
+    environment.production ?
+      [] : HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 100})
   ],
   providers: [ProjectService, BuildService],
   bootstrap: [AppComponent]

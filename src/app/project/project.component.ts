@@ -17,9 +17,11 @@ import { ProjectService } from '../project.service';
 
 export class ProjectComponent implements OnInit {
   project;
+  builds;
 
   constructor(
     private projectService: ProjectService,
+    private buildService: BuildService,
     private route: ActivatedRoute,
 
   ) { }
@@ -27,12 +29,21 @@ export class ProjectComponent implements OnInit {
   ngOnInit() {
     const projectId = this.route.snapshot.paramMap.get('id');
     this.getProject(projectId);
+    this.getBuilds(projectId);
   }
 
   getProject(projectId): void {
     this.projectService.getProject(projectId)
       .subscribe(returnedProject => {
         this.project = returnedProject;
+      },
+      error => console.error(error));
+  }
+
+  getBuilds(projectId): void {
+    this.buildService.getBuilds(projectId)
+      .subscribe(returnedBuilds => {
+        this.builds = returnedBuilds;
       },
       error => console.error(error));
   }
