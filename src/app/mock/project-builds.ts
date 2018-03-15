@@ -129,7 +129,7 @@ export const projectBuilds = [
         'pullPolicy': ''
       }
     },
-    'lastBuild': null
+    'lastBuild': {}
   },
   {
     'project': {
@@ -213,7 +213,7 @@ export const projectBuilds = [
         'pullPolicy': ''
       }
     },
-    'lastBuild': null
+    'lastBuild': {}
   },
   {
     'project': {
@@ -250,7 +250,8 @@ export const projectBuilds = [
         'commit': '',
         'ref': ''
       },
-      'script': 'Y29uc3QgeyBldmVudHMsIEpvYiwgR3JvdXAgfSA9IHJlcXVpcmUoImJyaWdhZGllciIpOwoKZXZlbnRzLm9uKCJidWlsZCIsIChlLCBwKSA9PiB7CgogIC8vIFRoaXMgaXMganVzdCBhIGNhbmFyeSBidWlsZCB0byBtYWtlIHN1cmUgZXZlcnl0aGluZyBpcyB3b3JraW5nLgogIGNvbnN0IGJ1aWxkID0gbmV3IEpvYigiYnVpbGQiLCAibm9kZTo4IikKICBidWlsZC50YXNrcyA9IFsKICAgICJjZCAvc3JjIiwKICAgICJ5YXJuIGluc3RhbGwiLAogICAgInlhcm4gZ3VscCBidWlsZCIKICBdCgogIGJ1aWxkLnJ1bigpCgp9KTsKCmV2ZW50cy5vbigiZXhlYyIsIChlLCBwKSA9PiB7CiAgLy8gVGhpcyBkb2VzIHNvbWUgcG9pbnRsZXNzbHkgY29tcGxleCBzdHVmZiBzbyB0aGF0IHlvdSBjYW4gdGVzdCB0aGUKICAvLyBkYXNoYm9hcmQuCiAgdmFyIGoxID0gYWxwaW5lSm9iKCJvbmUiKQogIHZhciBqMiA9IGFscGluZUpvYigidHdvIikKICB2YXIgajMgPSBhbHBpbmVKb2IoInRocmVlIikKICB2YXIgajQgPSBhbHBpbmVKb2IoImZvdXIiKQogIHZhciBqNSA9IGFscGluZUpvYigiZml2ZSIpCgogIGoxLnJ1bigpLnRoZW4oICgpID0+IHsgcmV0dXJuIGoyLnJ1bigpIH0pLnRoZW4oICgpID0+IHsKICAgIHZhciBnID0gbmV3IEdyb3VwKCkKICAgIGcuYWRkKGozKQogICAgZy5hZGQoajQpCiAgICBnLnJ1bkFsbCgpLnRoZW4oICgpID0+IHtqNS5ydW4oKX0pCiAgfSkKfSk7CgpmdW5jdGlvbiBhbHBpbmVKb2IobmFtZSkgewogIHJldHVybiBuZXcgSm9iKG5hbWUsICJhbHBpbmU6My43IiwgWyJlY2hvIGhlbGxvIGZyb20gIiArIG5hbWUsICJzbGVlcCA1Il0pCn0K'
+      'script': 'Y29uc3QgeyBldmVudHMsIEpvYiwgR3JvdXAgfSA9IHJlcXVpcmUoImJyaWdhZGllciIpOwoKZXZlbnRzLm9uKCJidWlsZCIsIChlLCBwKSA9PiB7CgogIC8vIFRoaXMgaXMganVzdCBhIGNhbmFyeSBidWlsZCB0byBtYWtlIHN1cmUgZXZlcnl0aGluZyBpcyB3b3JraW5nLgogIGNvbnN0IGJ1aWxkID0gbmV3IEpvYigiYnVpbGQiLCAibm9kZTo4IikKICBidWlsZC50YXNrcyA9IFsKICAgICJjZCAvc3JjIiwKICAgICJ5YXJuIGluc3RhbGwiLAogICAgInlhcm4gZ3VscCBidWlsZCIKICBdCgogIGJ1aWxkLnJ1bigpCgp9KTsKCmV2ZW50cy5vbigiZXhlYyIsIChlLCBwKSA9PiB7CiAgLy8gVGhpcyBkb2VzIHNvbWUgcG9pbnRsZXNzbHkgY29tcGxleCBzdHVmZiBzbyB0aGF0IHlvdSBjYW4gdGVzdCB0aGUKICAvLyBkYXNoYm9hcmQuCiAgdmFyIGoxID0gYWxwaW5lSm9iKCJvbmUiKQogIHZhciBqMiA9IGFscGluZUpvYigidHdvIikKICB2YXIgajMgPSBhbHBpbmVKb2IoInRocmVlIikKICB2YXIgajQgPSBhbHBpbmVKb2IoImZvdXIiKQogIHZhciBqNSA9IGFscGluZUpvYigiZml2ZSIpCgogIGoxLnJ1bigpLnRoZW4oICgpID0+IHsgcmV0dXJuIGoyLnJ1bigpIH0pLnRoZW4oICgpID0+IHsKICAgIHZhciBnID0gbmV3IEdyb3VwKCkKICAgIGcuYWRkKGozKQogICAgZy5hZGQoajQpCiAgICBnLnJ1bkFsbCgpLnRoZW4oICgpID0+IHtqNS5ydW4oKX0pCiAgfSkKfSk7CgpmdW5jdGlvbiBhbHBpbmVKb2IobmFtZSkgewogIHJldHVybiBuZXcgSm9iKG5hbWUsICJhbHBpbmU6My43IiwgWyJlY2hvIGhlbGxvIGZyb20gIiArIG5hbWUsICJzbGVlcCA1Il0pCn0K',
+      'worker': {}
     }
   }
-]
+];
