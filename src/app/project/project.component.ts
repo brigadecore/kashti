@@ -17,6 +17,7 @@ import { ProjectService } from '../project.service';
 
 export class ProjectComponent implements OnInit {
   project;
+  builds;
 
   constructor(
     private projectService: ProjectService,

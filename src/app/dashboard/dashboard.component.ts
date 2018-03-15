@@ -22,8 +22,8 @@ export class DashboardComponent implements OnInit {
 
   getProjectBuilds(): void {
     this.projectService.getProjectBuilds()
-      .subscribe(projectBuilds => {
-        this.projectBuilds = projectBuilds;
+      .subscribe(returnedData => {
+        this.projectBuilds = returnedData;
       },
       error => console.error(error)
     );

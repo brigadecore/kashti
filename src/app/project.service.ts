@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from '../environments/environment';
 
 import { ProjectBuild, Project } from './models/project';
 const httpOptions = {
@@ -18,14 +19,20 @@ export class ProjectService {
   constructor(private http: HttpClient) {}
 
   getProjectBuilds(): Observable<ProjectBuild[]> {
-    const projectBuildsUrl = 'api/projectBuilds';
+    let projectBuildsUrl;
+
+    if (environment.production) {
+      projectBuildsUrl = `${environment.brigadeApiHost}/v1/projects-build`;
+    } else {
+      projectBuildsUrl = `${environment.brigadeApiHost}/v1/projectsBuilds`;
+    }
 
     return this.http
       .get<ProjectBuild[]>(projectBuildsUrl, httpOptions);
   }
 
   getProject(projectId) {
-    const projectUrl = `api/projects/${projectId}`;
+    const projectUrl = `${environment.brigadeApiHost}/v1/projects/${projectId}`;
     return this.http.get(projectUrl, httpOptions);
   }
 }

@@ -1,4 +1,4 @@
-export const projectBuilds = [
+export const projectsBuilds = [
   {
     'project': {
       'id': 'brigade-29d38c7477ecee18e184b69bec354fc350605c51bc16d4dd2b6073',
