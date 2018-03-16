@@ -5,8 +5,9 @@ import 'rxjs/add/operator/switchMap';
 
 import { MomentModule } from 'angular2-moment';
 
-import { Build } from '../models/project';
+import { Build, Job } from '../models/project';
 import { BuildService } from '../build.service';
+import { JobService } from '../job.service';
 import { ProjectService } from '../project.service';
 
 @Component({

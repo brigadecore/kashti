@@ -5,7 +5,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { Jobs } from './models/project';
+import { Job } from './models/project';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -17,6 +17,6 @@ export class JobService {
   getBuild(jobId) {
     const jobsUrl = `api/jobs/${jobId}`;
     return this.http
-      .get(jobssUrl, httpOptions);
+      .get(jobsUrl, httpOptions);
   }
 }
