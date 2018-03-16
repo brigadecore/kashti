@@ -46,9 +46,10 @@ export class Build {
     public project_id: string,
     public type: string,
     public provider: string,
-    public commit: string,
+    public revision: Revision,
+    public payload: string,
     public script: string,
-    public worker: Worker
+    public buildWorker: BuildWorker
   ) {}
 }
 
@@ -61,6 +62,18 @@ export class Worker {
   ) {}
 }
 
+export class BuildWorker {
+  constructor(
+    public id: string,
+    public build_id: string,
+    public project_id: string,
+    public start_time: string,
+    public end_time: string,
+    public exit_code: string,
+    public status: string
+  ) {}
+}
+
 export class LastBuild {
   constructor(
     public id: string,
@@ -70,7 +83,7 @@ export class LastBuild {
     public revision: Revision,
     public payload: string,
     public script: string,
-    public worker: LastBuildWorker
+    public lastBuildWorker: BuildWorker
   ) {}
 }
 
@@ -78,5 +91,18 @@ export class ProjectBuild {
   constructor(
     public project: Project,
     public lastBuild: LastBuild
+  ) {}
+}
+
+export class Job {
+  constructor(
+    public id: string,
+    public name: string,
+    public image: string,
+    public creation_time: string,
+    public start_time: string,
+    public end_time: string,
+    public exit_code: string,
+    public status: string,
   ) {}
 }
