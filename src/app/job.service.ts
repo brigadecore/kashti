@@ -5,18 +5,18 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { Build } from './models/project';
+import { Job } from './models/project';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
 @Injectable()
-export class BuildService {
+export class JobService {
   constructor(private http: HttpClient) {}
 
-  getBuild(buildId) {
-    const buildsUrl = `api/builds/${buildId}`;
+  getBuild(jobId) {
+    const jobsUrl = `api/jobs/${jobId}`;
     return this.http
-      .get(buildsUrl, httpOptions);
+      .get(jobsUrl, httpOptions);
   }
 }

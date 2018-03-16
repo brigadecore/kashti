@@ -13,10 +13,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { StyleGuideComponent } from './style-guide/style-guide.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
-import { BuildComponent } from './build/build.component';
 import { ProjectService } from './project.service';
 import { BuildService } from './build.service';
 import { ProjectComponent } from './project/project.component';
+import { BuildComponent } from './build/build.component';
 import { BuildStatusBadgeComponent } from './build-status-badge/build-status-badge.component';
 
 @NgModule({

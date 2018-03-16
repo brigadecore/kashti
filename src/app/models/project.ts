@@ -1,9 +1,16 @@
-export class Repo {
-  constructor(public name: string, public cloneURL: string) {}
+export class Kubernetes {
+  constructor(
+    public namespace: string,
+    public vcsSidecar: string,
+    public buildStorageSize: string
+  ) {}
 }
 
-export class Kubernetes {
-  constructor(public namespace: string, public vcsSidecar: string) {}
+export class Github {
+  constructor(
+    public baseURL: string,
+    public uploadURL: string
+  ) {}
 }
 
 export class Project {
@@ -11,9 +18,25 @@ export class Project {
     public id: string,
     public name: string,
     public repo: Repo,
+    public defaultScript: any,
     public kubernetes: Kubernetes,
-    public github: any,
-    public secrets: any
+    public github: Github,
+    public secrets: any,
+    public worker: Worker
+  ) {}
+}
+
+export class Repo {
+  constructor(
+    public name: string,
+    public cloneURL: string
+  ) {}
+}
+
+export class Revision {
+  constructor(
+    public commit: string,
+    public ref: string
   ) {}
 }
 
@@ -23,20 +46,30 @@ export class Build {
     public project_id: string,
     public type: string,
     public provider: string,
-    public commit: string,
+    public revision: Revision,
+    public payload: string,
     public script: string,
-    public worker: Worker
+    public buildWorker: BuildWorker
   ) {}
 }
 
 export class Worker {
   constructor(
+    public registry: string,
+    public name: string,
+    public tag: string,
+    public pullPolicy: string
+  ) {}
+}
+
+export class BuildWorker {
+  constructor(
     public id: string,
     public build_id: string,
     public project_id: string,
-    public start_time: Date,
-    public end_time: Date,
-    public exit_code: number,
+    public start_time: string,
+    public end_time: string,
+    public exit_code: string,
     public status: string
   ) {}
 }
@@ -47,13 +80,29 @@ export class LastBuild {
     public project_id: string,
     public type: string,
     public provider: string,
-    public commit: string,
+    public revision: Revision,
     public payload: string,
     public script: string,
-    public worker: Worker
+    public lastBuildWorker: BuildWorker
   ) {}
 }
 
 export class ProjectBuild {
-  constructor(public project: Project, public lastBuild: LastBuild) {}
+  constructor(
+    public project: Project,
+    public lastBuild: LastBuild
+  ) {}
+}
+
+export class Job {
+  constructor(
+    public id: string,
+    public name: string,
+    public image: string,
+    public creation_time: string,
+    public start_time: string,
+    public end_time: string,
+    public exit_code: string,
+    public status: string,
+  ) {}
 }
