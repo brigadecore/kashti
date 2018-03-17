@@ -4,10 +4,10 @@ export const ProjectsBuilds: ProjectBuild[] = [
   {
     'project': {
       'id': 'brigade-29d38c7477ecee18e184b69bec354fc350605c51bc16d4dd2b6073',
-      'name': 'technosophos/coffeesnob',
+      'name': 'kashti/localdev',
       'repo': {
-        'name': 'github.com/technosophos/coffeesnob',
-        'cloneURL': 'https://github.com/technosophos/coffeesnob.git'
+        'name': 'github.com/kashti/localdev',
+        'cloneURL': 'https://github.com/kashti/localdev.git'
       },
       'defaultScript': '',
       'kubernetes': {

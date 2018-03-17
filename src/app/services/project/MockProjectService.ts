@@ -6,13 +6,17 @@ import { ProjectBuild } from '../../models/ProjectBuild';
 import { Project } from '../../models/Project';
 
 import { ProjectsBuilds } from '../../mock/projects-builds';
+import { Projects } from '../../mock/projects';
+import { filter } from 'rxjs/operators';
 
 @Injectable()
 export class MockProjectService implements ProjectService {
     getProjectBuilds(): Observable<ProjectBuild[]> {
         return Observable.of(ProjectsBuilds);
     }
+
     getProject(projectId: string): Observable<Project> {
-        throw new Error('Method not implemented.');
+      const filteredList = Projects.filter((project: Project) => project.id === projectId);
+      return Observable.of(filteredList[0]);
     }
 }
