@@ -2,7 +2,7 @@ import { Build } from '../../models/Build';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
-import { BuildService } from './BuildService';
+import { BuildService } from './build.service';
 import { Builds } from '../../mock/builds';
 import { filter } from 'rxjs/operators';
 

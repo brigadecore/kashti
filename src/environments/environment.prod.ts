@@ -1,5 +1,5 @@
-import { ApiBuildService } from '../app/services/build/ApiBuildService';
-import { ApiProjectService } from '../app/services/project/ApiProjectService';
+import { ApiBuildService } from '../app/services/build/api-build.service';
+import { ApiProjectService } from '../app/services/project/api-project.service';
 
 export const environment = {
   production: true,

@@ -7,7 +7,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { environment } from '../../../environments/environment.prod';
 import { ProjectBuild } from '../../models/ProjectBuild';
 import { Project } from '../../models/Project';
-import { ProjectService } from './ProjectService';
+import { ProjectService } from './project.service';
 import { BRIGADE_API_HOST } from '../../app.config';
 
 const httpOptions = {

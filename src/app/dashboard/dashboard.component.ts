@@ -2,7 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MomentModule } from 'angular2-moment';
 
 import { ProjectBuild } from '../models/ProjectBuild';
-import { ProjectService } from '../services/project/ProjectService';
+import { ProjectService } from '../services/project/project.service';
 
 @Component({
   selector: 'app-dashboard',

@@ -13,11 +13,11 @@ import { StyleGuideComponent } from './style-guide/style-guide.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
 import { BuildComponent } from './build/build.component';
-import { ProjectService } from './services/project/ProjectService';
+import { ProjectService } from './services/project/project.service';
 import { ProjectComponent } from './project/project.component';
 import { BuildStatusBadgeComponent } from './build-status-badge/build-status-badge.component';
-import { ApiProjectService } from './services/project/ApiProjectService';
-import { BuildService } from './services/build/BuildService';
+import { ApiProjectService } from './services/project/api-project.service';
+import { BuildService } from './services/build/build.service';
 
 @NgModule({
   declarations: [

@@ -7,8 +7,8 @@ import { MomentModule } from 'angular2-moment';
 
 import { Build } from '../models/Build';
 import { Project } from '../models/Project';
-import { ProjectService } from '../services/project/ProjectService';
-import { BuildService } from '../services/build/BuildService';
+import { ProjectService } from '../services/project/project.service';
+import { BuildService } from '../services/build/build.service';
 
 @Component({
   selector: 'app-project',
