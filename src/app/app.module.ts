@@ -3,8 +3,7 @@ import { NgModule } from '@angular/core';
 import { MomentModule } from 'angular2-moment';
 
 import { HttpClientModule } from '@angular/common/http';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
+import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
 
@@ -14,10 +13,11 @@ import { StyleGuideComponent } from './style-guide/style-guide.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
 import { BuildComponent } from './build/build.component';
-import { ProjectService } from './project.service';
-import { BuildService } from './build.service';
+import { ProjectService } from './services/project/project.service';
 import { ProjectComponent } from './project/project.component';
 import { BuildStatusBadgeComponent } from './build-status-badge/build-status-badge.component';
+import { ApiProjectService } from './services/project/api-project.service';
+import { BuildService } from './services/build/build.service';
 
 @NgModule({
   declarations: [
@@ -36,14 +36,12 @@ import { BuildStatusBadgeComponent } from './build-status-badge/build-status-bad
     HttpClientModule,
     AppRoutingModule,
 
-    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
-    // and returns simulated server responses.
-    // Remove it when a real server is ready to receive requests.
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
-      dataEncapsulation: false
-    })
   ],
-  providers: [ProjectService, BuildService],
+  providers: [
+    { provide: BuildService, useClass: environment.buildServiceType },
+    { provide: ProjectService, useClass: environment.projectServiceType },
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

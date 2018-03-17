@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { MomentModule } from 'angular2-moment';
 
-import { ProjectBuild } from '../models/project';
-import { ProjectService } from '../project.service';
+import { ProjectBuild } from '../models/ProjectBuild';
+import { ProjectService } from '../services/project/project.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -22,8 +22,8 @@ export class DashboardComponent implements OnInit {
 
   getProjectBuilds(): void {
     this.projectService.getProjectBuilds()
-      .subscribe(projectBuilds => {
-        this.projectBuilds = projectBuilds;
+      .subscribe(returnedData => {
+        this.projectBuilds = returnedData;
       },
       error => console.error(error)
     );
