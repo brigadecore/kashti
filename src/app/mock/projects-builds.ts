@@ -1,11 +1,13 @@
-export const projectsBuilds = [
+import { ProjectBuild } from '../models/ProjectBuild';
+
+export const ProjectsBuilds: ProjectBuild[] = [
   {
     'project': {
       'id': 'brigade-29d38c7477ecee18e184b69bec354fc350605c51bc16d4dd2b6073',
-      'name': 'kashti/localdev',
+      'name': 'technosophos/coffeesnob',
       'repo': {
-        'name': 'github.com/kashti/localdev',
-        'cloneURL': 'https://github.com/kashti/localdev.git'
+        'name': 'github.com/technosophos/coffeesnob',
+        'cloneURL': 'https://github.com/technosophos/coffeesnob.git'
       },
       'defaultScript': '',
       'kubernetes': {

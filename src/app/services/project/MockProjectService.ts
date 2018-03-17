@@ -10,9 +10,9 @@ import { ProjectsBuilds } from '../../mock/projects-builds';
 @Injectable()
 export class MockProjectService implements ProjectService {
     getProjectBuilds(): Observable<ProjectBuild[]> {
-        throw new Error("Method not implemented.");
+        return Observable.of(ProjectsBuilds);
     }
     getProject(projectId: string): Observable<Project> {
-        throw new Error("Method not implemented.");
+        throw new Error('Method not implemented.');
     }
 }
