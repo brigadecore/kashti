@@ -1,5 +1,6 @@
-import { Observable } from "rxjs/Observable";
-import { ProjectBuild, Project } from "../../models/project";
+import { Observable } from 'rxjs/Observable';
+import { ProjectBuild } from '../../models/ProjectBuild';
+import { Project } from '../../models/Project';
 
 export abstract class ProjectService {
     abstract getProjectBuilds(): Observable<ProjectBuild[]>;

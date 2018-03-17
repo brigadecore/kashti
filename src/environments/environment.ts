@@ -1,5 +1,5 @@
-import { MockProjectService } from "../app/services/project/MockProjectService";
-import { MockBuildService } from "../app/services/build/MockBuildService";
+import { MockProjectService } from '../app/services/project/MockProjectService';
+import { MockBuildService } from '../app/services/build/MockBuildService';
 
 // The file contents for the current environment will overwrite these during build.
 // The build system defaults to the dev environment which uses `environment.ts`, but if you do

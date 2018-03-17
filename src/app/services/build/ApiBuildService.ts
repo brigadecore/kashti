@@ -5,7 +5,7 @@ import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 import { BRIGADE_API_HOST } from '../../app.config';
 import { BuildService } from './BuildService';
-import { Build } from '../../models/project';
+import { Build } from '../../models/Build';
 
 
 const httpOptions = {
@@ -17,8 +17,8 @@ export class ApiBuildService implements BuildService {
   constructor(private http: HttpClient) {}
 
   getBuilds(projectId): Observable<Build[]> {
-    
-    let buildsUrl = `${BRIGADE_API_HOST}/v1/project/${projectId}/builds`;
+
+    const buildsUrl = `${BRIGADE_API_HOST}/v1/project/${projectId}/builds`;
     return this.http
       .get<Build[]>(buildsUrl, httpOptions);
   }

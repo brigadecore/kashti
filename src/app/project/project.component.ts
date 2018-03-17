@@ -5,7 +5,8 @@ import 'rxjs/add/operator/switchMap';
 
 import { MomentModule } from 'angular2-moment';
 
-import { Build, Project } from '../models/project';
+import { Build } from '../models/Build';
+import { Project } from '../models/Project';
 import { ProjectService } from '../services/project/ProjectService';
 import { BuildService } from '../services/build/BuildService';
 

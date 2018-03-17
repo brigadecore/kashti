@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MomentModule } from 'angular2-moment';
 
-import { ProjectBuild } from '../models/project';
+import { ProjectBuild } from '../models/ProjectBuild';
 import { ProjectService } from '../services/project/ProjectService';
 
 @Component({

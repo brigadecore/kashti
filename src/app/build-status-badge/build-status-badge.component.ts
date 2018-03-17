@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { Build } from '../models/project';
+import { Build } from '../models/Build';
 
 @Component({
   selector: 'app-build-status-badge',

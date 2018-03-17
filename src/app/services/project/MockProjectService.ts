@@ -1,7 +1,11 @@
-import { Injectable } from "@angular/core";
-import { ProjectService } from "./ProjectService";
-import { Observable } from "rxjs/Observable";
-import { ProjectBuild, Project } from "../../models/project";
+import { Injectable } from '@angular/core';
+import { ProjectService } from './ProjectService';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
+import { ProjectBuild } from '../../models/ProjectBuild';
+import { Project } from '../../models/Project';
+
+import { ProjectsBuilds } from '../../mock/projects-builds';
 
 @Injectable()
 export class MockProjectService implements ProjectService {

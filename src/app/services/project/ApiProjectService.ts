@@ -5,7 +5,8 @@ import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { environment } from '../../../environments/environment.prod';
-import { ProjectBuild, Project } from '../../models/project';
+import { ProjectBuild } from '../../models/ProjectBuild';
+import { Project } from '../../models/Project';
 import { ProjectService } from './ProjectService';
 import { BRIGADE_API_HOST } from '../../app.config';
 
@@ -21,14 +22,14 @@ export class ApiProjectService implements ProjectService {
   constructor(private http: HttpClient) {}
 
   getProjectBuilds(): Observable<ProjectBuild[]> {
-    let projectBuildsUrl = `${BRIGADE_API_HOST}/v1/projects-build`;
+    const projectBuildsUrl = `${BRIGADE_API_HOST}/v1/projects-build`;
 
     return this.http
       .get<ProjectBuild[]>(projectBuildsUrl, httpOptions);
   }
 
   getProject(projectId): Observable<Project> {
-    let projectUrl = `${BRIGADE_API_HOST}/v1/project/${projectId}`;
+    const projectUrl = `${BRIGADE_API_HOST}/v1/project/${projectId}`;
 
     return this.http.get<Project>(projectUrl, httpOptions);
   }
