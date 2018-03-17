@@ -7,7 +7,7 @@ export interface Build {
   type: string;
   provider: string;
   revision: Revision;
-  payload: string;
-  script: string;
-  worker: BuildWorker;
+  payload?: string;
+  script?: string;
+  worker?: BuildWorker;
 }

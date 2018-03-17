@@ -58,14 +58,16 @@
             <span class="act-message ng-binding">
               <em>#</em>{{ build.id }}
             </span>
-            <span class="act-time-ago ng-binding">
-              {{ build.worker.status }}
-              <span>{{build.worker.end_time | amTimeAgo}}</span>.
-            </span>
-            <span class="act-time-duration">
-              Ran for
-              <span class="ng-binding">{{ build.worker.start_time | amDifference: build.worker.end_time :'seconds' : true | amDuration:'seconds' }}.</span>
-            </span>
+            <div *ngIf="build.worker">
+              <span class="act-time-ago ng-binding">
+                {{ build.worker.status }}
+                <span>{{build.worker.end_time | amTimeAgo}}</span>.
+              </span>
+              <span class="act-time-duration">
+                Ran for
+                <span class="ng-binding">{{ build.worker.start_time | amDifference: build.worker.end_time :'seconds' : true | amDuration:'seconds' }}.</span>
+              </span>
+            </div>
           </a>
         </li>
       </div>
