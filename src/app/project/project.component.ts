@@ -24,24 +24,15 @@ export class ProjectComponent implements OnInit {
     private projectService: ProjectService,
     private buildService: BuildService,
     private route: ActivatedRoute,
-
   ) { }
 
   ngOnInit() {
     const projectId = this.route.snapshot.paramMap.get('id');
-    this.getProject(projectId);
+    this.project = this.route.snapshot.data['project'];
     this.getBuilds(projectId);
   }
 
-  getProject(projectId): void {
-    this.projectService.getProject(projectId)
-      .subscribe(returnedProject => {
-        this.project = returnedProject;
-      },
-      error => console.error(error));
-  }
-
-  getBuilds(projectId): void {
+  getBuilds(projectId) {
     this.buildService.getBuilds(projectId)
       .subscribe(returnedBuilds => {
         this.builds = returnedBuilds;
