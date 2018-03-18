@@ -28,7 +28,7 @@ export class ApiProjectService implements ProjectService {
       .get<ProjectsBuild[]>(projectBuildsUrl, httpOptions);
   }
 
-  getProject(projectId): Observable<Project> {
+  getProject(projectId: string): Observable<Project> {
     const projectUrl = `${BRIGADE_API_HOST}/v1/project/${projectId}`;
 
     return this.http.get<Project>(projectUrl, httpOptions);

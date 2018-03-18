@@ -13,4 +13,10 @@ export class MockBuildService implements BuildService {
     );
     return Observable.of(filteredList);
   }
+
+  getBuild(buildId: string): Observable<Build> {
+    const filteredList =
+    Builds.filter((build: Build) => build.id === buildId);
+  return Observable.of(filteredList[0]).delay(500);
+  }
 }
