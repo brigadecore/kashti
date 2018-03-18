@@ -1,7 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
 import { MomentModule } from 'angular2-moment';
 
-import { ProjectBuild } from '../models/ProjectBuild';
 import { ProjectService } from '../services/project/project.service';
 
 @Component({
@@ -12,21 +13,12 @@ import { ProjectService } from '../services/project/project.service';
 
 export class DashboardComponent implements OnInit {
 
-  projectBuilds: ProjectBuild[];
+  projectsBuilds;
 
-  constructor(private projectService: ProjectService) { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.getProjectBuilds();
-  }
-
-  getProjectBuilds(): void {
-    this.projectService.getProjectBuilds()
-      .subscribe(returnedData => {
-        this.projectBuilds = returnedData;
-      },
-      error => console.error(error)
-    );
+    this.projectsBuilds = this.route.snapshot.data['projectsBuilds'];
   }
 
   showStatus(projectBuild) {

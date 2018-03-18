@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/delay';
 
-import { ProjectBuild } from '../../models/ProjectBuild';
+import { ProjectsBuild } from '../../models/ProjectsBuild';
 import { Project } from '../../models/Project';
 
 import { ProjectsBuilds } from '../../mock/projects-builds';
@@ -13,7 +13,7 @@ import { filter } from 'rxjs/operators';
 
 @Injectable()
 export class MockProjectService implements ProjectService {
-    getProjectBuilds(): Observable<ProjectBuild[]> {
+    getProjectBuilds(): Observable<ProjectsBuild[]> {
         return Observable.of(ProjectsBuilds).delay(500);
     }
 

@@ -20,6 +20,7 @@ import { ApiProjectService } from './services/project/api-project.service';
 import { BuildService } from './services/build/build.service';
 import { ProjectResolver } from './services/project.resolver';
 import { BuildsResolver } from './services/builds.resolver';
+import { ProjectsBuildResolver } from './services/projects-build.resolver';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { BuildsResolver } from './services/builds.resolver';
     { provide: BuildService, useClass: environment.buildServiceType },
     { provide: ProjectService, useClass: environment.projectServiceType },
     ProjectResolver,
+    ProjectsBuildResolver,
     BuildsResolver
 
   ],
