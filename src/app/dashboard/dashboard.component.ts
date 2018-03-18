@@ -13,7 +13,7 @@ import { ProjectService } from '../services/project/project.service';
 
 export class DashboardComponent implements OnInit {
 
-  projectsBuilds;
+  projectsBuilds = [];
 
   constructor(private route: ActivatedRoute) { }
 
