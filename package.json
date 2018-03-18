@@ -6,7 +6,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test",
+    "test": "ng lint && ng test",
+    "test-ci": "ng lint && ng test --single-run && ng e2e",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "e2e:watch": "watch 'ng e2e -s false' src e2e --wait=1"
