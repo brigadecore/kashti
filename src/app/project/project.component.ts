@@ -27,17 +27,8 @@ export class ProjectComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    const projectId = this.route.snapshot.paramMap.get('id');
     this.project = this.route.snapshot.data['project'];
-    this.getBuilds(projectId);
-  }
-
-  getBuilds(projectId) {
-    this.buildService.getBuilds(projectId)
-      .subscribe(returnedBuilds => {
-        this.builds = returnedBuilds;
-      },
-      error => console.error(error));
+    this.builds = this.route.snapshot.data['builds'];
   }
 
   calculateProviderLogoClass(buildProvider) {

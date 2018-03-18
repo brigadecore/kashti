@@ -5,13 +5,14 @@ import { ProjectComponent } from './project/project.component';
 import { BuildComponent } from './build/build.component';
 import { StyleGuideComponent } from './style-guide/style-guide.component';
 import { ProjectResolver } from './services/project.resolver';
+import { BuildsResolver } from './services/builds.resolver';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'project/:id',
     component: ProjectComponent,
-    resolve: { project: ProjectResolver}
+    resolve: { project: ProjectResolver, builds: BuildsResolver }
   },
   { path: 'build/:id', component: BuildComponent },
   { path: 'styleguide', component: StyleGuideComponent }
