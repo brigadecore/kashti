@@ -8,6 +8,7 @@ import { MockBuildService } from '../app/services/build/mock-build.service';
 
 export const environment = {
   production: false,
+  routeDebugging: true,
 
   buildServiceType: MockBuildService,
   projectServiceType: MockProjectService
