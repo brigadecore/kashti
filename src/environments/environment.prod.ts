@@ -3,6 +3,7 @@ import { ApiProjectService } from '../app/services/project/api-project.service';
 
 export const environment = {
   production: true,
+  routeDebugging: false,
 
   buildServiceType: ApiBuildService,
   projectServiceType: ApiProjectService
