@@ -66,8 +66,8 @@
 
   }
 
-  .kashti-issues,
-  .kashti-docs {
+  #kashti-issues,
+  #kashti-docs {
 
     &:hover {
       .icon:after {
@@ -98,12 +98,12 @@
     }
   }
 
-  .kashti-docs em {
+  #kashti-docs em {
     bottom: 3.75rem;
     min-width: 4.75rem;
   }
 
-  .kashti-issues em {
+  #kashti-issues em {
     bottom: 1.2rem;
     min-width: 5.5rem;
   }
