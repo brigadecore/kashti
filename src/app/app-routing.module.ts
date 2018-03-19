@@ -18,11 +18,11 @@ const routes: Routes = [
     component: DashboardComponent,
     resolve: { projectsBuilds: ProjectsBuildResolver }
   },
-  { path: 'project/:id',
+  { path: 'projects/:id',
     component: ProjectComponent,
     resolve: { project: ProjectResolver, builds: BuildsResolver }
   },
-  { path: 'build/:id',
+  { path: 'builds/:id',
     component: BuildComponent,
     resolve: { build: BuildResolver }
   },
