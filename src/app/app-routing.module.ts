@@ -10,6 +10,7 @@ import { StyleGuideComponent } from './style-guide/style-guide.component';
 import { ProjectResolver } from './services/project.resolver';
 import { BuildsResolver } from './services/builds.resolver';
 import { ProjectsBuildResolver } from './services/projects-build.resolver';
+import { BuildResolver } from './services/build.resolver';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -21,7 +22,10 @@ const routes: Routes = [
     component: ProjectComponent,
     resolve: { project: ProjectResolver, builds: BuildsResolver }
   },
-  { path: 'build/:id', component: BuildComponent },
+  { path: 'build/:id',
+    component: BuildComponent,
+    resolve: { build: BuildResolver }
+  },
   { path: 'styleguide', component: StyleGuideComponent }
 ];
 

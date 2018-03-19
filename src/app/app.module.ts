@@ -21,6 +21,7 @@ import { BuildService } from './services/build/build.service';
 import { ProjectResolver } from './services/project.resolver';
 import { BuildsResolver } from './services/builds.resolver';
 import { ProjectsBuildResolver } from './services/projects-build.resolver';
+import { BuildResolver } from './services/build.resolver';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { ProjectsBuildResolver } from './services/projects-build.resolver';
     { provide: ProjectService, useClass: environment.projectServiceType },
     ProjectResolver,
     ProjectsBuildResolver,
-    BuildsResolver
+    BuildsResolver,
+    BuildResolver
 
   ],
   bootstrap: [AppComponent]

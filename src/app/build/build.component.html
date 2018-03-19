@@ -10,7 +10,7 @@
               <i class="icon ion-ios-arrow-back-outline"></i>
             </a>
             Build &nbsp;
-            <em>{{ build?.id }}</em>
+            <em>{{ build.id }}</em>
           </h1>
 
           <div class="build-status success" ng-class="{
@@ -18,7 +18,7 @@
             'failed': build.worker.status == 'Failed',
             'active': build.worker.status == 'Pending'}">
             <div class="success" ng-show="build.worker.status == 'Succeeded'">
-              <i class="icon ion-md-checkmark-circle"></i> {{ build?.status }}</div>
+              <i class="icon ion-md-checkmark-circle"></i> {{ build.status }}</div>
             <!-- Pending API hookup:
             <div class="failed ng-hide" ng-show="build.worker.status == 'Failed'"><i class="icon ion-md-close-circle"></i> Failed</div>
             <div class="active ng-hide" ng-show="build.worker.status == 'Pending'"><img src="assets/images/rolling.svg"> In Progress</div>
@@ -26,8 +26,8 @@
           </div>
 
           <div class="grid-block horizontal build-metadata">
-            <div class="grid-content small-6 text-left ng-binding">Started at {{ worker?.start_time }} </div>
-            <div class="grid-content small-6 text-right ng-binding">Finished at {{ worker?.end_time }}</div>
+            <div class="grid-content small-6 text-left ng-binding">Started at {{ worker.start_time }} </div>
+            <div class="grid-content small-6 text-right ng-binding">Finished at {{ worker.end_time }}</div>
           </div>
 
           <div class="horizontal build-chart build-chart-1" gantt="" data="data" ng-init="showChart = true" ng-hide="!showChart" ng-controller="jobsController">
@@ -75,7 +75,7 @@
     <ul class="build-details" ng-hide="jobs.length == '0'" id="build-details">
       <li class="parent">
         <em ng-show="build.provider == 'github'" class="ng-binding ng-hide">
-          <i class="icon logo-github"></i> {{ build?.provider }}</em>
+          <i class="icon logo-github"></i> {{ build.provider }}</em>
         <!-- Pending API hookup:
           <em ng-show="build.provider == 'dockerhub'" class="ng-binding ng-hide"><img src="assets/images/docker.png" alt="dockerhub"> brigade-cli</em>
           <em ng-show="build.provider == 'slackbot'" class="ng-binding ng-hide"><img src="assets/images/slack.png" alt="Slack"> brigade-cli</em>
@@ -85,9 +85,9 @@
             build.provider === 'github'
           )" class="ng-binding"> brigade-cli</em>  -->
         :
-        <em class="ng-binding">{{ build?.type }}</em>
+        <em class="ng-binding">{{ build.type }}</em>
         started a build via
-        <em class="ng-binding">commit {{ revision?.commit }}</em>
+        <em class="ng-binding">commit {{ revision.commit }}</em>
       </li>
 
       <!-- Pending API hookup:
