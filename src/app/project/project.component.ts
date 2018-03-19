@@ -1,14 +1,9 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
 
 import { MomentModule } from 'angular2-moment';
-
-import { Build } from '../models/Build';
-import { Project } from '../models/Project';
-import { ProjectService } from '../services/project/project.service';
-import { BuildService } from '../services/build/build.service';
 
 @Component({
   selector: 'app-project',
@@ -21,35 +16,15 @@ export class ProjectComponent implements OnInit {
   builds;
 
   constructor(
-    private projectService: ProjectService,
-    private buildService: BuildService,
     private route: ActivatedRoute,
-
   ) { }
 
   ngOnInit() {
-    const projectId = this.route.snapshot.paramMap.get('id');
-    this.getProject(projectId);
-    this.getBuilds(projectId);
+    this.project = this.route.snapshot.data['project'];
+    this.builds = this.route.snapshot.data['builds'];
   }
 
-  getProject(projectId): void {
-    this.projectService.getProject(projectId)
-      .subscribe(returnedProject => {
-        this.project = returnedProject;
-      },
-      error => console.error(error));
-  }
-
-  getBuilds(projectId): void {
-    this.buildService.getBuilds(projectId)
-      .subscribe(returnedBuilds => {
-        this.builds = returnedBuilds;
-      },
-      error => console.error(error));
-  }
-
-  calculateProviderLogoClass(buildProvider) {
+  CalculateProviderLogoClass(buildProvider) {
     switch (buildProvider) {
       case 'github':
         return 'icon ion-logo-github';
