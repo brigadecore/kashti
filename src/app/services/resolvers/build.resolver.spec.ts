@@ -1,7 +1,7 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { BuildResolver } from './build.resolver';
-import { BuildService } from './build/build.service';
+import { BuildService } from '../build/build.service';
 
 
 describe('BuildResolver', () => {

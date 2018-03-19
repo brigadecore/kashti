@@ -1,7 +1,7 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { ProjectResolver } from './project.resolver';
-import { ProjectService } from './project/project.service';
+import { ProjectService } from '../project/project.service';
 
 
 describe('ProjectResolver', () => {

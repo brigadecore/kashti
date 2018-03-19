@@ -7,10 +7,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProjectComponent } from './project/project.component';
 import { BuildComponent } from './build/build.component';
 import { StyleGuideComponent } from './style-guide/style-guide.component';
-import { ProjectResolver } from './services/project.resolver';
-import { BuildsResolver } from './services/builds.resolver';
-import { ProjectsBuildResolver } from './services/projects-build.resolver';
-import { BuildResolver } from './services/build.resolver';
+import { ProjectResolver } from './services/resolvers/project.resolver';
+import { BuildsResolver } from './services/resolvers/builds.resolver';
+import { ProjectsBuildResolver } from './services/resolvers/projects-build.resolver';
+import { BuildResolver } from './services/resolvers/build.resolver';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
