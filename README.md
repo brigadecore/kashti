@@ -36,6 +36,7 @@ Begin by cloning this repository with your favorite Git tool.
 ```console
 $ git clone git@github.com:Azure/kashti.git
 $ cd kashti
+$ yarn global add @angular/cli
 $ yarn install                      # install project dependencies
 ```
 
