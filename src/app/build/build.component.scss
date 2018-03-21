@@ -6,11 +6,6 @@
   position: relative;
   margin: 0;
 
-  .content-wrap {
-    overflow-x: hidden;
-    overflow-y: scroll;
-  }
-
   .grid-container {
     max-width: 60rem !important;
 
@@ -36,53 +31,6 @@
   }
 }
 
-.build-chart-0 {
-  height: 0.95rem !important;
-
-  .build-chart-bg {
-    height: 210px !important;
-  }
-
-  .build-chart {
-    display: none;
-  }
-}
-
-
-.build-chart-1 {
-  height: 2.25rem !important;
-
-  .build-chart-bg {
-    height: 238px !important;
-  }
-
-  &.build-chart {
-    &:before,
-    &:after {
-      height: 50px !important;
-    }
-  }
-}
-
-.build-chart-2 {
-  height: 4.5rem !important;
-
-  .build-chart-bg {
-    height: 210px !important;
-  }
-
-  .build-chart {
-    &:before,
-    &:after {
-      height: 80px !important;
-    }
-  }
-}
-
-.build-chart-3 {
-
-}
-
 .build-header-wrap {
   position: relative;
   z-index: 200;
@@ -94,7 +42,6 @@
 .build-header {
   padding: 1.25rem 1.75rem;
   position: relative;
-  overflow-x: hidden;
 
   h1 {
     font-size: 1.75rem;
@@ -149,22 +96,22 @@
   }
 
   .build-chart {
-    height: 13.5rem;
+    height: 5rem;
     position: relative;
 
-    .build-chart-bg {
-      background: linear-gradient(5deg, darken(#F0F1F6, 7.5%) 0%, lighten(#e6e9f0, 1%) 100%);
-      display: block;
-      content: " ";
-      top: 0px;
-      left: 3.5rem;
-      right: 0;
-      width: 100%;
-      height: 150px;
-      position: fixed;
-      z-index: -100;
-      @include transition;
-    }
+    // .build-chart-bg {
+    //   background: linear-gradient(5deg, darken(#F0F1F6, 7.5%) 0%, lighten(#e6e9f0, 1%) 100%);
+    //   display: block;
+    //   content: " ";
+    //   top: 0px;
+    //   left: 3.5rem;
+    //   right: 0;
+    //   width: 100%;
+    //   height: 150px;
+    //   position: fixed;
+    //   z-index: -100;
+    //   @include transition;
+    // }
 
     &:before,
     &:after {
@@ -501,9 +448,7 @@ ul.build-details {
     background: lighten($dark2, 5%);
     position: relative;
     overflow-x: hidden;
-    overflow-y: scroll;
     border-radius: 3px;
-    height: 135px;
     width: 100%;
     padding: 0.75rem 1rem;
     @include transition;
