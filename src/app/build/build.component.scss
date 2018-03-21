@@ -1,15 +1,23 @@
 @import 'global_variables';
 @import 'global_states';
 
+.build-chart-bg {
+  background: linear-gradient(5deg, darken(#F0F1F6, 2.5%) 0%, lighten(#e6e9f0, 1%) 100%);
+  display: block;
+  content: " ";
+  top: 0;
+  left: 3.5rem;
+  right: 0;
+  width: 100%;
+  height: 13.25rem;
+  position: absolute;
+  z-index: -100;
+  @include transition;
+}
 
 .template-build {
   position: relative;
   margin: 0;
-
-  .content-wrap {
-    overflow-x: hidden;
-    overflow-y: scroll;
-  }
 
   .grid-container {
     max-width: 60rem !important;
@@ -25,7 +33,7 @@
 
     &.active-chart {
       &:after {
-        height: 335px;
+        height: 21rem;
       }
 
       .button {
@@ -36,85 +44,34 @@
   }
 }
 
-.build-chart-0 {
-  height: 0.95rem !important;
-
-  .build-chart-bg {
-    height: 210px !important;
-  }
-
-  .build-chart {
-    display: none;
-  }
-}
-
-
-.build-chart-1 {
-  height: 2.25rem !important;
-
-  .build-chart-bg {
-    height: 238px !important;
-  }
-
-  &.build-chart {
-    &:before,
-    &:after {
-      height: 50px !important;
-    }
-  }
-}
-
-.build-chart-2 {
-  height: 4.5rem !important;
-
-  .build-chart-bg {
-    height: 210px !important;
-  }
-
-  .build-chart {
-    &:before,
-    &:after {
-      height: 80px !important;
-    }
-  }
-}
-
-.build-chart-3 {
-
-}
-
 .build-header-wrap {
   position: relative;
   z-index: 200;
   padding-bottom: 0.825rem;
-  padding-left: 2rem;
   overflow: visible;
 }
 
 .build-header {
-  padding: 1.25rem 1.75rem;
+  padding: 1.25rem 0;
   position: relative;
-  overflow-x: hidden;
 
   h1 {
     font-size: 1.75rem;
     color: $dark2;
-    margin-bottom: 1.25rem;
-    padding-left: 1rem;
     margin: -0.25em 0 1em;
     position: relative;
 
     a {
       position: absolute;
-      left: -1rem;
+      left: -2.5rem;
       padding-right: 1.5rem;
       color: $brand2;
-      font-size: 1.25rem;
-      top: 0.35rem;
+      font-size: 1.5rem;
+      top: 0.2rem;
       @include transition;
 
       &:hover {
-        left: -2.5rem;
+        left: -2.825rem;
       }
     }
 
@@ -140,38 +97,32 @@
     }
   }
 
+  .build-status {
+    right: 0;
+  }
+
   .build-metadata {
     font-family: $mono;
     font-size: 0.667rem;
     color: darken($dark3, 7.5%);
     margin-top: -0.5rem;
     padding-bottom: 2rem;
+
+    .text-right {
+      padding-right: 1rem;
+    }
   }
 
   .build-chart {
-    height: 13.5rem;
+    height: 2.5rem;
     position: relative;
-
-    .build-chart-bg {
-      background: linear-gradient(5deg, darken(#F0F1F6, 7.5%) 0%, lighten(#e6e9f0, 1%) 100%);
-      display: block;
-      content: " ";
-      top: 0px;
-      left: 3.5rem;
-      right: 0;
-      width: 100%;
-      height: 150px;
-      position: fixed;
-      z-index: -100;
-      @include transition;
-    }
 
     &:before,
     &:after {
       display: inline-block;
-      width: 2px;
+      width: 0.13rem;
       position: absolute;
-      height: 160px;
+      height: 3.5rem;
       content: " ";
       background: $light2;
       top: -0.5rem;
@@ -195,8 +146,8 @@
       line-height: 1.636;
       min-width: 2%;
       color: white;
-      @include border-radius(2px);
-      @include box-shadow(0,1px,3px,rgba(255,255,255,0.5));
+      @include border-radius(0.12rem);
+      @include box-shadow(0, 0.0625rem, 0.2rem,rgba(255,255,255,0.5));
       @include transition;
 
       &:hover {
@@ -230,10 +181,10 @@
         content: " ";
         width: 10000%;
         position: absolute;
-        height: 2px;
-        top: 12px;
+        height: 0.125rem;
+        top: 0.75rem;
         content: " ";
-        background: $light2;
+        background: darken($light2, 1.5%);
         left: -1000%;
         right: -1000%;
         z-index: -20;
@@ -262,38 +213,12 @@
       top: 2rem;
       width: 70%;
     }
-
-    .task-3 {
-      left: 0;
-      top: 4rem;
-      width: 25%;
-      left: 5%;
-    }
-
-    .task-4 {
-      left: 30%;
-      top: 6rem;
-      width: 15%;
-
-    }
-
-    .task-5 {
-      left: 70%;
-      top: 8rem;
-      width: 14%;
-    }
-
-    .task-6 {
-      left: 85%;
-      top: 8rem;
-      width: 15%;
-    }
   }
 }
 
 .job-list {
   h4 {
-    margin: 0.5rem 1.125rem 2rem;
+    margin: 0.5rem 0 2rem;
     @include nunitoBold;
     font-size: 1.125rem;
     color: $dark3;
@@ -314,7 +239,7 @@
 
 ul.build-details {
   list-style: none;
-  margin: 0.5rem 1.5rem 3rem;
+  margin: 0.5rem auto 3rem;
 
   li,
   .accordion-item {
@@ -323,9 +248,9 @@ ul.build-details {
     padding: 0.75rem 1rem;
     font-size: 1rem;
     line-height: 1.5;
-    border-left: 5px solid lighten($success, 10%);
-    @include box-shadow(0,2px,2px,rgba(0,0,0,0.125));
-    @include border-radius(4px);
+    border-left: 0.33rem solid lighten($success, 10%);
+    @include box-shadow(0, 0.12rem, 0.12rem,rgba(0,0,0,0.125));
+    @include border-radius(0.25rem);
     margin-left: 1rem;
     color: lighten($dark2, 5%);
 
@@ -356,7 +281,7 @@ ul.build-details {
       font-family: $mono;
       padding: 0.25rem 0.5rem;
       font-size: 0.825rem;
-      border-radius: 3px;
+      border-radius: 0.2rem;
       margin-left: 0.3rem;
       margin-right: 0.3rem;
 
@@ -388,7 +313,7 @@ ul.build-details {
       font-family: $mono;
       color: $dark3;
       background: lighten($light2, 5%);
-      border-radius: 6px;
+      border-radius: 0.38rem;
       padding: 0 0.5rem;
       margin-top: 0;
       margin-left: -0.5rem;
@@ -396,15 +321,11 @@ ul.build-details {
       &:last-child {
         margin-top: 1rem;
       }
-
-      &.active {
-
-      }
     }
 
     dl {
-      margin-left: 0px;
-      margin-top: -32px;
+      margin-left: 0;
+      margin-top: -2rem;
       clear: both;
       line-height: 1.3;
 
@@ -432,7 +353,7 @@ ul.build-details {
       float: left;
       background: $light2;
       margin: 0.925rem 0 0 0;
-      padding: 0.25rem 0.75rem 0.25rem 36px;
+      padding: 0.25rem 0.75rem 0.25rem 2rem;
       border-radius: 3rem;
       line-height: 1.75;
       position: relative;
@@ -443,14 +364,14 @@ ul.build-details {
         font-size: 1.125rem;
         position: absolute;
         left: 0.667rem;
-        top: 4px;
+        top: 0.25rem;
         line-height: 1.25;
         margin: 0 0.5rem 0 0;
       }
 
       img {
-        width: 18px;
-        max-height: 18px;
+        width: 1.13rem;
+        max-height: 1.13rem;
       }
     }
   }
@@ -472,7 +393,7 @@ ul.build-details {
       font-weight: bold;
       font-size: 0.75rem;
       line-height: 2;
-      @include border-radius(4px, 4px);
+      @include border-radius(0.25rem, 0.25rem);
       @include transition;
 
       i {
@@ -501,9 +422,7 @@ ul.build-details {
     background: lighten($dark2, 5%);
     position: relative;
     overflow-x: hidden;
-    overflow-y: scroll;
-    border-radius: 3px;
-    height: 135px;
+    border-radius: 0.2rem;
     width: 100%;
     padding: 0.75rem 1rem;
     @include transition;
@@ -524,20 +443,20 @@ ul.build-details {
       line-height: 1.5;
       font-size: 0.825rem;
       display: table-cell;
-      height: 135px;
+      height: 8.44rem;
       vertical-align: bottom;
       padding-bottom: 3em !important;
     }
   }
 
   li.active {
-    border-left: 6px solid $brand2;
+    border-left: 0.38rem solid $brand2;
   }
   li.success {
-    border-left: 6px solid $success;
+    border-left: 0.38rem solid $success;
   }
   li.failed {
-    border-left: 6px solid $fail;
+    border-left: 0.38rem solid $fail;
   }
 
   li.zf-accordion-wrap {
@@ -558,7 +477,7 @@ ul.build-details {
     color: $light3;
     padding: 0.5rem 1rem 0;
     margin-bottom: 0.5rem;
-    @include border-radius(4px);
+    @include border-radius(0.25rem);
   }
 
   small {

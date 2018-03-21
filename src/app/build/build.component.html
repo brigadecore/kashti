@@ -1,4 +1,5 @@
 <div class="grid-container build-chart-" ng-class="{'active-chart': showChart }">
+  <div class="build-chart-bg"></div>
 
   <div class="grid-content build-header-wrap">
     <div class="grid-block horizontal">
@@ -26,13 +27,11 @@
           </div>
 
           <div class="grid-block horizontal build-metadata">
-            <div class="grid-content small-6 text-left ng-binding">Started at {{ worker.start_time }} </div>
-            <div class="grid-content small-6 text-right ng-binding">Finished at {{ worker.end_time }}</div>
+            <div class="grid-content small-6 text-left">Started at {{ worker.start_time }} </div>
+            <div class="grid-content small-6 text-right">Finished at {{ worker.end_time }}</div>
           </div>
 
           <div class="horizontal build-chart build-chart-1" gantt="" data="data" ng-init="showChart = true" ng-hide="!showChart" ng-controller="jobsController">
-
-            <div class="build-chart-bg"></div>
 
             <div class="task task-0">
               <a href="">
