@@ -18,7 +18,8 @@ export class MockProjectService implements ProjectService {
     }
 
     getProject(projectId: string): Observable<Project> {
-      const filteredList = Projects.filter((project: Project) => project.id === projectId);
+      const filteredList =
+        Projects.filter((project: Project) => project.id === projectId);
       return Observable.of(filteredList[0]).delay(500);
     }
 }

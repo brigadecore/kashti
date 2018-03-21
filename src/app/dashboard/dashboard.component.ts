@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { MomentModule } from 'angular2-moment';
 
 import { ProjectService } from '../services/project/project.service';
+import { ProjectsBuild } from '../models/ProjectsBuild';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,7 +14,7 @@ import { ProjectService } from '../services/project/project.service';
 
 export class DashboardComponent implements OnInit {
 
-  projectsBuilds = [];
+  projectsBuilds: ProjectsBuild[];
 
   constructor(private route: ActivatedRoute) { }
 

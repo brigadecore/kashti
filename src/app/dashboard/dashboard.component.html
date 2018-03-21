@@ -1,7 +1,7 @@
 <div class="row small-up-1 medium-up-1 large-up-2 xlarge-up-3 dash-wrapper">
   <section class="columns" *ngFor="let projectBuild of projectsBuilds">
     <div class="project">
-      <a routerLink="/project/{{projectBuild.project.id}}">
+      <a routerLink="/projects/{{projectBuild.project.id}}">
         <div class="status">
           <i [ngClass]="calculateStatusClasses(projectBuild.lastBuild)"></i>
         </div>

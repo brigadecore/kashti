@@ -3,6 +3,9 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
 
+import { Project } from '../models/Project';
+import { Build } from '../models/Build';
+
 import { MomentModule } from 'angular2-moment';
 
 @Component({
@@ -12,8 +15,8 @@ import { MomentModule } from 'angular2-moment';
 })
 
 export class ProjectComponent implements OnInit {
-  project;
-  builds;
+  project: Project;
+  builds: Build[];
 
   constructor(
     private route: ActivatedRoute,
