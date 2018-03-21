@@ -4,7 +4,7 @@
 
 .breadcrumb-bar {
   background: #fff;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 56px;
   right: 0;
@@ -19,6 +19,7 @@
   }
 
   a,
+  span,
   i {
     line-height: 2.25;
     padding: 0.75rem 2rem;

@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
+
+import { Project } from '../models/Project';
+import { Build } from '../models/Build';
 
 @Component({
   selector: 'app-breadcrumb',
