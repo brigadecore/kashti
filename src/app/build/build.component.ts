@@ -3,6 +3,10 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
 
+import { Build } from '../models/Build';
+import { Revision } from '../models/Revision';
+import { BuildWorker } from '../models/BuildWorker';
+
 import { MomentModule } from 'angular2-moment';
 
 @Component({
@@ -11,9 +15,9 @@ import { MomentModule } from 'angular2-moment';
   styleUrls: ['./build.component.scss']
 })
 export class BuildComponent implements OnInit {
-  build;
-  revision;
-  worker;
+  build: Build;
+  revision: Revision;
+  worker: BuildWorker;
 
   constructor(private route: ActivatedRoute) {}
 
