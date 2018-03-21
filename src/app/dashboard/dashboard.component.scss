@@ -1,9 +1,9 @@
 @import 'global_variables';
 @import 'global_states';
 
-.dash-wrapper {
-  padding: 0.925rem 4.5% 5rem;
 
+:host {
+  padding: 0.925rem 4.25% 5rem;
 }
 
 @mixin icon {
