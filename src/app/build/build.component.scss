@@ -1,6 +1,19 @@
 @import 'global_variables';
 @import 'global_states';
 
+.build-chart-bg {
+  background: linear-gradient(5deg, darken(#F0F1F6, 2.5%) 0%, lighten(#e6e9f0, 1%) 100%);
+  display: block;
+  content: " ";
+  top: 0px;
+  left: 3.5rem;
+  right: 0;
+  width: 100%;
+  height: 195px;
+  position: absolute;
+  z-index: -100;
+  @include transition;
+}
 
 .template-build {
   position: relative;
@@ -84,38 +97,32 @@
     }
   }
 
+  .build-status {
+    right: 0;
+  }
+
   .build-metadata {
     font-family: $mono;
     font-size: 0.667rem;
     color: darken($dark3, 7.5%);
     margin-top: -0.5rem;
     padding-bottom: 2rem;
+
+    .text-right {
+      padding-right: 1rem;
+    }
   }
 
   .build-chart {
-    height: 5rem;
+    height: 2.5rem;
     position: relative;
-
-    // .build-chart-bg {
-    //   background: linear-gradient(5deg, darken(#F0F1F6, 7.5%) 0%, lighten(#e6e9f0, 1%) 100%);
-    //   display: block;
-    //   content: " ";
-    //   top: 0px;
-    //   left: 3.5rem;
-    //   right: 0;
-    //   width: 100%;
-    //   height: 150px;
-    //   position: fixed;
-    //   z-index: -100;
-    //   @include transition;
-    // }
 
     &:before,
     &:after {
       display: inline-block;
       width: 2px;
       position: absolute;
-      height: 160px;
+      height: 55px;
       content: " ";
       background: $light2;
       top: -0.5rem;
@@ -205,32 +212,6 @@
       left: 5%;
       top: 2rem;
       width: 70%;
-    }
-
-    .task-3 {
-      left: 0;
-      top: 4rem;
-      width: 25%;
-      left: 5%;
-    }
-
-    .task-4 {
-      left: 30%;
-      top: 6rem;
-      width: 15%;
-
-    }
-
-    .task-5 {
-      left: 70%;
-      top: 8rem;
-      width: 14%;
-    }
-
-    .task-6 {
-      left: 85%;
-      top: 8rem;
-      width: 15%;
     }
   }
 }
@@ -339,10 +320,6 @@ ul.build-details {
 
       &:last-child {
         margin-top: 1rem;
-      }
-
-      &.active {
-
       }
     }
 
