@@ -35,33 +35,30 @@
   position: relative;
   z-index: 200;
   padding-bottom: 0.825rem;
-  padding-left: 2rem;
   overflow: visible;
 }
 
 .build-header {
-  padding: 1.25rem 1.75rem;
+  padding: 1.25rem 0;
   position: relative;
 
   h1 {
     font-size: 1.75rem;
     color: $dark2;
-    margin-bottom: 1.25rem;
-    padding-left: 1rem;
     margin: -0.25em 0 1em;
     position: relative;
 
     a {
       position: absolute;
-      left: -1rem;
+      left: -2.5rem;
       padding-right: 1.5rem;
       color: $brand2;
-      font-size: 1.25rem;
-      top: 0.35rem;
+      font-size: 1.5rem;
+      top: 0.2rem;
       @include transition;
 
       &:hover {
-        left: -2.5rem;
+        left: -2.825rem;
       }
     }
 
@@ -240,7 +237,7 @@
 
 .job-list {
   h4 {
-    margin: 0.5rem 1.125rem 2rem;
+    margin: 0.5rem 0 2rem;
     @include nunitoBold;
     font-size: 1.125rem;
     color: $dark3;
@@ -261,7 +258,7 @@
 
 ul.build-details {
   list-style: none;
-  margin: 0.5rem 1.5rem 3rem;
+  margin: 0.5rem auto 3rem;
 
   li,
   .accordion-item {
