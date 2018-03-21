@@ -9,7 +9,7 @@
   left: 3.5rem;
   right: 0;
   width: 100%;
-  height: 12.2rem;
+  height: 13.25rem;
   position: absolute;
   z-index: -100;
   @include transition;
@@ -181,10 +181,10 @@
         content: " ";
         width: 10000%;
         position: absolute;
-        height: 0.125remrem;
+        height: 0.125rem;
         top: 0.75rem;
         content: " ";
-        background: $light2;
+        background: darken($light2, 1.5%);
         left: -1000%;
         right: -1000%;
         z-index: -20;
