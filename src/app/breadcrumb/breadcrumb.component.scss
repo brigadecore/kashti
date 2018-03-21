@@ -1,0 +1,46 @@
+@import 'global_variables';
+@import 'global_states';
+
+
+.breadcrumb-bar {
+  background: #fff;
+  position: fixed;
+  top: 0;
+  left: 56px;
+  right: 0;
+  padding: 0 0.2rem;
+  min-height: 3.6rem;
+  background: lighten($light1, 3.5%);
+  z-index: 1200;
+  @include transition;
+
+  &:hover {
+    background: lighten($light1, 1.5%);
+  }
+
+  a,
+  i {
+    line-height: 2.25;
+    padding: 0.75rem 2rem;
+    display: inline-block;
+  }
+
+  a {
+    color: $brand1;
+    opacity: 0.5;
+    @include transition;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  i {
+    font-size: 1.5rem;
+    padding: 0;
+    position: absolute;
+    margin-left: -0.25rem;
+    top: 0.25rem;
+    color: darken($light1, 7.5%);
+  }
+}

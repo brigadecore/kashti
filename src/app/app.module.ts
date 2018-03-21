@@ -22,6 +22,7 @@ import { ProjectResolver } from './services/resolvers/project.resolver';
 import { BuildsResolver } from './services/resolvers/builds.resolver';
 import { ProjectsBuildResolver } from './services/resolvers/projects-build.resolver';
 import { BuildResolver } from './services/resolvers/build.resolver';
+import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { BuildResolver } from './services/resolvers/build.resolver';
     FooterComponent,
     ProjectComponent,
     BuildComponent,
-    BuildStatusBadgeComponent
+    BuildStatusBadgeComponent,
+    BreadcrumbComponent
   ],
   imports: [
     MomentModule,
