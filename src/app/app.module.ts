@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AppRoutingModule } from './app-routing.module';
 import { StyleGuideComponent } from './style-guide/style-guide.component';
+import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
 import { BuildComponent } from './build/build.component';
@@ -22,7 +23,6 @@ import { ProjectResolver } from './services/resolvers/project.resolver';
 import { BuildsResolver } from './services/resolvers/builds.resolver';
 import { ProjectsBuildResolver } from './services/resolvers/projects-build.resolver';
 import { BuildResolver } from './services/resolvers/build.resolver';
-import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 
 @NgModule({
   declarations: [
@@ -30,11 +30,11 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
     DashboardComponent,
     StyleGuideComponent,
     SidebarComponent,
+    BreadcrumbComponent,
     FooterComponent,
     ProjectComponent,
     BuildComponent,
-    BuildStatusBadgeComponent,
-    BreadcrumbComponent
+    BuildStatusBadgeComponent
   ],
   imports: [
     MomentModule,
