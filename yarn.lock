@@ -2034,6 +2034,10 @@ extsprintf@^1.2.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.4.0.tgz#e2689f8f356fad62cca65a3a91c5df5f9551692f"
 
+factory.ts@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/factory.ts/-/factory.ts-0.2.2.tgz#94b1b9e1d1e83e2138c4807185ff67dc534a392e"
+
 fast-deep-equal@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-1.0.0.tgz#96256a3bc975595eb36d82e9929d060d893439ff"
