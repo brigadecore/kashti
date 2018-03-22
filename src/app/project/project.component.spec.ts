@@ -119,6 +119,8 @@ describe('ProjectComponent', () => {
 
     it('should set the project', async(() => {
       expect(component.project).toEqual(project);
+      expect(fixture.nativeElement.querySelector('h1')
+        .textContent).toContain('kashti/localdev');
     }));
 
     it('should set the builds', async(() => {
