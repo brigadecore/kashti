@@ -4,12 +4,14 @@ import { ActivatedRoute } from '@angular/router';
 import { MomentModule } from 'angular2-moment/moment.module';
 
 import { ProjectComponent } from './project.component';
+import { Project } from '../models/Project';
+import { Build } from '../models/Build';
 
 describe('ProjectComponent', () => {
   let component: ProjectComponent;
   let fixture: ComponentFixture<ProjectComponent>;
-  let project;
-  let builds;
+  let project: Project;
+  let builds: Build[];
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -34,6 +36,9 @@ describe('ProjectComponent', () => {
     fixture.detectChanges();
   });
 
+  afterEach(() => {
+    component = undefined;
+  });
   describe('when there is project and build data available', () => {
     beforeEach(() => {
       project = {
@@ -127,8 +132,11 @@ describe('ProjectComponent', () => {
       builds = undefined;
     });
 
-    xit('should create when no project data is available', () => {
+    it('should create the component', () => {
       expect(component).toBeTruthy();
+    });
+
+    it('should create when no project data is available', () => {
       expect(component.project).toBeUndefined();
       expect(component.builds).toBeUndefined();
     });
