@@ -22,6 +22,8 @@ import { ProjectResolver } from './services/resolvers/project.resolver';
 import { BuildsResolver } from './services/resolvers/builds.resolver';
 import { ProjectsBuildResolver } from './services/resolvers/projects-build.resolver';
 import { BuildResolver } from './services/resolvers/build.resolver';
+import { JobComponent } from './job/job.component';
+import { LogComponent } from './log/log.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { BuildResolver } from './services/resolvers/build.resolver';
     FooterComponent,
     ProjectComponent,
     BuildComponent,
-    BuildStatusBadgeComponent
+    BuildStatusBadgeComponent,
+    JobComponent,
+    LogComponent
   ],
   imports: [
     MomentModule,
