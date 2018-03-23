@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ActivatedRoute } from '@angular/router';
 import { MomentModule } from 'angular2-moment/moment.module';
@@ -13,8 +14,8 @@ import { Build } from '../models/Build';
 describe('ProjectComponent', () => {
   let component: ProjectComponent;
   let fixture: ComponentFixture<ProjectComponent>;
-  let project: Project;
-  let builds: Build[];
+  let mockProject: Project;
+  let mockBuilds: Build[];
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -27,7 +28,7 @@ describe('ProjectComponent', () => {
       ],
       providers: [{
         provide: ActivatedRoute,
-        useValue: {snapshot: {data: {'project': project, builds: builds}}}
+        useValue: {snapshot: {data: {'project': mockProject, builds: mockBuilds}}}
       }]
     })
     .compileComponents();
@@ -44,8 +45,8 @@ describe('ProjectComponent', () => {
   });
   describe('when there is project and build data available', () => {
     beforeEach(() => {
-      project = ProjectFactory.build({name: 'coffeesnob'});
-      builds = BuildFactory.buildList(2);
+      mockProject = ProjectFactory.build({name: 'coffeesnob'});
+      mockBuilds = BuildFactory.buildList(2, {id: 'coffeebuild'});
     });
 
     it('should create the component', () => {
@@ -53,20 +54,33 @@ describe('ProjectComponent', () => {
     });
 
     it('should set the project', async(() => {
-      expect(component.project).toEqual(project);
+      expect(component.project).toEqual(mockProject);
       expect(fixture.nativeElement.querySelector('h1')
         .textContent).toContain('coffeesnob');
     }));
 
     it('should set the builds', async(() => {
-      expect(component.builds).toEqual(builds);
+      expect(component.builds).toEqual(mockBuilds);
+      const firstBuild = fixture.nativeElement.querySelector('.build-item');
+      expect(firstBuild.textContent).toContain('coffeebuild');
     }));
+
+    it('should detect changes upstream and update the component elements', () => {
+      component.project.name = 'newsnob';
+      component.builds[0].id = 'newcoffeebuild';
+      fixture.detectChanges();
+      expect(fixture.nativeElement.querySelector('h1')
+        .textContent).toContain('newsnob');
+      const buildElement = fixture.nativeElement.querySelector('.build-item');
+      expect(buildElement.textContent).toContain('newcoffeebuild');
+    });
+
   });
 
   describe('when project and build data is unavailable', () => {
     beforeEach(() => {
-      project = undefined;
-      builds = undefined;
+      mockProject = undefined;
+      mockBuilds = undefined;
     });
 
     it('should create the component', () => {

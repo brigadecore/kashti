@@ -3,7 +3,7 @@ import * as Factory from 'factory.ts';
 import { Build } from '../models/Build';
 
 export const BuildFactory = Factory.makeFactory<Build>({
-  id: '01c0mar8tk6daeabj7fhmcskc6',
+  id: 'buildid1234',
   project_id: 'brigade-1234',
   type: 'push',
   provider: 'github',
