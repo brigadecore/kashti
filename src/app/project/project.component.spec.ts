@@ -13,8 +13,8 @@ import { Build } from '../models/Build';
 describe('ProjectComponent', () => {
   let component: ProjectComponent;
   let fixture: ComponentFixture<ProjectComponent>;
-  let project;
-  let builds;
+  let project: Project;
+  let builds: Build[];
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
