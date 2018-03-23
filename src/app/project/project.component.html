@@ -4,16 +4,16 @@
     <div class="breadcrumb-bar columns">
       <a routerLink="/">Home</a>
       <i class="icon ion-ios-arrow-forward"></i>
-      <a routerLink="project/:id">Project ID {{ project.id }}</a>
+      <a routerLink="project/:id">Project ID {{ project?.id }}</a>
     </div>
 
     <div class="project-header-wrap columns">
       <div class="project-header">
-        <h1>{{ project.name }} </h1>
+        <h1>{{ project?.name }} </h1>
         <ul>
-          <li>Repo: {{ project.repo.name }} </li>
-          <li>Sidecar: {{ project.kubernetes.vcsSidecar }} </li>
-          <li>Namespace: {{ project.kubernetes.namespace }} </li>
+          <li>Repo: {{ project?.repo.name }} </li>
+          <li>Sidecar: {{ project?.kubernetes.vcsSidecar }} </li>
+          <li>Namespace: {{ project?.kubernetes.namespace }} </li>
         </ul>
 
       </div>

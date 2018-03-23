@@ -42,6 +42,7 @@
     "@types/moment": "^2.13.0",
     "@types/node": "~6.0.60",
     "codelyzer": "^4.0.1",
+    "factory.ts": "^0.2.2",
     "jasmine-core": "~2.6.2",
     "jasmine-spec-reporter": "~4.1.0",
     "karma": "~1.7.0",
