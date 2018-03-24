@@ -8,11 +8,30 @@ import { Build } from '../models/Build';
   styleUrls: ['./build-status-badge.component.scss']
 })
 export class BuildStatusBadgeComponent implements OnInit {
-  @Input() build: Build;
+  @Input() status: string;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor() {
+    this.status = status;
   }
 
+  ngOnInit() { }
+
+  running(status) {
+    if (status === 'Running') {
+      return true;
+    }
+  }
+
+  calculateIconClass(status) {
+    switch (status) {
+      case 'Succeeded':
+        return 'icon ion-md-checkmark-circle';
+      case 'Failed':
+        return 'icon ion-md-close-circle';
+      case 'Pending':
+        return 'icon ion-md-clock';
+      default:
+        return 'icon ion-md-radio-button-off';
+    }
+  }
 }

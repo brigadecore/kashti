@@ -10,6 +10,7 @@ import { BuildFactory } from '../tests/build-factory';
 import { ProjectComponent } from './project.component';
 import { Project } from '../models/Project';
 import { Build } from '../models/Build';
+import { BuildStatusBadgeComponent } from '../build-status-badge/build-status-badge.component';
 
 describe('ProjectComponent', () => {
   let component: ProjectComponent;
@@ -19,7 +20,7 @@ describe('ProjectComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProjectComponent ],
+      declarations: [ ProjectComponent, BuildStatusBadgeComponent ],
       imports: [
         RouterTestingModule.withRoutes(
           [{ path: '', component: ProjectComponent }]

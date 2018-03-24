@@ -47,7 +47,7 @@ export const Builds: Build[] = [
     id: '01byy6vn3fanaypqpve7m1jwsf',
     project_id: 'brigade-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
     type: 'exec',
-    provider: 'brigade-cli',
+    provider: 'github',
     revision: {
       commit: '',
       ref: ''
@@ -80,7 +80,7 @@ export const Builds: Build[] = [
       start_time: '2018-02-26T22:57:27Z',
       end_time: '2018-02-26T22:57:56Z',
       exit_code: 0,
-      status: 'Succeeded'
+      status: 'Running'
     }
   },
   {
@@ -127,7 +127,7 @@ export const Builds: Build[] = [
     id: '01bz3j29xmz4dhs99xahm1q9bh',
     project_id: 'brigade-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
     type: 'exec',
-    provider: 'brigade-cli',
+    provider: 'github',
     revision: {
       commit: '',
       ref: ''
@@ -140,7 +140,7 @@ export const Builds: Build[] = [
       start_time: '2018-02-26T22:57:35Z',
       end_time: '2018-02-26T22:58:07Z',
       exit_code: 0,
-      status: 'Succeeded'
+      status: 'Pending'
     }
   },
   {

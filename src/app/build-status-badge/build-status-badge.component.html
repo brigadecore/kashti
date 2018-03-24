@@ -1,21 +1,11 @@
-<span class="act-state collapse active">
-  <div class="spinner" title="In progress"></div>
+<span *ngIf="running(status); else elseBlock" class="act-state collapse running">
+  <div class="spinner" title="Running"></div>
 </span>
 
-<span class="act-state collapse success">
-  <div class="success" title="Succeeded">
-    <i class="icon ion-md-checkmark-circle"></i>
-  </div>
-</span>
-
-<span class="act-state collapse failed">
-  <div class="failed" title="Failed">
-    <i class="icon ion-md-close-circle"></i>
-  </div>
-</span>
-
-<span class="act-state collapse unknown">
-  <span class="unknown">
-    <i class="icon ion-md-radio-button-off"></i>
+<ng-template #elseBlock>
+  <span class="act-state collapse {{status | lowercase}}">
+    <span class="{{status | lowercase}}" title="{{status}}">
+      <i [ngClass]="calculateIconClass(status)"></i>
+    </span>
   </span>
-</span>
+</ng-template>
