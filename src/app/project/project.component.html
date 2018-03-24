@@ -24,12 +24,12 @@
         <li class="medium-grid-block build-item ng-scope">
           <a routerLink="/builds/{{build.id}}" class="grid-block">
             <!-- <app-build-status-badge [build]="build"></app-build-status-badge> -->
-            <span class="act-state collapse active">
-              <div class="spinner" title="In progress"></div>
+            <span class="act-state collapse running">
+              <div class="spinner" title="Running"></div>
             </span>
 
-            <span class="act-state collapse success">
-              <div class="success" title="Succeeded">
+            <span class="act-state collapse succeeded">
+              <div class="succeeded" title="Succeeded">
                 <i class="icon ion-md-checkmark-circle"></i>
               </div>
             </span>
@@ -44,6 +44,12 @@
               <span class="unknown">
                 <i class="icon ion-md-radio-button-off"></i>
               </span>
+            </span>
+
+            <span class="act-state collapse pending">
+              <div class="pending">
+                <i class="icon ion-md-clock"></i>
+              </div>
             </span>
 
             <span class="act-author ng-binding">
