@@ -1,13 +1,13 @@
 <div class="breadcrumb-bar columns" [hidden]="!project.id">
   <a routerLink="/">Dashboard</a>
   <i class="icon ion-ios-arrow-forward"></i>
-  <span>Project ID {{ project.id }}</span>
+  <span>Project ID {{ project?.id }}</span>
 </div>
 
 <div class="breadcrumb-bar columns" [hidden]="!build.id">
   <a routerLink="/">Dashboard</a>
   <i class="icon ion-ios-arrow-forward"></i>
-  <a routerLink="/projects/{{build.id}}">Project ID {{ build.id }}</a>
+  <a routerLink="/projects/{{build?.id}}">Project ID {{ build?.id }}</a>
   <i class="icon ion-ios-arrow-forward"></i>
-  <span>Build ID {{ build.id }}</span>
+  <span>Build ID {{ build?.id }}</span>
 </div>
