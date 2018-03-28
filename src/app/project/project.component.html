@@ -23,29 +23,7 @@
       <div *ngFor="let build of builds">
         <li class="medium-grid-block build-item ng-scope">
           <a routerLink="/builds/{{build.id}}" class="grid-block">
-            <!-- <app-build-status-badge [build]="build"></app-build-status-badge> -->
-            <span class="act-state collapse active">
-              <div class="spinner" title="In progress"></div>
-            </span>
-
-            <span class="act-state collapse success">
-              <div class="success" title="Succeeded">
-                <i class="icon ion-md-checkmark-circle"></i>
-              </div>
-            </span>
-
-            <span class="act-state collapse failed">
-              <div class="failed" title="Failed">
-                <i class="icon ion-md-close-circle"></i>
-              </div>
-            </span>
-
-            <span class="act-state collapse unknown">
-              <span class="unknown">
-                <i class="icon ion-md-radio-button-off"></i>
-              </span>
-            </span>
-
+            <app-build-status-badge [status]="build.worker?.status"></app-build-status-badge>
             <span class="act-author ng-binding">
               <span class="act-avatar">
                 <i [ngClass]="CalculateProviderLogoClass(build.provider)"></i>
