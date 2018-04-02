@@ -77,8 +77,8 @@ export const Builds: Build[] = [
       id: 'brigade-worker-01byy6ymq8p9md8z31rcmtry4a-master',
       build_id: '01byy6ymq8p9md8z31rcmtry4a',
       project_id: 'brigade-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
-      start_time: '2018-02-26T22:57:27Z',
-      end_time: '2018-02-26T22:57:56Z',
+      start_time: '2018-04-02T18:57:27Z',
+      end_time: '2018-04-02T18:57:56Z',
       exit_code: 0,
       status: 'Running'
     }
@@ -137,8 +137,8 @@ export const Builds: Build[] = [
       id: 'brigade-worker-01bz3j29xmz4dhs99xahm1q9bh-master',
       build_id: '01bz3j29xmz4dhs99xahm1q9bh',
       project_id: 'brigade-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
-      start_time: '2018-02-26T22:57:35Z',
-      end_time: '2018-02-26T22:58:07Z',
+      start_time: '2018-04-01T22:57:35Z',
+      end_time: '2018-04-01T22:58:07Z',
       exit_code: 0,
       status: 'Pending'
     }
