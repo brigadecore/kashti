@@ -34,7 +34,7 @@ export class BuildStatusBadgeComponent implements OnInit {
       case 'Running':
         return 'spinner';
       default:
-        return 'icon ion-md-radio-button-off';
+        return 'icon ion-md-radio-button-off unknown';
     }
   }
 }
