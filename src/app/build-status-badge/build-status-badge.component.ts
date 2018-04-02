@@ -17,7 +17,8 @@ export class BuildStatusBadgeComponent implements OnInit {
   ngOnInit() { }
 
   running(status) {
-    if (status === 'Running') {
+    if (status === 'Pending' ||
+        status === 'Running') {
       return true;
     }
   }
@@ -29,7 +30,9 @@ export class BuildStatusBadgeComponent implements OnInit {
       case 'Failed':
         return 'icon ion-md-close-circle';
       case 'Pending':
-        return 'icon ion-md-clock';
+        return 'spinner';
+      case 'Running':
+        return 'spinner';
       default:
         return 'icon ion-md-radio-button-off';
     }
