@@ -19,7 +19,7 @@
             'failed': build.worker.status == 'Failed',
             'active': build.worker.status == 'Pending'}">
             <div class="success" ng-show="build.worker.status == 'Succeeded'">
-              <i class="icon ion-md-checkmark-circle"></i> {{ build.status }}</div>
+              <i class="icon ion-md-checkmark-circle"></i> {{ build.worker.status }}</div>
             <!-- Pending API hookup:
             <div class="failed ng-hide" ng-show="build.worker.status == 'Failed'"><i class="icon ion-md-close-circle"></i> Failed</div>
             <div class="active ng-hide" ng-show="build.worker.status == 'Pending'"><img src="assets/images/rolling.svg"> In Progress</div>

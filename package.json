@@ -6,6 +6,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "docker-build": "docker build -t deis/kashti:$(git describe --tags --always) .",
     "test": "ng lint && ng test",
     "test-ci": "ng lint && ng test --single-run && ng e2e",
     "lint": "ng lint",
