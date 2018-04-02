@@ -207,7 +207,7 @@
       }
 
       .act-author {
-        min-width: 16%;
+        min-width: 18%;
         position: relative;
         padding-left: 32px;
 
@@ -236,7 +236,7 @@
       }
 
       .act-message {
-        min-width: 28%;
+        min-width: 12%;
       }
       .act-hash {
         min-width: 11%;
@@ -245,8 +245,28 @@
       .text-right {
         float: right;
       }
+      .act-times {
+        min-width: 56%;
+      }
+      .act-times-wrap {
+        min-width: 100%;
+      }
+      .truncate {
+        width: 2.88rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: hidden;
+        display: inline-block;
+        line-height: 0.75;
+        font-style: normal;
+        padding: 0rem 0.125rem;
+        font-family: $mono;
+      }
+      .act-time-duration {
+        min-width: 60%;
+      }
       .act-time-ago {
-        min-width: 18%;
+        min-width: 40%;
 
         code,
         pre {
@@ -257,9 +277,6 @@
           padding: 0;
           font-family: $mono;
         }
-      }
-      .act-time-duration {
-        min-width: 10%;
       }
 
       &:after {

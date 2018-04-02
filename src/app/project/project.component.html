@@ -29,33 +29,31 @@
             </span>
             {{ build.provider }}
           </span>
-          <span class="act-message" title="Build ID">
-            <em>#</em>{{ build.id }}
+          <span class="act-message" title="Build ID: {{ build.id }}">
+            <em>#</em><em class="truncate">{{ build.id }}</em>
           </span>
 
           <!-- if build has data -->
-          <span *ngIf="build.worker?.status; else unKnownState">
+          <span class="act-times" *ngIf="build.worker?.status; else unKnownState">
 
-            <!-- build state + duration -->
-            <span class="act-time-duration">
+            <!-- if ongoing -->
+            <span class="act-times-wrap" *ngIf="build.worker?.status == 'Pending'" title="Waiting for image pull to complete, and for container to start. {{ build.worker?.start_time | date:'long' }}">
+              <span class="act-time-duration">Initializing...</span>
+              <span class="act-time-ago right text-right">{{ build.worker?.start_time | amDifference: today :'minutes' : true | amDuration:'minutes' | lowercase }} ago</span>
+            </span>
+            <span class="act-times-wrap" *ngIf="build.worker?.status == 'Running'" title="Building started {{ build.worker?.start_time | date:'long' }}">
+              <span class="act-time-duration">Building...</span>
+              <span class="act-time-ago text-right right">{{ build.worker?.start_time | amDifference: today :'minutes' : true | amDuration:'minutes' | lowercase }} ago</span>
+            </span>
 
-              <!-- if ongoing -->
-              <span *ngIf="build.worker?.status == 'Pending'" class="act-time-duration" title="Waiting for image pull to complete, and for container to start. {{ build.worker?.start_time | date:'long' }}">
-                Initializing... <span class="act-time-ago right text-right">{{ build.worker?.start_time | amDifference: today :'minutes' : true | amDuration:'minutes' }}</span>
-              </span>
-              <span *ngIf="build.worker?.status == 'Running'" title="Building started {{ build.worker?.start_time | date:'long' }}">
-                Building... <span class="act-time-ago text-right right">{{ build.worker?.start_time | amDifference: today :'minutes' : true | amDuration:'minutes' }}</span>
-              </span>
+            <!-- if completed -->
+            <span class="act-times-wrap" *ngIf="
+              build.worker?.status == 'Failed' || 
+              build.worker?.status == 'Succeeded'
+            ">
+              <span class="act-time-duration">Build {{ build.worker?.status | lowercase }} after <span title="Build started {{ build.worker?.start_time | date:'long' }}">{{ build.worker?.start_time | amDifference: build.worker?.end_time :'seconds' : true | amDuration:'seconds' }}.</span></span>
 
-              <!-- if completed -->
-              <span *ngIf="
-                build.worker?.status == 'Failed' || 
-                build.worker?.status == 'Succeeded'
-              ">
-                Build {{ build.worker?.status | lowercase }} after <span title="Build started {{ build.worker?.start_time | date:'long' }}">{{ build.worker?.start_time | amDifference: build.worker?.end_time :'seconds' : true | amDuration:'seconds' }}.</span>
-
-                <span class="act-time-ago right text-right" title="Build completed {{ build.worker?.end_time | date:'long' }}">{{ build.worker?.end_time | amTimeAgo }}</span>
-              </span>
+              <span class="act-time-ago right text-right" title="Build completed {{ build.worker?.end_time | date:'long' }}">{{ build.worker?.end_time | amTimeAgo }}</span>
             </span>
 
           </span>
