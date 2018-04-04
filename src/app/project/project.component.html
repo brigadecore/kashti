@@ -41,8 +41,8 @@
               <span class="act-time-duration">Initializing...</span>
               <span class="act-time-ago right text-right">{{ build.worker?.start_time | amDifference: today :'minutes' : true | amDuration:'minutes' | lowercase }} ago</span>
             </span>
-            <span class="act-times-wrap" *ngIf="build.worker?.status == 'Running'" title="Building started {{ build.worker?.start_time | date:'long' }}">
-              <span class="act-time-duration">Building...</span>
+            <span class="act-times-wrap" *ngIf="build.worker?.status == 'Running'" title="Build started {{ build.worker?.start_time | date:'long' }}">
+              <span class="act-time-duration">Build started...</span>
               <span class="act-time-ago text-right right">{{ build.worker?.start_time | amDifference: today :'minutes' : true | amDuration:'minutes' | lowercase }} ago</span>
             </span>
 
