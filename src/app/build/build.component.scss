@@ -1,6 +1,10 @@
 @import 'global_variables';
 @import 'global_states';
 
+:host {
+  min-width: 91.5%;
+}
+
 .build-chart-bg {
   background: linear-gradient(5deg, darken(#F0F1F6, 2.5%) 0%, lighten(#e6e9f0, 1%) 100%);
   display: block;
@@ -99,6 +103,13 @@
 
   .build-status {
     right: 0;
+
+    .spinner {
+      float: left;
+      width: 1.5rem;
+      height: 1.5rem;
+      margin: -0.25rem 1rem 0 -2.25rem;
+    }
   }
 
   .build-metadata {
@@ -154,7 +165,8 @@
         background: $brand1;
       }
 
-      .icon {
+      .icon,
+      .spinner {
         padding-left: 0.25rem;
       }
 
