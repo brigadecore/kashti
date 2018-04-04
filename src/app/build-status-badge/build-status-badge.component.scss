@@ -35,17 +35,11 @@ span {
       color: $fail;
     }
   }
-  &.pending {
-    span.pending {
-      display: inline-block;
-      color: $pending;
-    }
-  }
+  &.pending,
   &.running {
     .spinner {
       display: inline-block;
       position: absolute;
-      background: darken($light2, 2.5%);
       top: -0.925rem;
       left: -0.667rem;
       @include spinnerDonut($brand1, 1.333rem, 0.15rem);
@@ -57,7 +51,6 @@ span {
     line-height: 0.5;
     top: 1px;
     left: -8px;
-    background: darken($light3, 3.5%);
     position: absolute;
     z-index: 900;
     @include transition;
@@ -90,7 +83,7 @@ span {
   }
 
   .unknown {
-    color: darken($light2, 12.5%);
+    color: darken($light2, 10%);
   }
 
   &:after {

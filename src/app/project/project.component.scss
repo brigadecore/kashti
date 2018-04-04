@@ -137,84 +137,6 @@
   }
 }
 
-.project-filters {
-  padding-top: 2.25rem;
-  position: relative;
-  overflow-x: hidden;
-  margin-right: 1rem;
-
-  &:after {
-    display: block;
-    content: " ";
-    height: 1px;
-    width: 100%;
-    background: $light1;
-    position: absolute;
-    top: 3.425rem;
-  }
-
-  select {
-    margin-left: 1rem;
-    margin-right: 5rem;
-    border-radius: 0.75rem;
-    border-color: $light1;
-    background-color: $light2;
-    height: 2.5rem;
-    line-height: 1.5;
-    z-index: 750;
-
-    option {
-      font-size: 0.825rem;
-    }
-  }
-
-  ul {
-    padding: 0;
-    height: auto;
-    margin: 0 2rem;
-    z-index: 750;
-
-    &:last-child {
-      float: right;
-      margin-right: 0;
-      position: absolute;
-      right: 0;
-    }
-
-    li {
-      font-size: 0.825rem;
-      margin: 0 1rem;
-      color: $dark3;
-      margin: 0 -2px;
-      padding: 0 0.5rem;
-      display: inline-block;
-      background-color: $light2;
-      line-height: 3;
-      @include transition;
-
-      &:first-child {
-        border-radius: 40px 0 0 40px;
-        padding-left: 1rem;
-      }
-
-      &:last-child {
-        border-radius: 0 40px 40px 0;
-        padding-right: 1rem;
-      }
-
-      &.active {
-        color: lighten($dark2, 7.5%);
-        width: 40px;
-        height: 40px;
-      }
-
-      &:hover {
-        background: darken($light2, 3.5%);
-      }
-    }
-  }
-}
-
 .project-config-summary {
 
   strong {
@@ -252,19 +174,26 @@
     overflow: hidden;
 
     &:first-child {
+      border-radius: 4px 4px 0 0;
       border: none;
+    }
+
+    &:last-child {
+      border-radius: 0 0 4px 4px;
+      border-bottom: 2px solid darken($light2, 6.67%);
     }
 
     a {
       text-align: left;
       padding: 0.25rem 1.25rem;
       margin: 0 0 0.25rem 0;
-      border-radius: 4px;
       overflow: hidden;
       width: 100%;
       display: inline-block;
-      min-height: 35px;
+      min-height: 42px;
       position: relative;
+      background: rgba(255,255,255,0.67);
+      @include box-shadow(0,1px,2px,rgba(0,0,0,0.15));
       @include transition;
 
       span {
@@ -278,7 +207,7 @@
       }
 
       .act-author {
-        min-width: 16%;
+        min-width: 18%;
         position: relative;
         padding-left: 32px;
 
@@ -298,7 +227,6 @@
 
           img {
             max-height: 1rem;
-            // max-width: 1rem;
             margin-left: 0.1rem;
             margin-top: 0.75rem;
             position: relative;
@@ -307,13 +235,37 @@
       }
 
       .act-message {
-        min-width: 28%;
+        min-width: 12%;
       }
       .act-hash {
         min-width: 11%;
       }
+
+      .text-right {
+        float: right;
+      }
+      .act-times {
+        min-width: 56%;
+      }
+      .act-times-wrap {
+        min-width: 100%;
+      }
+      .truncate {
+        width: 2.88rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: hidden;
+        display: inline-block;
+        line-height: 0.75;
+        font-style: normal;
+        padding: 0rem 0.125rem;
+        font-family: $mono;
+      }
+      .act-time-duration {
+        min-width: 60%;
+      }
       .act-time-ago {
-        min-width: 18%;
+        min-width: 40%;
 
         code,
         pre {
@@ -324,9 +276,6 @@
           padding: 0;
           font-family: $mono;
         }
-      }
-      .act-time-duration {
-        min-width: 10%;
       }
 
       &:after {
@@ -346,7 +295,6 @@
     &:hover a,
     &:first-of-type a {
       background: white;
-      @include box-shadow(0,1px,4px,rgba(0,0,0,0.15));
 
       &:after {
         opacity: 1;
