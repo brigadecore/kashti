@@ -6,6 +6,7 @@ import 'rxjs/add/operator/switchMap';
 import { Build } from '../models/Build';
 import { Revision } from '../models/Revision';
 import { BuildWorker } from '../models/BuildWorker';
+import { Job } from '../models/Job';
 
 import { MomentModule } from 'angular2-moment';
 
@@ -16,6 +17,7 @@ import { MomentModule } from 'angular2-moment';
 })
 export class BuildComponent implements OnInit {
   build: Build;
+  jobs: Job;
   revision: Revision;
   worker: BuildWorker;
 
@@ -25,5 +27,6 @@ export class BuildComponent implements OnInit {
     this.build = this.route.snapshot.data['build'];
     this.revision = this.build.revision;
     this.worker = this.build.worker;
+    this.jobs = this.route.snapshot.data['jobs'];
   }
 }
