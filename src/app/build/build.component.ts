@@ -17,9 +17,9 @@ import { MomentModule } from 'angular2-moment';
 })
 export class BuildComponent implements OnInit {
   build: Build;
-  jobs: Job;
   revision: Revision;
   worker: BuildWorker;
+  jobs: Job[];
 
   constructor(private route: ActivatedRoute) {}
 

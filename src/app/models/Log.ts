@@ -1,3 +1,1 @@
-export interface Log {
-  log: text
-}
+export interface Log {}
