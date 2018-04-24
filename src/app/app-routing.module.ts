@@ -11,6 +11,8 @@ import { ProjectResolver } from './services/resolvers/project.resolver';
 import { BuildsResolver } from './services/resolvers/builds.resolver';
 import { ProjectsBuildResolver } from './services/resolvers/projects-build.resolver';
 import { BuildResolver } from './services/resolvers/build.resolver';
+import { JobsResolver } from './services/resolvers/jobs.resolver';
+import { JobResolver } from './services/resolvers/job.resolver';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -24,7 +26,7 @@ const routes: Routes = [
   },
   { path: 'builds/:id',
     component: BuildComponent,
-    resolve: { build: BuildResolver }
+    resolve: { build: BuildResolver, jobs: JobsResolver  }
   },
   { path: 'styleguide', component: StyleGuideComponent }
 ];

@@ -1,5 +1,6 @@
 import { MockProjectService } from '../app/services/project/mock-project.service';
 import { MockBuildService } from '../app/services/build/mock-build.service';
+import { MockJobService } from '../app/services/job/mock-job.service';
 
 // The file contents for the current environment will overwrite these during build.
 // The build system defaults to the dev environment which uses `environment.ts`, but if you do
@@ -11,5 +12,6 @@ export const environment = {
   routeDebugging: true,
 
   buildServiceType: MockBuildService,
-  projectServiceType: MockProjectService
+  projectServiceType: MockProjectService,
+  jobServiceType: MockJobService
 };

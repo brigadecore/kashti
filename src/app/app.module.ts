@@ -15,15 +15,20 @@ import { FooterComponent } from './footer/footer.component';
 import { BuildComponent } from './build/build.component';
 import { ProjectService } from './services/project/project.service';
 import { ProjectComponent } from './project/project.component';
+import { JobComponent } from './job/job.component';
+import { LogComponent } from './log/log.component';
 import { BuildStatusBadgeComponent } from './build-status-badge/build-status-badge.component';
 import { ApiProjectService } from './services/project/api-project.service';
 import { BuildService } from './services/build/build.service';
+import { JobService } from './services/job/job.service';
 import { ProjectResolver } from './services/resolvers/project.resolver';
 import { BuildsResolver } from './services/resolvers/builds.resolver';
+import { JobsResolver } from './services/resolvers/jobs.resolver';
 import { ProjectsBuildResolver } from './services/resolvers/projects-build.resolver';
 import { BuildResolver } from './services/resolvers/build.resolver';
-import { JobComponent } from './job/job.component';
-import { LogComponent } from './log/log.component';
+import { JobResolver } from './services/resolvers/job.resolver';
+
+
 
 @NgModule({
   declarations: [
@@ -48,11 +53,13 @@ import { LogComponent } from './log/log.component';
   providers: [
     { provide: BuildService, useClass: environment.buildServiceType },
     { provide: ProjectService, useClass: environment.projectServiceType },
+    { provide: JobService, useClass: environment.jobServiceType },
     ProjectResolver,
     ProjectsBuildResolver,
     BuildsResolver,
-    BuildResolver
-
+    BuildResolver,
+    JobsResolver,
+    JobResolver
   ],
   bootstrap: [AppComponent]
 })

@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
 
-import { BuildService } from '../build/build.service';
-import { Build } from '../../models/Build';
+import { JobService } from '../job/job.service';
+import { Job } from '../../models/Job';
 
 @Injectable()
-export class BuildResolver implements Resolve<Build> {
+export class JobResolver implements Resolve<Job> {
 
-  constructor(private buildService: BuildService) {}
+  constructor(private jobService: JobService) {}
 
   resolve(route: ActivatedRouteSnapshot) {
-    return this.buildService.getBuild(route.paramMap.get('id'));
+    return this.JobService.getJob(route.paramMap.get('id'));
   }
 }
