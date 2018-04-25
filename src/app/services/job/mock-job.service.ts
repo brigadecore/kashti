@@ -11,10 +11,7 @@ import { filter } from 'rxjs/operators';
 
 export class MockJobService implements JobService {
   getJobs(buildId: string): Observable<Job[]> {
-    const filteredList = Jobs.filter(
-     (job: Job) => job.build_id === buildId
-    );
-    return Observable.of(filteredList);
+    return Observable.of(Jobs)
   }
 
   getJob(jobId: string): Observable<Job> {

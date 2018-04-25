@@ -9,7 +9,7 @@ export class JobResolver implements Resolve<Job> {
 
   constructor(private jobService: JobService) {}
 
-  resolve() {
-    return this.jobService.getJobs();
+  resolve(route: ActivatedRouteSnapshot) {
+    return this.jobService.getJob(route.paramMap.get('buildId'));
   }
 }
