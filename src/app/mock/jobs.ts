@@ -19,7 +19,7 @@ export const Jobs: Job[] = [
     'start_time': '2017-12-04T20:39:19Z',
     'end_time': '2017-12-04T20:39:27Z',
     'exit_code': 0,
-    'status': 'Succeeded'
+    'status': 'Failed'
   },
   {
     'id': 'one-1514014339909-master',
@@ -39,7 +39,7 @@ export const Jobs: Job[] = [
     'start_time': '2017-12-23T07:33:00Z',
     'end_time': '2017-12-23T07:33:12Z',
     'exit_code': 0,
-    'status': 'Succeeded'
+    'status': 'Active'
   },
   {
     'id': 'world-1514014372266-master',
