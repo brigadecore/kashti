@@ -34,20 +34,13 @@
             <div class="task task-0">
               <a href="">
                 <span title="git">
-                  <i class="icon logo-github"></i>
+                  <i class="icon ion-logo-github"></i>
                 </span>
               </a>
             </div>
 
-            <div class="task task-1" >
-              <span title="job.name" class=" ">{{ job.id }}</span>
-            </div>
-
-            <em></em>
-            <em></em>
-            <em></em>
-            <em></em>
-            <em></em>
+            <span class="task task-1"><a href="">{{ build?.type }}</a></span>
+            <span *ngFor="let job of jobs" class="task task-2"><a href="">{{ job.name }}</a></span>
           </div>
         </div>
 
@@ -56,33 +49,39 @@
   </div>
 
   <div class="job-list">
-    <h4>
-      <span ng-show="jobs.length == '1'" class="">
-        <span class="job-count">4 </span> jobs ran inside this build:</span>
-    </h4>
 
     <ul class="build-details" ng-hide="jobs.length == '0'" id="build-details">
       <li class="parent">
-        <em ng-show="build.provider == 'github'" class="ng-hide">
-          <i class="icon logo-github"></i> {{ build.provider }}</em>
-        <!-- Pending API hookup:
-          <em ng-show="build.provider == 'dockerhub'" class="  ng-hide"><img src="assets/images/docker.png" alt="dockerhub"> brigade-cli</em>
-          <em ng-show="build.provider == 'slackbot'" class="  ng-hide"><img src="assets/images/slack.png" alt="Slack"> brigade-cli</em>
-          <em ng-show="!(
-            build.provider === 'slackbot' ||
-            build.provider === 'dockerhub' ||
-            build.provider === 'github'
-          )" class=" "> brigade-cli</em>  -->
-        :
-        <em class=" ">{{ build?.type }}</em>
-        started a build via
-        <em class=" ">commit {{ build.revision?.commit }}</em>
+        <span class="row">
+          <span class="small-9 text-left columns">
+            <span *ngIf="build.provider == 'github'">
+              <i class="icon ion-logo-github"></i>
+            </span>
+            <span *ngIf="build.provider == 'slackbot'">
+              <i class="icon ion-text"></i>
+            </span>
+            <span *ngIf="build.provider == 'dockerhub'">
+              <i class="icon ion-cube"></i>
+            </span>
+            <span *ngIf="build.provider == 'brigade-cli'">
+              <em>brigade-cli</em>
+            </span>
+            <em>{{ build.provider }}</em>:
+            <em>{{ build?.type }}</em> 
+            started a build via commit 
+            <em>{{ build.revision.commit }}</em>.
+          </span>
+          <span class="small-3 text-right columns jobs-index">
+            <strong>{{ jobs.length }}</strong> jobs ran.
+          </span>
+        </span>
       </li>
 
       <!-- Pending API hookup:
         ngRepeat: job in jobs -->
-      <li class="job success" id="{{ job?.id }}" *ngFor="let job of jobs">
+      <li class="job success" id="{{ job?.id }}" *ngFor="let job of jobs; index as i" [attr.data-index]="i">
         <small class=" ">Started at {{ job?.start_time }}</small>
+        <span class="job-index">{{i + 1}}</span>
         <h5>dind {{job.name}}</h5>
 
         <div class="job-response">

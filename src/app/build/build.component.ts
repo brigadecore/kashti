@@ -15,6 +15,7 @@ import { MomentModule } from 'angular2-moment';
   templateUrl: './build.component.html',
   styleUrls: ['./build.component.scss']
 })
+
 export class BuildComponent implements OnInit {
   build: Build;
   revision: Revision;
