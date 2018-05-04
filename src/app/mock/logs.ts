@@ -1,7 +1,7 @@
 import { Log } from '../models/log';
 
-export const Log: Log[] = [
+export const Logs: Log[] = [
   {
-    "hello\n"
+    'text': 'hello\n'
   }
 ]

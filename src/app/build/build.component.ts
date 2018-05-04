@@ -22,7 +22,7 @@ export class BuildComponent implements OnInit {
   revision: Revision;
   worker: BuildWorker;
   jobs: Job[];
-  logs: Log;
+  log: Log;
 
   constructor(private route: ActivatedRoute) {}
 

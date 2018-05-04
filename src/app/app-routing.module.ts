@@ -13,6 +13,7 @@ import { ProjectsBuildResolver } from './services/resolvers/projects-build.resol
 import { BuildResolver } from './services/resolvers/build.resolver';
 import { JobsResolver } from './services/resolvers/jobs.resolver';
 import { JobResolver } from './services/resolvers/job.resolver';
+import { LogsResolver } from './services/resolvers/logs.resolver';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
