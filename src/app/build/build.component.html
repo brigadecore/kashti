@@ -79,24 +79,33 @@
 
       <!-- Pending API hookup:
         ngRepeat: job in jobs -->
-      <li class="job success" id="{{ job?.id }}" *ngFor="let job of jobs; index as i" [attr.data-index]="i">
+      <li class="job {{ job?.status | lowercase}}" id="{{ job?.id }}" *ngFor="let job of jobs; index as i" [attr.data-index]="i">
         <small class=" ">Started at {{ job?.start_time }}</small>
         <span class="job-index">{{i + 1}}</span>
-        <h5>dind {{job.name}}</h5>
+        <h5>dind {{job?.name}}</h5>
 
-        <div class="job-response">
-          <i class="icon ion-md-checkmark-circle status-success"></i>
+        <!-- job status badge -->
+        <div class="job-response {{ job?.status | lowercase}}">
+          <span class="act-state running" title="{{ job?.status }}" *ngIf="job?.status == 'Active'">
+            <div class="spinner"></div>
+          </span>
+          <span class="act-state running" title="{{ job?.status }}" *ngIf="job?.status == 'Running'">
+            <div class="spinner"></div>
+          </span>
+          <span class="act-state running" title="{{ job?.status }}" *ngIf="job?.status == 'Pending'">
+            <div class="spinner"></div>
+          </span>
+          <span class="act-state succeeded" title="{{ job?.status }}" *ngIf="job?.status == 'Succeeded'">
+            <i class="icon ion-md-checkmark-circle status-success"></i>
+          </span>
+          <span class="act-state failed" title="{{ job?.status }}" *ngIf="job?.status == 'Failed'">
+            <i class="icon ion-md-close-circle status-fail"></i>
+          </span>
+          <span class="act-state unknown" title="{{ job?.status }}" *ngIf="job?.status == 'Unknown'">
+            <i class="icon ion-md-radio-button-off unknown"></i>
+          </span>
           {{ job?.status }}
         </div>
-        <!-- Pending API hookup:
-        <div class="job-response active ng-hide" ng-show="job.status == 'Pending'">
-          <img src="assets/images/rolling.svg" class="status-active">
-          Pending
-        </div>
-        <div class="job-response fail ng-hide" ng-show="job.status = Failed">
-          <i class="icon ion-md-close-circle status-fail"></i>
-          Failed
-        </div> -->
 
         <!-- log output -->
         <div ng-controller="logController">
@@ -127,6 +136,14 @@
         </div>
 
         <small class=" ">Finished at {{ job?.end_time }}</small>
+      </li>
+
+      <li class="parent">
+        <span class="row">
+          <span class="small-12 columns">
+            Build {{ build.worker.status | lowercase }} at <em>{{ build.worker.end_time }}</em>.
+          </span>
+        </span>
       </li>
 
     </ul>
