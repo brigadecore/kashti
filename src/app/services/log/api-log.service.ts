@@ -16,7 +16,7 @@ const httpOptions = {
 export class ApiLogService implements LogService {
   constructor(private http: HttpClient) {}
 
-  getLogs(jobId): Observable<Log> {
+  getLog(jobId): Observable<Log> {
     const logUrl = `${BRIGADE_API_HOST}/v1/job/${jobId}/logs`;
 
     return this.http

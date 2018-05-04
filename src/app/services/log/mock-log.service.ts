@@ -11,7 +11,7 @@ import { filter } from 'rxjs/operators';
 
 export class MockJobService implements LogService {
 
-  getLogs(jobId: string): Observable<Log> {
-    return Observable.of(log);
+  getLog(jobId: string): Observable<Log> {
+    return Observable.of(Log);
   }
 }
