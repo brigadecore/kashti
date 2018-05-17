@@ -28,7 +28,7 @@ import { JobsResolver } from './services/resolvers/jobs.resolver';
 import { ProjectsBuildResolver } from './services/resolvers/projects-build.resolver';
 import { BuildResolver } from './services/resolvers/build.resolver';
 import { JobResolver } from './services/resolvers/job.resolver';
-
+import { LogsResolver } from './services/resolvers/logs.resolver';
 
 
 @NgModule({
@@ -48,19 +48,20 @@ import { JobResolver } from './services/resolvers/job.resolver';
     MomentModule,
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule,
-
+    AppRoutingModule
   ],
   providers: [
     { provide: BuildService, useClass: environment.buildServiceType },
     { provide: ProjectService, useClass: environment.projectServiceType },
     { provide: JobService, useClass: environment.jobServiceType },
+    { provide: LogService, useClass: environment.logServiceType },
     ProjectResolver,
     ProjectsBuildResolver,
     BuildsResolver,
     BuildResolver,
     JobsResolver,
-    JobResolver
+    JobResolver,
+    LogsResolver
   ],
   bootstrap: [AppComponent]
 })

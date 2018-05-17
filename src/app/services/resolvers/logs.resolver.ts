@@ -10,6 +10,6 @@ export class LogsResolver implements Resolve<Log> {
   constructor(private logService: LogService) {}
 
   resolve(route: ActivatedRouteSnapshot) {
-    return this.logService.getLog(route.paramMap.get('id'));
+    return this.logService.getLog(route.paramMap.get('jobId'));
   }
 }

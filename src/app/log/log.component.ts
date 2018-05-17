@@ -18,5 +18,4 @@ export class LogComponent implements OnInit {
   ngOnInit() {
     this.log = this.route.snapshot.data['log'];
   }
-
 }

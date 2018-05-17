@@ -1,7 +1,3 @@
 import { Log } from '../models/log';
 
-export const Logs: Log[] = [
-  {
-    'text': 'hello'
-  }
-]
+export const LogData = { 'text': 'hello' };

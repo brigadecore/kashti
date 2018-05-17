@@ -13,3 +13,4 @@ export class JobsResolver implements Resolve<Job[]> {
     return this.jobService.getJobs(route.paramMap.get('id'));
   }
 }
+
