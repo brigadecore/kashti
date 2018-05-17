@@ -8,6 +8,7 @@ import { Revision } from '../models/Revision';
 import { BuildWorker } from '../models/BuildWorker';
 import { Job } from '../models/Job';
 import { Log } from '../models/Log';
+import { LogComponent } from '../log/log.component';
 
 import { MomentModule } from 'angular2-moment';
 
