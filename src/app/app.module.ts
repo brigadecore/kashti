@@ -28,7 +28,7 @@ import { JobsResolver } from './services/resolvers/jobs.resolver';
 import { ProjectsBuildResolver } from './services/resolvers/projects-build.resolver';
 import { BuildResolver } from './services/resolvers/build.resolver';
 import { JobResolver } from './services/resolvers/job.resolver';
-import { LogsResolver } from './services/resolvers/logs.resolver';
+import { LogResolver } from './services/resolvers/log.resolver';
 
 
 @NgModule({
@@ -61,7 +61,7 @@ import { LogsResolver } from './services/resolvers/logs.resolver';
     BuildResolver,
     JobsResolver,
     JobResolver,
-    LogsResolver
+    LogResolver
   ],
   bootstrap: [AppComponent]
 })

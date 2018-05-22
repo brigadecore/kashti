@@ -11,6 +11,7 @@ import { Log } from '../models/Log';
 import { LogComponent } from '../log/log.component';
 
 import { MomentModule } from 'angular2-moment';
+import { LongDateFormatKey } from 'moment';
 
 @Component({
   selector: 'app-build',

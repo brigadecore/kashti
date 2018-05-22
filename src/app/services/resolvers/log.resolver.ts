@@ -5,7 +5,7 @@ import { LogService } from '../log/log.service';
 import { Log } from '../../models/Log';
 
 @Injectable()
-export class LogsResolver implements Resolve<Log> {
+export class LogResolver implements Resolve<Log> {
 
   constructor(private logService: LogService) {}
 

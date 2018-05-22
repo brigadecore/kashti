@@ -6,6 +6,7 @@ import { environment } from '../environments/environment';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProjectComponent } from './project/project.component';
 import { BuildComponent } from './build/build.component';
+import { LogComponent } from './log/log.component';
 import { StyleGuideComponent } from './style-guide/style-guide.component';
 import { ProjectResolver } from './services/resolvers/project.resolver';
 import { BuildsResolver } from './services/resolvers/builds.resolver';
@@ -13,7 +14,7 @@ import { ProjectsBuildResolver } from './services/resolvers/projects-build.resol
 import { BuildResolver } from './services/resolvers/build.resolver';
 import { JobsResolver } from './services/resolvers/jobs.resolver';
 import { JobResolver } from './services/resolvers/job.resolver';
-import { LogsResolver } from './services/resolvers/logs.resolver';
+import { LogResolver } from './services/resolvers/log.resolver';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -27,7 +28,7 @@ const routes: Routes = [
   },
   { path: 'builds/:id',
     component: BuildComponent,
-    resolve: { build: BuildResolver, jobs: JobsResolver  }
+    resolve: { build: BuildResolver, jobs: JobsResolver, log: LogResolver }
   },
   { path: 'styleguide', component: StyleGuideComponent }
 ];
