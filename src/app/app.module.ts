@@ -33,7 +33,7 @@ import { SortBuildByStartDatePipe } from './pipes/builds/sort-build-by-start-dat
 import { JobComponent } from './job/job.component';
 import { LogComponent } from './log/log.component';
 import { JobResolver } from './services/resolvers/job.resolver';
-import { LogsResolver } from './services/resolvers/logs.resolver';
+import { LogResolver } from './services/resolvers/log.resolver';
 
 @NgModule({
   declarations: [
