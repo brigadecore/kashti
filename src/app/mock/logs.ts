@@ -1,8 +1,7 @@
 import { Log } from '../models/log';
 
 export const LogData = {
-  'text': `
-  waiting
+  'text': `waiting
   time="2017-12-23T07:32:07.953924244Z" level=warning msg="could not change group /var/run/docker.sock to docker: group docker not found"
   time="2017-12-23T07:32:07.955117945Z" level=warning msg="[!] DON'T BIND ON ANY IP ADDRESS WITHOUT setting --tlsverify IF YOU DON'T KNOW WHAT YOU'RE DOING [!]"
   time="2017-12-23T07:32:07.958649448Z" level=info msg="libcontainerd: started new docker-containerd process" pid=20
@@ -66,9 +65,5 @@ export const LogData = {
    Built:        Mon Nov 20 18:39:28 2017
    OS/Arch:      linux/amd64
    Experimental: false
-  time="2017-12-23T07:32:28.012819280Z" level=info msg="Processing signal 'terminated'  
-
-
-  
-  `
+  time="2017-12-23T07:32:28.012819280Z" level=info msg="Processing signal 'terminated'`
 };
