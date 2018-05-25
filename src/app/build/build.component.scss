@@ -517,15 +517,15 @@ ul.build-details {
       }
     }
 
-    &.log-expand {
-      .log-inner,
+    &.logexpand {
       .log-inner code {
-        height: auto;
+        height: auto !important;
+        max-height: 99999px !important;
       }
     }
   }
 
-  .log-inner {
+  .log-inner   {
     background: lighten($dark2, 5%);
     position: relative;
     overflow-x: hidden;
@@ -550,9 +550,17 @@ ul.build-details {
       line-height: 1.5;
       font-size: 0.825rem;
       display: table-cell;
-      height: 8.44rem;
-      vertical-align: bottom;
+      max-height: 8.44rem;
+      vertical-align: middle;
       padding-bottom: 3em !important;
+
+      display: inline-block;
+      max-width: 100%;
+      white-space: pre-wrap;
+      white-space: -moz-pre-wrap;
+      white-space: -pre-wrap;
+      white-space: -o-pre-wrap;
+      word-wrap: break-word;  
     }
   }
 

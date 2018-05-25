@@ -117,20 +117,20 @@
               <dd class=" ">{{ job?.id }}</dd>
               <dt>Log output:</dt>
             </dl>
-            <div class="log-wrap">
+            <div class="log-wrap" [ngClass]="{ 'logexpand' : logexpand }">
 
-              <div hljs="" hljs-source="log?" class="log-inner">
+              <div hljs="" hljs-source="" class="log-inner">
                 <pre><code class="hljs">
-{{ log?.text }}
-              </code></pre>
+{{ log }}
+                </code></pre>
               </div>
 
-              <!-- <a ng-click="expandLog = !expandLog">
-                <span ng-show="!expandLog" class="">
-                  <i class="icon md-arrow-dropdown"></i> Expand log</span>
-                <span ng-show="expandLog" class="ng-hide">
-                  <i class="icon md-arrow-dropup"></i> Collapse log</span>
-              </a> -->
+              <a (click)="logexpand=!logexpand">
+                <span *ngIf="!logexpand">
+                  <i class="icon md-arrow-dropdown"></i> Expand logs</span>
+                <span *ngIf="logexpand">
+                  <i class="icon md-arrow-dropup"></i> Collapse logs</span>
+              </a>
             </div>
           </div>
         </div>
