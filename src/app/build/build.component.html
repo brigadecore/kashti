@@ -122,10 +122,12 @@
               <div hljs="" hljs-source="" class="log-inner">
                 <pre><code class="hljs">
 {{ log }}
-                </code></pre>
+<a class="code-contract" (click)="logexpand=!logexpand"><i class="icon ion-md-contract" name="contract"></i></a>
+                  </code>
+                </pre>
               </div>
 
-              <a (click)="logexpand=!logexpand">
+              <a class="log-expand" (click)="logexpand=!logexpand">
                 <span *ngIf="!logexpand">
                   <i class="icon md-arrow-dropdown"></i> Expand logs</span>
                 <span *ngIf="logexpand">

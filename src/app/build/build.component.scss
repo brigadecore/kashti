@@ -487,7 +487,7 @@ ul.build-details {
     position: relative;
     overflow: hidden;
 
-    a {
+    a.log-expand {
       position: absolute;
       bottom: -3em;
       left: 1%;
@@ -518,9 +518,43 @@ ul.build-details {
     }
 
     &.logexpand {
-      .log-inner code {
-        height: auto !important;
-        max-height: 99999px !important;
+      .log-inner {
+        pre {
+          a.code-contract {
+            width: auto;
+            display: inline-block;
+            text-align: center;
+            min-width: 1rem;
+            line-height: 1.1;
+            font-size: 2rem;
+            padding: 0.5rem 1rem;
+            margin: 0;
+            background: $light2;
+            color: $dark1;
+            position: fixed;
+            right: 3rem;
+            top: -3rem;
+            left: auto;
+            bottom: auto;
+            z-index: 1080;
+            opacity: 0;
+            @include border-radius;
+            @include transition;
+
+            i {
+              margin: 0;
+            }
+          }
+
+          &:hover a.code-contract {
+            opacity: 1;
+            top: 3rem;
+          }
+        }
+        code {
+          height: auto !important;
+          max-height: 99999px !important;
+        }
       }
     }
   }
@@ -553,14 +587,14 @@ ul.build-details {
       max-height: 8.44rem;
       vertical-align: middle;
       padding-bottom: 3em !important;
-
       display: inline-block;
       max-width: 100%;
       white-space: pre-wrap;
       white-space: -moz-pre-wrap;
       white-space: -pre-wrap;
       white-space: -o-pre-wrap;
-      word-wrap: break-word;  
+      word-wrap: break-word;
+      @include transition;
     }
   }
 
