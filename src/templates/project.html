@@ -142,7 +142,9 @@ controller: projectController
                 <span ng-show="build.worker == null">Log unavailable.</span>
               </span>
               <span class="act-time-ago" style="text-transform:capitalize;">
-                <span ng-hide="build.worker == null">{{ build.worker.end_time | date: "h:mma '-' MM/dd/yyyy" }}</span>
+                <span ng-show="build.worker !== null && build.worker.status !== 'Running' && build.worker.status !== 'Pending'">{{ build.worker.end_time | date: "h:mma '-' MM/dd/yyyy" }}</span>
+                <span ng-show="build.worker.status == 'Running'">N/A</span>
+                <span ng-show="build.worker.status == 'Pending'">N/A</span>
                 <span ng-show="build.worker == null">N/A</span>
               </span>
               <!-- <div class="act-child-jobs">
