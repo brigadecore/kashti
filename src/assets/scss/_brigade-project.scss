@@ -168,6 +168,10 @@
         color: lighten($dark2, 7.5%);
       }
 
+      &.unknown {
+        color: darken($light2, 10%);
+      }
+
       &:hover {
         background: darken($light2, 3.5%);
       }
@@ -261,8 +265,15 @@
         &.active {
           div.active {
             display: inline-block;
-            width: 40px;
-            height: 40px;
+            width: 24px;
+            height: 24px;
+          }
+        }
+
+        &.unknown {
+          div.unknown {
+            display: inline-block;
+            color: darken($light2, 10%);
           }
         }
 
@@ -312,7 +323,7 @@
       }
 
       .act-author {
-        min-width: 13%;
+        min-width: 18%;
         position: relative;
         padding-left: 20px;
 
@@ -349,7 +360,7 @@
         min-width: 22.5%;
       }
       .act-time-duration {
-        min-width: 10%;
+        min-width: 25%;
       }
 
       &:after {

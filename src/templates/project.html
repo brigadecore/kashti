@@ -9,17 +9,21 @@ controller: projectController
   <div class="grid-content collapse shrink">
     <ul class="menu-bar primary">
       <li id="organization" ng-controller="projectController">
-        <h2>{{ project.name | limitTo:18 }}<small ng-if="project.name.length > 18">&#8230;</small></h2>
+        <h2><a href="/kashti/">{{ project.name | limitTo:18 }}<small ng-if="project.name.length > 18">&#8230;</small></a></h2>
       </li>
     </ul>
   </div>
   <div class="grid-content">
     <nav>
       <ul>
-        <li>
-          <ul ng-controller="buildsController">
-            <li ng-class="{ 'active': $state.current.name === 'project'}" class="active"><a>All Events</a></li>
-            <li ng-repeat="build in builds | filter:provider""><a>{{build.provider}}</a></li>
+        <li ng-class="{ 'active': $state.current.name === 'project'}">
+
+          <ul>
+            <li class="active"><a>All Events</a></li>
+            <li><a>Github</a></li>
+            <li><a>Docker</a></li>
+            <li><a>Slack</a></li>
+            <li><a>Trello</a></li>
           </ul>
         </li>
       </ul>
@@ -92,17 +96,21 @@ controller: projectController
         </div>
 
         <ul class="grid-content build-list" ng-controller="buildsController">
-          <li ng-repeat="build in builds | orderBy: build.worker.end_time" class="medium-grid-block build-item" ng-show="build.worker != null">
+          <li ng-repeat="build in builds | orderObjectBy:'build.worker.end_time'" class="medium-grid-block build-item"">
+            <!-- ng-show="build.worker != null -->
             <a href="../kashti/#!/build/{{build.id}}" class="grid-block">
 
               <span class="act-state collapse {{ build.worker.status }}" ng-class="{
                 'success': build.worker.status == 'Succeeded',
                 'failed': build.worker.status == 'Failed',
-                'active': build.worker.status == 'Pending'
+                'active': build.worker.status == 'Pending',
+                'active': build.worker.status == 'Running',
+                'unknown': build.worker.status == null
               }">
                 <div class="success" title="Passed"><i class="icon ion-checkmark-circled"></i></div>
                 <div class="failed" title="Failed"><i class="icon ion-close-circled"></i></div>
                 <div class="active" title="In progress"><img src="assets/images/rolling.svg" /></div>
+                <div class="unknown" title="Status unknown - logs missing or expired."><i class="icon ion-record"></i></div>
               </span>
               <span class="act-author">
                 <span class="act-avatar">
@@ -116,17 +124,26 @@ controller: projectController
                 </span>
                 {{build.provider | limitTo:18 }}<small ng-if="build.provider.length > 18">&#8230;</small>
               </span>
-              <span class="act-hash">
+              <!-- <span class="act-hash">
                 {{build.revision.commit | limitTo : -6: number.length }}
-              </span>
+              </span> -->
               <span class="act-message">
-                <em>#</em>{{build.id | limitTo:34 }}<small ng-if="build.id.length > 34">&#8230;</small>
-              </span>
-              <span class="act-time-ago" style="text-transform:capitalize;">
-                {{ build.worker.end_time | date : "fullDate" | capitalize }}.
+                <span ng-hide="build.worker.status == 'Running'"><em>#</em>{{build.id | limitTo:34 }}<small ng-if="build.id.length > 34">&#8230;</small></span>
+                <!-- <span ng-show="build.worker == null"><em>#</em>{{build.id | limitTo:34 }}<small ng-if="build.id.length > 34">&#8230;</small></span> -->
+
+                <span ng-show="build.worker.status == 'Running'">Running...</span>
               </span>
               <span class="act-time-duration">
-                Ran for <span>{{ build.worker.end_time | amDifference : build.worker.start_time : 'minutes' }} minutes.</span>
+                <span ng-show="build.worker.status !== 'Running' && build.worker !== null">{{ build.worker.status | capitalize }} after <span>{{ build.worker.end_time | amDifference : build.worker.start_time : 'minutes' }} minutes.</span></span>
+
+                <span ng-show="build.worker.status == 'Running'">Started <span am-time-ago="build.worker.start_time"></span>.</span>
+                <span ng-show="build.worker.status == 'Pending'">Started <span am-time-ago="build.worker.start_time"></span>.</span>
+
+                <span ng-show="build.worker == null">Log unavailable.</span>
+              </span>
+              <span class="act-time-ago" style="text-transform:capitalize;">
+                <span ng-hide="build.worker == null">{{ build.worker.end_time | date: "h:mma '-' MM/dd/yyyy" }}</span>
+                <span ng-show="build.worker == null">N/A</span>
               </span>
               <!-- <div class="act-child-jobs">
                 {{ build.jobs.length }}
