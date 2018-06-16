@@ -81,10 +81,12 @@ controller: buildController
                 <div class="build-status" ng-class="{
                   'success': build.worker.status == 'Succeeded',
                   'failed': build.worker.status == 'Failed',
-                  'active': build.worker.status == 'Pending'}">
+                  'active': build.worker.status == 'Pending',
+                  'active': build.worker.status == 'Running'}">
                   <div class="success" ng-show="build.worker.status == 'Succeeded'"><i class="icon ion-checkmark-circled"></i> Passed</div>
                   <div class="failed" ng-show="build.worker.status == 'Failed'"><i class="icon ion-close-circled"></i> Failed</div>
-                  <div class="active" ng-show="build.worker.status == 'Pending'"><img src="assets/images/rolling.svg" /> In Progress</div>
+                  <div class="active" ng-show="build.worker.status == 'Pending'"><img src="assets/images/rolling.svg" /> Pending...</div>
+                  <div class="active" ng-show="build.worker.status == 'Running'"><img src="assets/images/rolling.svg" /> Running...</div>
                 </div>
 
                 <div class="grid-block horizontal build-metadata">

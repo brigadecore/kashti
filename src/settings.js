@@ -3,4 +3,4 @@
  * Settings MUST be stored in a separate directory, because this directory may
  * be mounted from a different filesystem
  */
-const baseURL = 'https://cors-anywhere.herokuapp.com/https://example-api.technosophos.me/'
+const baseURL = 'https://cors-anywhere.herokuapp.com/http://example-api.technosophos.me'
