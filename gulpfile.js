@@ -11,7 +11,7 @@ var gulp     = require('gulp');
 var rimraf   = require('rimraf');
 var router   = require('front-router');
 var sequence = require('run-sequence');
-var deploy   = require('gulp-gh-pages');
+var deploy   = require('gh-pages');
 var replace  = require('gulp-replace');
 
 
@@ -186,8 +186,7 @@ gulp.task('base-gh-pages', function() {
 
 // Deploys the dist app to gh-pages
 gulp.task('deploy', ['base-gh-pages'], function() {
-  return gulp.src('./dist/**/*')
-    .pipe(deploy());
+  deploy.publish('dist', function(err) {});
 });
 
 // Starts a test server, which you can view at http://localhost:4000
