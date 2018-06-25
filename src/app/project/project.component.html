@@ -39,7 +39,7 @@
             <!-- if ongoing -->
             <span class="act-times-wrap" *ngIf="build.worker?.status == 'Pending'" title="Waiting for image pull to complete, and for container to start. {{ build.worker?.start_time | date:'long' }}">
               <span class="act-time-duration">Initializing...</span>
-              <span class="act-time-ago right text-right">{{ build.worker?.start_time | amDifference: today :'minutes' : true | amDuration:'minutes' | lowercase }} ago</span>
+              <span class="act-time-ago right text-right">seconds ago</span>
             </span>
             <span class="act-times-wrap" *ngIf="build.worker?.status == 'Running'" title="Build started {{ build.worker?.start_time | date:'long' }}">
               <span class="act-time-duration">Build started...</span>
