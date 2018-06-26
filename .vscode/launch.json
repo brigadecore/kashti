@@ -9,7 +9,7 @@
       "type": "chrome",
       "request": "launch",
       "sourceMaps": true,
-      "url": "http://localhost:3000/#",
+      "url": "http://localhost:4200/#",
       "webRoot": "${workspaceRoot}"
     }
   ]

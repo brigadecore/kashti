@@ -1,6 +1,10 @@
 @import 'global_variables';
 @import 'global_states';
 
+:host {
+  min-width: 91.5%;
+}
+
 .build-chart-bg {
   background: linear-gradient(5deg, darken(#F0F1F6, 2.5%) 0%, lighten(#e6e9f0, 1%) 100%);
   display: block;
@@ -9,7 +13,7 @@
   left: 3.5rem;
   right: 0;
   width: 100%;
-  height: 13.25rem;
+  height: 13.7rem;
   position: absolute;
   z-index: -100;
   @include transition;
@@ -99,6 +103,13 @@
 
   .build-status {
     right: 0;
+
+    .spinner {
+      float: left;
+      width: 1.5rem;
+      height: 1.5rem;
+      margin: -0.25rem 1rem 0 -2.25rem;
+    }
   }
 
   .build-metadata {
@@ -122,7 +133,7 @@
       display: inline-block;
       width: 0.13rem;
       position: absolute;
-      height: 3.5rem;
+      height: 4.667rem;
       content: " ";
       background: $light2;
       top: -0.5rem;
@@ -154,7 +165,8 @@
         background: $brand1;
       }
 
-      .icon {
+      .icon,
+      .spinner {
         padding-left: 0.25rem;
       }
 
@@ -180,9 +192,9 @@
         display: inline-block;
         content: " ";
         width: 10000%;
-        position: absolute;
+        position: relative;
         height: 0.125rem;
-        top: 0.75rem;
+        top: 0.333rem;
         content: " ";
         background: darken($light2, 1.5%);
         left: -1000%;
@@ -204,42 +216,86 @@
 
     .task-1 {
       top: 0;
-      width: 15%;
+      width: 12%;
       left: 5%;
     }
 
     .task-2 {
+      top: 0;
+      width: 12%;
       left: 5%;
-      top: 2rem;
-      width: 70%;
+      z-index: 550;
+
+      &:nth-of-type(2) {
+        top: 1.75rem;
+      }
+
+      &:nth-of-type(3) {
+        top: 1.75rem;
+        left: 18%;
+      }
+
+      &:nth-of-type(4) {
+        top: 1.75rem;
+        left: 31%;
+      }
+
+      &:nth-of-type(5) {
+        top: 1.75rem;
+        left: 44%;
+      }
+
+      &:nth-of-type(6) {
+        top: 1.75rem;
+        left: 57%;
+      }
+
+      &:nth-of-type(7) {
+        top: 1.75rem;
+        left: 70%;
+      }
+
+      &:nth-of-type(8) {
+        top: 1.75rem;
+        left: 83%;
+      }
+
+      &:nth-of-type(9) {
+        top: 1.75rem;
+        left: 96%;
+      }
+
+      &:nth-of-type(10) {
+        top: 1.75rem;
+        left: 109%;
+      }
+
+      &:nth-of-type(11) {
+        top: 1.75rem;
+        left: 122%;
+      }
+
+      &:nth-of-type(12) {
+        top: 1.75rem;
+        left: 135%;
+      }
+
+      &:nth-of-type(13) {
+        top: 1.75rem;
+        left: 148%;
+      }
     }
   }
 }
 
-.job-list {
-  h4 {
-    margin: 0.5rem 0 2rem;
-    @include nunitoBold;
-    font-size: 1.125rem;
-    color: $dark3;
-
-    .job-count {
-      @include border-radius(50%,50%);
-      background: rgba(255,255,255,0.5);
-      width: 2rem;
-      line-height: 1.5;
-      text-align: center;
-      display: inline-block;
-      padding: 0 0.5rem;
-      margin-right: 0.25rem;
-      color: $dark2;
-    }
-  }
+.jobs-index,
+.job-index {
+  color: $brand2;
 }
 
 ul.build-details {
   list-style: none;
-  margin: 0.5rem auto 3rem;
+  margin: 1.5rem auto 3rem;
 
   li,
   .accordion-item {
@@ -248,7 +304,7 @@ ul.build-details {
     padding: 0.75rem 1rem;
     font-size: 1rem;
     line-height: 1.5;
-    border-left: 0.33rem solid lighten($success, 10%);
+    border-left: 0.33rem solid lighten($dark1, 42%);
     @include box-shadow(0, 0.12rem, 0.12rem,rgba(0,0,0,0.125));
     @include border-radius(0.25rem);
     margin-left: 1rem;
@@ -274,6 +330,14 @@ ul.build-details {
   }
 
   li.parent {
+    padding-left: 3.5rem;
+    position: relative;
+
+    .text-left {
+      line-height: 2;
+      padding-top: 0.2rem;
+    }
+
     em {
       background: $light2;
       font-style: normal;
@@ -293,6 +357,12 @@ ul.build-details {
         font-size: 0.925rem;
         margin-right: -0.125rem;
       }
+    }
+
+    .icon {
+      position: absolute;
+      left: 1.25rem;
+      top: -0.25rem;
     }
   }
 
@@ -348,15 +418,52 @@ ul.build-details {
       }
     }
 
+    .job-index {
+      position: absolute;
+      top: 1rem;
+      right: 1.25rem;
+      font-weight: bold;
+    }
+
     .job-response {
       font-size: 0.75rem;
       float: left;
       background: $light2;
-      margin: 0.925rem 0 0 0;
+      margin: 0.75rem 0 0 0;
       padding: 0.25rem 0.75rem 0.25rem 2rem;
       border-radius: 3rem;
       line-height: 1.75;
       position: relative;
+
+      .icon {
+        padding-top: 0;
+      }
+
+      &.succeeded {
+        display: inline-block;
+        color: $success;
+      }
+      &.failed {
+        display: inline-block;
+        color: $fail;
+      }
+      &.unknown {
+        display: inline-block;
+        color: lighten($dark1, 42%);
+      }
+      &.pending,
+      &.running,
+      &.active, {
+        color: $brand2;
+
+        .spinner {
+          display: inline-block;
+          position: absolute;
+          top: 0.4rem;
+          left: 0.6rem;
+          @include spinnerDonut($brand1, 1rem, 0.125rem);
+        }
+      }
 
       i,
       img {
@@ -380,7 +487,7 @@ ul.build-details {
     position: relative;
     overflow: hidden;
 
-    a {
+    a.log-expand {
       position: absolute;
       bottom: -3em;
       left: 1%;
@@ -410,21 +517,55 @@ ul.build-details {
       }
     }
 
-    &.log-expand {
-      .log-inner,
-      .log-inner code {
-        height: auto;
+    &.logexpand {
+      .log-inner {
+        pre {
+          a.code-contract {
+            width: auto;
+            display: inline-block;
+            text-align: center;
+            min-width: 1rem;
+            line-height: 1.1;
+            font-size: 2rem;
+            padding: 0.5rem 1rem;
+            margin: 0;
+            background: $light2;
+            color: $dark1;
+            position: fixed;
+            right: 3rem;
+            top: -3rem;
+            left: auto;
+            bottom: auto;
+            z-index: 1080;
+            opacity: 0;
+            @include border-radius;
+            @include transition;
+
+            i {
+              margin: 0;
+            }
+          }
+
+          &:hover a.code-contract {
+            opacity: 1;
+            top: 3rem;
+          }
+        }
+        code {
+          height: auto !important;
+          max-height: 99999px !important;
+        }
       }
     }
   }
 
-  .log-inner {
+  .log-inner   {
     background: lighten($dark2, 5%);
     position: relative;
     overflow-x: hidden;
     border-radius: 0.2rem;
     width: 100%;
-    padding: 0.75rem 1rem;
+    padding: 0rem 1rem;
     @include transition;
 
     code,
@@ -443,20 +584,31 @@ ul.build-details {
       line-height: 1.5;
       font-size: 0.825rem;
       display: table-cell;
-      height: 8.44rem;
-      vertical-align: bottom;
+      max-height: 8.44rem;
+      vertical-align: middle;
       padding-bottom: 3em !important;
+      display: inline-block;
+      max-width: 100%;
+      white-space: pre-wrap;
+      white-space: -moz-pre-wrap;
+      white-space: -pre-wrap;
+      white-space: -o-pre-wrap;
+      word-wrap: break-word;
+      @include transition;
     }
   }
 
   li.active {
     border-left: 0.38rem solid $brand2;
   }
-  li.success {
+  li.succeeded {
     border-left: 0.38rem solid $success;
   }
   li.failed {
     border-left: 0.38rem solid $fail;
+  }
+  li.unknown {
+    border-left: 0.38rem solid lighten($dark1, 42%);
   }
 
   li.zf-accordion-wrap {
@@ -470,6 +622,14 @@ ul.build-details {
 
   .parent {
     border-color: lighten($success, 42.5%);
+
+    .columns {
+      padding-bottom: 0.25rem;
+    }
+
+    .jobs-index {
+      padding: 0.5rem 1rem;
+    }
   }
 
   pre {
@@ -490,47 +650,10 @@ ul.build-details {
   .icon {
     font-size: 1.5rem;
     margin-right: 1rem;
+    padding-top: 0.75rem;
   }
 
   .ion-checkmark-circled {
     color: $success;
-  }
-
-  .accordion {
-    border: none;
-
-    .accordion-item {
-
-      .accordion-title {
-        background: transparent;
-        padding: 0;
-        line-height: 1.5;
-      }
-
-      .accordion-content {
-        display: block;
-        padding: 1rem 0.25rem 0;
-
-        // for accordions inside accordions
-        .accordion {
-          margin: 0;
-          padding: 0;
-
-          .accordion-item {
-            margin-left: 0;
-            background-color: $light2;
-
-            .accordion-content {
-              display: none;
-            }
-
-            &.is-active .accordion-content {
-              display: block;
-            }
-          }
-        }
-      }
-
-    }
   }
 }
