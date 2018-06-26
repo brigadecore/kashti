@@ -6,6 +6,7 @@ import { environment } from '../environments/environment';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProjectComponent } from './project/project.component';
 import { BuildComponent } from './build/build.component';
+import { JobComponent } from './job/job.component';
 import { LogComponent } from './log/log.component';
 import { StyleGuideComponent } from './style-guide/style-guide.component';
 import { ProjectResolver } from './services/resolvers/project.resolver';
@@ -28,7 +29,7 @@ const routes: Routes = [
   },
   { path: 'builds/:id',
     component: BuildComponent,
-    resolve: { build: BuildResolver, jobs: JobsResolver, log: LogResolver }
+    resolve: { build: BuildResolver, jobs: JobsResolver, job: JobResolver, log: LogResolver }
   },
   { path: 'styleguide', component: StyleGuideComponent }
 ];
