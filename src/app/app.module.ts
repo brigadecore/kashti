@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AppRoutingModule } from './app-routing.module';
 import { StyleGuideComponent } from './style-guide/style-guide.component';
+import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
 import { BuildComponent } from './build/build.component';
@@ -30,6 +31,7 @@ import { SortBuildByStartDatePipe } from './pipes/builds/sort-build-by-start-dat
     DashboardComponent,
     StyleGuideComponent,
     SidebarComponent,
+    BreadcrumbComponent,
     FooterComponent,
     ProjectComponent,
     BuildComponent,

@@ -1,6 +1,7 @@
 @import 'global_variables';
 @import 'global_states';
 
+
 .build-chart-bg {
   background: linear-gradient(5deg, darken(#F0F1F6, 2.5%) 0%, lighten(#e6e9f0, 1%) 100%);
   display: block;
@@ -52,7 +53,7 @@
 }
 
 .build-header {
-  padding: 1.25rem 0;
+  padding: 4.5rem 0 1.25rem;
   position: relative;
 
   h1 {
@@ -98,6 +99,7 @@
   }
 
   .build-status {
+    top: 3.825rem;
     right: 0;
   }
 
