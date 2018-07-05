@@ -20,11 +20,8 @@ export class ApiLogService implements LogService {
   constructor(private http: HttpClient) {}
 
   getLog(jobId): Observable<Log> {
-                                      
-                                      // test IDs for debugging jobID
-                                      // large log: az-01ce52bg33gyjm8nj1x5hzcb51
-                                      // small log:  end-run-01ce4rm99edd09dk82zh9h5pxt
-    const logUrl = `${BRIGADE_API_HOST}/v1/job/helmdocs-01cgw3wkwz9r9t62sy5dvr3494/logs`;
+    // const logUrl = `${BRIGADE_API_HOST}/v1/job/helmdocs-01chp6bwtbz29n7f23p2j15d8d/logs`;
+    const logUrl = `${BRIGADE_API_HOST}/v1/job/${jobId}/logs`;
     const options = {responseType: 'text' as 'json'};
 
     return this.http

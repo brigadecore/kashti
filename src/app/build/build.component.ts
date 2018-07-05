@@ -7,8 +7,6 @@ import { Build } from '../models/Build';
 import { Revision } from '../models/Revision';
 import { BuildWorker } from '../models/BuildWorker';
 import { Job } from '../models/Job';
-import { Log } from '../models/Log';
-import { LogComponent } from '../log/log.component';
 
 import { MomentModule } from 'angular2-moment';
 import { LongDateFormatKey } from 'moment';
@@ -24,7 +22,6 @@ export class BuildComponent implements OnInit {
   revision: Revision;
   worker: BuildWorker;
   jobs: Job[];
-  log: Log;
 
   constructor(private route: ActivatedRoute) {}
 
@@ -33,6 +30,5 @@ export class BuildComponent implements OnInit {
     this.revision = this.build.revision;
     this.worker = this.build.worker;
     this.jobs = this.route.snapshot.data['jobs'];
-    this.log = this.route.snapshot.data['log'];
   }
 }
