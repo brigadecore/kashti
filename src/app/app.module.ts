@@ -22,6 +22,7 @@ import { ProjectResolver } from './services/resolvers/project.resolver';
 import { BuildsResolver } from './services/resolvers/builds.resolver';
 import { ProjectsBuildResolver } from './services/resolvers/projects-build.resolver';
 import { BuildResolver } from './services/resolvers/build.resolver';
+import { SortBuildByStartDatePipe } from './pipes/builds/sort-build-by-start-date.pipe';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { BuildResolver } from './services/resolvers/build.resolver';
     FooterComponent,
     ProjectComponent,
     BuildComponent,
-    BuildStatusBadgeComponent
+    BuildStatusBadgeComponent,
+    SortBuildByStartDatePipe
   ],
   imports: [
     MomentModule,
@@ -48,7 +50,6 @@ import { BuildResolver } from './services/resolvers/build.resolver';
     ProjectsBuildResolver,
     BuildsResolver,
     BuildResolver
-
   ],
   bootstrap: [AppComponent]
 })
