@@ -21,19 +21,22 @@ export class SortBuildByStartDatePipe implements PipeTransform {
    */
   static compare(b1: Build, b2: Build): number {
 
+    const workerOneExists = !!b1.worker;
+    const workerTwoExists = !!b2.worker;
+
     // if both builds have no workers they are "equivalent" since they both have been recently
     // started
-    if (!b1.worker && !b1.worker) {
+    if ((!workerOneExists) && (!workerTwoExists)) {
       return TimeDifference.equal;
     }
 
     // if the the first build has no worker it is more recent than the second build
-    if (!b1.worker) {
+    if (!workerOneExists) {
       return TimeDifference.before;
     }
 
     // if the the second build has no worker it is more recent than the second build
-    if (!b2.worker) {
+    if (!workerTwoExists) {
       return TimeDifference.after;
     }
 
