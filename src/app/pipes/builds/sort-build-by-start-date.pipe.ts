@@ -66,16 +66,11 @@ export class SortBuildByStartDatePipe implements PipeTransform {
     if (!builds) {
       return undefined;
     }
+    const order = desc ? -1 : 1;
 
-    let orderedList = builds.sort((b1, b2) => {
-      return SortBuildByStartDatePipe.compare(b1, b2);
+    return builds.sort((b1, b2) => {
+      return SortBuildByStartDatePipe.compare(b1, b2) * order;
     });
-
-    if (desc) {
-      orderedList = orderedList.reverse();
-    }
-
-    return orderedList;
   }
 
 }
