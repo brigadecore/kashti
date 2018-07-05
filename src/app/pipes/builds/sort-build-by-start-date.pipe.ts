@@ -1,6 +1,13 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import {Build} from '../../models/Build';
 
+// prevent magic numbers ...
+export enum TimeDifference {
+  equal = 0,
+  before = -1,
+  after = 1
+}
+
 @Pipe({
   name: 'sortBuildByStartDate'
 })
@@ -14,25 +21,20 @@ export class SortBuildByStartDatePipe implements PipeTransform {
    */
   static compare(b1: Build, b2: Build): number {
 
-    // prevent magic numbers ...
-    const equivalent = 0;
-    const before = -1;
-    const after = 1;
-
     // if both builds have no workers they are "equivalent" since they both have been recently
     // started
     if (!b1.worker && !b1.worker) {
-      return equivalent;
+      return TimeDifference.equal;
     }
 
     // if the the first build has no worker it is more recent than the second build
     if (!b1.worker) {
-      return before;
+      return TimeDifference.before;
     }
 
     // if the the second build has no worker it is more recent than the second build
     if (!b2.worker) {
-      return after;
+      return TimeDifference.after;
     }
 
     // we are sorting by start date
@@ -40,14 +42,14 @@ export class SortBuildByStartDatePipe implements PipeTransform {
     const startB2 = new Date(b2.worker.start_time).getTime();
 
     if (startB1 === startB2) {
-      return equivalent;
+      return TimeDifference.equal;
     }
 
     // smaller number in unix timestamp, the smaller the earlier ...
     if (startB1 < startB2) {
-      return after;
+      return TimeDifference.after;
     }
-    return before;
+    return TimeDifference.before;
   }
 
 
