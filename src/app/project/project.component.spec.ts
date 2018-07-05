@@ -11,6 +11,7 @@ import { ProjectComponent } from './project.component';
 import { Project } from '../models/Project';
 import { Build } from '../models/Build';
 import { BuildStatusBadgeComponent } from '../build-status-badge/build-status-badge.component';
+import {SortBuildByStartDatePipe} from '../pipes/builds/sort-build-by-start-date.pipe';
 
 describe('ProjectComponent', () => {
   let component: ProjectComponent;
@@ -20,7 +21,7 @@ describe('ProjectComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProjectComponent, BuildStatusBadgeComponent ],
+      declarations: [ ProjectComponent, BuildStatusBadgeComponent, SortBuildByStartDatePipe ],
       imports: [
         RouterTestingModule.withRoutes(
           [{ path: '', component: ProjectComponent }]
