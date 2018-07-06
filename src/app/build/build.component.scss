@@ -486,77 +486,6 @@ ul.build-details {
   .log-wrap {
     position: relative;
     overflow: hidden;
-
-    a.log-expand {
-      position: absolute;
-      bottom: -3em;
-      left: 1%;
-      width: 98%;
-      opacity: 0;
-      z-index: -10;
-      background: lighten($dark2, 15%);
-      color: $light3;
-      text-align: center;
-      font-weight: bold;
-      font-size: 0.75rem;
-      line-height: 2;
-      @include border-radius(0.25rem, 0.25rem);
-      @include transition;
-
-      i {
-        font-size: 0.75em;
-        padding-right: 0.333rem;
-      }
-    }
-
-    &:hover {
-      a {
-        z-index: 500;
-        bottom: 0.5rem;
-        opacity: 1;
-      }
-    }
-
-    &.logexpand {
-      .log-inner {
-        pre {
-          a.code-contract {
-            width: auto;
-            display: inline-block;
-            text-align: center;
-            min-width: 1rem;
-            line-height: 1.1;
-            font-size: 2rem;
-            padding: 0.5rem 1rem;
-            margin: 0;
-            background: $light2;
-            color: $dark1;
-            position: fixed;
-            right: 3rem;
-            top: -3rem;
-            left: auto;
-            bottom: auto;
-            z-index: 1080;
-            opacity: 0;
-            @include border-radius;
-            @include transition;
-
-            i {
-              margin: 0;
-            }
-          }
-
-          &:hover a.code-contract {
-            opacity: 1;
-            top: 3rem;
-          }
-        }
-        code {
-          height: auto !important;
-          max-height: 99999px !important;
-        }
-      }
-    }
   }
 
   .log-inner   {
@@ -584,9 +513,8 @@ ul.build-details {
       line-height: 1.5;
       font-size: 0.825rem;
       display: table-cell;
-      max-height: 8.44rem;
       vertical-align: middle;
-      padding-bottom: 3em !important;
+      padding-bottom: 0.2em;
       display: inline-block;
       max-width: 100%;
       white-space: pre-wrap;

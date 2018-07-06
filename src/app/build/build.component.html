@@ -80,64 +80,43 @@
       <!-- Pending API hookup:
         ngRepeat: job in jobs -->
       <li class="job {{ job?.status | lowercase}}" id="{{ job?.id }}" *ngFor="let job of jobs; index as i" [attr.data-index]="i">
-        <small class=" ">Started at {{ job?.start_time }}</small>
-        <span class="job-index">{{i + 1}}</span>
-        <h5>{{job?.name}}</h5>
+        <a routerLink="/jobs/{{job?.id}}" title="View log details for {{job?.name}}">
+          <small class=" ">Started at {{ job?.start_time }}</small>
+          <span class="job-index">{{i + 1}}</span>
+          <h5>{{job?.name}}</h5>
 
-        <!-- job status badge -->
-        <div class="job-response {{ job?.status | lowercase}}">
-          <span class="act-state running" title="{{ job?.status }}" *ngIf="job?.status == 'Active'">
-            <div class="spinner"></div>
-          </span>
-          <span class="act-state running" title="{{ job?.status }}" *ngIf="job?.status == 'Running'">
-            <div class="spinner"></div>
-          </span>
-          <span class="act-state running" title="{{ job?.status }}" *ngIf="job?.status == 'Pending'">
-            <div class="spinner"></div>
-          </span>
-          <span class="act-state succeeded" title="{{ job?.status }}" *ngIf="job?.status == 'Succeeded'">
-            <i class="icon ion-md-checkmark-circle status-success"></i>
-          </span>
-          <span class="act-state failed" title="{{ job?.status }}" *ngIf="job?.status == 'Failed'">
-            <i class="icon ion-md-close-circle status-fail"></i>
-          </span>
-          <span class="act-state unknown" title="{{ job?.status }}" *ngIf="job?.status == 'Unknown'">
-            <i class="icon ion-md-radio-button-off unknown"></i>
-          </span>
-          {{ job?.status }}
-        </div>
-
-        <!-- log output -->
-        <div>
-          <div>
-            <dl>
-              <dt>Image:</dt>
-              <dd class=" ">{{ job?.image }}</dd>
-              <dt>Job ID:</dt>
-              <dd class=" ">{{ job?.id }}</dd>
-              <dt>Log output:</dt>
-            </dl>
-            <div class="log-wrap" [ngClass]="{ 'logexpand' : logexpand }">
-
-              <div hljs="" hljs-source="" class="log-inner">
-                <pre><code class="hljs">
-{{ log }}
-<a class="code-contract" (click)="logexpand=!logexpand"><i class="icon ion-md-contract" name="contract"></i></a>
-                  </code>
-                </pre>
-              </div>
-
-              <a class="log-expand" (click)="logexpand=!logexpand">
-                <span *ngIf="!logexpand">
-                  <i class="icon md-arrow-dropdown"></i> Expand logs</span>
-                <span *ngIf="logexpand">
-                  <i class="icon md-arrow-dropup"></i> Collapse logs</span>
-              </a>
-            </div>
+          <!-- job status badge -->
+          <div class="job-response {{ job?.status | lowercase}}">
+            <span class="act-state running" title="{{ job?.status }}" *ngIf="job?.status == 'Active'">
+              <div class="spinner"></div>
+            </span>
+            <span class="act-state running" title="{{ job?.status }}" *ngIf="job?.status == 'Running'">
+              <div class="spinner"></div>
+            </span>
+            <span class="act-state running" title="{{ job?.status }}" *ngIf="job?.status == 'Pending'">
+              <div class="spinner"></div>
+            </span>
+            <span class="act-state succeeded" title="{{ job?.status }}" *ngIf="job?.status == 'Succeeded'">
+              <i class="icon ion-md-checkmark-circle status-success"></i>
+            </span>
+            <span class="act-state failed" title="{{ job?.status }}" *ngIf="job?.status == 'Failed'">
+              <i class="icon ion-md-close-circle status-fail"></i>
+            </span>
+            <span class="act-state unknown" title="{{ job?.status }}" *ngIf="job?.status == 'Unknown'">
+              <i class="icon ion-md-radio-button-off unknown"></i>
+            </span>
+            {{ job?.status }}
           </div>
-        </div>
+          
+          <dl>
+            <dt>Image:</dt>
+            <dd>{{ job?.image }}</dd>
+            <dt>ID:</dt>
+            <dd>{{ job?.image }}</dd>
+          </dl>
 
-        <small class=" ">Finished at {{ job?.end_time }}</small>
+          <small class=" ">Finished at {{ job?.end_time }}</small>
+        </a>
       </li>
 
       <li class="parent">

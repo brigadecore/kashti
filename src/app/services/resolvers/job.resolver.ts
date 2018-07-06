@@ -10,6 +10,6 @@ export class JobResolver implements Resolve<Job> {
   constructor(private jobService: JobService) {}
 
   resolve(route: ActivatedRouteSnapshot) {
-    return this.jobService.getJob(route.paramMap.get('jobId'));
+    return this.jobService.getJob(route.paramMap.get('id'));
   }
 }

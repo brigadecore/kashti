@@ -4,19 +4,21 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
 
 import { Job } from '../models/Job';
+import { Log } from '../models/Log';
 
 @Component({
   selector: 'app-job',
   templateUrl: './job.component.html',
-  styleUrls: ['./job.component.scss']
+  styleUrls: ['../build/build.component.scss']
 })
 export class JobComponent implements OnInit {
   job: Job;
+  log: Log;
 
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.job = this.route.snapshot.data['job'];
+    this.log = this.route.snapshot.data['log'];
   }
-
 }

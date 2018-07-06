@@ -1,3 +1,77 @@
-<p>
-  job works!
-</p>
+<div class="grid-container build-chart- active-chart">
+  <div class="build-chart-bg"></div>
+
+  <div class="grid-content build-header-wrap">
+    <div class="grid-block horizontal">
+      <div class="small-12">
+
+        <div class="build-header">
+          <h1>
+            <a routerLink="../../builds/{{ build?.id }}">
+              <i class="icon ion-ios-arrow-back-outline"></i>
+            </a>
+          </h1>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="job-list">
+
+    <ul class="build-details" id="build-details">      
+      <li class="job {{ job?.status | lowercase}}" id="{{ job?.id }}">
+        <small class=" ">Started at {{ job?.start_time }}</small>
+        <h5>{{job?.name}}</h5>
+
+        <!-- job status badge -->
+        <div class="job-response {{ job?.status | lowercase}}">
+          <span class="act-state running" title="{{ job?.status }}" *ngIf="job?.status == 'Active'">
+            <div class="spinner"></div>
+          </span>
+          <span class="act-state running" title="{{ job?.status }}" *ngIf="job?.status == 'Running'">
+            <div class="spinner"></div>
+          </span>
+          <span class="act-state running" title="{{ job?.status }}" *ngIf="job?.status == 'Pending'">
+            <div class="spinner"></div>
+          </span>
+          <span class="act-state succeeded" title="{{ job?.status }}" *ngIf="job?.status == 'Succeeded'">
+            <i class="icon ion-md-checkmark-circle status-success"></i>
+          </span>
+          <span class="act-state failed" title="{{ job?.status }}" *ngIf="job?.status == 'Failed'">
+            <i class="icon ion-md-close-circle status-fail"></i>
+          </span>
+          <span class="act-state unknown" title="{{ job?.status }}" *ngIf="job?.status == 'Unknown'">
+            <i class="icon ion-md-radio-button-off unknown"></i>
+          </span>
+          {{ job?.status }}
+        </div>
+
+        <!-- log output -->
+        <div>
+          <div>
+            <dl>
+              <dt>Image:</dt>
+              <dd class=" ">{{ job?.image }}</dd>
+              <dt>Job ID:</dt>
+              <dd class=" ">{{ job?.id }}</dd>
+              <dt>Log output:</dt>
+            </dl>
+            
+            <div class="log-wrap" [ngClass]="{ 'logexpand' : logexpand }">
+
+              <div hljs="" hljs-source="" class="log-inner">
+                <pre><code class="hljs">
+{{ log }}
+                  </code>
+                </pre>
+              </div>
+            </div>
+          </div>
+        
+        </div>
+
+        <small class=" ">Finished at {{ job?.end_time }}</small>
+      </li>
+    </ul>
+  </div>
