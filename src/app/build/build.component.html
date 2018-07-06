@@ -1,6 +1,12 @@
 <div class="grid-container build-chart- active-chart">
   <div class="build-chart-bg"></div>
 
+  <div class="breadcrumb-bar columns">
+    <a routerLink="build/{{build.project_id}}">Project #{{ build?.project_id }}</a>
+    <i class="icon ion-ios-arrow-forward"></i>
+    <a routerLink="build/:id">Build #{{ build?.id }}</a>
+  </div>
+
   <div class="grid-content build-header-wrap">
     <div class="grid-block horizontal">
       <div class="small-12">
@@ -107,13 +113,15 @@
             </span>
             {{ job?.status }}
           </div>
-          
+
           <dl>
             <dt>Image:</dt>
             <dd>{{ job?.image }}</dd>
-            <dt>ID:</dt>
-            <dd>{{ job?.image }}</dd>
+            <dt>Job ID:</dt>
+            <dd>{{ job?.id }}</dd>
           </dl>
+
+          <a class="button rounded secondary">View Logs<i class="icon ion-md-arrow-dropright"></i></a>
 
           <small class=" ">Finished at {{ job?.end_time }}</small>
         </a>

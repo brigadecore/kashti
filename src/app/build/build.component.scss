@@ -13,7 +13,7 @@
   left: 3.5rem;
   right: 0;
   width: 100%;
-  height: 13.7rem;
+  height: 18rem;
   position: absolute;
   z-index: -100;
   @include transition;
@@ -53,6 +53,7 @@
   z-index: 200;
   padding-bottom: 0.825rem;
   overflow: visible;
+  padding-top: 50px;
 }
 
 .build-header {
@@ -304,7 +305,7 @@ ul.build-details {
     padding: 0.75rem 1rem;
     font-size: 1rem;
     line-height: 1.5;
-    border-left: 0.33rem solid lighten($dark1, 42%);
+    border-left: 6px solid lighten($dark1, 42%);
     @include box-shadow(0, 0.12rem, 0.12rem,rgba(0,0,0,0.125));
     @include border-radius(0.25rem);
     margin-left: 1rem;
@@ -372,10 +373,45 @@ ul.build-details {
 
     h5 {
       @include nunitoBold;
+      color: $dark2;
       font-size: 1.5rem;
-      padding: 0.333em 1.5rem 0 0;
+      padding: 0.5em 1.5rem 0 0;
       float: left;
+      margin-left: 0.75rem;
       margin-bottom: 1.125rem;
+    }
+
+    .button {
+      position: absolute;
+      background: $light2;
+      padding: 0.75rem 1rem;
+      border-radius: 0.25rem;
+      color: darken($light1, 12.5%);
+      line-height: 1;
+      top: 50%;
+      right: 5.25rem;
+      transform: translateY(-50%);
+      @include nunitoBold;
+      @include transition;
+
+      i {
+        font-size: 1rem;
+        padding: 0;
+        margin: 0 0 0 0.75rem;
+        color: $brand2;
+        @include transition;
+      }
+    }
+
+    &:hover {
+      .button {
+        background: $brand2;
+        color: white;
+
+        i {
+          color: white;
+        }
+      }
     }
 
     small {
@@ -394,10 +430,11 @@ ul.build-details {
     }
 
     dl {
-      margin-left: 0;
-      margin-top: -2rem;
+      margin-left: 0.75rem;
+      margin-top: -3rem;
       clear: both;
       line-height: 1.3;
+      color: $dark3;
 
       dt,
       dd {
@@ -410,7 +447,7 @@ ul.build-details {
         padding: 0;
       }
       dt {
-        width: 20%;
+        width: 15%;
         font-weight: normal;
       }
       dd {
