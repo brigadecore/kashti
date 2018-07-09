@@ -20,7 +20,7 @@
     </div>
 
     <ul class="grid-content build-list columns">
-      <li class="medium-grid-block build-item" *ngFor="let build of builds">
+      <li class="medium-grid-block build-item" *ngFor="let build of (builds | sortBuildByStartDate)">
         <a routerLink="/builds/{{build.id}}" class="grid-block">
           <app-build-status-badge [status]="build.worker?.status"></app-build-status-badge>
           <span class="act-author" title="Build triggered by {{ build.provider }} / {{ build.type }}: commit {{ build.revision.commit }} ref {{ build.revision.ref }}">
@@ -48,7 +48,7 @@
 
             <!-- if completed -->
             <span class="act-times-wrap" *ngIf="
-              build.worker?.status == 'Failed' || 
+              build.worker?.status == 'Failed' ||
               build.worker?.status == 'Succeeded'
             ">
               <span class="act-time-duration">Build {{ build.worker?.status | lowercase }} after <span title="Build started {{ build.worker?.start_time | date:'long' }}">{{ build.worker?.start_time | amDifference: build.worker?.end_time :'seconds' : true | amDuration:'seconds' }}.</span></span>

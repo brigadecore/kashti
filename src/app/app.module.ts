@@ -29,7 +29,7 @@ import { ProjectsBuildResolver } from './services/resolvers/projects-build.resol
 import { BuildResolver } from './services/resolvers/build.resolver';
 import { JobResolver } from './services/resolvers/job.resolver';
 import { LogResolver } from './services/resolvers/log.resolver';
-
+import { SortBuildByStartDatePipe } from './pipes/builds/sort-build-by-start-date.pipe';
 
 @NgModule({
   declarations: [
@@ -42,7 +42,8 @@ import { LogResolver } from './services/resolvers/log.resolver';
     BuildComponent,
     BuildStatusBadgeComponent,
     JobComponent,
-    LogComponent
+    LogComponent,
+    SortBuildByStartDatePipe
   ],
   imports: [
     MomentModule,
