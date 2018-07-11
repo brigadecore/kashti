@@ -12,16 +12,16 @@ data:
           listen       {{ .Values.service.internalPort }};
           server_name  localhost;
 
+        # Proxy to API server
+          location /v1/ {
+              proxy_pass {{ .Values.brigade.apiServer }}/v1/;
+          }
+
           location / {
               root   /usr/share/nginx/html;
               index  index.html index.htm;
           }
-
-          // Proxy to API server
-          location /v1 {
-              proxy_pass http://{{ .Values.brigade.apiServer }}/v1
-          }
-
+          
           error_page   500 502 503 504  /50x.html;
           location = /50x.html {
               root   /usr/share/nginx/html;
