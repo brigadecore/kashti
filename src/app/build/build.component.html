@@ -45,8 +45,8 @@
               </a>
             </div>
 
-            <span class="task task-1"><a href="">{{ build?.type }}</a></span>
-            <span *ngFor="let job of jobs" class="task task-2"><a href="">{{ job.name }}</a></span>
+            <span class="task task-1">{{ build?.type }}</span>
+            <span *ngFor="let job of jobs" class="task task-2"><a routerLink="/jobs/{{job?.id}}">{{ job.name }}</a></span>
           </div>
         </div>
 
@@ -83,8 +83,6 @@
         </span>
       </li>
 
-      <!-- Pending API hookup:
-        ngRepeat: job in jobs -->
       <li class="job {{ job?.status | lowercase}}" id="{{ job?.id }}" *ngFor="let job of jobs; index as i" [attr.data-index]="i">
         <a routerLink="/jobs/{{job?.id}}" title="View log details for {{job?.name}}">
           <small class=" ">Started at {{ job?.start_time }}</small>
