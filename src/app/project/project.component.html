@@ -15,7 +15,7 @@
       </div>
     </div>
 
-    <p *ngIf="builds?.length == 0" class="empty">Nothing here yet. Watching for <a href="https://azure.github.io/brigade/">Brigade</a> <a href="https://azure.github.io/brigade/topics/scripting.html">events</a>...</p>
+    <p *ngIf="builds?.length == 0" class="empty">Nothing here yet! Watching for <a href="https://azure.github.io/brigade/">Brigade</a> <a href="https://azure.github.io/brigade/topics/scripting.html">events</a>...</p>
 
     <ul class="grid-content build-list columns">
       <li class="medium-grid-block build-item" *ngFor="let build of (builds | sortBuildByStartDate)">

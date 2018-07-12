@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { environment } from '../environments/environment';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { ProjectComponent } from './project/project.component';
 import { BuildComponent } from './build/build.component';
 import { JobComponent } from './job/job.component';
@@ -18,22 +19,40 @@ import { JobResolver } from './services/resolvers/job.resolver';
 import { LogResolver } from './services/resolvers/log.resolver';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: '',
+    data: {
+      breadcrumb: 'Home'
+    },
+    redirectTo: '/dashboard',
+    pathMatch: 'full'
+  },
   { path: 'dashboard',
+    data: {
+      breadcrumb: 'Dashboard'
+    },
     component: DashboardComponent,
-    resolve: { projectsBuilds: ProjectsBuildResolver }
+    resolve: { projectsBuilds: ProjectsBuildResolver },
   },
   { path: 'projects/:id',
+    data: {
+      breadcrumb: 'Project'
+    },
     component: ProjectComponent,
-    resolve: { project: ProjectResolver, builds: BuildsResolver }
+    resolve: { project: ProjectResolver, builds: BuildsResolver },
   },
   { path: 'builds/:id',
+    data: {
+      breadcrumb: 'Build'
+    },
     component: BuildComponent,
-    resolve: { build: BuildResolver, jobs: JobsResolver }
+    resolve: { build: BuildResolver, jobs: JobsResolver },
   },
   { path: 'jobs/:id',
+    data: {
+      breadcrumb: 'Job'
+    },
     component: JobComponent,
-    resolve: { job: JobResolver, log: LogResolver }
+    resolve: { job: JobResolver, log: LogResolver },
   },
   { path: 'styleguide', component: StyleGuideComponent }
 ];
