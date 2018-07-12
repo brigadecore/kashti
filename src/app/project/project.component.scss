@@ -58,6 +58,16 @@
   }
 }
 
+.empty {
+  padding: 2rem 0;
+  margin-top: 2rem;
+  width: 100%;
+  text-align: center;
+  color: lighten($dark1, 10%);
+  display: block;
+  font-size: 1.125rem;
+}
+
 .project-status-bar {
   color: $active;
   background: $light2;
