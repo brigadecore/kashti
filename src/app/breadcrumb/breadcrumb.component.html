@@ -1,0 +1,25 @@
+<div id="breadcrumbbar" class="columns">
+  <!-- dashboard-->
+  <span></span>
+
+  <!-- project -->
+  <span>
+    <a routerLink="/">Home</a>
+    <i class="icon ion-ios-arrow-forward"></i>
+    <a routerLink="project/:id">Project # {{ project?.id }}</a>
+  </span>
+    
+  <!-- build -->
+  <span>
+    <a routerLink="build/{{build.project_id}}">Project #{{ build?.project_id }}</a>
+    <i class="icon ion-ios-arrow-forward"></i>
+    <a routerLink="build/:id">Build #{{ build?.id }}</a>
+  </span>
+
+  <!-- job -->
+  <span>
+    <a routerLink="build/:id">Build #{{ build?.id }}</a>
+    <i class="icon ion-ios-arrow-forward"></i>
+    <a routerLink="job/:id">Job #{{ job?.id }}</a>
+  </span>
+</div>
