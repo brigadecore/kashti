@@ -63,13 +63,13 @@ h1, h2, h3 {
 }
 
 #main {
-  height: 100vh;
-  flex-grow: 1;
-
+  flex: 1 0 auto;
   padding-top: 1.75rem;
   padding-left: 2.5%;
   padding-right: 2.5%;
   padding-bottom: 3.5rem;
-
   margin-left: 3rem;
+
+  // offset height, footer-component.scss
+  min-height: calc(100vh - 4.75rem);
 }

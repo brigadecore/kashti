@@ -4,10 +4,10 @@ footer {
   border-top: 2px solid rgba(55,55,55,0.025);
   background: rgba(255,255,255,0.125);
   opacity: 1;
-  position: relative;
-  min-height: 75px;
+  min-height: 4.75rem;
   text-align: center;
   margin-left: 3rem;
+  flex-shrink: 0;
   @include transition;
 
   ul {
