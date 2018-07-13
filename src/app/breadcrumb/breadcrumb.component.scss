@@ -1,7 +1,6 @@
 @import 'global_variables';
 
 #breadcrumbbar {
-  background: #fff;
   position: fixed;
   top: 0;
   left: 56px;
@@ -9,8 +8,8 @@
   right: 0;
   padding: 0 0.2rem;
   min-height: 3.6rem;
-  background: lighten($light1, 3.5%);
-  border-bottom: 1px solid $light1;
+  background: rgba(239, 240, 245, 0.94);
+  border-bottom: 2px solid rgba(55,55,55,0.025);
   @include transition;
 
   &:hover {
