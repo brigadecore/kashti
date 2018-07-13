@@ -1,3 +1,5 @@
+<app-breadcrumb></app-breadcrumb>
+
 <div class="row small-up-1 medium-up-1 large-up-2 xlarge-up-3 dash-wrapper">
   <section class="columns" *ngFor="let projectBuild of projectsBuilds">
     <div class="project">
@@ -19,6 +21,14 @@
           </ul>
         </div>
       </a>
+    </div>
+  </section>
+
+  <section class="columns" *ngIf="projectsBuilds.length == 0">
+    <div class="project project-empty">
+      <h3>No Projects Found.</h3>
+      <p>Have you configured Kashti and the Brigade API correctly? Check the Kashti docs for information on <a href="https://github.com/Azure/kashti/blob/angular5/docs/install.md">installing and networking</a>.</p>
+      <p>If you have yet to setup a project, see our guides for <a href="https://github.com/Azure/brigade/blob/master/docs/intro/tutorial03.md">creating projects</a> and <a href="https://github.com/Azure/brigade/blob/master/docs/topics/projects.md">managing projects</a>.</p>
     </div>
   </section>
 

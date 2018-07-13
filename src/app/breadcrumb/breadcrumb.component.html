@@ -1,0 +1,8 @@
+<div id="breadcrumbbar" class="columns">
+  <ul class="breadcrumb">
+    <li *ngFor="let breadcrumb of breadcrumbs$ | async"
+        class="breadcrumb-item">
+        {{ breadcrumb.label }}
+    </li>
+  </ul>
+</div>
