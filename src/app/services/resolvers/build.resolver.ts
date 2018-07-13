@@ -3,6 +3,7 @@ import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
 
 import { BuildService } from '../build/build.service';
 import { Build } from '../../models/Build';
+import { BuildLog } from '../../models/BuildLog';
 
 @Injectable()
 export class BuildResolver implements Resolve<Build> {
