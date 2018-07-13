@@ -1,12 +1,13 @@
+
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ template "fullname" . }}
+  name: {{ template "fullname" . }}-js
   labels:
     chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
     release: {{ .Release.Name | quote }}
     heritage: {{ .Release.Service }}
 data:
   "settings.js": |-
-    var brigadeApiURL = '{{ default "http://localhost:7745" .Values.brigade.apiServer }}';
+    var brigadeApiURL = '//' + location.host; '{{ default "http://localhost:7745" .Values.brigade.apiServer }}';
     // End

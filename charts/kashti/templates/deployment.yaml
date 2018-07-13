@@ -32,12 +32,17 @@ spec:
           volumeMounts:
             - name: config-js
               mountPath: /usr/share/nginx/html/assets/js/settings
+            - name: config-nginx
+              mountPath: /etc/nginx/conf.d
           resources:
 {{ toYaml .Values.resources | indent 12 }}
       volumes:
         - name: config-js
           configMap:
-            name: {{ template "fullname" . }}
+            name: {{ template "fullname" . }}-js
+        - name: config-nginx
+          configMap:
+            name: {{ template "fullname" . }}-nginx
     {{- if .Values.nodeSelector }}
       nodeSelector:
 {{ toYaml .Values.nodeSelector | indent 8 }}
