@@ -32,7 +32,7 @@ export class ApiBuildService implements BuildService {
   }
 
   getBuildLog(buildId): Observable<BuildLog> {
-    const buildlogUrl = `${BRIGADE_API_HOST}/v1/build/${buildId}/?stream=true`;
+    const buildlogUrl = `${BRIGADE_API_HOST}/v1/build/${buildId}/logs?stream=true`;
     const options = {responseType: 'text' as 'json'};
 
     return this.http
