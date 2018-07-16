@@ -1,4 +1,4 @@
-export interface Breadcrumb {
+export interface BreadCrumb {
   label: string;
   url: string;
 };
