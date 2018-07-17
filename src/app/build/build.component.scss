@@ -366,18 +366,10 @@ ul.build-details {
       top: -0.25rem;
     }
 
-    code,
-    .hljs,
     pre {
-      background: transparent;
-      padding: 0;
-      margin: 0.5rem 0 0;
-      @include transition;
-    }
-
-    code {
       border: none;
       font-family: $mono;
+      margin-top: 0.825rem;
       color: white;
       line-height: 1.5;
       font-size: 0.825rem;
@@ -385,7 +377,7 @@ ul.build-details {
       vertical-align: middle;
       padding-bottom: 0.2em;
       display: inline-block;
-      max-width: 100%;
+      max-width: 96.5%;
       white-space: pre-wrap;
       white-space: -moz-pre-wrap;
       white-space: -pre-wrap;
