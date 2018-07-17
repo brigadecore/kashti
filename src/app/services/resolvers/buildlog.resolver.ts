@@ -11,6 +11,6 @@ export class BuildLogResolver implements Resolve<BuildLog> {
   constructor(private buildService: BuildService) {}
 
   resolve(route: ActivatedRouteSnapshot) {
-    return this.buildService.getBuild(route.paramMap.get('id'));
+    return this.buildService.getBuildLog(route.paramMap.get('id'));
   }
 }

@@ -6,7 +6,6 @@ import 'rxjs/add/observable/of';
 import { BuildService } from './build.service';
 import { Builds } from '../../mock/builds';
 import { BuildLogs } from '../../mock/build-logs';
-import { filter } from 'rxjs/operators';
 
 export class MockBuildService implements BuildService {
   getBuilds(projectId: string): Observable<Build[]> {
