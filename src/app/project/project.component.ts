@@ -1,4 +1,5 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
+import { Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
@@ -17,10 +18,13 @@ import { MomentModule } from 'angular2-moment';
 export class ProjectComponent implements OnInit {
   project: Project;
   builds: Build[];
+  location: Location;
 
-  constructor(
-    private route: ActivatedRoute,
-  ) { }
+  constructor(private route: ActivatedRoute, location: Location) { this.location = location }
+
+  backClicked() {
+    this.location.back();
+  };
 
   ngOnInit() {
     this.project = this.route.snapshot.data['project'];

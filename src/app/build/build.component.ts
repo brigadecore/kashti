@@ -1,4 +1,5 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
+import { Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
@@ -22,8 +23,13 @@ export class BuildComponent implements OnInit {
   revision: Revision;
   worker: BuildWorker;
   jobs: Job[];
+  location: Location;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, location: Location) { this.location = location }
+
+  backClicked() {
+    this.location.back();
+  };
 
   ngOnInit() {
     this.build = this.route.snapshot.data['build'];
