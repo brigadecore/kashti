@@ -331,7 +331,7 @@ ul.build-details {
   }
 
   li.parent {
-    padding-left: 3.5rem;
+    padding-left: 1.25rem;
     position: relative;
 
     .text-left {
@@ -364,6 +364,10 @@ ul.build-details {
       position: absolute;
       left: 1.25rem;
       top: -0.25rem;
+    }
+
+    pre {
+      margin-top: 0.5rem;
     }
   }
 
