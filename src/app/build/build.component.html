@@ -78,10 +78,9 @@
           </span>
         </span>
 
-        <h3>Master Log</h3>
-        <code>
+        <pre>
 {{ buildlogs }}
-        </code>
+        </pre>
       </li>
 
       <li class="job {{ job?.status | lowercase}}" id="{{ job?.id }}" *ngFor="let job of jobs; index as i" [attr.data-index]="i">
