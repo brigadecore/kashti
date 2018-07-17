@@ -28,7 +28,7 @@ export class BuildComponent implements OnInit {
 
   ngOnInit() {
     this.build = this.route.snapshot.data['build'];
-    this.buildlog = this.route.snapshot.data['buildlog'];
+    this.buildlogs = this.route.snapshot.data['buildlog'] as BuildLog;
     this.revision = this.build.revision;
     this.worker = this.build.worker;
     this.jobs = this.route.snapshot.data['jobs'];
