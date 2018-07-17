@@ -18,11 +18,11 @@ export class DashboardComponent implements OnInit {
 
   projectsBuilds: ProjectsBuild[];
 
-  constructor(private route: ActivatedRoute, location: Location) { this.location = location }
+  constructor(private route: ActivatedRoute, location: Location) { this.location = location; }
 
   backClicked() {
     this.location.back();
-  };
+  }
 
   ngOnInit() {
     this.projectsBuilds = this.route.snapshot.data['projectsBuilds'];

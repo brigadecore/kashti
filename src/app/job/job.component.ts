@@ -18,11 +18,11 @@ export class JobComponent implements OnInit {
   log: Log;
   location: Location;
 
-  constructor(private route: ActivatedRoute, location: Location) { this.location = location }
+  constructor(private route: ActivatedRoute, location: Location) { this.location = location; }
 
   backClicked() {
     this.location.back();
-  };
+  }
 
   ngOnInit() {
     this.job = this.route.snapshot.data['job'];
