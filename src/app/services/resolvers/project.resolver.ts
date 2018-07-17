@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 
 import { ProjectService } from '../project/project.service';
-import { Project } from '../../models/Project';
+import { Project } from '../../models/project';
 
 @Injectable()
 export class ProjectResolver implements Resolve<Project> {

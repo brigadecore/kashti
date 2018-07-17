@@ -1,6 +1,6 @@
-import { Repo } from './Repo';
-import { Kubernetes } from './Kubernetes';
-import { Worker } from './Worker';
+import { Repo } from './repo';
+import { Kubernetes } from './kubernetes';
+import { Worker } from './worker';
 
 export interface Project {
   id: string;

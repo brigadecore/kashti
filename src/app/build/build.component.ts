@@ -3,11 +3,11 @@ import { Location, LocationStrategy, PathLocationStrategy} from '@angular/common
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
-import { Build } from '../models/Build';
-import { BuildLog } from '../models/BuildLog';
-import { Revision } from '../models/Revision';
-import { BuildWorker } from '../models/BuildWorker';
-import { Job } from '../models/Job';
+import { Build } from '../models/build';
+import { BuildLog } from '../models/build-log';
+import { Revision } from '../models/revision';
+import { BuildWorker } from '../models/build-worker';
+import { Job } from '../models/job';
 
 import { MomentModule } from 'angular2-moment';
 import { LongDateFormatKey } from 'moment';

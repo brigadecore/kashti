@@ -1,5 +1,5 @@
-import { BuildWorker } from './BuildWorker';
-import { Revision } from './Revision';
+import { BuildWorker } from './build-worker';
+import { Revision } from './revision';
 
 export interface LastBuild {
   id: string;

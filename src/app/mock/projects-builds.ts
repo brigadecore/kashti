@@ -1,4 +1,4 @@
-import { ProjectsBuild } from '../models/ProjectsBuild';
+import { ProjectsBuild } from '../models/projects-build';
 
 export const ProjectsBuilds: ProjectsBuild[] = [
   {

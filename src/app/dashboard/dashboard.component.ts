@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { MomentModule } from 'angular2-moment';
 
 import { ProjectService } from '../services/project/project.service';
-import { ProjectsBuild } from '../models/ProjectsBuild';
+import { ProjectsBuild } from '../models/projects-build';
 
 @Component({
   selector: 'app-dashboard',

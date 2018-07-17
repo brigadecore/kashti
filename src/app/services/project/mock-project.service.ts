@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/delay';
 
-import { ProjectsBuild } from '../../models/ProjectsBuild';
+import { ProjectsBuild } from '../../models/projects-build';
 import { Project } from '../../models/Project';
 
 import { ProjectsBuilds } from '../../mock/projects-builds';

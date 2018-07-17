@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs/Observable';
-import { Build } from '../../models/Build';
-import { BuildLog } from '../../models/BuildLog';
-import { Job } from '../../models/Job';
+import { Build } from '../../models/build';
+import { BuildLog } from '../../models/build-log';
+import { Job } from '../../models/job';
 
 export abstract class BuildService {
     abstract getBuilds(projectId: string): Observable<Build[]>;

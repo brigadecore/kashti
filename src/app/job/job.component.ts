@@ -4,8 +4,8 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
 
-import { Job } from '../models/Job';
-import { Log } from '../models/Log';
+import { Job } from '../models/job';
+import { Log } from '../models/log';
 
 @Component({
   selector: 'app-job',
