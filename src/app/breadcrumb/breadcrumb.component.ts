@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { BreadCrumb } from '../models/Breadcrumb';
 import { Observable } from 'rxjs/Observable';
@@ -16,15 +17,22 @@ import 'rxjs/add/operator/distinctUntilChanged';
 })
 
 export class BreadcrumbComponent implements OnInit {
+  location: Location;
+  
   breadcrumbs$ = this.router.events
       .filter(event => event instanceof NavigationEnd)
       .distinctUntilChanged()
       .map(event => this.buildBreadCrumb(this.activatedRoute.root));
+  
   // Build your breadcrumb starting with the root route of your current activated route
   constructor(
     private activatedRoute: ActivatedRoute,
-    private router: Router
-  ) {}
+    private router: Router,
+    location: Location) { this.location = location }
+
+  backClicked() {
+    this.location.back();
+  };
 
   ngOnInit() {}
 
