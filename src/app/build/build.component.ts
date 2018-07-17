@@ -25,11 +25,11 @@ export class BuildComponent implements OnInit {
   jobs: Job[];
   location: Location;
 
-  constructor(private route: ActivatedRoute, location: Location) { this.location = location }
+  constructor(private route: ActivatedRoute, location: Location) { this.location = location; }
 
   backClicked() {
     this.location.back();
-  };
+  }
 
   ngOnInit() {
     this.build = this.route.snapshot.data['build'];

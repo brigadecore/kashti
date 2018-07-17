@@ -20,11 +20,11 @@ export class ProjectComponent implements OnInit {
   builds: Build[];
   location: Location;
 
-  constructor(private route: ActivatedRoute, location: Location) { this.location = location }
+  constructor(private route: ActivatedRoute, location: Location) { this.location = location; }
 
   backClicked() {
     this.location.back();
-  };
+  }
 
   ngOnInit() {
     this.project = this.route.snapshot.data['project'];
