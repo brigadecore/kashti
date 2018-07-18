@@ -31,7 +31,6 @@
     "foundation-sites": "^6.4.4-rc1",
     "ionicons": "^3.0.0",
     "jquery": "^3.2.1",
-    "ng2-breadcrumbs": "^0.1.281",
     "rxjs": "^5.5.2",
     "zone.js": "^0.8.14"
   },
