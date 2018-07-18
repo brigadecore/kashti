@@ -1,5 +1,3 @@
-# This branch is under active development and may break at any time. Please use [master](https://github.com/Azure/kashti/tree/master) or [releases](https://github.com/Azure/kashti/releases) for stable versions of Kashti.
-
 Kashti is a dashboard for your [Brigade](https://github.com/azure/brigade) pipelines.
 
 ![kashti-animation](https://user-images.githubusercontent.com/686194/33646819-7d19d222-da06-11e7-8513-82e521fda608.gif)
