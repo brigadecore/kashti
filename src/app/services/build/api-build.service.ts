@@ -6,6 +6,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { BRIGADE_API_HOST } from '../../app.config';
 import { BuildService } from './build.service';
 import { Build } from '../../models/Build';
+import { BuildLog } from '../../models/BuildLog';
 
 
 const httpOptions = {
@@ -28,5 +29,13 @@ export class ApiBuildService implements BuildService {
 
     return this.http
       .get<Build>(buildUrl, httpOptions);
+  }
+
+  getBuildLog(buildId): Observable<BuildLog> {
+    const buildlogUrl = `${BRIGADE_API_HOST}/v1/build/${buildId}/logs?stream=true`;
+    const options = {responseType: 'text' as 'json'};
+
+    return this.http
+      .get<BuildLog>(buildlogUrl, options);
   }
 }

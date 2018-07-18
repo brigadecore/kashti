@@ -14,6 +14,7 @@ import { ProjectResolver } from './services/resolvers/project.resolver';
 import { BuildsResolver } from './services/resolvers/builds.resolver';
 import { ProjectsBuildResolver } from './services/resolvers/projects-build.resolver';
 import { BuildResolver } from './services/resolvers/build.resolver';
+import { BuildLogResolver } from './services/resolvers/buildlog.resolver';
 import { JobsResolver } from './services/resolvers/jobs.resolver';
 import { JobResolver } from './services/resolvers/job.resolver';
 import { LogResolver } from './services/resolvers/log.resolver';
@@ -45,7 +46,7 @@ const routes: Routes = [
       breadcrumb: 'Build'
     },
     component: BuildComponent,
-    resolve: { build: BuildResolver, jobs: JobsResolver },
+    resolve: { build: BuildResolver, buildlog: BuildLogResolver, jobs: JobsResolver },
   },
   { path: 'jobs/:id',
     data: {

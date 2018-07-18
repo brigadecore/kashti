@@ -27,24 +27,8 @@ describe('ApiLogService', () => {
 
   it(
     'should be created',
-    inject([ApiLogService], (service: ApiJobService) => {
+    inject([ApiLogService], (service: ApiLogService) => {
       expect(service).toBeTruthy();
     })
-  );
-
-  xit(
-    'can get jobs',
-    async(
-      inject(
-        [ApiLogService, HttpTestingController],
-        (service: ApiLogService, backend: HttpTestingController) => {
-          service.ApiLogService('abc').subscribe();
-
-          backend
-            .expectOne('api/log')
-            .flush(null, { status: 200, statusText: 'Ok' });
-        }
-      )
-    )
   );
 });
