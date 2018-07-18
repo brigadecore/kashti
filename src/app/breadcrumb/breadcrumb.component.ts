@@ -25,7 +25,7 @@ export class BreadcrumbComponent implements OnInit {
   // Build your breadcrumb starting with the root route of your current activated route
   constructor(
     private activatedRoute: ActivatedRoute,
-    private router: Router,
+    public router: Router,
     location: Location) { this.location = location; }
 
   backClicked() {
