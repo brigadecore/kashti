@@ -1,0 +1,255 @@
+@import 'global_variables';
+@import 'global_states';
+
+
+:host {
+  padding: 0.925rem 4.25% 5rem;
+  min-width: 91.5%;
+}
+
+.dash-wrapper {
+  padding-top: 2rem;
+}
+
+@mixin icon {
+  font-size: 2.333rem;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  display: block;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 500;
+  background: white;
+  border-radius: 50%;
+}
+
+.project-success {
+  @include icon;
+  color: $success;
+}
+
+.project-fail {
+  @include icon;
+  color: $fail;
+}
+
+.project-active {
+  @include icon;
+  @include spinnerDonut($brand1, 2.33rem, 0.25rem);
+}
+
+.project-unknown {
+  @include icon;
+  background-color: $light1;
+  color: $light2;
+  font-size: 2.5rem;
+}
+
+.project {
+  position: relative;
+  height: 180px;
+  background: lighten($light3, 2.5%);
+  margin: 1rem 0;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  @include box-shadow(0,2px,12px,rgba(0,0,0,0.2));
+  @include transition;
+
+  a {
+    overflow: hidden;
+    display: inline-block;
+    width: 100%;
+    height: 170px;
+  }
+
+  h2 {
+    margin: 1.25rem 2rem 0 4.5rem;
+    font-size: 1.125rem;
+    line-height: 1.5;
+    color: $dark1;
+    @include nunitoBold;
+    @include transition;
+    @include wordwrap;
+  }
+
+  h4 {
+    @include uppercase;
+    font-size: 0.667rem;
+    letter-spacing: 0.15em;
+    color: darken($light1, 15%);
+    margin: 0.5rem 0 1rem 4rem;
+  }
+
+  &:hover {
+    background: white;
+    border-color: rgba(55, 176, 231, 0.25);
+    @include box-shadow(0,2px,7px,rgba(0,0,0,0.2));
+
+    h2 {
+      color: $brand2;
+    }
+  }
+
+  .status {
+    img {
+      font-size: 2rem;
+      text-align: left;
+      width: 2rem;
+      height: 2rem;
+      display: none;
+      position: absolute;
+      top: 1.125rem;
+      left: 1.25rem;
+      z-index: 500;
+      background: white;
+      border-radius: 50%;
+    }
+
+    img {
+      margin-top: -2px;
+      margin-left: -4px;
+      background: darken($light2, 5%);
+    }
+
+    &::before {
+      font-size: 2rem;
+      text-align: left;
+      width: 2.5rem;
+      height: 2.5rem;
+      display: inline-block;
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      z-index: 500;
+      display: block;
+      background: $light2;
+      border-radius: 50%;
+      border: 2px solid white;
+      content: ' ';
+    }
+
+    &:after {
+      width: 2px;
+      height: 138px;
+      background-color: lighten($light1, 5%);
+      display: block;
+      content: ' ';
+      position: absolute;
+      left: 2.15rem;
+      top: 2.5rem;
+      z-index: 300;
+    }
+  }
+
+  .activity {
+    ul {
+      list-style: none;
+      margin: 28px 0 0 4.5rem;
+
+      li {
+        font-family: $mono;
+        color: $dark3;
+        line-height: 1.6;
+        font-size: 0.75rem;
+        position: relative;
+
+        &:before {
+          display: block;
+          content: ' ';
+          width: 13px;
+          height: 13px;
+          background-color: $light1;
+          @include transition;
+          @include border-radius(50%, 50%);
+          border: 2px solid white;
+          position: absolute;
+          z-index: 650;
+          left: -43px;
+          top: 3px;
+        }
+
+        &.error {
+          color: $error;
+
+          .icon {
+            color: $brand2;
+            margin-left: 1.5rem;
+          }
+
+          &:before {
+            background-color: $error;
+          }
+        }
+
+        &.active {
+          color: darken($dark3, 10%);
+
+          .icon {
+            color: $brand2;
+            margin-left: 1.5rem;
+          }
+
+          &:before {
+            background-color: $brand2;
+            animation: pulse 2s infinite;
+          }
+        }
+      }
+    }
+  }
+
+  &.project-empty {
+    height: auto;
+    padding: 1.25rem 2.5rem;
+
+    h3 {
+      font-size: 1.25rem;
+      margin: 0.825rem 0 1.25rem;
+    }
+
+    p {
+      font-size: 0.925rem;
+      margin: 0 0 1rem; 
+
+      a {
+        display: inline;
+      }
+    }
+  }
+
+  @-webkit-keyframes pulse {
+    0% {
+      -webkit-box-shadow: 0 0 0 0 rgba(55, 176, 231, 0.4);
+    }
+    70% {
+      -webkit-box-shadow: 0 0 0 10px rgba(55, 176, 231, 0);
+    }
+    100% {
+      -webkit-box-shadow: 0 0 0 0 rgba(55, 176, 231, 0);
+    }
+  }
+  @keyframes pulse {
+    0% {
+      -moz-box-shadow: 0 0 0 0 rgba(55, 176, 231, 0.4);
+      box-shadow: 0 0 0 0 rgba(55, 176, 231, 0.4);
+    }
+    70% {
+      -moz-box-shadow: 0 0 0 10px rgba(55, 176, 231, 0);
+      box-shadow: 0 0 0 10px rgba(55, 176, 231, 0);
+    }
+    100% {
+      -moz-box-shadow: 0 0 0 0 rgba(55, 176, 231, 0);
+      box-shadow: 0 0 0 0 rgba(55, 176, 231, 0);
+    }
+  }
+
+  &.project-active {
+    img.status-active {
+      display: block;
+      color: $active;
+    }
+  }
+}

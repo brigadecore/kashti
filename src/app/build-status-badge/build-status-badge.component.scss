@@ -1,0 +1,101 @@
+@import 'global_variables';
+@import 'global_states';
+
+span {
+  font-family: $mono;
+  font-size: 0.825rem;
+  line-height: 2.25;
+  letter-spacing: -0.05em;
+  color: darken($dark3, 10%);
+  display: inline-block;
+  @include transition;
+}
+
+.act-state {
+  padding-top: 0.1rem;
+  padding-left: 0.1rem;
+  position: relative;
+  line-height: 1.725;
+  min-width: 3.5%;
+  z-index: 900;
+
+  div {
+    display: none;
+  }
+
+  &.succeeded {
+    span.succeeded {
+      display: inline-block;
+      color: $success;
+    }
+  }
+  &.failed {
+    span.failed {
+      display: inline-block;
+      color: $fail;
+    }
+  }
+  &.pending,
+  &.running {
+    .spinner {
+      display: inline-block;
+      position: absolute;
+      top: -0.925rem;
+      left: -0.667rem;
+      @include spinnerDonut($brand1, 1.333rem, 0.15rem);
+    }
+  }
+
+  .icon {
+    font-size: 1.5rem;
+    line-height: 0.5;
+    top: 1px;
+    left: -8px;
+    position: absolute;
+    z-index: 900;
+    @include transition;
+
+    &.ion-checkmark-circled {
+      color: $success;
+    }
+
+    &.ion-close-circled {
+      color: $fail;
+    }
+  }
+
+  img {
+    position: relative;
+    left: -0.75rem;
+    top: -0.25rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    position: absolute;
+    z-index: 900;
+    background-color: $light1;
+    border-radius: 50%;
+  }
+
+  .spinner {
+    z-index: 900;
+    position: relative;
+    @include transition;
+  }
+
+  .unknown {
+    color: darken($light2, 10%);
+  }
+
+  &:after {
+    width: 0.125rem;
+    height: 2.75rem;
+    left: 0;
+    top: -0.25rem;
+    background: $light1;
+    position: absolute;
+    display: block;
+    content: " ";
+    z-index: 50;
+    opacity: 0.05;
+  }
+}

@@ -1,0 +1,153 @@
+// Variables
+// ---------------------------------------
+//
+
+
+// font-family variables
+
+$nunito: 'Nunito','Europa','Open Sans',Roboto,Century Gothic,AppleGothic,Arial,sans-serif;
+$mono: Menlo, 'DejaVu Sans Mono', 'SF Mono', 'Monaco', 'Inconsolata', "Fira Mono", 'Droid Sans Mono', 'Source Code Pro', 'Lucida Console', monospace;
+
+
+// kashti color variables
+
+$brand1: #2541b2;
+$brand2: #37b0e7;
+
+$dark1: #342e37;
+$dark2: #2d3047;
+$dark3: #93b7be;
+
+$light1: #e1e6ee;
+$light2: #f4f5f7;
+$light3: #fbfbfd;
+$light4: #fff;
+
+$success: #70ae29;
+$fail: #d10015;
+$error: $fail;
+$pending: #cfaa59;
+$warn: darken(#f5a623, 2.5%);
+$active: $brand2;
+
+
+.success {
+  color: $success;
+}
+
+.fail {
+  color: $fail;
+}
+
+.error {
+  color: $error;
+}
+
+.warn {
+  color: $warn;
+}
+
+.active {
+  color: $active;
+}
+
+
+// mixins
+
+@mixin transition($property:all, $duration:0.3s, $easing:ease-in-out) {
+  transition: $property $duration $easing;
+}
+
+@mixin border-radius($radius1:3px, $radius2:3px) {
+  -webkit-border-radius: $radius1 $radius2 $radius1 $radius2;
+  -moz-border-radius: $radius1 $radius2 $radius1 $radius2;
+  border-radius: $radius1 $radius2 $radius1 $radius2;
+}
+
+@mixin box-shadow($xlength:0, $ylength:2px, $size:0, $color:rgba(30,30,30,0.25)) {
+  -webkit-box-shadow: $xlength $ylength $size $color;
+  -moz-box-shadow: $xlength $ylength $size $color;
+  box-shadow: $xlength $ylength $size $color;
+}
+
+@mixin vertical-align($position: relative) {
+  position: $position;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+@mixin uppercase {
+  text-transform: uppercase;
+  letter-spacing: 0.125em;
+}
+
+@mixin wordwrap {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+@mixin ellipses {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@mixin nunitoBold {
+  font-family: $nunito;
+  font-weight: bold;
+  letter-spacing: 0.035em;
+}
+
+// link effect
+@mixin ripple($color: $brand2) {
+  position: relative;
+  text-align: center;
+  @include transition;
+
+  &::after {
+    display: inline-block;
+    position: absolute;
+    content: "";
+    background: $color;
+    height: 2px;
+    width: 10%;
+    left: 40%;
+    bottom: -0.333em;
+    opacity: 0;
+    margin: -0.75em auto 0;
+    @include transition;
+  }
+
+  &:hover::after {
+    width: 100%;
+    left: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes donut-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@mixin spinnerDonut($color: $brand2, $size: 2rem, $stroke: 0.25rem) {
+  display: inline-block;
+  border: $stroke solid rgba(0, 0, 0, 0.1);
+  border-left-color: $brand2;
+  border-radius: 50%;
+  width: $size;
+  height: $size;
+  animation: donut-spin 1.2s linear infinite;
+}
+
+.spinner {
+  @include spinnerDonut();
+}

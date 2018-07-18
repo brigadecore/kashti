@@ -1,0 +1,644 @@
+@import 'global_variables';
+@import 'global_states';
+
+:host {
+  min-width: 91.5%;
+}
+
+.build-chart-bg {
+  background: linear-gradient(5deg, darken(#F0F1F6, 2.5%) 0%, lighten(#e6e9f0, 1%) 100%);
+  display: block;
+  content: " ";
+  top: 0;
+  left: 3.5rem;
+  right: 0;
+  width: 100%;
+  height: 18rem;
+  position: absolute;
+  z-index: -100;
+  @include transition;
+}
+
+.template-build {
+  position: relative;
+  margin: 0;
+
+  .grid-container {
+    max-width: 60rem !important;
+
+    .button {
+      position: absolute;
+      bottom: -.9rem;
+      right: 1.75rem;
+      transition: none;
+      padding-left: 0.75rem;
+      padding-right: 1rem;
+    }
+
+    &.active-chart {
+      &:after {
+        height: 21rem;
+      }
+
+      .button {
+        position: absolute;
+        bottom: 0.5rem;
+      }
+    }
+  }
+}
+
+.build-header-wrap {
+  position: relative;
+  z-index: 200;
+  padding-bottom: 0.825rem;
+  overflow: visible;
+  padding-top: 50px;
+}
+
+.build-header {
+  padding: 1.25rem 0;
+  position: relative;
+
+  h1 {
+    font-size: 1.75rem;
+    color: $dark2;
+    margin: -0.25em 0 1em;
+    position: relative;
+
+    a {
+      position: absolute;
+      left: -2.5rem;
+      padding-right: 1.5rem;
+      color: $brand2;
+      font-size: 1.5rem;
+      top: 0.2rem;
+      @include transition;
+
+      &:hover {
+        left: -2.825rem;
+      }
+    }
+
+    em {
+      font-family: $mono;
+      font-style: normal;
+      font-size: 1.667rem;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+
+      &:before {
+        content: '#';
+      }
+    }
+
+    small {
+      font-family: $mono;
+      font-size: 0.667rem;
+      position: absolute;
+      left: -2.5rem;
+      top: 1.333rem;
+      color: darken($dark3, 7.5%);
+    }
+  }
+
+  .build-status {
+    right: 0;
+
+    .spinner {
+      float: left;
+      width: 1.5rem;
+      height: 1.5rem;
+      margin: -0.25rem 1rem 0 -2.25rem;
+    }
+  }
+
+  .build-metadata {
+    font-family: $mono;
+    font-size: 0.667rem;
+    color: darken($dark3, 7.5%);
+    margin-top: -0.5rem;
+    padding-bottom: 2rem;
+
+    .text-right {
+      padding-right: 1rem;
+    }
+  }
+
+  .build-chart {
+    height: 2.5rem;
+    position: relative;
+
+    &:before,
+    &:after {
+      display: inline-block;
+      width: 0.13rem;
+      position: absolute;
+      height: 4.667rem;
+      content: " ";
+      background: $light2;
+      top: -0.5rem;
+      bottom: 0;
+      z-index: -2;
+      left: 1rem;
+    }
+
+    &:after {
+      left: auto;
+      right: 1rem;
+    }
+
+    .task {
+      position: absolute;
+      display: block;
+      z-index: 550;
+      overflow: visible;
+      font-family: $mono;
+      font-size: 0.667rem;
+      line-height: 1.636;
+      min-width: 2%;
+      color: white;
+      @include border-radius(0.12rem);
+      @include box-shadow(0, 0.0625rem, 0.2rem,rgba(255,255,255,0.5));
+      @include transition;
+
+      &:hover {
+        background: $brand1;
+      }
+
+      .icon,
+      .spinner {
+        padding-left: 0.25rem;
+      }
+
+      a {
+        color: white;
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        padding: 0.2rem 0.5rem;
+        z-index: 110;
+        height: 1.5rem;
+        background: $brand2;
+      }
+
+      span {
+        display: inline-block;
+        width: 100%;
+        overflow-x: hidden;
+        white-space: nowrap;
+      }
+
+      &:after {
+        display: inline-block;
+        content: " ";
+        width: 10000%;
+        position: relative;
+        height: 0.125rem;
+        top: 0.333rem;
+        content: " ";
+        background: darken($light2, 1.5%);
+        left: -1000%;
+        right: -1000%;
+        z-index: -20;
+      }
+    }
+
+    .task-0 {
+      top: 0;
+      width: 4%;
+      left: 0%;
+      z-index: 1101;
+
+      &:after {
+        display: none;
+      }
+    }
+
+    .task-1 {
+      top: 0;
+      width: 12%;
+      left: 5%;
+    }
+
+    .task-2 {
+      top: 0;
+      width: 12%;
+      left: 5%;
+      z-index: 550;
+
+      &:nth-of-type(2) {
+        top: 1.75rem;
+      }
+
+      &:nth-of-type(3) {
+        top: 1.75rem;
+        left: 18%;
+      }
+
+      &:nth-of-type(4) {
+        top: 1.75rem;
+        left: 31%;
+      }
+
+      &:nth-of-type(5) {
+        top: 1.75rem;
+        left: 44%;
+      }
+
+      &:nth-of-type(6) {
+        top: 1.75rem;
+        left: 57%;
+      }
+
+      &:nth-of-type(7) {
+        top: 1.75rem;
+        left: 70%;
+      }
+
+      &:nth-of-type(8) {
+        top: 1.75rem;
+        left: 83%;
+      }
+
+      &:nth-of-type(9) {
+        top: 1.75rem;
+        left: 96%;
+      }
+
+      &:nth-of-type(10) {
+        top: 1.75rem;
+        left: 109%;
+      }
+
+      &:nth-of-type(11) {
+        top: 1.75rem;
+        left: 122%;
+      }
+
+      &:nth-of-type(12) {
+        top: 1.75rem;
+        left: 135%;
+      }
+
+      &:nth-of-type(13) {
+        top: 1.75rem;
+        left: 148%;
+      }
+    }
+  }
+}
+
+.jobs-index,
+.job-index {
+  color: $brand2;
+}
+
+ul.build-details {
+  list-style: none;
+  margin: 1.5rem auto 3rem;
+
+  li,
+  .accordion-item {
+    background: white;
+    margin: 0 0 0.75rem;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-left: 6px solid lighten($dark1, 42%);
+    @include box-shadow(0, 0.12rem, 0.12rem,rgba(0,0,0,0.125));
+    @include border-radius(0.25rem);
+    margin-left: 1rem;
+    color: lighten($dark2, 5%);
+
+    &.trigger,
+    &:first-child,
+    &:last-child {
+      border-left-color: transparent;
+    }
+
+    &.trigger,
+    &.result,
+    &:first-child,
+    &:last-child {
+      margin-left: 0;
+    }
+
+    ul,
+    .accordion {
+      margin: 1rem 0 1rem 0.5rem;
+    }
+  }
+
+  li.parent {
+    padding-left: 2.5rem;
+    position: relative;
+
+    .text-left {
+      line-height: 2;
+      padding-top: 0.2rem;
+    }
+
+    em {
+      background: $light2;
+      font-style: normal;
+      color: $dark2;
+      font-family: $mono;
+      padding: 0.25rem 0.5rem;
+      font-size: 0.825rem;
+      border-radius: 0.2rem;
+      margin-left: 0.3rem;
+      margin-right: 0.3rem;
+
+      img {
+        max-height: 1.425rem;
+      }
+
+      i {
+        font-size: 0.925rem;
+        margin-right: -0.125rem;
+      }
+    }
+
+    .icon {
+      position: absolute;
+      left: 1.25rem;
+      top: -0.25rem;
+    }
+
+    pre {
+      border: none;
+      font-family: $mono;
+      margin-top: 0.825rem;
+      color: white;
+      line-height: 1.5;
+      font-size: 0.825rem;
+      display: table-cell;
+      vertical-align: middle;
+      padding-bottom: 0.2em;
+      display: inline-block;
+      max-width: 96.5%;
+      white-space: pre-wrap;
+      white-space: -moz-pre-wrap;
+      white-space: -pre-wrap;
+      white-space: -o-pre-wrap;
+      word-wrap: break-word;
+      @include transition;
+    }
+  }
+
+  li.job {
+    margin-left: 2rem;
+    position: relative;
+
+    h5 {
+      @include nunitoBold;
+      color: $dark2;
+      font-size: 1.5rem;
+      padding: 0.5em 1.5rem 0 0;
+      float: left;
+      margin-left: 0.75rem;
+      margin-bottom: 1.125rem;
+    }
+
+    .button {
+      position: absolute;
+      background: $light2;
+      padding: 0.75rem 1rem;
+      border-radius: 0.25rem;
+      color: darken($light1, 12.5%);
+      line-height: 1;
+      top: 50%;
+      right: 5.25rem;
+      transform: translateY(-50%);
+      @include nunitoBold;
+      @include transition;
+
+      i {
+        font-size: 1rem;
+        padding: 0;
+        margin: 0 0 0 0.75rem;
+        color: $brand2;
+        @include transition;
+      }
+    }
+
+    &:hover {
+      .button {
+        background: $brand2;
+        color: white;
+
+        i {
+          color: white;
+        }
+      }
+    }
+
+    small {
+      font-size: 0.667rem;
+      font-family: $mono;
+      color: $dark3;
+      background: lighten($light2, 5%);
+      border-radius: 0.38rem;
+      padding: 0 0.5rem;
+      margin-top: 0;
+      margin-left: -0.5rem;
+
+      &:last-child {
+        margin-top: 1rem;
+      }
+    }
+
+    dl {
+      margin-left: 0.75rem;
+      margin-top: -3rem;
+      clear: both;
+      line-height: 1.3;
+      color: $dark3;
+
+      dt,
+      dd {
+        display: inline-block;
+        color: $dark3;
+        font-family: $nunito;
+        font-size: 0.925rem;
+        line-height: 0.9;
+        margin: 0;
+        padding: 0;
+      }
+      dt {
+        width: 15%;
+        font-weight: normal;
+      }
+      dd {
+        width: 70%;
+      }
+    }
+
+    .job-index {
+      position: absolute;
+      top: 1rem;
+      right: 1.25rem;
+      font-weight: bold;
+    }
+
+    .job-response {
+      font-size: 0.75rem;
+      float: left;
+      background: $light2;
+      margin: 0.75rem 0 0 0;
+      padding: 0.25rem 0.75rem 0.25rem 2rem;
+      border-radius: 3rem;
+      line-height: 1.75;
+      position: relative;
+
+      .icon {
+        padding-top: 0;
+      }
+
+      &.succeeded {
+        display: inline-block;
+        color: $success;
+      }
+      &.failed {
+        display: inline-block;
+        color: $fail;
+      }
+      &.unknown {
+        display: inline-block;
+        color: lighten($dark1, 42%);
+      }
+      &.pending,
+      &.running,
+      &.active, {
+        color: $brand2;
+
+        .spinner {
+          display: inline-block;
+          position: absolute;
+          top: 0.4rem;
+          left: 0.6rem;
+          @include spinnerDonut($brand1, 1rem, 0.125rem);
+        }
+      }
+
+      i,
+      img {
+        max-height: 0.75rem;
+        font-size: 1.125rem;
+        position: absolute;
+        left: 0.667rem;
+        top: 0.25rem;
+        line-height: 1.25;
+        margin: 0 0.5rem 0 0;
+      }
+
+      img {
+        width: 1.13rem;
+        max-height: 1.13rem;
+      }
+    }
+  }
+
+  .log-wrap {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .log-inner   {
+    background: lighten($dark2, 5%);
+    position: relative;
+    overflow-x: hidden;
+    border-radius: 0.2rem;
+    width: 100%;
+    padding: 0rem 1rem;
+    @include transition;
+
+    code,
+    .hljs,
+    pre {
+      background: transparent;
+      padding: 0;
+      margin: 0;
+      @include transition;
+    }
+
+    code {
+      border: none;
+      font-family: $mono;
+      color: white;
+      line-height: 1.5;
+      font-size: 0.825rem;
+      display: table-cell;
+      vertical-align: middle;
+      padding-bottom: 0.2em;
+      display: inline-block;
+      max-width: 100%;
+      white-space: pre-wrap;
+      white-space: -moz-pre-wrap;
+      white-space: -pre-wrap;
+      white-space: -o-pre-wrap;
+      word-wrap: break-word;
+      @include transition;
+    }
+  }
+
+  li.active {
+    border-left: 0.38rem solid $brand2;
+  }
+  li.succeeded {
+    border-left: 0.38rem solid $success;
+  }
+  li.failed {
+    border-left: 0.38rem solid $fail;
+  }
+  li.unknown {
+    border-left: 0.38rem solid lighten($dark1, 42%);
+  }
+
+  li.zf-accordion-wrap {
+    background: none;
+    box-shadow: none;
+    @include border-radius(0);
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+
+  .parent {
+    border-color: lighten($success, 42.5%);
+
+    .columns {
+      padding-bottom: 0.25rem;
+    }
+
+    .jobs-index {
+      padding: 0.5rem 1rem;
+    }
+  }
+
+  pre {
+    background: $dark2;
+    color: $light3;
+    padding: 0.5rem 1rem 0;
+    margin-bottom: 0.5rem;
+    @include border-radius(0.25rem);
+  }
+
+  small {
+    font-size: 0.825rem;
+    display: block;
+    line-height: 2;
+    margin-top: 0.825rem;
+  }
+
+  .icon {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    padding-top: 0.75rem;
+  }
+
+  .ion-checkmark-circled {
+    color: $success;
+  }
+}

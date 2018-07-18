@@ -1,0 +1,11 @@
+<span *ngIf="running(status); else elseBlock" class="act-state collapse running">
+  <div class="spinner" title="Running"></div>
+</span>
+
+<ng-template #elseBlock>
+  <span class="act-state collapse {{status | lowercase}}">
+    <span class="{{status | lowercase}}" title="{{status}}">
+      <i [ngClass]="calculateIconClass(status)"></i>
+    </span>
+  </span>
+</ng-template>

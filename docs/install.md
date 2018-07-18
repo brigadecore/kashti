@@ -4,76 +4,28 @@ This document covers the installation of Kashti into a Kubernetes cluster. Kasht
 developers will find developer-specific documentation in the [Developer Guide](developers.md).
 
 Kashti is a client-side JavaScript application. It makes requests to the Brigade API
-server (which is installed as part of Brigade). **The browser that Kashti is run from
-_must_ have access to the Brigade API server.**
+server (which is installed as part of Brigade). We will use the `brig` command line to create HTTP tunnels to the Brigade API server and to the Kashti dashboard.
+
+> If you don't have the `brig` command line already, [check out the Brigade documentation on how to build it](https://github.com/Azure/brigade/blob/master/docs/topics/developers.md#building-source) 
 
 ## Kubernetes Installation
 
 To install the Brigade UI to a Kubernetes cluster:
 
 1. [Install Brigade](https://github.com/Azure/brigade)
-2. Get the IP address or hostname of the Brigade API service. You can often do this with `helm status brigade-server`
-3. Clone this repo and `cd` into the root of the repo
-3. Install the chart: `helm install charts/kashti --name kashti --set brigade.apiServer=http://IP:7745`, where IP is the
-  IP or hostname of the Brigade API service. See Option 1 and Option 2 below to
-  determine which value to put here.
+2. Clone this repo and `cd` into the root of the repo
+3. `helm install -n kashti ./charts/kashti`
+4. `brig proxy` - then access through your browser at http://localhost:8081
 
-_The address or hostname in `brigade.apiServer` is the location that the browser
-will contact to get information about your projects, builds, and jobs._
+> Note that by default, this will create two local tunnels, one on port 7745 (the default port Kashti expects for the Brigae API) and one on port 8081, where you can access the dashboard.
 
-To access Kashti from a browser outside of a cluster, you have two options at the
-moment:
-
-1. Open a tunnel from the browser to the destination cluster.
-2. Allow outside access to your API and Kashti deployments.
-
-> OAuth2 authentication is on the roadmap, but not yet complete. At this point,
-> opening the service to the outside world will allow unauthenticated access
-> to your project's dashboard.
-
-Both examples below assume you are in the root of the checked-out Kashti git
-repository.
-
-## Option 1: Tunnel from Local Browser to Cluster Services
-
-In this example, we will allow the browser to proxy HTTP requests into the cluster
-without opening up the cluster hosts to public traffic.
-
-First, you must setup Brigade. The normal Brigade installation will work fine here:
-
-```console
-$ helm repo add brigade https://azure.github.io/brigade
-$ helm install brigade/brigade --name brigade-server
-```
-
-Once Brigade is running, you can install Kashti, setting the API server endpoint
-to your localhost.
-
-```console
-$ helm install -n kashti ./charts/kashti --set brigade.apiServer=http://localhost:7745
-```
-
-This will install Kashti, and configure it _specifically for tunneling_. Now you
-will need to start two port-forwarding tunnels in the background: One to Kashti
-and the other to the Brigade API server:
-
-```console
-$ kubectl get po | grep brigade-server-brigade-api | awk '{ print $1 }'
-brigade-server-brigade-api-559fb8df99-kz5wl
-$ kubectl port-forward brigade-server-brigade-api-559fb8df99-kz5wl 7745 &
-$ kubectl get po | grep kashti | awk '{ print $1 }'
-kashti-kashti-54bf55b988-dsbhf
-$ kubectl port-forward kashti-kashti-54bf55b988-dsbhf 8080:80 &
-```
-
-At this point, you have:
-
-- Kashti listening on http://localhost:8080/kashti/. This is the URL you put in your browser.
-- Brigade API listening on http://localhost:7745, with Kashti automatically configed
-  to talk to it.
+> You can specify another port to access the dashboard by usig `brig proxy --port <another-port>`
 
 
-## Option 2: Allow Outside Access to Your Services
+> If you specify another port for the API server when installing the chart - `helm install -n kashti ./charts/kashti --set brigade.apiServer=http://localhost:<other-port>`, when connecting using `brig proxy` you must also pass the new port as parameter: `brig proxy --api-port <other-port>`
+
+
+## Allow Outside Access to Your Services
 
 You may choose to open up a pair of services to the outside network and allow
 inbound traffic. The two services you will need to expose are:

@@ -1,0 +1,11 @@
+{
+  "rules": {
+    "strict": 0
+  },
+  "ecmaFeatures": {
+    "modules": true
+  },
+  "env": {
+    "es6": true
+  }
+}

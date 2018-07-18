@@ -9,19 +9,26 @@ Begin by cloning this repository with your favorite Git tool.
 ```console
 $ git clone git@github.com:Azure/kashti.git
 $ cd kashti
+$ yarn install                      # install project dependencies
 ```
 
-Install dependancies and run the app with these commands. 
-
+## Kashti Development
 ```console
-$ yarn                  # install project dependencies
-$ yarn serve            # start a local server in development mode
-$ yarn serve:prod       # start a local server in production mode (minification, uglification, etc.)
+$ ng serve                          # start a local server in development mode
+$ ng serve --environment prod       # start a local server in production mode (minification, uglification, etc.)
+$ ng lint                           # run linters 
+$ ng test                           # run unit tests
+$ ng e2e                            # run e2e tests in Chrome
+$ yarn e2e:watch                    # run e2e tests in watch mode. Be sure to run `ng serve` first!
 ```
+
+`ng serve`, `ng test`, and `ng e2e:watch` will watch for changes to the project and automatically recompile the application and if running tests, re-run tests against the latest changes.
+
+We require all tests to pass before merging pull requests (and ideally, all commits should be good individually, too).
 
 ### Deployment
 
-Kashti can be run locally via a `yarn start`.
+Kashti can be run locally via a `ng serve`.
 
 To install in a Kubernetes development cluster, we recommend using the chart.
 
@@ -31,16 +38,10 @@ image:
 ```console
 $ eval $(minikube docker-env)
 $ yarn docker-build
-$ helm install -n brigade-ui chart/kashti --set brigade.apiServer=http://localhost:7745
+$ helm install -n kashti ./charts/kashti
 ```
 
 This will push a copy of the Docker image into your Minikube docker registry and
 then install the chart.
 
-The value of `brigade.apiServer` should be the fully qualified URL to your Brigade
-installation's API server. This is the URL that the _client_ will see, so you
-may need to use the outside IP address, not the cluster IP.
-
-The example above can be used along with a few `kubectl port-forward` commands to
-locally access your Kashti UI. See the [Install Guide](install.md) for more.
-
+Then, use `brig proxy` to start a tunnel to the Kashti pod inside your cluster.

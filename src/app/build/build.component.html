@@ -1,0 +1,132 @@
+<div class="grid-container build-chart- active-chart">
+  <div class="build-chart-bg"></div>
+
+  <div class="grid-content build-header-wrap">
+    <div class="grid-block horizontal">
+      <div class="small-12">
+
+        <div class="build-header">
+          <h1>
+            Build &nbsp;
+            <em>{{ build.id }}</em>
+          </h1>
+
+          <div class="build-status">
+            <div class="unknown" *ngIf="!build.worker?.status"><i class="icon ion-md-radio-button-off"></i>  Log Unavailable</div>
+
+            <div class="pending" *ngIf="build.worker?.status == 'Pending'"><div class="spinner"></div> Initializing...</div>
+            <div class="running" *ngIf="build.worker?.status == 'Running'"><div class="spinner"></div> Build started...</div>
+
+            <div class="success" *ngIf="build.worker?.status == 'Succeeded'"><i class="icon ion-md-checkmark-circle"></i> {{ build.worker.status }}</div>
+            <div class="failed" *ngIf="build.worker?.status == 'Failed'"><i class="icon ion-md-close-circle"></i> {{ build.worker.status }}</div>
+          </div>
+
+          <div class="row build-metadata">
+            <div class="small-6 text-left columns">Started at {{ build.worker.start_time }} </div>
+            <div class="small-6 text-right columns">Finished at {{ build.worker.end_time }}</div>
+          </div>
+
+          <div class="horizontal build-chart build-chart-1">
+
+            <div class="task task-0">
+              <a href="">
+                <span title="git">
+                  <i class="icon ion-logo-github"></i>
+                </span>
+              </a>
+            </div>
+
+            <span class="task task-1">{{ build?.type }}</span>
+            <span *ngFor="let job of jobs" class="task task-2"><a routerLink="/jobs/{{job?.id}}">{{ job.name }}</a></span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="job-list">
+
+    <ul class="build-details" ng-hide="jobs.length == '0'" id="build-details">
+      <li class="parent">
+        <span class="row">
+          <span class="small-9 text-left columns">
+            <span *ngIf="build.provider == 'github'">
+              <i class="icon ion-logo-github"></i>
+            </span>
+            <span *ngIf="build.provider == 'slackbot'">
+              <i class="icon ion-text"></i>
+            </span>
+            <span *ngIf="build.provider == 'dockerhub'">
+              <i class="icon ion-cube"></i>
+            </span>
+            <span *ngIf="build.provider == 'brigade-cli'">
+              <em>brigade-cli</em>
+            </span>
+            <em>{{ build.provider }}</em>:
+            <em>{{ build?.type }}</em> 
+            started a build via commit 
+            <em>{{ build.revision.commit }}</em>.
+          </span>
+          <span class="small-3 text-right columns jobs-index">
+            <strong>{{ jobs.length }}</strong> jobs ran.
+          </span>
+        </span>
+
+        <pre>
+{{ buildlogs }}
+        </pre>
+      </li>
+
+      <li class="job {{ job?.status | lowercase}}" id="{{ job?.id }}" *ngFor="let job of jobs; index as i" [attr.data-index]="i">
+        <a routerLink="/jobs/{{job?.id}}" title="View log details for {{job?.name}}">
+          <small class=" ">Started at {{ job?.start_time }}</small>
+          <span class="job-index">{{i + 1}}</span>
+          <h5>{{job?.name}}</h5>
+
+          <!-- job status badge -->
+          <div class="job-response {{ job?.status | lowercase}}">
+            <span class="act-state running" title="{{ job?.status }}" *ngIf="job?.status == 'Active'">
+              <div class="spinner"></div>
+            </span>
+            <span class="act-state running" title="{{ job?.status }}" *ngIf="job?.status == 'Running'">
+              <div class="spinner"></div>
+            </span>
+            <span class="act-state running" title="{{ job?.status }}" *ngIf="job?.status == 'Pending'">
+              <div class="spinner"></div>
+            </span>
+            <span class="act-state succeeded" title="{{ job?.status }}" *ngIf="job?.status == 'Succeeded'">
+              <i class="icon ion-md-checkmark-circle status-success"></i>
+            </span>
+            <span class="act-state failed" title="{{ job?.status }}" *ngIf="job?.status == 'Failed'">
+              <i class="icon ion-md-close-circle status-fail"></i>
+            </span>
+            <span class="act-state unknown" title="{{ job?.status }}" *ngIf="job?.status == 'Unknown'">
+              <i class="icon ion-md-radio-button-off unknown"></i>
+            </span>
+            {{ job?.status }}
+          </div>
+
+          <dl>
+            <dt>Image:</dt>
+            <dd>{{ job?.image }}</dd>
+            <dt>Job ID:</dt>
+            <dd>{{ job?.id }}</dd>
+          </dl>
+
+          <a class="button rounded secondary">View Logs<i class="icon ion-md-arrow-dropright"></i></a>
+
+          <small class=" ">Finished at {{ job?.end_time }}</small>
+        </a>
+      </li>
+
+      <li class="parent">
+        <span class="row">
+          <span class="small-12 columns">
+            Build {{ build.worker.status | lowercase }} at <em>{{ build.worker.end_time }}</em>.
+          </span>
+        </span>
+      </li>
+
+    </ul>
+  </div>

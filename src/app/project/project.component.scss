@@ -1,0 +1,303 @@
+@import 'global_variables';
+@import 'global_states';
+
+:host {
+  min-width: 91.5%;
+}
+
+.template-project {
+  position: relative;
+  padding: 0;
+  margin: 3.75rem auto 0;
+  width: 100%;
+
+  &:after {
+    background: linear-gradient(adeg, darken(#F0F1F6, 2%) 0%, lighten(#e6e9f0, 1%) 100%);
+    display: block;
+    content: " ";
+    top: 0;
+    left: 16.67%;
+    width: 110%;
+    height: 260px;
+    position: absolute;
+    z-index: -100;
+  }
+}
+
+.project-header {
+  min-height: 145px;
+  background-color: $light3;
+  border: 1px solid $light1;
+  padding: 1.25rem 1.75rem;
+  position: relative;
+  z-index: 500;
+  @include box-shadow(0,1px,6px,rgba(0,0,0,0.15));
+  @include border-radius(0.2rem);
+
+  h1 {
+    font-size: 2rem;
+    color: $dark2;
+    margin-bottom: 1.25rem;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+
+    li {
+      font-family: $mono;
+      font-size: 0.75rem;
+      color: $dark3;
+    }
+  }
+
+  .build-status {
+    left: auto;
+    right: 2rem;
+    top: 2rem;
+  }
+}
+
+.empty {
+  padding: 2rem 0;
+  margin-top: 2rem;
+  width: 100%;
+  text-align: center;
+  color: lighten($dark1, 10%);
+  display: block;
+  font-size: 1.125rem;
+}
+
+.project-status-bar {
+  color: $active;
+  background: $light2;
+  font-size: 0.925rem;
+  display: block;
+  border: 1px solid $light1;
+  margin-top: -1px;
+  margin-bottom: 1rem;
+  overflow-x: hidden;
+  position: relative;
+  z-index: 1100;
+  @include box-shadow(0,2px,4px,rgba(0,0,0,0.15));
+
+  img {
+    max-width: 3rem;
+    margin-top: -3px;
+  }
+
+  span {
+    position: relative;
+    display: inline-block;
+
+    &:after {
+      background-color: $light2;
+      border-top: 1px solid $light1;
+      height: 4px;
+      width: 2000px;
+      display: block;
+      content: " ";
+      position: absolute;
+      right: 0;
+      top: 0.45rem;
+      @include border-radius(1rem,1rem);
+    }
+  }
+}
+
+.project-config-summary {
+
+  strong {
+    color: $dark2;
+    display: block;
+    margin-bottom: -1.5rem;
+  }
+
+  pre {
+    padding: 1rem 0 0 2rem;
+    font-size: 0.75rem;
+    line-height: 1.425;
+    color: $dark3;
+
+    &:hover {
+      color: $dark2;
+    }
+  }
+
+  button {
+    position: absolute;
+    bottom: 0.12rem;
+    min-width: 10rem;
+    margin-left: 1.25rem;
+    left: 75%;
+  }
+}
+
+.build-list {
+  margin: 1rem auto;
+
+  .build-item {
+    border: none;
+    height: 42px;
+    overflow: hidden;
+
+    &:first-child {
+      border-radius: 4px 4px 0 0;
+      border: none;
+    }
+
+    &:last-child {
+      border-radius: 0 0 4px 4px;
+      border-bottom: 2px solid darken($light2, 6.67%);
+    }
+
+    a {
+      text-align: left;
+      padding: 0.25rem 1.25rem;
+      margin: 0 0 0.25rem 0;
+      overflow: hidden;
+      width: 100%;
+      display: inline-block;
+      min-height: 42px;
+      position: relative;
+      background: rgba(255,255,255,0.67);
+      @include box-shadow(0,1px,2px,rgba(0,0,0,0.15));
+      @include transition;
+
+      span {
+        font-family: $mono;
+        font-size: 0.825rem;
+        line-height: 2.25;
+        letter-spacing: -0.05em;
+        color: darken($dark3, 10%);
+        display: inline-block;
+        @include transition;
+      }
+
+      .act-author {
+        min-width: 18%;
+        position: relative;
+        padding-left: 32px;
+
+        .act-avatar {
+          position: absolute;
+          top: -7px;
+          left: -11px;
+          opacity: 0.5;
+          @include transition;
+
+          .icon {
+            font-size: 20px;
+            float: left;
+            min-width: 20px;
+            text-align: center;
+          }
+
+          img {
+            max-height: 1rem;
+            margin-left: 0.1rem;
+            margin-top: 0.75rem;
+            position: relative;
+          }
+        }
+      }
+
+      .act-message {
+        min-width: 12%;
+      }
+      .act-hash {
+        min-width: 11%;
+      }
+
+      .text-right {
+        float: right;
+      }
+      .act-times {
+        min-width: 56%;
+      }
+      .act-times-wrap {
+        min-width: 100%;
+      }
+      .truncate {
+        width: 2.88rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: hidden;
+        display: inline-block;
+        line-height: 0.75;
+        font-style: normal;
+        padding: 0rem 0.125rem;
+        font-family: $mono;
+      }
+      .act-time-duration {
+        min-width: 60%;
+      }
+      .act-time-ago {
+        min-width: 40%;
+
+        code,
+        pre {
+          border: none;
+          outline: none;
+          background: transparent;
+          color: darken($dark3, 5%);
+          padding: 0;
+          font-family: $mono;
+        }
+      }
+
+      &:after {
+        content: "Details >";
+        color: $active;
+        font-size: 0.75rem;
+        position: absolute;
+        right: 1.5rem;
+        top: 0.6rem;
+        opacity: 0;
+        text-align: right;
+        @include nunitoBold;
+        @include transition;
+      }
+    }
+
+    &:hover a,
+    &:first-of-type a {
+      background: white;
+
+      &:after {
+        opacity: 1;
+        width: auto;
+        right: 0.925rem;
+      }
+
+      .act-avatar {
+        opacity: 1;
+      }
+
+      .act-state {
+        .icon {
+          background: white;
+        }
+
+        .spinner {
+          background: white;
+        }
+
+        &:after {
+          opacity: 0.5;
+        }
+      }
+
+      div {
+        color: $dark2;
+      }
+    }
+
+    &:first-of-type {
+      .act-state:after {
+        top: 22px;
+        height: 20px;
+      }
+    }
+  }
+}

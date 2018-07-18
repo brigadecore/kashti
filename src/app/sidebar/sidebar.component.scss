@@ -1,0 +1,110 @@
+@import 'global_variables';
+
+
+#sidebar {
+  background: #37b0e7 url('../../assets/images/topo-pattern-white.png') repeat 20px 0;
+  background-size: 376px auto;
+  width: 56px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1100;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background-position: -6px 0;
+  }
+
+  // app logo
+  a.logo {
+    background-color: #2541b2;
+    position: relative;
+    display: block;
+    height: 58px;
+
+    img {
+      width: 36px;
+      position: absolute;
+      top: 11px;
+      left: 10px;
+    }
+
+    &:hover {
+      background-color: lighten($brand1, 10%);
+    }
+  }
+
+  .icon {
+    color: white;
+    position: absolute;
+    font-size: 1.25rem;
+    left: 0;
+    width: 56px;
+    line-height: 50px;
+    text-align: center;
+
+    &:after {
+      border: 1px solid #eee;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      content: ' ';
+      display: block;
+      margin: -40px 0 0 12px;
+      @include transition;
+    }
+
+    &.ion-md-document {
+      bottom: 60px;
+    }
+
+    &.ion-md-help {
+      bottom: 19px;
+    }
+
+
+  }
+
+  #kashti-issues,
+  #kashti-docs {
+
+    &:hover {
+      .icon:after {
+        background: darken($brand2, 12.5%);
+        @include box-shadow(0, 0, 25px, darken($brand2, 12.5%));
+      }
+    }
+
+    em {
+      display: block;
+      min-height: 1rem;
+      padding: 0.5em;
+      position: absolute;
+      left: 12px;
+      opacity: 0;
+      background: darken($brand2, 12.5%);
+      border-radius: 0.2em;
+      text-align: center;
+      color: white;
+      font-style: normal;
+      font-size: 0.75rem;
+      @include transition;
+    }
+
+    &:hover em {
+      left: 48px;
+      opacity: 1;
+    }
+  }
+
+  #kashti-docs em {
+    bottom: 3.75rem;
+    min-width: 4.75rem;
+  }
+
+  #kashti-issues em {
+    bottom: 1.2rem;
+    min-width: 5.5rem;
+  }
+}

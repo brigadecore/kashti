@@ -1,0 +1,13 @@
+<div id="breadcrumbbar" class="columns">
+  <div class="breadcrumb">
+    <a (click)="backClicked()">
+      <!-- <i class="icon ion-ios-arrow-back-outline" *ngIf="location !== '/dashboard'"></i> -->
+
+      <i class="icon ion-ios-arrow-back-outline" *ngIf="!router.url.includes('dashboard')"></i>
+    </a>
+    <span *ngFor="let breadcrumb of breadcrumbs$ | async"
+      class="breadcrumb-item">
+      <em>{{ breadcrumb.label }}</em>
+    </span>
+  </div>
+</div>

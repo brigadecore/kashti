@@ -1,0 +1,75 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~foundation-sites/scss/foundation';
+@include foundation-everything($prototype: true);
+@include foundation-flex-classes;
+@include foundation-flex-grid;
+
+@import './ionicons';
+
+@import './global_variables';
+
+
+$nunito-font-path: 'assets/fonts' !default;
+
+@font-face {
+  font-family: 'nunito';
+  src: url('#{$nunito-font-path}/nunito-bold-webfont.woff2') format('woff2'),
+       url('#{$nunito-font-path}/nunito-bold-webfont.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'nunito';
+  src: url('#{$nunito-font-path}/nunito-regular-webfont.woff2') format('woff2'),
+       url('#{$nunito-font-path}/nunito-regular-webfont.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+body {
+  font-size: 16px;
+  font-family: $nunito;
+  background: url("assets/images/topo-pattern-white.png") repeat 20px 0, linear-gradient(185deg, #F0F1F6 0%, #e9ecf2 100%);
+  background-size: auto auto, auto auto;
+  background-size: 376px auto, auto auto;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul, {
+  font-family: $nunito;
+}
+
+h1, h2, h3 {
+  @include nunitoBold;
+}
+
+.full-height {
+  flex: 0 0 3.5em;
+  min-height: 100vh;
+}
+
+.grid-width,
+.row:not(.expanded) .grid-width {
+  max-width: 75rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.full-width {
+  max-width: 100%;
+}
+
+#main {
+  flex: 1 0 auto;
+  padding-top: 1.75rem;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+  padding-bottom: 3.5rem;
+  margin-left: 3rem;
+
+  // offset height, footer-component.scss
+  min-height: calc(100vh - 4.75rem);
+}
