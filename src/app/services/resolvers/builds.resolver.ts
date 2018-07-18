@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
 
 import { BuildService } from '../build/build.service';
-import { Build } from '../../models/Build';
+import { Build } from '../../models/build';
 
 @Injectable()
 export class BuildsResolver implements Resolve<Build[]> {

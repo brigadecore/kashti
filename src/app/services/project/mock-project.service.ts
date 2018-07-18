@@ -5,7 +5,7 @@ import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/delay';
 
 import { ProjectsBuild } from '../../models/projects-build';
-import { Project } from '../../models/Project';
+import { Project } from '../../models/project';
 
 import { ProjectsBuilds } from '../../mock/projects-builds';
 import { Projects } from '../../mock/projects';

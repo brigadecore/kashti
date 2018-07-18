@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { BreadCrumb } from '../models/Breadcrumb';
+import { BreadCrumb } from '../models/breadcrumb';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
