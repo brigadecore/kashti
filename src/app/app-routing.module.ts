@@ -21,15 +21,12 @@ import { LogResolver } from './services/resolvers/log.resolver';
 
 const routes: Routes = [
   { path: '',
-    data: {
-      breadcrumb: 'Home'
-    },
     redirectTo: '/dashboard',
     pathMatch: 'full'
   },
   { path: 'dashboard',
     data: {
-      breadcrumb: 'Dashboard'
+      breadcrumb: 'Home'
     },
     component: DashboardComponent,
     resolve: { projectsBuilds: ProjectsBuildResolver },

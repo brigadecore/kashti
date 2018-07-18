@@ -1,4 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
+import { Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 
 import { MomentModule } from 'angular2-moment';
@@ -13,10 +14,15 @@ import { ProjectsBuild } from '../models/ProjectsBuild';
 })
 
 export class DashboardComponent implements OnInit {
+  location: Location;
 
   projectsBuilds: ProjectsBuild[];
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, location: Location) { this.location = location; }
+
+  backClicked() {
+    this.location.back();
+  }
 
   ngOnInit() {
     this.projectsBuilds = this.route.snapshot.data['projectsBuilds'];
