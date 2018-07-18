@@ -331,7 +331,7 @@ ul.build-details {
   }
 
   li.parent {
-    padding-left: 3.5rem;
+    padding-left: 2.5rem;
     position: relative;
 
     .text-left {
@@ -364,6 +364,26 @@ ul.build-details {
       position: absolute;
       left: 1.25rem;
       top: -0.25rem;
+    }
+
+    pre {
+      border: none;
+      font-family: $mono;
+      margin-top: 0.825rem;
+      color: white;
+      line-height: 1.5;
+      font-size: 0.825rem;
+      display: table-cell;
+      vertical-align: middle;
+      padding-bottom: 0.2em;
+      display: inline-block;
+      max-width: 96.5%;
+      white-space: pre-wrap;
+      white-space: -moz-pre-wrap;
+      white-space: -pre-wrap;
+      white-space: -o-pre-wrap;
+      word-wrap: break-word;
+      @include transition;
     }
   }
 

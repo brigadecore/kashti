@@ -26,6 +26,7 @@ import { ProjectResolver } from './services/resolvers/project.resolver';
 import { ProjectsBuildResolver } from './services/resolvers/projects-build.resolver';
 import { BuildsResolver } from './services/resolvers/builds.resolver';
 import { BuildResolver } from './services/resolvers/build.resolver';
+import { BuildLogResolver } from './services/resolvers/buildlog.resolver';
 import { JobsResolver } from './services/resolvers/jobs.resolver';
 import { JobResolver } from './services/resolvers/job.resolver';
 import { LogResolver } from './services/resolvers/log.resolver';
@@ -61,6 +62,7 @@ import { SortBuildByStartDatePipe } from './pipes/builds/sort-build-by-start-dat
     ProjectsBuildResolver,
     BuildsResolver,
     BuildResolver,
+    BuildLogResolver,
     JobsResolver,
     JobResolver,
     LogResolver

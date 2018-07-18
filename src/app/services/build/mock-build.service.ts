@@ -1,10 +1,11 @@
 import { Build } from '../../models/Build';
+import { BuildLog } from '../../models/BuildLog';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
 import { BuildService } from './build.service';
 import { Builds } from '../../mock/builds';
-import { filter } from 'rxjs/operators';
+import { BuildLogs } from '../../mock/build-logs';
 
 export class MockBuildService implements BuildService {
   getBuilds(projectId: string): Observable<Build[]> {
@@ -18,5 +19,9 @@ export class MockBuildService implements BuildService {
     const filteredList =
     Builds.filter((build: Build) => build.id === buildId);
   return Observable.of(filteredList[0]).delay(500);
+  }
+
+  getBuildLog(buildId: string): Observable<BuildLog> {
+    return Observable.of(BuildLogs);
   }
 }

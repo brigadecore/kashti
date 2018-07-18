@@ -2,9 +2,9 @@ import { Component, OnInit, HostBinding } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/switchMap';
 
 import { Build } from '../models/Build';
+import { BuildLog } from '../models/BuildLog';
 import { Revision } from '../models/Revision';
 import { BuildWorker } from '../models/BuildWorker';
 import { Job } from '../models/Job';
@@ -20,6 +20,7 @@ import { LongDateFormatKey } from 'moment';
 
 export class BuildComponent implements OnInit {
   build: Build;
+  buildlogs: BuildLog;
   revision: Revision;
   worker: BuildWorker;
   jobs: Job[];
@@ -33,6 +34,7 @@ export class BuildComponent implements OnInit {
 
   ngOnInit() {
     this.build = this.route.snapshot.data['build'];
+    this.buildlogs = this.route.snapshot.data['buildlog'] as BuildLog;
     this.revision = this.build.revision;
     this.worker = this.build.worker;
     this.jobs = this.route.snapshot.data['jobs'];

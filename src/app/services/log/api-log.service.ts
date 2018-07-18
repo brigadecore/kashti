@@ -4,9 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 import { BRIGADE_API_HOST } from '../../app.config';
-import { JobService } from '../job/job.service';
 import { LogService } from './log.service';
-import { Job } from '../../models/Job';
 import { Log } from '../../models/Log';
 
 
