@@ -1,6 +1,6 @@
 import * as Factory from 'factory.ts';
 
-import { Project } from '../models/Project';
+import { Project } from '../models/project';
 
 export const ProjectFactory = Factory.makeFactory<Project>({
   id: 'brigade-1234',

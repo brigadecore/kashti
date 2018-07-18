@@ -4,8 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
 
-import { Project } from '../models/Project';
-import { Build } from '../models/Build';
+import { Project } from '../models/project';
+import { Build } from '../models/build';
 
 import { MomentModule } from 'angular2-moment';
 

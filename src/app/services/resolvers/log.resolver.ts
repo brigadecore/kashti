@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
 
 import { LogService } from '../log/log.service';
-import { Log } from '../../models/Log';
+import { Log } from '../../models/log';
 
 @Injectable()
 export class LogResolver implements Resolve<Log> {

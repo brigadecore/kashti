@@ -1,5 +1,5 @@
-import { Job } from '../../models/Job';
-import { Log } from '../../models/Log';
+import { Job } from '../../models/job';
+import { Log } from '../../models/log';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 

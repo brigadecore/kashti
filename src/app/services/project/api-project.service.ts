@@ -5,8 +5,8 @@ import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { environment } from '../../../environments/environment.prod';
-import { ProjectsBuild } from '../../models/ProjectsBuild';
-import { Project } from '../../models/Project';
+import { ProjectsBuild } from '../../models/projects-build';
+import { Project } from '../../models/project';
 import { ProjectService } from './project.service';
 import { BRIGADE_API_HOST } from '../../app.config';
 

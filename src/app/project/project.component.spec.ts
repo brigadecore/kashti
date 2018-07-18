@@ -8,8 +8,8 @@ import { ProjectFactory } from '../tests/project-factory';
 import { BuildFactory } from '../tests/build-factory';
 
 import { ProjectComponent } from './project.component';
-import { Project } from '../models/Project';
-import { Build } from '../models/Build';
+import { Project } from '../models/project';
+import { Build } from '../models/build';
 import { BuildStatusBadgeComponent } from '../build-status-badge/build-status-badge.component';
 import {SortBuildByStartDatePipe} from '../pipes/builds/sort-build-by-start-date.pipe';
 

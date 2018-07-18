@@ -3,7 +3,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
 
-import { Log } from '../models/Log';
+import { Log } from '../models/log';
 
 @Component({
   selector: 'app-log',

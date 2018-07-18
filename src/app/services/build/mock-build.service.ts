@@ -1,5 +1,5 @@
-import { Build } from '../../models/Build';
-import { BuildLog } from '../../models/BuildLog';
+import { Build } from '../../models/build';
+import { BuildLog } from '../../models/build-log';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 

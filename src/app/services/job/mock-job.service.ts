@@ -1,5 +1,5 @@
-import { Build } from '../../models/Build';
-import { Job } from '../../models/Job';
+import { Build } from '../../models/build';
+import { Job } from '../../models/job';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 

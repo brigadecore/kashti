@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
 
 import { BuildService } from '../build/build.service';
-import { Build } from '../../models/Build';
-import { BuildLog } from '../../models/BuildLog';
+import { Build } from '../../models/build';
+import { BuildLog } from '../../models/build-log';
 
 @Injectable()
 export class BuildLogResolver implements Resolve<BuildLog> {

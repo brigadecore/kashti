@@ -5,7 +5,7 @@ import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 import { BRIGADE_API_HOST } from '../../app.config';
 import { LogService } from './log.service';
-import { Log } from '../../models/Log';
+import { Log } from '../../models/log';
 
 
 const httpOptions = {
