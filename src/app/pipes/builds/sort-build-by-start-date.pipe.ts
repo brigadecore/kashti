@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import {Build} from '../../models/Build';
+import {Build} from '../../models/build';
 
 // prevent magic numbers ...
 export enum TimeDifference {

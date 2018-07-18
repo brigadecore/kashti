@@ -1,4 +1,4 @@
-import { Build } from '../models/Build';
+import { Build } from '../models/build';
 
 export const Builds: Build[] = [
   {

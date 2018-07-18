@@ -1,6 +1,6 @@
 import * as Factory from 'factory.ts';
 
-import { Build } from '../models/Build';
+import { Build } from '../models/build';
 
 export const BuildFactory = Factory.makeFactory<Build>({
   id: 'buildid1234',
