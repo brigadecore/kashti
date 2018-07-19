@@ -1,12 +1,9 @@
-import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { of } from 'rxjs/observable/of';
-import { catchError, map, tap } from 'rxjs/operators';
 import { BRIGADE_API_HOST } from '../../app.config';
-import { JobService } from './job.service';
 import { Job } from '../../models/job';
-
+import { JobService } from './job.service';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -14,7 +11,7 @@ const httpOptions = {
 
 @Injectable()
 export class ApiJobService implements JobService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getJobs(buildId): Observable<Job[]> {
     const jobsUrl = `${BRIGADE_API_HOST}/v1/build/${buildId}/jobs`;

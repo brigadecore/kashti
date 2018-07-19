@@ -1,4 +1,3 @@
-
 export interface BuildWorker {
   id: string;
   build_id: string;

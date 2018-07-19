@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { StyleGuideComponent } from './style-guide.component';
 
 describe('StyleGuideComponent', () => {
@@ -8,9 +7,9 @@ describe('StyleGuideComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StyleGuideComponent ]
+      declarations: [StyleGuideComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

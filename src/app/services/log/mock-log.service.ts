@@ -1,13 +1,8 @@
-import { Job } from '../../models/job';
-import { Log } from '../../models/log';
-import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
-
-import { JobService } from '../job/job.service';
-import { LogService } from './log.service';
-import { Jobs } from '../../mock/jobs';
+import { Observable } from 'rxjs/Observable';
 import { LogData } from '../../mock/logs';
-import { filter } from 'rxjs/operators';
+import { Log } from '../../models/log';
+import { LogService } from './log.service';
 
 export class MockLogService implements LogService {
 

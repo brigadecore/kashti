@@ -1,15 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
+import { ActivatedRouteSnapshot, Resolve } from '@angular/router';
 import 'rxjs/add/operator/catch';
-
-import { ProjectService } from '../project/project.service';
+import { Observable } from 'rxjs/Observable';
 import { Project } from '../../models/project';
+import { ProjectService } from '../project/project.service';
 
 @Injectable()
 export class ProjectResolver implements Resolve<Project> {
 
-  constructor(private projectService: ProjectService) {}
+  constructor(private projectService: ProjectService) { }
 
   resolve(route: ActivatedRouteSnapshot): Observable<Project> {
     return this.projectService.getProject(route.paramMap.get('id'))

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
+import { ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
-
 import { Log } from '../models/log';
 
 @Component({
@@ -13,7 +11,7 @@ import { Log } from '../models/log';
 export class LogComponent implements OnInit {
   log: Log;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.log = this.route.snapshot.data['log'];

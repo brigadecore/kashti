@@ -1,13 +1,9 @@
-import { Component, OnInit, HostBinding } from '@angular/core';
-import { Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
+import { Location } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
-
-import { Project } from '../models/project';
 import { Build } from '../models/build';
-
-import { MomentModule } from 'angular2-moment';
+import { Project } from '../models/project';
 
 @Component({
   selector: 'app-project',

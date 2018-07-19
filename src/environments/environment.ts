@@ -1,7 +1,7 @@
-import { MockProjectService } from '../app/services/project/mock-project.service';
 import { MockBuildService } from '../app/services/build/mock-build.service';
 import { MockJobService } from '../app/services/job/mock-job.service';
 import { MockLogService } from '../app/services/log/mock-log.service';
+import { MockProjectService } from '../app/services/project/mock-project.service';
 
 // The file contents for the current environment will overwrite these during build.
 // The build system defaults to the dev environment which uses `environment.ts`, but if you do

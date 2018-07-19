@@ -1,17 +1,14 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { RouterTestingModule } from '@angular/router/testing';
 import { ActivatedRoute } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 import { MomentModule } from 'angular2-moment/moment.module';
-
-import { ProjectFactory } from '../tests/project-factory';
-import { BuildFactory } from '../tests/build-factory';
-
-import { ProjectComponent } from './project.component';
-import { Project } from '../models/project';
-import { Build } from '../models/build';
 import { BuildStatusBadgeComponent } from '../build-status-badge/build-status-badge.component';
-import {SortBuildByStartDatePipe} from '../pipes/builds/sort-build-by-start-date.pipe';
+import { Build } from '../models/build';
+import { Project } from '../models/project';
+import { SortBuildByStartDatePipe } from '../pipes/builds/sort-build-by-start-date.pipe';
+import { BuildFactory } from '../tests/build-factory';
+import { ProjectFactory } from '../tests/project-factory';
+import { ProjectComponent } from './project.component';
 
 describe('ProjectComponent', () => {
   let component: ProjectComponent;
@@ -21,7 +18,7 @@ describe('ProjectComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProjectComponent, BuildStatusBadgeComponent, SortBuildByStartDatePipe ],
+      declarations: [ProjectComponent, BuildStatusBadgeComponent, SortBuildByStartDatePipe],
       imports: [
         RouterTestingModule.withRoutes(
           [{ path: '', component: ProjectComponent }]
@@ -30,10 +27,10 @@ describe('ProjectComponent', () => {
       ],
       providers: [{
         provide: ActivatedRoute,
-        useValue: {snapshot: {data: {'project': mockProject, builds: mockBuilds}}}
+        useValue: { snapshot: { data: { 'project': mockProject, builds: mockBuilds } } }
       }]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -47,8 +44,8 @@ describe('ProjectComponent', () => {
   });
   describe('when there is project and build data available', () => {
     beforeEach(() => {
-      mockProject = ProjectFactory.build({name: 'coffeesnob'});
-      mockBuilds = BuildFactory.buildList(2, {id: 'coffeebuild'});
+      mockProject = ProjectFactory.build({ name: 'coffeesnob' });
+      mockBuilds = BuildFactory.buildList(2, { id: 'coffeebuild' });
     });
 
     it('should create the component', () => {
