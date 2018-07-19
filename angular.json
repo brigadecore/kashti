@@ -50,6 +50,27 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ]
+            },
+            "demo": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/app/app.config.ts",
+                  "with": "src/app/app.config.demo.ts"
+                },
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
             }
           }
         },
@@ -61,6 +82,9 @@
           "configurations": {
             "production": {
               "browserTarget": "kashti:build:production"
+            },
+            "demo": {
+              "browserTarget": "kashti:build:demo"
             }
           }
         },
