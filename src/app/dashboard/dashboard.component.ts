@@ -1,10 +1,6 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
+import { Location } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
-import { MomentModule } from 'angular2-moment';
-
-import { ProjectService } from '../services/project/project.service';
 import { ProjectsBuild } from '../models/projects-build';
 
 @Component({

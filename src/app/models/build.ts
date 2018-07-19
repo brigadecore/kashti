@@ -1,5 +1,5 @@
-import { Revision } from './revision';
 import { BuildWorker } from './build-worker';
+import { Revision } from './revision';
 
 export interface Build {
   id: string;

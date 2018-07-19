@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { BuildStatusBadgeComponent } from './build-status-badge.component';
 
 describe('BuildStatusBadgeComponent', () => {
@@ -8,9 +7,9 @@ describe('BuildStatusBadgeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BuildStatusBadgeComponent ]
+      declarations: [BuildStatusBadgeComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

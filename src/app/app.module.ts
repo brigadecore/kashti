@@ -1,36 +1,33 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { MomentModule } from 'angular2-moment';
-
 import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { MomentModule } from 'angular2-moment';
 import { environment } from '../environments/environment';
-
-import { AppComponent } from './app.component';
-
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
-import { StyleGuideComponent } from './style-guide/style-guide.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { FooterComponent } from './footer/footer.component';
-import { ProjectComponent } from './project/project.component';
+import { BuildStatusBadgeComponent } from './build-status-badge/build-status-badge.component';
 import { BuildComponent } from './build/build.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { FooterComponent } from './footer/footer.component';
 import { JobComponent } from './job/job.component';
 import { LogComponent } from './log/log.component';
-import { BuildStatusBadgeComponent } from './build-status-badge/build-status-badge.component';
-import { ProjectService } from './services/project/project.service';
+import { SortBuildByStartDatePipe } from './pipes/builds/sort-build-by-start-date.pipe';
+import { ProjectComponent } from './project/project.component';
 import { BuildService } from './services/build/build.service';
 import { JobService } from './services/job/job.service';
 import { LogService } from './services/log/log.service';
-import { ProjectResolver } from './services/resolvers/project.resolver';
-import { ProjectsBuildResolver } from './services/resolvers/projects-build.resolver';
-import { BuildsResolver } from './services/resolvers/builds.resolver';
+import { ProjectService } from './services/project/project.service';
 import { BuildResolver } from './services/resolvers/build.resolver';
 import { BuildLogResolver } from './services/resolvers/buildlog.resolver';
-import { JobsResolver } from './services/resolvers/jobs.resolver';
+import { BuildsResolver } from './services/resolvers/builds.resolver';
 import { JobResolver } from './services/resolvers/job.resolver';
+import { JobsResolver } from './services/resolvers/jobs.resolver';
 import { LogResolver } from './services/resolvers/log.resolver';
-import { SortBuildByStartDatePipe } from './pipes/builds/sort-build-by-start-date.pipe';
+import { ProjectResolver } from './services/resolvers/project.resolver';
+import { ProjectsBuildResolver } from './services/resolvers/projects-build.resolver';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { StyleGuideComponent } from './style-guide/style-guide.component';
 
 @NgModule({
   declarations: [
@@ -69,4 +66,4 @@ import { SortBuildByStartDatePipe } from './pipes/builds/sort-build-by-start-dat
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

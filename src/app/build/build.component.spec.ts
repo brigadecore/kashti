@@ -1,7 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
 import { ActivatedRoute } from '@angular/router';
-
+import { RouterTestingModule } from '@angular/router/testing';
 import { BuildComponent } from './build.component';
 
 describe('BuildComponent', () => {
@@ -21,7 +20,7 @@ describe('BuildComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BuildComponent ],
+      declarations: [BuildComponent],
       imports: [
         RouterTestingModule.withRoutes(
           [{ path: '', component: BuildComponent }]
@@ -29,10 +28,10 @@ describe('BuildComponent', () => {
       ],
       providers: [{
         provide: ActivatedRoute,
-        useValue: {snapshot: {data: {'build': build}}}
+        useValue: { snapshot: { data: { 'build': build } } }
       }]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

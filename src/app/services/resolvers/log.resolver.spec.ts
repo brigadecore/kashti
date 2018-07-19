@@ -1,8 +1,6 @@
-import { TestBed, inject } from '@angular/core/testing';
-
-import { JobResolver } from './job.resolver';
+import { inject, TestBed } from '@angular/core/testing';
 import { JobService } from '../job/job.service';
-
+import { JobResolver } from './job.resolver';
 
 describe('JobResolver', () => {
   beforeEach(() => {

@@ -1,5 +1,4 @@
 import * as Factory from 'factory.ts';
-
 import { Project } from '../models/project';
 
 export const ProjectFactory = Factory.makeFactory<Project>({

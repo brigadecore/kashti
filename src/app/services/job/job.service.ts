@@ -1,5 +1,4 @@
 import { Observable } from 'rxjs/Observable';
-import { Build } from '../../models/build';
 import { Job } from '../../models/job';
 
 export abstract class JobService {

@@ -1,5 +1,5 @@
-import {SortBuildByStartDatePipe, TimeDifference} from './sort-build-by-start-date.pipe';
-import {BuildFactory} from '../../tests/build-factory';
+import { BuildFactory } from '../../tests/build-factory';
+import { SortBuildByStartDatePipe, TimeDifference } from './sort-build-by-start-date.pipe';
 
 describe('SortBuildByStartDatePipe', () => {
   let pipe: SortBuildByStartDatePipe;
@@ -43,9 +43,9 @@ describe('SortBuildByStartDatePipe', () => {
   it('should show the first build to be earlier if it\'s start time lies after', () => {
     const mockB1 = BuildFactory.build({});
     mockB1.worker.start_time = '2018-02-26T22:57:27Z';
-    const mockB2 = BuildFactory.build({ worker: undefined});
+    const mockB2 = BuildFactory.build({ worker: undefined });
     mockB2.worker = {
-      ... mockB1.worker,
+      ...mockB1.worker,
       start_time: '2018-02-28T22:57:27Z',
     };
     const result = SortBuildByStartDatePipe.compare(mockB1, mockB2);
@@ -54,9 +54,9 @@ describe('SortBuildByStartDatePipe', () => {
   it('should show the first build to be later if it\'s start time lies before', () => {
     const mockB1 = BuildFactory.build({});
     mockB1.worker.start_time = '2018-02-26T22:57:27Z';
-    const mockB2 = BuildFactory.build({ worker: undefined});
+    const mockB2 = BuildFactory.build({ worker: undefined });
     mockB2.worker = {
-      ... mockB1.worker,
+      ...mockB1.worker,
       start_time: '2018-02-21T22:57:27Z',
     };
     const result = SortBuildByStartDatePipe.compare(mockB1, mockB2);

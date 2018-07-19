@@ -1,14 +1,6 @@
-import { TestBed, inject, async } from '@angular/core/testing';
-import {
-  HttpClientModule,
-  HttpRequest,
-  HttpParams
-} from '@angular/common/http';
-import {
-  HttpClientTestingModule,
-  HttpTestingController
-} from '@angular/common/http/testing';
-
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { async, inject, TestBed } from '@angular/core/testing';
 import { ApiProjectService } from './api-project.service';
 
 describe('ApiProjectService', () => {

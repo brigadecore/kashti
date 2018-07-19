@@ -1,5 +1,5 @@
-import { Repo } from './repo';
 import { Kubernetes } from './kubernetes';
+import { Repo } from './repo';
 import { Worker } from './worker';
 
 export interface Project {

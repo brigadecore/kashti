@@ -1,6 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-
-import { Build } from '../models/build';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-build-status-badge',
@@ -18,7 +16,7 @@ export class BuildStatusBadgeComponent implements OnInit {
 
   running(status) {
     if (status === 'Pending' ||
-        status === 'Running') {
+      status === 'Running') {
       return true;
     }
   }

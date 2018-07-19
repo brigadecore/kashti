@@ -1,8 +1,6 @@
-import { TestBed, inject } from '@angular/core/testing';
-
-import { ProjectResolver } from './project.resolver';
+import { inject, TestBed } from '@angular/core/testing';
 import { ProjectService } from '../project/project.service';
-
+import { ProjectResolver } from './project.resolver';
 
 describe('ProjectResolver', () => {
   beforeEach(() => {

@@ -1,16 +1,11 @@
-import { Component, OnInit, HostBinding } from '@angular/core';
-import { Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
-
+import { Location } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Build } from '../models/build';
 import { BuildLog } from '../models/build-log';
-import { Revision } from '../models/revision';
 import { BuildWorker } from '../models/build-worker';
 import { Job } from '../models/job';
-
-import { MomentModule } from 'angular2-moment';
-import { LongDateFormatKey } from 'moment';
+import { Revision } from '../models/revision';
 
 @Component({
   selector: 'app-build',
