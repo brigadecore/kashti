@@ -1,74 +1,86 @@
 const { events, Job, Group } = require("brigadier");
 
-events.on("push", (e, project) => {
-  // Make sure this matches your host Kubernetes' Docker settings, even though
-  // this is DinD.
-  var driver = project.secrets.DOCKER_DRIVER || "overlay"
+const projectName = "kashti";
 
-  const unitTests = new Job("dev", "node:8")
-  unitTests.tasks = [
-    "cd /src",
-    "yarn install",
-    "ng lint",
-    "ng test --single-run",
-    "ng e2e"
-  ]
-
-  const e2e = new Job("dev", "node:8")
-  e2e.tasks = [
-    "cd /src",
-    "yarn install",
-    "ng e2e"
-  ]
-
-  // Build and push a Docker image.
-  const docker = new Job("dind", "docker:stable-dind")
-  docker.privileged = true;
-  docker.env = {
-    DOCKER_DRIVER: driver
+class TestJob extends Job {
+  constructor(name) {
+    super(name, "node:8");
+    this.tasks = [
+      "cd /src",
+      "yarn install",
+      "ng lint",
+      "ng test --single-run",
+    ];
   }
-  docker.tasks = [
-    "dockerd-entrypoint.sh &",
-    "sleep 20",
-    "cd /src",
-    "docker pull deis/kashti:canary || true",
-    "docker build -t deis/kashti:canary ."
-  ];
-
-  // If a Docker user is specified, we push.
-  if (project.secrets.DOCKER_USER) {
-    docker.env.DOCKER_USER = project.secrets.DOCKER_USER
-    docker.env.DOCKER_PASS = project.secrets.DOCKER_PASS
-    docker.env.DOCKER_REGISTRY = project.secrets.DOCKER_REGISTRY
-    docker.tasks.push("docker login -u $DOCKER_USER -p $DOCKER_PASS $DOCKER_REGISTRY")
-    docker.tasks.push("docker push deis/kashti:angular5")
-  } else {
-    console.log("skipping push. DOCKER_USER is not set.");
-  }
-
-  // Run unit and e2e tests in parallel. Once both finish, run docker build.
-  Group.runAll([unitTests, e2e]).then( () => {
-    return docker.run()
-  });
-});
-
-events.on("exec", (e, p) => {
-  // This does some pointlessly complex stuff so that you can test the
-  // dashboard.
-  var j1 = alpineJob("one")
-  var j2 = alpineJob("two")
-  var j3 = alpineJob("three")
-  var j4 = alpineJob("four")
-  var j5 = alpineJob("five")
-
-  j1.run().then( () => { return j2.run() }).then( () => {
-    var g = new Group()
-    g.add(j3)
-    g.add(j4)
-    g.runAll().then( () => {j5.run()})
-  })
-});
-
-function alpineJob(name) {
-  return new Job(name, "alpine:3.7", ["echo hello from " + name, "sleep 5"])
 }
+
+class E2eJob extends Job {
+  constructor(name) {
+    super(name, "node:8");
+    this.tasks = [
+      "cd /src",
+      "yarn install",
+      "ng e2e"
+    ];
+  }
+}
+
+class ACRBuildJob extends Job {
+  constructor(name, img, tag, dir, registry, token, tenant) {
+    super(name, "microsoft/azure-cli:latest");
+    let imgName = img + ":" + tag;
+    let latest = img + ":latest";
+    this.env = {
+      AZURE_CONTAINER_REGISTRY: registry,
+      ACR_TOKEN: token,
+      ACR_TENANT: tenant,
+    }
+    this.tasks = [
+      // Create a service principal and assign it proper perms on the container registry.
+      `az login --service-principal -u $AZURE_CONTAINER_REGISTRY -p $ACR_TOKEN --tenant $ACR_TENANT`,
+      `cd ${dir}`,
+      `echo '========> building ${img}...'`,
+      `az acr build -r ${registry} -t ${imgName} -t ${latest} .`,
+      `echo '<======== finished building ${img}.'`
+    ];
+  }
+}
+
+function ghNotify(state, msg, e, project) {
+  const gh = new Job(`notify-${state}`, "technosophos/github-notify:latest");
+  gh.env = {
+    GH_REPO: project.repo.name,
+    GH_STATE: state,
+    GH_DESCRIPTION: msg,
+    GH_CONTEXT: "brigade",
+    GH_TOKEN: project.secrets.ghToken,
+    GH_COMMIT: e.revision.commit
+  }
+  return gh
+}
+
+events.on("push", (e, project) => {
+  const gh = JSON.parse(e.payload);
+  const start = ghNotify("pending", `build started as ${e.buildID}`, e, project)
+  if (gh.ref.startsWith("refs/tags/") || gh.ref == "refs/heads/master") {
+    let parts = gh.ref.split("/", 3);
+    let tag = parts[2];
+    var releaser = new ACRBuildJob(`${projectName}-release`, projectName, tag, "/src", project.secrets.acrName, project.secrets.acrToken, project.secrets.acrTenant);
+    Group.runAll([start, releaser])
+      .catch(err => {
+        return ghNotify("failure", `failed build ${e.buildID}`, e, project).run()
+      });
+  } else {
+    console.log('not a tag or a push to master; skipping')
+  }
+  return ghNotify("success", `build ${e.buildID} passed`, e, project).run()
+});
+
+function test() {
+  const test = new TestJob(`${projectName}-test`)
+  const e2e = new E2eJob(`${projectName}-e2e`)
+  return Group.runAll([test, e2e]);
+}
+
+events.on("pull_request", test);
+events.on("exec", test);
