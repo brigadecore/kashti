@@ -1,6 +1,7 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { LastBuild } from '../models/last-build';
 import { ProjectsBuild } from '../models/projects-build';
 
 @Component({
@@ -24,16 +25,16 @@ export class DashboardComponent implements OnInit {
     this.projectsBuilds = this.route.snapshot.data['projectsBuilds'];
   }
 
-  showStatus(projectBuild) {
-    if (projectBuild.lastBuild === null || projectBuild.lastBuild.worker === undefined) {
+  showStatus(projectBuild: ProjectsBuild) {
+    if (projectBuild.lastBuild === null || projectBuild.lastBuild.worker === undefined || projectBuild.lastBuild.worker === null) {
       return false;
     }
 
     return true;
   }
 
-  calculateStatusClasses(lastBuild) {
-    if (lastBuild === null || lastBuild.worker === undefined) {
+  calculateStatusClasses(lastBuild: LastBuild) {
+    if (lastBuild === null || lastBuild.worker === undefined || lastBuild.worker === null) {
       return this.unknownStateClasses();
     }
 
