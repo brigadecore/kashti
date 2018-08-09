@@ -3,10 +3,10 @@
   <a (click)="backClicked();">
     <i class="icon ion-ios-arrow-back-outline"></i>
   </a>
-    
+
   <div class="job-list">
 
-    <ul class="build-details" id="build-details">      
+    <ul class="build-details" id="build-details">
       <li class="job {{ job?.status | lowercase}}" id="{{ job?.id }}">
         <small class=" ">Started at {{ job?.start_time }}</small>
         <h5>{{job?.name}}</h5>
@@ -44,18 +44,18 @@
               <dd class=" ">{{ job?.id }}</dd>
               <dt>Log output:</dt>
             </dl>
-            
+
             <div class="log-wrap">
 
               <div hljs="" hljs-source="" class="log-inner">
                 <pre><code class="hljs">
-{{ log }}
+{{ log.message }}
                   </code>
                 </pre>
               </div>
             </div>
           </div>
-        
+
         </div>
 
         <small class=" ">Finished at {{ job?.end_time }}</small>
