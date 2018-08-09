@@ -12,13 +12,18 @@
           </h1>
 
           <div class="build-status">
-            <div class="unknown" *ngIf="!build.worker?.status"><i class="icon ion-md-radio-button-off"></i>  Log Unavailable</div>
+            <div class="unknown" *ngIf="!build.worker?.status">
+              <i class="icon ion-md-radio-button-off"></i> Log Unavailable</div>
 
-            <div class="pending" *ngIf="build.worker?.status == 'Pending'"><div class="spinner"></div> Initializing...</div>
-            <div class="running" *ngIf="build.worker?.status == 'Running'"><div class="spinner"></div> Build started...</div>
+            <div class="pending" *ngIf="build.worker?.status == 'Pending'">
+              <div class="spinner"></div> Initializing...</div>
+            <div class="running" *ngIf="build.worker?.status == 'Running'">
+              <div class="spinner"></div> Build started...</div>
 
-            <div class="success" *ngIf="build.worker?.status == 'Succeeded'"><i class="icon ion-md-checkmark-circle"></i> {{ build.worker.status }}</div>
-            <div class="failed" *ngIf="build.worker?.status == 'Failed'"><i class="icon ion-md-close-circle"></i> {{ build.worker.status }}</div>
+            <div class="success" *ngIf="build.worker?.status == 'Succeeded'">
+              <i class="icon ion-md-checkmark-circle"></i> {{ build.worker.status }}</div>
+            <div class="failed" *ngIf="build.worker?.status == 'Failed'">
+              <i class="icon ion-md-close-circle"></i> {{ build.worker.status }}</div>
           </div>
 
           <div class="row build-metadata">
@@ -37,7 +42,9 @@
             </div>
 
             <span class="task task-1">{{ build?.type }}</span>
-            <span *ngFor="let job of jobs" class="task task-2"><a routerLink="/jobs/{{job?.id}}">{{ job.name }}</a></span>
+            <span *ngFor="let job of jobs" class="task task-2">
+              <a routerLink="/jobs/{{job?.id}}">{{ job.name }}</a>
+            </span>
           </div>
         </div>
 
@@ -64,8 +71,8 @@
               <em>brigade-cli</em>
             </span>
             <em>{{ build.provider }}</em>:
-            <em>{{ build?.type }}</em> 
-            started a build via commit 
+            <em>{{ build?.type }}</em>
+            started a build via commit
             <em>{{ build.revision.commit }}</em>.
           </span>
           <span class="small-3 text-right columns jobs-index">
@@ -74,7 +81,7 @@
         </span>
 
         <pre>
-{{ buildlogs }}
+{{ buildlogs.message }}
         </pre>
       </li>
 
@@ -114,7 +121,9 @@
             <dd>{{ job?.id }}</dd>
           </dl>
 
-          <a class="button rounded secondary">View Logs<i class="icon ion-md-arrow-dropright"></i></a>
+          <a class="button rounded secondary">View Logs
+            <i class="icon ion-md-arrow-dropright"></i>
+          </a>
 
           <small class=" ">Finished at {{ job?.end_time }}</small>
         </a>
@@ -123,7 +132,8 @@
       <li class="parent">
         <span class="row">
           <span class="small-12 columns">
-            Build {{ build.worker.status | lowercase }} at <em>{{ build.worker.end_time }}</em>.
+            Build {{ build.worker.status | lowercase }} at
+            <em>{{ build.worker.end_time }}</em>.
           </span>
         </span>
       </li>
