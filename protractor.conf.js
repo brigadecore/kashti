@@ -11,7 +11,7 @@ exports.config = {
   capabilities: {
     'browserName': 'chrome',
     'chromeOptions': {
-      'args': ['--no-sandbox', '--headless', '--window-size=1024,768']
+      'args': ['--no-sandbox', '--headless']
     }
   },
   directConnect: true,
