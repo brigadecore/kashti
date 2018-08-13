@@ -5,19 +5,13 @@ events.on("push", (e, project) => {
   // this is DinD.
   var driver = project.secrets.DOCKER_DRIVER || "overlay"
 
-  const unitTests = new Job("dev", "node:8")
+  const unitTests = new Job("dev", "deis/node-chrome:node8")
   unitTests.tasks = [
     "cd /src",
     "yarn install",
+    "yarn global add @angular/cli",
     "ng lint",
-    "ng test --single-run",
-    "ng e2e"
-  ]
-
-  const e2e = new Job("dev", "node:8")
-  e2e.tasks = [
-    "cd /src",
-    "yarn install",
+    "ng test --browsers=ChromeHeadless",
     "ng e2e"
   ]
 
@@ -47,7 +41,7 @@ events.on("push", (e, project) => {
   }
 
   // Run unit and e2e tests in parallel. Once both finish, run docker build.
-  Group.runAll([unitTests, e2e]).then( () => {
+  Group.runAll([unitTests]).then(() => {
     return docker.run()
   });
 });
@@ -61,11 +55,11 @@ events.on("exec", (e, p) => {
   var j4 = alpineJob("four")
   var j5 = alpineJob("five")
 
-  j1.run().then( () => { return j2.run() }).then( () => {
+  j1.run().then(() => { return j2.run() }).then(() => {
     var g = new Group()
     g.add(j3)
     g.add(j4)
-    g.runAll().then( () => {j5.run()})
+    g.runAll().then(() => { j5.run() })
   })
 });
 
