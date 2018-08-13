@@ -5,7 +5,7 @@ events.on("push", (e, project) => {
   // this is DinD.
   var driver = project.secrets.DOCKER_DRIVER || "overlay"
 
-  const unitTests = new Job("dev", "radumatei/node-chrome-headless:node8")
+  const unitTests = new Job("dev", "deis/node-chrome:node8")
   unitTests.tasks = [
     "cd /src",
     "yarn install",
