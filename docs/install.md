@@ -15,15 +15,9 @@ To install the Brigade UI to a Kubernetes cluster:
 1. [Install Brigade](https://github.com/Azure/brigade)
 2. Clone this repo and `cd` into the root of the repo
 3. `helm install -n kashti ./charts/kashti`
-4. `brig proxy` - then access through your browser at http://localhost:8081
+4. `brig dashboard` - then access through your browser at http://localhost:8081
 
-> Note that by default, this will create two local tunnels, one on port 7745 (the default port Kashti expects for the Brigae API) and one on port 8081, where you can access the dashboard.
-
-> You can specify another port to access the dashboard by usig `brig proxy --port <another-port>`
-
-
-> If you specify another port for the API server when installing the chart - `helm install -n kashti ./charts/kashti --set brigade.apiServer=http://localhost:<other-port>`, when connecting using `brig proxy` you must also pass the new port as parameter: `brig proxy --api-port <other-port>`
-
+> You can specify another port to access the dashboard by usig `brig dashboard --port <another-port>`
 
 ## Allow Outside Access to Your Services
 
