@@ -11,5 +11,5 @@
   export SERVICE_IP=$(kubectl get svc --namespace {{ .Release.Namespace }} {{ template "fullname" . }} -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
   echo http://$SERVICE_IP:{{ .Values.service.externalPort }}
 {{- else if contains "ClusterIP" .Values.service.type }}
-  To connect to the Kashti dashboard, use execute brig proxy and access it on http://localhost:8081 (you can provide the --port <local-port> flag to specify another local port)
+  To connect to the Kashti dashboard, use execute brig dashboard and access it on http://localhost:8081 (you can provide the --port <local-port> flag to specify another local port)
 {{- end }}

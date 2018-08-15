@@ -44,4 +44,4 @@ $ helm install -n kashti ./charts/kashti
 This will push a copy of the Docker image into your Minikube docker registry and
 then install the chart.
 
-Then, use `brig proxy` to start a tunnel to the Kashti pod inside your cluster.
+Then, use `brig dashboard` to start a tunnel to the Kashti pod inside your cluster.
