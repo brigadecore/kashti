@@ -15,14 +15,10 @@ export class ApiLogService implements LogService {
   constructor(private http: HttpClient) { }
 
   getLog(jobId): Observable<Log> {
-    let log: Log;
     const logUrl = `${BRIGADE_API_HOST}/v1/job/${jobId}/logs?stream=true`;
     const options = { responseType: 'text' as 'json' };
 
-    this.http.get<string>(logUrl, options)
-      .map((res: string) => {
-        log = { message: res };
-      });
-    return Observable.of(log);
+    return this.http.get<string>(logUrl, options)
+      .map((log: string) => <Log>{ message: log });
   }
 }

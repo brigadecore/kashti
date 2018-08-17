@@ -29,14 +29,10 @@ export class ApiBuildService implements BuildService {
   }
 
   getBuildLog(buildId): Observable<BuildLog> {
-    let buildLog: BuildLog;
     const buildlogUrl = `${BRIGADE_API_HOST}/v1/build/${buildId}/logs?stream=true`;
     const options = { responseType: 'text' as 'json' };
 
-    this.http.get<string>(buildlogUrl, options)
-      .map((log: string) => {
-        buildLog = { message: log };
-      });
-    return Observable.of(buildLog);
+    return this.http.get<string>(buildlogUrl, options)
+      .map((log: string) => <BuildLog>({ message: log }));
   }
 }
