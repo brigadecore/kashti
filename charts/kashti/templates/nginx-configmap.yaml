@@ -12,7 +12,7 @@ data:
           listen       {{ .Values.service.internalPort }};
           server_name  localhost;
 
-        # Proxy to API server
+          # Proxy to API server
           location /v1/ {
               proxy_pass {{ .Values.brigade.apiServer }}/v1/;
           }
@@ -20,6 +20,7 @@ data:
           location / {
               root   /usr/share/nginx/html;
               index  index.html index.htm;
+              try_files $uri $uri/ /index.html;
           }
           
           error_page   500 502 503 504  /50x.html;
