@@ -75,4 +75,4 @@ installation's API server. This is the URL that the _client_ will see, so you
 may need to use the outside IP address, not the cluster IP.
 
 The example above can be used along with a few `kubectl port-forward` commands to
-locally access your Kashti UI. See the [Install Guide](install.md) for more.
+locally access your Kashti UI. See the [Install Guide](docs/install.md) for more.
