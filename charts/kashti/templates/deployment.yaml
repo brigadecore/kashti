@@ -11,6 +11,9 @@ spec:
   replicas: {{ .Values.replicaCount }}
   template:
     metadata:
+      annotations:
+        checksum/config-js: {{ include (print $.Template.BasePath "/js-configmap.yaml") . | sha256sum }}
+        checksum/config-nginx: {{ include (print $.Template.BasePath "/nginx-configmap.yaml") . | sha256sum }}
       labels:
         app: {{ template "name" . }}
         release: {{ .Release.Name }}
