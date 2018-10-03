@@ -1,68 +1,101 @@
 const { events, Job, Group } = require("brigadier");
 
-events.on("push", (e, project) => {
-  // Make sure this matches your host Kubernetes' Docker settings, even though
-  // this is DinD.
-  var driver = project.secrets.DOCKER_DRIVER || "overlay"
+const projectName = "kashti";
 
-  const unitTests = new Job("dev", "deis/node-chrome:node8")
-  unitTests.tasks = [
-    "cd /src",
-    "yarn install",
-    "yarn global add @angular/cli",
-    "ng lint",
-    "ng test --browsers=ChromeHeadless",
-    "ng e2e"
-  ]
-
-  // Build and push a Docker image.
-  const docker = new Job("dind", "docker:stable-dind")
-  docker.privileged = true;
-  docker.env = {
-    DOCKER_DRIVER: driver
+class TestJob extends Job {
+  constructor(name) {
+    super(name, "deis/node-chrome:node8");
+    this.tasks = [
+      "cd /src",
+      "yarn global add @angular/cli",
+      "yarn install",
+      "ng lint",
+      "ng test --browsers=ChromeHeadless",
+    ];
   }
-  docker.tasks = [
-    "dockerd-entrypoint.sh &",
-    "sleep 20",
-    "cd /src",
-    "docker pull deis/kashti:canary || true",
-    "docker build -t deis/kashti:canary ."
-  ];
-
-  // If a Docker user is specified, we push.
-  if (project.secrets.DOCKER_USER) {
-    docker.env.DOCKER_USER = project.secrets.DOCKER_USER
-    docker.env.DOCKER_PASS = project.secrets.DOCKER_PASS
-    docker.env.DOCKER_REGISTRY = project.secrets.DOCKER_REGISTRY
-    docker.tasks.push("docker login -u $DOCKER_USER -p $DOCKER_PASS $DOCKER_REGISTRY")
-    docker.tasks.push("docker push deis/kashti:angular5")
-  } else {
-    console.log("skipping push. DOCKER_USER is not set.");
-  }
-
-  // Run unit and e2e tests in parallel. Once both finish, run docker build.
-  Group.runAll([unitTests]).then(() => {
-    return docker.run()
-  });
-});
-
-events.on("exec", (e, p) => {
-  // This does some pointlessly complex stuff so that you can test the
-  // dashboard.
-  var j1 = alpineJob("one")
-  var j2 = alpineJob("two")
-  var j3 = alpineJob("three")
-  var j4 = alpineJob("four")
-  var j5 = alpineJob("five")
-
-  j1.run().then(() => { return j2.run() }).then(() => {
-    var g = new Group()
-    g.add(j3)
-    g.add(j4)
-    g.runAll().then(() => { j5.run() })
-  })
-});
-
-function alpineJob(name) {
-  return new Job(name, "alpine:3.7", ["echo hello from " + name, "sleep 5"])
 }
+
+class E2eJob extends Job {
+  constructor(name) {
+    super(name, "deis/node-chrome:node8");
+    this.tasks = [
+      "apt-get update -yq && apt-get install -yq --no-install-recommends udev ttf-freefont chromedriver chromium",
+      "cd /src",
+      "yarn global add @angular/cli",
+      "yarn install",
+      "ng e2e"
+    ];
+  }
+}
+
+class ACRBuildJob extends Job {
+  constructor(name, img, tag, dir, registry, token, tenant) {
+    super(name, "microsoft/azure-cli:latest");
+    let imgName = img + ":" + tag;
+    this.env = {
+      AZURE_CONTAINER_REGISTRY: registry,
+      ACR_TOKEN: token,
+      ACR_TENANT: tenant,
+    }
+    this.tasks = [
+      // Create a service principal and assign it proper perms on the container registry.
+      `az login --service-principal -u $AZURE_CONTAINER_REGISTRY -p $ACR_TOKEN --tenant $ACR_TENANT`,
+      `cd ${dir}`,
+      `echo '========> building ${img}...'`,
+      `az acr build -r ${registry} -t ${imgName} .`,
+      `echo '<======== finished building ${img}.'`
+    ];
+  }
+}
+
+function ghNotify(state, msg, e, project) {
+  const gh = new Job(`notify-${state}`, "technosophos/github-notify:latest");
+  gh.env = {
+    GH_REPO: project.repo.name,
+    GH_STATE: state,
+    GH_DESCRIPTION: msg,
+    GH_CONTEXT: "brigade",
+    GH_TOKEN: project.secrets.ghToken,
+    GH_COMMIT: e.revision.commit
+  }
+  return gh
+}
+
+function test() {
+  const test = new TestJob(`${projectName}-test`)
+  const e2e = new E2eJob(`${projectName}-e2e`)
+  return Group.runAll([test, e2e]);
+}
+
+function githubRelease(e, project) {
+  const gh = JSON.parse(e.payload);
+  const start = ghNotify("pending", `build started as ${e.buildID}`, e, project)
+  if (gh.ref.startsWith("refs/tags/") || gh.ref == "refs/heads/master") {
+    let parts = gh.ref.split("/", 3);
+    let tag = parts[2];
+    var releaser = new ACRBuildJob(`${projectName}-release`, projectName, tag, "/src", project.secrets.acrName, project.secrets.acrToken, project.secrets.acrTenant);
+    var latestReleaser = new ACRBuildJob(`${projectName}-release-latest`, projectName, "latest", "/src", project.secrets.acrName, project.secrets.acrToken, project.secrets.acrTenant);
+    Group.runAll([start, releaser, latestReleaser])
+      .catch(err => {
+        return ghNotify("failure", `failed build ${e.buildID}`, e, project).run()
+      });
+  } else {
+    console.log('not a tag or a push to master; skipping')
+  }
+  return ghNotify("success", `build ${e.buildID} passed`, e, project).run()
+}
+
+function githubTest(e, project) {
+  const start = ghNotify("pending", `build started as ${e.buildID}`, e, project)
+  const test = new TestJob(`${projectName}-test`)
+  const e2e = new E2eJob(`${projectName}-e2e`)
+  Group.runAll([start, test, e2e])
+    .catch(err => {
+      return ghNotify("failure", `failed build ${e.buildID}`, e, project).run()
+    });
+  return ghNotify("success", `build ${e.buildID} passed`, e, project).run()
+}
+
+events.on("exec", test);
+events.on("push", githubRelease);
+events.on("pull_request", githubTest);
