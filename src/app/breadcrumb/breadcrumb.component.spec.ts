@@ -1,8 +1,8 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { BreadcrumbComponent } from './breadcrumb.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MomentModule } from 'angular2-moment';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { BreadcrumbComponent } from './breadcrumb.component';
 
 describe('BreadcrumbComponent', () => {
   let component: BreadcrumbComponent;
@@ -17,8 +17,7 @@ describe('BreadcrumbComponent', () => {
         ),
         MomentModule,
         HttpClientTestingModule
-      ],
-      // roviders: [ProjectService]
+      ]
     })
       .compileComponents();
   }));

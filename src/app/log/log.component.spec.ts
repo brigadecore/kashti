@@ -1,8 +1,8 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { LogComponent } from './log.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MomentModule } from 'angular2-moment/moment.module';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { LogComponent } from './log.component';
 
 describe('LogComponent', () => {
   let component: LogComponent;
@@ -17,8 +17,7 @@ describe('LogComponent', () => {
         ),
         MomentModule,
         HttpClientTestingModule
-      ],
-      // roviders: [ProjectService]
+      ]
     })
       .compileComponents();
   }));
