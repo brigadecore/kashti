@@ -64,7 +64,7 @@ image:
 ```console
 $ eval $(minikube docker-env)
 $ yarn docker-build
-$ helm install -n brigade-ui chart/kashti --set brigade.apiServer=http://localhost:7745
+$ helm install -n brigade-ui charts/kashti --set brigade.apiServer=http://localhost:7745
 ```
 
 This will push a copy of the Docker image into your Minikube docker registry and
