@@ -52,17 +52,17 @@ describe('ProjectComponent', () => {
       expect(component).toBeTruthy();
     });
 
-    it('should set the project', async(() => {
+    it('should set the project', () => {
       expect(component.project).toEqual(mockProject);
       expect(fixture.nativeElement.querySelector('h1')
         .textContent).toContain('coffeesnob');
-    }));
+    });
 
-    it('should set the builds', async(() => {
+    it('should set the builds', () => {
       expect(component.builds).toEqual(mockBuilds);
       const firstBuild = fixture.nativeElement.querySelector('.build-item');
       expect(firstBuild.textContent).toContain('coffeebuild');
-    }));
+    });
 
     it('should detect changes upstream and update the component elements', () => {
       component.project.name = 'newsnob';
