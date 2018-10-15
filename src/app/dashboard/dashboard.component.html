@@ -11,7 +11,8 @@
           <ul>
             <li>
               <span *ngIf="showStatus(projectBuild)">
-                {{ projectBuild.lastBuild.provider}}:{{ projectBuild.lastBuild.type}} {{ projectBuild.lastBuild.commit }}
+                {{ projectBuild.lastBuild.provider }}:{{ projectBuild.lastBuild.type }} {{
+                projectBuild.lastBuild.commit }}
                 <br>
                 <span>{{projectBuild.lastBuild.worker.end_time | amTimeAgo}}</span>
               </span>
@@ -22,11 +23,14 @@
     </div>
   </section>
 
-  <section class="columns" *ngIf="projectsBuilds.length == 0">
+  <section class="columns" *ngIf="projectsBuilds?.length == 0">
     <div class="project project-empty">
       <h3>No Projects Found.</h3>
-      <p>Have you configured Kashti and the Brigade API correctly? Check the Kashti docs for information on <a href="https://github.com/Azure/kashti/blob/angular5/docs/install.md">installing and networking</a>.</p>
-      <p>If you have yet to setup a project, see our guides for <a href="https://github.com/Azure/brigade/blob/master/docs/intro/tutorial03.md">creating projects</a> and <a href="https://github.com/Azure/brigade/blob/master/docs/topics/projects.md">managing projects</a>.</p>
+      <p>Have you configured Kashti and the Brigade API correctly? Check the Kashti docs for information on <a href="https://github.com/Azure/kashti/blob/angular5/docs/install.md">installing
+          and networking</a>.</p>
+      <p>If you have yet to setup a project, see our guides for <a href="https://github.com/Azure/brigade/blob/master/docs/intro/tutorial03.md">creating
+          projects</a> and <a href="https://github.com/Azure/brigade/blob/master/docs/topics/projects.md">managing
+          projects</a>.</p>
     </div>
   </section>
 

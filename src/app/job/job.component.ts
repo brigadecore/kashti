@@ -1,4 +1,4 @@
-import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
@@ -8,7 +8,7 @@ import { Log } from '../models/log';
 @Component({
   selector: 'app-job',
   templateUrl: './job.component.html',
-  providers: [Location, { provide: LocationStrategy, useClass: PathLocationStrategy }],
+  providers: [Location],
   styleUrls: ['../build/build.component.scss']
 })
 export class JobComponent implements OnInit {
