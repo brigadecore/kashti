@@ -72,10 +72,12 @@ function githubRelease(e, project) {
     var releaser = new ACRBuildJob(`${projectName}-release`, projectName, tag, "/src", project.secrets.acrName, project.secrets.acrUsername, project.secrets.acrToken, project.secrets.acrTenant);
     var latestReleaser = new ACRBuildJob(`${projectName}-release-latest`, projectName, "latest", "/src", project.secrets.acrName, project.secrets.acrUsername, project.secrets.acrToken, project.secrets.acrTenant);
     Group.runAll([start, releaser, latestReleaser])
+      .then(() => {
+        return ghNotify("success", `release ${e.buildID} finished successfully`, e, project).run()
+      })
       .catch(err => {
         return ghNotify("failure", `failed release ${e.buildID}`, e, project).run()
       });
-    return ghNotify("success", `release ${e.buildID} finished successfully`, e, project).run()
   } else {
     console.log('not a tag or a push to master; skipping')
   }
@@ -86,10 +88,12 @@ function githubTest(e, project) {
   const test = new TestJob(`${projectName}-test`)
   const e2e = new E2eJob(`${projectName}-e2e`)
   Group.runAll([start, test, e2e])
+    .then(() => {
+      return ghNotify("success", `build ${e.buildID} passed`, e, project).run()
+    })
     .catch(err => {
       return ghNotify("failure", `failed build ${e.buildID}`, e, project).run()
     });
-  return ghNotify("success", `build ${e.buildID} passed`, e, project).run()
 }
 
 events.on("exec", test);
