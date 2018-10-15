@@ -19,10 +19,9 @@ requires:
 1. Tag the release with `git tag v1.2.3`, where `1.2.3` is the SemVer-compliant version
   number.
 2. Execute `git push --tags origin` to push the tags to GitHub
-2. Run a `yarn docker-build && yarn docker-push` (You can use `npm run-script` instead of yarn)
-3. Run a `docker tag deis/kashti:latest deis/kashti:1.2.3`, where `1.2.3` is the same
-  version as above
-4. Run a `docker push deis/kashti:1.2.3` where `1.2.3` is the samve version as above
+2. Run `yarn docker-build && yarn docker-push` (You can use `npm run-script` instead of yarn)
+3. Run `export TAG=1.2.3 && yarn docker-tag && yarn docker-push` (If `TAG` isn't provided, `docker-tag` will use the
+value provided by `git describe --tags --always`)
 
 ## Verify
 
@@ -30,12 +29,12 @@ Verify that your tagged version exists on DockerHub: https://hub.docker.com/r/de
 
 ## Write Release Notes
 
-Go to the releases page and edit the notes for your tag.
+Go to the [releases page](https://github.com/Azure/kashti/releases) and edit the notes for your tag.
 
 To generate the changelog, run this command:
 
 ```
-$ git log --no-merges --pretty=format:'- %s %H (%aN)' HEAD ^v1.2.2
+$ git log --no-merges --pretty=format:'- %s %H (%aN)' HEAD ^$LAST_RELEASE_TAG
 ```
 
-Substitute the _last release version_ for `1.2.2`.
+Following our example above, we'd substitute _$LAST_RELEASE_TAG_ with `1.2.2`.
