@@ -13,9 +13,10 @@ server (which is installed as part of Brigade). We will use the `brig` command l
 To install the Brigade UI to a Kubernetes cluster:
 
 1. [Install Brigade](https://github.com/Azure/brigade)
-2. Clone this repo and `cd` into the root of the repo
-3. `helm install -n kashti ./charts/kashti`
-4. `brig dashboard` - then access through your browser at http://localhost:8081
+1. Clone this repo and `cd` into the root of the repo
+1. `helm repo add brigade https://azure.github.io/brigade-charts`
+1. `helm install -n kashti brigade/kashti`
+1. `brig dashboard` - then access through your browser at http://localhost:8081
 
 > You can specify another port to access the dashboard by using `brig dashboard --port <another-port>`
 
@@ -48,7 +49,7 @@ install Kashti
 ```
 $ kubectl get --no-headers svc brigade-server-brigade-api | awk '{ print $4 }'
 10.0.0.77  # Should be a public IP, not like this example
-$ helm install -n kashti ./charts/kashti --set service.type=LoadBalancer \
+$ helm install -n kashti brigade/kashti --set service.type=LoadBalancer \
   --set brigade.apiServer=http://10.0.0.77:7745
 ```
 
