@@ -1,3 +1,5 @@
+import {JobStatus} from './job';
+
 export interface BuildWorker {
   id: string;
   build_id: string;
@@ -5,5 +7,5 @@ export interface BuildWorker {
   start_time: string;
   end_time: string;
   exit_code: number;
-  status: string;
+  status: JobStatus;
 }

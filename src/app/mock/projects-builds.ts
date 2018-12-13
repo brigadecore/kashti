@@ -1,4 +1,5 @@
 import { ProjectsBuild } from '../models/projects-build';
+import {JobStatus} from '../models/job';
 
 export const ProjectsBuilds: ProjectsBuild[] = [
   {
@@ -45,7 +46,7 @@ export const ProjectsBuilds: ProjectsBuild[] = [
         'start_time': '2017-12-23T07:32:08Z',
         'end_time': '2017-12-23T07:32:21Z',
         'exit_code': 1,
-        'status': 'Failed'
+        'status': JobStatus.Failed
       }
     }
   },
@@ -95,7 +96,7 @@ export const ProjectsBuilds: ProjectsBuild[] = [
         'start_time': '2017-12-23T07:31:48Z',
         'end_time': '2017-12-23T07:32:36Z',
         'exit_code': 0,
-        'status': 'Succeeded'
+        'status': JobStatus.Succeeded
       }
     }
   },

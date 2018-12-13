@@ -1,8 +1,9 @@
-import { Location } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { LastBuild } from '../models/last-build';
-import { ProjectsBuild } from '../models/projects-build';
+import {Location} from '@angular/common';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {LastBuild} from '../models/last-build';
+import {ProjectsBuild} from '../models/projects-build';
+import {JobStatus} from '../models/job';
 
 @Component({
   selector: 'app-dashboard',
@@ -41,11 +42,11 @@ export class DashboardComponent implements OnInit {
     const status = lastBuild.worker.status;
 
     switch (status) {
-      case 'Success':
+      case JobStatus.Succeeded:
         return this.successStateClasses();
-      case 'Failed':
+      case JobStatus.Failed:
         return this.failureStateClasses();
-      case 'Active':
+      case JobStatus.Running:
         return this.activeStateClasses();
       default:
         return this.unknownStateClasses();
