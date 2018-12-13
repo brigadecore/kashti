@@ -31,5 +31,5 @@ export interface Job {
   start_time: string;
   end_time: string;
   exit_code: number;
-  status: string;
+  status: JobStatus;
 }

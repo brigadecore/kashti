@@ -1,4 +1,4 @@
-import { Job } from '../models/job';
+import { Job, JobStatus } from '../models/job';
 
 export const Jobs: Job[] = [
   {
@@ -9,7 +9,7 @@ export const Jobs: Job[] = [
     'start_time': '2017-12-23T07:33:37Z',
     'end_time': '2017-12-23T07:33:49Z',
     'exit_code': 0,
-    'status': 'Succeeded'
+    'status': JobStatus.Succeeded
   },
   {
     'id': 'one-1512419959620-master',
@@ -19,7 +19,7 @@ export const Jobs: Job[] = [
     'start_time': '2017-12-04T20:39:19Z',
     'end_time': '2017-12-04T20:39:27Z',
     'exit_code': 0,
-    'status': 'Failed'
+    'status': JobStatus.Failed
   },
   {
     'id': 'one-1514014339909-master',
@@ -29,7 +29,7 @@ export const Jobs: Job[] = [
     'start_time': '2017-12-23T07:32:20Z',
     'end_time': '2017-12-23T07:32:36Z',
     'exit_code': 0,
-    'status': 'Succeeded'
+    'status': JobStatus.Succeeded
   },
   {
     'id': 'two-1514014380339-master',
@@ -39,7 +39,7 @@ export const Jobs: Job[] = [
     'start_time': '2017-12-23T07:33:00Z',
     'end_time': '2017-12-23T07:33:12Z',
     'exit_code': 0,
-    'status': 'Active'
+    'status': JobStatus.Running
   },
   {
     'id': 'world-1514014372266-master',
@@ -49,7 +49,7 @@ export const Jobs: Job[] = [
     'start_time': '2017-12-23T07:32:52Z',
     'end_time': '2017-12-23T07:32:58Z',
     'exit_code': 0,
-    'status': 'Succeeded'
+    'status': JobStatus.Succeeded
   },
   {
     'id': 'hello-1514014324104-master',
@@ -59,7 +59,7 @@ export const Jobs: Job[] = [
     'start_time': '2017-12-23T07:32:05Z',
     'end_time': '2017-12-23T07:32:22Z',
     'exit_code': 0,
-    'status': 'Succeeded'
+    'status': JobStatus.Succeeded
   },
   {
     'id': 'world-1514014366617-master',
@@ -69,7 +69,7 @@ export const Jobs: Job[] = [
     'start_time': '2017-12-23T07:32:46Z',
     'end_time': '2017-12-23T07:32:54Z',
     'exit_code': 0,
-    'status': 'Unknown'
+    'status': JobStatus.Unknown
   },
   {
     'id': 'hello-1514014335520-master',
@@ -79,7 +79,7 @@ export const Jobs: Job[] = [
     'start_time': '2017-12-23T07:32:15Z',
     'end_time': '2017-12-23T07:32:24Z',
     'exit_code': 0,
-    'status': 'Succeeded'
+    'status': JobStatus.Succeeded
   },
   {
     'id': 'hello-1519685860872-master',
@@ -89,7 +89,7 @@ export const Jobs: Job[] = [
     'start_time': '2018-02-26T22:57:41Z',
     'end_time': '2018-02-26T22:57:49Z',
     'exit_code': 0,
-    'status': 'Running'
+    'status': JobStatus.Running
   },
   {
     'id': 'world-1519685879175-master',
@@ -99,7 +99,7 @@ export const Jobs: Job[] = [
     'start_time': '2018-02-26T22:57:59Z',
     'end_time': '2018-02-26T22:58:03Z',
     'exit_code': 0,
-    'status': 'Succeeded'
+    'status': JobStatus.Succeeded
   },
   {
     'id': 'hello-1519685861311-master',
@@ -109,7 +109,7 @@ export const Jobs: Job[] = [
     'start_time': '2018-02-26T22:57:41Z',
     'end_time': '2018-02-26T22:57:49Z',
     'exit_code': 0,
-    'status': 'Failed'
+    'status': JobStatus.Failed
   },
   {
     'id': 'world-1519685879573-master',
@@ -119,6 +119,6 @@ export const Jobs: Job[] = [
     'start_time': '2018-02-26T22:57:59Z',
     'end_time': '2018-02-26T22:58:05Z',
     'exit_code': 0,
-    'status': 'Succeeded'
+    'status': JobStatus.Succeeded
   }
 ]
