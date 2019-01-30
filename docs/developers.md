@@ -30,7 +30,9 @@ We require all tests to pass before merging pull requests (and ideally, all comm
 
 Kashti can be run locally via a `ng serve`.
 
-To install in a Kubernetes development cluster, we recommend using the chart.
+To install in a Kubernetes development cluster, we recommend using the Helm [Brigade chart][brigade-chart]
+located in the [Azure/brigade-charts][brigade-charts] repo.  As of Brigade chart version `0.19.3`, Kashti
+is installed by default.  (Kashti can also be installed standalone via its [chart][kashti-chart].)
 
 If you are running Minikube, you can do a full build of this repo into a Docker
 image:
@@ -38,10 +40,15 @@ image:
 ```console
 $ eval $(minikube docker-env)
 $ yarn docker-build
-$ helm install -n kashti ./charts/kashti
+$ helm repo add brigade https://azure.github.io/brigade-charts
+$ helm install -n brigade brigade/brigade
 ```
 
 This will push a copy of the Docker image into your Minikube docker registry and
 then install the chart.
 
 Then, use `brig dashboard` to start a tunnel to the Kashti pod inside your cluster.
+
+[kashti-chart]: https://github.com/Azure/brigade-charts/tree/master/charts/kashti
+[brigade-chart]: https://github.com/Azure/brigade-charts/tree/master/charts/brigade
+[brigade-charts]: https://github.com/Azure/brigade-charts
