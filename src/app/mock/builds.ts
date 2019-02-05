@@ -1,4 +1,5 @@
 import { Build } from '../models/build';
+import {JobStatus} from '../models/job';
 
 export const Builds: Build[] = [
   {
@@ -19,7 +20,7 @@ export const Builds: Build[] = [
       start_time: '2018-02-26T22:57:27Z',
       end_time: '2018-02-26T22:57:35Z',
       exit_code: 1,
-      status: 'Failed'
+      status: JobStatus.Failed
     }
   },
   {
@@ -40,7 +41,7 @@ export const Builds: Build[] = [
       start_time: '2017-12-23T07:32:08Z',
       end_time: '2017-12-23T07:32:21Z',
       exit_code: 1,
-      status: 'Failed'
+      status: JobStatus.Failed
     }
   },
   {
@@ -60,7 +61,7 @@ export const Builds: Build[] = [
       start_time: '2017-12-23T07:31:55Z',
       end_time: '2017-12-23T07:32:59Z',
       exit_code: 0,
-      status: 'Succeeded'
+      status: JobStatus.Succeeded
     }
   },
   {
@@ -80,7 +81,7 @@ export const Builds: Build[] = [
       start_time: '2018-04-02T18:57:27Z',
       end_time: '2018-04-02T18:57:56Z',
       exit_code: 0,
-      status: 'Running'
+      status: JobStatus.Running
     }
   },
   {
@@ -100,7 +101,7 @@ export const Builds: Build[] = [
       start_time: '2017-11-14T21:40:22Z',
       end_time: '2017-11-14T21:40:31Z',
       exit_code: 1,
-      status: 'Failed'
+      status: JobStatus.Failed
     }
   },
   {
@@ -120,7 +121,7 @@ export const Builds: Build[] = [
       start_time: '2018-02-26T22:57:31Z',
       end_time: '2018-02-26T22:58:07Z',
       exit_code: 0,
-      status: 'Succeeded'
+      status: JobStatus.Succeeded
     }
   },
   {
@@ -140,7 +141,7 @@ export const Builds: Build[] = [
       start_time: '2018-04-01T22:57:35Z',
       end_time: '2018-04-01T22:58:07Z',
       exit_code: 0,
-      status: 'Pending'
+      status: JobStatus.Pending
     }
   },
   {
@@ -171,7 +172,7 @@ export const Builds: Build[] = [
       start_time: '2017-12-23T07:31:58Z',
       end_time: '2017-12-23T07:32:47Z',
       exit_code: 0,
-      status: 'Succeeded'
+      status: JobStatus.Succeeded
     }
   },
   {
@@ -191,7 +192,7 @@ export const Builds: Build[] = [
       start_time: '2017-11-27T21:09:22Z',
       end_time: '2017-11-27T21:09:28Z',
       exit_code: 0,
-      status: 'Succeeded'
+      status: JobStatus.Succeeded
     }
   },
   {
@@ -211,7 +212,7 @@ export const Builds: Build[] = [
       start_time: '2017-12-23T07:31:48Z',
       end_time: '2017-12-23T07:32:36Z',
       exit_code: 0,
-      status: 'Succeeded'
+      status: JobStatus.Succeeded
     }
   }
 ]

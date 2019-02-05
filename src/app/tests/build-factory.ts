@@ -1,5 +1,6 @@
 import * as Factory from 'factory.ts';
 import { Build } from '../models/build';
+import {JobStatus} from '../models/job';
 
 export const BuildFactory = Factory.makeFactory<Build>({
   id: 'buildid1234',
@@ -20,6 +21,6 @@ export const BuildFactory = Factory.makeFactory<Build>({
     start_time: '2018-02-26T22:57:27Z',
     end_time: '2018-02-26T22:57:35Z',
     exit_code: 1,
-    status: 'Failed'
+    status: JobStatus.Failed
   }
 });
