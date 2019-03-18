@@ -34,12 +34,12 @@ describe('kashti App', () => {
 
     it('should have a link to the Kashti docs', () => {
       link = page.getDocLink();
-      expect(link.getAttribute('href')).toEqual('https://github.com/Azure/kashti/tree/master/docs');
+      expect(link.getAttribute('href')).toEqual('https://github.com/brigadecore/kashti/tree/master/docs');
     });
 
     it('should have a link to the Kashti issues', () => {
       link = page.getIssuesLink();
-      expect(link.getAttribute('href')).toEqual('https://github.com/Azure/kashti/issues');
+      expect(link.getAttribute('href')).toEqual('https://github.com/brigadecore/kashti/issues');
     });
   });
 });

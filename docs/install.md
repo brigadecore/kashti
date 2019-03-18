@@ -6,7 +6,7 @@ developers will find developer-specific documentation in the [Developer Guide](d
 Kashti is a client-side JavaScript application. It makes requests to the Brigade API
 server (which is installed as part of Brigade). We will use the `brig` command line to create HTTP tunnels to the Brigade API server and to the Kashti dashboard.
 
-> If you don't have the `brig` command line already, [check out the Brigade documentation on how to build it](https://github.com/Azure/brigade/blob/master/docs/topics/developers.md#building-source) 
+> If you don't have the `brig` command line already, [check out the Brigade documentation on how to build it](https://github.com/brigadecore/brigade/blob/master/docs/topics/developers.md#building-source) 
 
 ## Kubernetes Installation
 
@@ -14,9 +14,9 @@ As of Brigade chart version `0.19.3`, Kashti is installed by default.
 
 To install Brigade and the Kashti UI to a Kubernetes cluster:
 
-1. [Install Brigade](https://github.com/Azure/brigade)
+1. [Install Brigade](https://github.com/brigadecore/brigade)
 1. Clone this repo and `cd` into the root of the repo
-1. `helm repo add brigade https://azure.github.io/brigade-charts`
+1. `helm repo add brigade https://brigadecore.github.io/charts`
 1. `helm install -n brigade brigade/brigade`
 1. `brig dashboard` - then access through your browser at http://localhost:8081
 
