@@ -27,11 +27,11 @@ export const Projects: Project[] = [
     }
   },
   {
-    id: 'brigade-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
-    name: 'deis/dev-empty-testbed',
+    id: 'brigade-4897c99315be5d2a2403ea33bdcb24f8116dc69613d5917d879d5f',
+    name: 'brigadecore/empty-testbed',
     repo: {
-      name: 'github.com/deis/dev-empty-testbed',
-      cloneURL: 'https://github.com/deis/dev-empty-testbed.git'
+      name: 'github.com/brigadecore/empty-testbed',
+      cloneURL: 'https://github.com/brigadecore/empty-testbed.git'
     },
     defaultScript: '',
     kubernetes: {

@@ -2,7 +2,7 @@
   "name": "kashti",
   "version": "0.0.0",
   "license": "MIT",
-  "registry": "deis",
+  "registry": "brigadecore",
   "tag": "latest",
   "scripts": {
     "ng": "ng",
