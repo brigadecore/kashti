@@ -1,4 +1,4 @@
-Kashti is a dashboard for your [Brigade](https://github.com/azure/brigade) pipelines.
+Kashti is a dashboard for your [Brigade](https://github.com/brigadecore/brigade) pipelines.
 
 ![kashti-animation](https://user-images.githubusercontent.com/686194/33646819-7d19d222-da06-11e7-8513-82e521fda608.gif)
 
@@ -13,7 +13,7 @@ Kashti is a web dashboard for Brigade, helping you easily visualize and inspect 
 Brigade builds. Kashti gives you a deep view into your Brigade projects, scripts,
 and jobs.
 
-This repo has a self-hosted [demo](https://azure.github.io/kashti/)
+This repo has a self-hosted [demo](https://brigadecore.github.io/kashti/)
 
 ## Installation and Configuration
 

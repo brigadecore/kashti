@@ -29,7 +29,7 @@ Verify that your tagged version exists on DockerHub: https://hub.docker.com/r/de
 
 ## Write Release Notes
 
-Go to the [releases page](https://github.com/Azure/kashti/releases) and edit the notes for your tag.
+Go to the [releases page](https://github.com/brigadecore/kashti/releases) and edit the notes for your tag.
 
 To generate the changelog, run this command:
 

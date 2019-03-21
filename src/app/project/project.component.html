@@ -13,13 +13,16 @@
       </div>
     </div>
 
-    <p *ngIf="builds?.length == 0" class="empty">Nothing here yet! Watching for <a href="https://azure.github.io/brigade/">Brigade</a> <a href="https://azure.github.io/brigade/topics/scripting.html">events</a>...</p>
+    <p *ngIf="builds?.length == 0" class="empty">Nothing here yet! Watching for <a
+        href="https://brigadecore.github.io/brigade/">Brigade</a> <a
+        href="https://brigadecore.github.io/brigade/topics/scripting.html">events</a>...</p>
 
     <ul class="grid-content build-list columns">
       <li class="medium-grid-block build-item" *ngFor="let build of (builds | sortBuildByStartDate)">
         <a routerLink="/builds/{{build.id}}" class="grid-block">
           <app-build-status-badge [status]="build.worker?.status"></app-build-status-badge>
-          <span class="act-author" title="Build triggered by {{ build.provider }} / {{ build.type }}: commit {{ build.revision.commit }} ref {{ build.revision.ref }}">
+          <span class="act-author"
+            title="Build triggered by {{ build.provider }} / {{ build.type }}: commit {{ build.revision.commit }} ref {{ build.revision.ref }}">
             <span class="act-avatar">
               <i [ngClass]="CalculateProviderLogoClass(build.provider)"></i>
             </span>
@@ -33,13 +36,17 @@
           <span class="act-times" *ngIf="build.worker?.status; else unKnownState">
 
             <!-- if ongoing -->
-            <span class="act-times-wrap" *ngIf="build.worker?.status == 'Pending'" title="Waiting for image pull to complete, and for container to start. {{ build.worker?.start_time | date:'long' }}">
+            <span class="act-times-wrap" *ngIf="build.worker?.status == 'Pending'"
+              title="Waiting for image pull to complete, and for container to start. {{ build.worker?.start_time | date:'long' }}">
               <span class="act-time-duration">Initializing...</span>
               <span class="act-time-ago right text-right">seconds ago</span>
             </span>
-            <span class="act-times-wrap" *ngIf="build.worker?.status == 'Running'" title="Build started {{ build.worker?.start_time | date:'long' }}">
+            <span class="act-times-wrap" *ngIf="build.worker?.status == 'Running'"
+              title="Build started {{ build.worker?.start_time | date:'long' }}">
               <span class="act-time-duration">Build started...</span>
-              <span class="act-time-ago text-right right">{{ build.worker?.start_time | amDifference: today :'minutes' : true | amDuration:'minutes' | lowercase }} ago</span>
+              <span
+                class="act-time-ago text-right right">{{ build.worker?.start_time | amDifference: today :'minutes' : true | amDuration:'minutes' | lowercase }}
+                ago</span>
             </span>
 
             <!-- if completed -->
@@ -47,9 +54,11 @@
               build.worker?.status == 'Failed' ||
               build.worker?.status == 'Succeeded'
             ">
-              <span class="act-time-duration">Build {{ build.worker?.status | lowercase }} after <span title="Build started {{ build.worker?.start_time | date:'long' }}">{{ build.worker?.start_time | amDifference: build.worker?.end_time :'seconds' : true | amDuration:'seconds' }}.</span></span>
+              <span class="act-time-duration">Build {{ build.worker?.status | lowercase }} after <span
+                  title="Build started {{ build.worker?.start_time | date:'long' }}">{{ build.worker?.start_time | amDifference: build.worker?.end_time :'seconds' : true | amDuration:'seconds' }}.</span></span>
 
-              <span class="act-time-ago right text-right" title="Build completed {{ build.worker?.end_time | date:'long' }}">{{ build.worker?.end_time | amTimeAgo }}</span>
+              <span class="act-time-ago right text-right"
+                title="Build completed {{ build.worker?.end_time | date:'long' }}">{{ build.worker?.end_time | amTimeAgo }}</span>
             </span>
 
           </span>
