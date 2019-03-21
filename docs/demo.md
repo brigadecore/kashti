@@ -20,7 +20,7 @@ Refer to the [developer docs](https://github.com/brigadecore/kashti/blob/master/
 
 ## Update the app.config
 
-By default, Kashti is configured to use it's hosting location to also populate the API endpoint. For this demo, it needs to be updated to point at `api.brigade.sh`.
+By default, Kashti is configured to use its hosting location to also populate the API endpoint. For this demo, it needs to be updated to point at `api.brigade.sh`.
 
 Update [this file](https://github.com/brigadecore/kashti/blob/master/src/app/app.config.ts#L1) locally, to change the config for it's production environment:
 
@@ -50,7 +50,4 @@ Likely you'll need to generate a GitHub token to use in deploying from your CLI.
 npx ngh --no-silent --repo=https://INSERT_YOUR_GH_TOKEN@github.com/azure/kashti.git --name="INSERT_YOUR_GH_USERNAME" --email=INSERT_YOUR_GH_EMAIL
 ```
 
-Once this completes successfully, you should see the `gh-pages` branch update with the forced push and then the app will reflect the latest code at [brigadecore.github.io/kashti](https://brigadecore.github.io/kashti)
-
-
-ensure the prod enviornment config is set to use the demo API endpoint (`api.brigade.sh`)
+Once this completes successfully, you should see the `gh-pages` branch update with the forced push and then the app will reflect the latest code at [brigadecore.github.io/kashti](https://brigadecore.github.io/kashti).
