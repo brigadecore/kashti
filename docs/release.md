@@ -25,7 +25,7 @@ value provided by `git describe --tags --always`)
 
 ## Verify
 
-Verify that your tagged version exists on DockerHub: https://hub.docker.com/r/deis/kashti/
+Verify that your tagged version exists on DockerHub: https://hub.docker.com/r/brigadecore/kashti/
 
 ## Write Release Notes
 
