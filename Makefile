@@ -16,7 +16,7 @@ GIT_VERSION = $(shell git describe --always --abbrev=7 --dirty --match=NeVeRmAtC
 
 ifneq ($(SKIP_DOCKER),true)
 	PROJECT_ROOT := $(dir $(realpath $(firstword $(MAKEFILE_LIST))))
-	DEV_IMAGE := deis/node-chrome:node8
+	DEV_IMAGE := deis/node-chrome:node12
 	DOCKER_CMD := docker run \
 		-it \
 		--rm \

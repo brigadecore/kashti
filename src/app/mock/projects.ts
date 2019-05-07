@@ -53,5 +53,5 @@ export const Projects: Project[] = [
       tag: '',
       pullPolicy: ''
     }
-  },
+  }
 ];

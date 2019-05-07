@@ -13,7 +13,6 @@ import { JobsResolver } from './services/resolvers/jobs.resolver';
 import { LogResolver } from './services/resolvers/log.resolver';
 import { ProjectResolver } from './services/resolvers/project.resolver';
 import { ProjectsBuildResolver } from './services/resolvers/projects-build.resolver';
-import { StyleGuideComponent } from './style-guide/style-guide.component';
 
 const routes: Routes = [
   {
@@ -27,7 +26,7 @@ const routes: Routes = [
       breadcrumb: 'Home'
     },
     component: DashboardComponent,
-    resolve: { projectsBuilds: ProjectsBuildResolver },
+    resolve: { projectsBuilds: ProjectsBuildResolver }
   },
   {
     path: 'projects/:id',
@@ -35,7 +34,7 @@ const routes: Routes = [
       breadcrumb: 'Project'
     },
     component: ProjectComponent,
-    resolve: { project: ProjectResolver, builds: BuildsResolver },
+    resolve: { project: ProjectResolver, builds: BuildsResolver }
   },
   {
     path: 'builds/:id',
@@ -43,7 +42,11 @@ const routes: Routes = [
       breadcrumb: 'Build'
     },
     component: BuildComponent,
-    resolve: { build: BuildResolver, buildlog: BuildLogResolver, jobs: JobsResolver },
+    resolve: {
+      build: BuildResolver,
+      buildlog: BuildLogResolver,
+      jobs: JobsResolver
+    }
   },
   {
     path: 'jobs/:id',
@@ -51,13 +54,14 @@ const routes: Routes = [
       breadcrumb: 'Job'
     },
     component: JobComponent,
-    resolve: { job: JobResolver, log: LogResolver },
-  },
-  { path: 'styleguide', component: StyleGuideComponent }
+    resolve: { job: JobResolver, log: LogResolver }
+  }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { enableTracing: environment.routeDebugging })],
+  imports: [
+    RouterModule.forRoot(routes, { enableTracing: environment.routeDebugging })
+  ],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

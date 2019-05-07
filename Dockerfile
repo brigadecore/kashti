@@ -1,7 +1,7 @@
 ### STAGE 1: Build ###
 
 # We label our stage as 'builder'
-FROM node:8 as builder
+FROM node:12 as builder
 
 COPY package.json yarn.lock ./
 
@@ -21,7 +21,7 @@ FROM nginx:stable-alpine
 RUN rm -rf /usr/share/nginx/html/*
 
 ## From 'builder' stage copy over the artifacts in dist folder to default nginx public folder
-COPY --from=builder /ng-app/dist /usr/share/nginx/html
+COPY --from=builder /ng-app/dist/kashti /usr/share/nginx/html
 
 EXPOSE 80
 

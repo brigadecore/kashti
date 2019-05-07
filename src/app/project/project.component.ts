@@ -10,13 +10,14 @@ import { Project } from '../models/project';
   templateUrl: './project.component.html',
   styleUrls: ['./project.component.scss']
 })
-
 export class ProjectComponent implements OnInit {
   project: Project;
   builds: Build[];
   location: Location;
 
-  constructor(private route: ActivatedRoute, location: Location) { this.location = location; }
+  constructor(private route: ActivatedRoute, location: Location) {
+    this.location = location;
+  }
 
   backClicked() {
     this.location.back();
@@ -26,5 +27,4 @@ export class ProjectComponent implements OnInit {
     this.project = this.route.snapshot.data['project'];
     this.builds = this.route.snapshot.data['builds'];
   }
-
 }
