@@ -5,18 +5,9 @@
   "registry": "brigadecore",
   "tag": "latest",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "start prod": "ng serve --prod",
-    "build": "ng build",
-    "docker-build": "docker build -t ${DOCKER_REGISTRY:-$npm_package_registry}/$npm_package_name:$npm_package_tag .",
-    "docker-push": "docker push ${DOCKER_REGISTRY:-$npm_package_registry}/$npm_package_name:${TAG:-$npm_package_tag}",
-    "docker-tag": "docker tag ${DOCKER_REGISTRY:-$npm_package_registry}/$npm_package_name:$npm_package_tag ${DOCKER_REGISTRY:-$npm_package_registry}/$npm_package_name:${TAG:-$(git describe --tags --always)}",
-    "test": "ng lint && ng test",
-    "test-ci": "ng lint && ng test --single-run && ng e2e",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "e2e:watch": "watch 'ng e2e -s false' src e2e --wait=1"
+    "test": "ng test --browsers=ChromeHeadless",
+    "e2e": "webdriver-manager update --standalone false --gecko false --versions.chrome 2.42 && ng e2e --webdriver-update=false"
   },
   "private": true,
   "dependencies": {
