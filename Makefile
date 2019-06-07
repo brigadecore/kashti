@@ -21,7 +21,9 @@ ifneq ($(SKIP_DOCKER),true)
 		--rm \
 		-e SKIP_DOCKER=true \
 		-v $$(pwd):/code/kashti \
-		-w /code/kashti $(DEV_IMAGE)
+		-w /code/kashti \
+		-p 4200:4200 \
+		$(DEV_IMAGE)
 endif
 
 ################################################################################
@@ -58,6 +60,10 @@ bootstrap: yarn-install
 .PHONY: yarn-install
 yarn-install:
 	$(DOCKER_CMD) yarn install
+
+.PHONY: serve
+serve: yarn-install
+	$(DOCKER_CMD) yarn serve
 
 ################################################################################
 # Tests                                                                        #
