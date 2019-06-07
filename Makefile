@@ -93,6 +93,9 @@ build-image:
 	docker build -t $(IMAGE_NAME) .
 	docker tag $(IMAGE_NAME) $(MUTABLE_IMAGE_NAME)
 
+.PHONY: push
+push: push-image
+
 .PHONY: push-image
 push-image: build-image
 	docker push $(IMAGE_NAME)
