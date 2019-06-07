@@ -19,9 +19,8 @@ requires:
 1. Tag the release with `git tag v1.2.3`, where `1.2.3` is the SemVer-compliant version
   number.
 2. Execute `git push --tags origin` to push the tags to GitHub
-2. Run `yarn docker-build && yarn docker-push` (You can use `npm run-script` instead of yarn)
-3. Run `export TAG=1.2.3 && yarn docker-tag && yarn docker-push` (If `TAG` isn't provided, `docker-tag` will use the
-value provided by `git describe --tags --always`)
+
+The rest is automated.
 
 ## Verify
 
