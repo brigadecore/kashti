@@ -1,8 +1,5 @@
 const { events, Job, Group } = require("brigadier");
 
-const projectName = "kashti";
-const projectOrg = "brigadecore";
-
 const img = "deis/node-chrome:node8";
 
 const releaseTagRegex = /^refs\/tags\/(v[0-9]+(?:\.[0-9]+)*(?:\-.+)?)$/;
@@ -94,6 +91,48 @@ function runTests(e, p, jobFunc) {
   return notificationWrap(job, note);
 }
 
+// runCheck is the default function invoked on a check_run:* event
+//
+// It determines which check is being requested (from the payload body)
+// and runs this particular check, or else throws an error if the check
+// is not found
+function runCheck(e, p) {
+  payload = JSON.parse(e.payload);
+
+  // Extract the check name
+  name = payload.body.check_run.name;
+
+  // Determine which check to run
+  switch (name) {
+    case "tests":
+      return runTests(e, p, tests);
+    case "e2e":
+      return runTests(e, p, e2e);
+    default:
+      throw new Error(`No check found with name: ${name}`);
+  }
+}
+
+// handleIssueComment handles an issue_comment event, parsing the comment text
+// and determining whether or not to trigger an action
+function handleIssueComment(e, p) {
+  console.log("handling issue comment....")
+  payload = JSON.parse(e.payload);
+
+  // Extract the comment body and trim whitespace
+  comment = payload.body.comment.body.trim();
+
+  // Here we determine if a comment should provoke an action
+  switch (comment) {
+    // Currently, the do-all '/brig run' comment is supported,
+    // for (re-)triggering the default Checks suite
+    case "/brig run":
+      return runSuite(e, p);
+    default:
+      console.log(`No applicable action found for comment: ${comment}`);
+  }
+}
+
 // A GitHub Check Suite notification
 class Notification {
   constructor(name, e, p) {
@@ -101,7 +140,7 @@ class Notification {
     this.payload = e.payload;
     this.name = name;
     this.externalID = e.buildID;
-   this.detailsURL = `https://brigadecore.github.io/kashti/builds/${e.buildID}`;
+    this.detailsURL = `https://brigadecore.github.io/kashti/builds/${e.buildID}`;
     this.title = "running check";
     this.text = "";
     this.summary = "";
@@ -189,4 +228,6 @@ events.on("push", (e, p) => {
 
 events.on("check_suite:requested", runSuite);
 events.on("check_suite:rerequested", runSuite);
-events.on("check_run:rerequested", runSuite);
+events.on("check_run:rerequested", runCheck);
+events.on("issue_comment:created", handleIssueComment);
+events.on("issue_comment:edited", handleIssueComment);
