@@ -15,12 +15,13 @@ GIT_VERSION = $(shell git describe --always --abbrev=7 --dirty --match=NeVeRmAtC
 ################################################################################
 
 ifneq ($(SKIP_DOCKER),true)
+	PROJECT_ROOT := $(dir $(realpath $(firstword $(MAKEFILE_LIST))))
 	DEV_IMAGE := deis/node-chrome:node8
 	DOCKER_CMD := docker run \
 		-it \
 		--rm \
 		-e SKIP_DOCKER=true \
-		-v $$(pwd):/code/kashti \
+		-v $(PROJECT_ROOT):/code/kashti \
 		-w /code/kashti \
 		-p 4200:4200 \
 		$(DEV_IMAGE)
