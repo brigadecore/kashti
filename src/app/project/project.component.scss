@@ -175,63 +175,33 @@
       }
 
       .act-author {
-        min-width: 18%;
-        position: relative;
-        padding-left: 32px;
+        min-width: 12%;
+      }
 
-        .act-avatar {
-          position: absolute;
-          top: -7px;
-          left: -11px;
-          opacity: 0.5;
-          @include transition;
-
-          .icon {
-            font-size: 20px;
-            float: left;
-            min-width: 20px;
-            text-align: center;
-          }
-
-          img {
-            max-height: 1rem;
-            margin-left: 0.1rem;
-            margin-top: 0.75rem;
-            position: relative;
-          }
-        }
+      .act-type {
+        min-width: 20%;
       }
 
       .act-message {
-        min-width: 12%;
-      }
-      .act-hash {
-        min-width: 11%;
+        min-width: 30%;
       }
 
       .text-right {
         float: right;
       }
+
       .act-times {
-        min-width: 56%;
+        min-width: 32.5%;
       }
+
       .act-times-wrap {
         min-width: 100%;
       }
-      .truncate {
-        width: 2.88rem;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: hidden;
-        display: inline-block;
-        line-height: 0.75;
-        font-style: normal;
-        padding: 0rem 0.125rem;
-        font-family: $mono;
-      }
+
       .act-time-duration {
         min-width: 60%;
       }
+
       .act-time-ago {
         min-width: 40%;
 
@@ -246,18 +216,6 @@
         }
       }
 
-      &:after {
-        content: "Details >";
-        color: $active;
-        font-size: 0.75rem;
-        position: absolute;
-        right: 1.5rem;
-        top: 0.6rem;
-        opacity: 0;
-        text-align: right;
-        @include nunitoBold;
-        @include transition;
-      }
     }
 
     &:hover a,

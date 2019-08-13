@@ -23,13 +23,13 @@
           <app-build-status-badge [status]="build.worker?.status"></app-build-status-badge>
           <span class="act-author"
             title="Build triggered by {{ build.provider }} / {{ build.type }}: commit {{ build.revision.commit }} ref {{ build.revision.ref }}">
-            <span class="act-avatar">
-              <i [ngClass]="CalculateProviderLogoClass(build.provider)"></i>
-            </span>
             {{ build.provider }}
           </span>
+          <span class="act-type" title="Event Type: {{ build.type }}">
+            {{ build.type }}
+          </span>
           <span class="act-message" title="Build ID: {{ build.id }}">
-            <em>#</em><em class="truncate">{{ build.id }}</em>
+            #{{ build.id }}
           </span>
 
           <!-- if build has data -->
@@ -54,7 +54,7 @@
               build.worker?.status == 'Failed' ||
               build.worker?.status == 'Succeeded'
             ">
-              <span class="act-time-duration">Build {{ build.worker?.status | lowercase }} after <span
+              <span class="act-time-duration">Ran for <span
                   title="Build started {{ build.worker?.start_time | date:'long' }}">{{ build.worker?.start_time | amDifference: build.worker?.end_time :'seconds' : true | amDuration:'seconds' }}.</span></span>
 
               <span class="act-time-ago right text-right"
