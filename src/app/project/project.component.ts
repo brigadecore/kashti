@@ -27,12 +27,4 @@ export class ProjectComponent implements OnInit {
     this.builds = this.route.snapshot.data['builds'];
   }
 
-  CalculateProviderLogoClass(buildProvider) {
-    switch (buildProvider) {
-      case 'github':
-        return 'icon ion-logo-github';
-      default:
-        return 'icon ion-logo-tux';
-    }
-  }
 }
