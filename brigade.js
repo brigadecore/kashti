@@ -1,6 +1,6 @@
 const { events, Job, Group } = require("brigadier");
 
-const img = "deis/node-chrome:node8";
+const img = "deis/node-chrome:node12";
 
 const releaseTagRegex = /^refs\/tags\/(v[0-9]+(?:\.[0-9]+)*(?:\-.+)?)$/;
 

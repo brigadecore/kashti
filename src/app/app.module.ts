@@ -27,13 +27,11 @@ import { LogResolver } from './services/resolvers/log.resolver';
 import { ProjectResolver } from './services/resolvers/project.resolver';
 import { ProjectsBuildResolver } from './services/resolvers/projects-build.resolver';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { StyleGuideComponent } from './style-guide/style-guide.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    StyleGuideComponent,
     BreadcrumbComponent,
     SidebarComponent,
     FooterComponent,
@@ -44,12 +42,7 @@ import { StyleGuideComponent } from './style-guide/style-guide.component';
     LogComponent,
     SortBuildByStartDatePipe
   ],
-  imports: [
-    MomentModule,
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule
-  ],
+  imports: [MomentModule, BrowserModule, HttpClientModule, AppRoutingModule],
   providers: [
     { provide: BuildService, useClass: environment.buildServiceType },
     { provide: ProjectService, useClass: environment.projectServiceType },
@@ -66,4 +59,4 @@ import { StyleGuideComponent } from './style-guide/style-guide.component';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
