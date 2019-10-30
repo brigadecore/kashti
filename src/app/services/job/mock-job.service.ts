@@ -3,7 +3,9 @@ import { Observable } from 'rxjs/Observable';
 import { Jobs } from '../../mock/jobs';
 import { Job } from '../../models/job';
 import { JobService } from './job.service';
+import { Injectable } from '@angular/core';
 
+@Injectable()
 export class MockJobService implements JobService {
   getJobs(buildId: string): Observable<Job[]> {
     return Observable.of(Jobs);
