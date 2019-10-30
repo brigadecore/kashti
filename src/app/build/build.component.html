@@ -16,9 +16,11 @@
               <i class="icon ion-md-radio-button-off"></i> Log Unavailable</div>
 
             <div class="pending" *ngIf="build.worker?.status == 'Pending'">
-              <div class="spinner"></div> Initializing...</div>
+              <div class="spinner"></div> Initializing...
+            </div>
             <div class="running" *ngIf="build.worker?.status == 'Running'">
-              <div class="spinner"></div> Build started...</div>
+              <div class="spinner"></div> Build started...
+            </div>
 
             <div class="success" *ngIf="build.worker?.status == 'Succeeded'">
               <i class="icon ion-md-checkmark-circle"></i> {{ build.worker.status }}</div>
@@ -79,13 +81,10 @@
             <strong>{{ jobs.length }}</strong> jobs ran.
           </span>
         </span>
-
-        <pre>
-{{ buildlogs.message }}
-        </pre>
       </li>
 
-      <li class="job {{ job?.status | lowercase}}" id="{{ job?.id }}" *ngFor="let job of jobs; index as i" [attr.data-index]="i">
+      <li class="job {{ job?.status | lowercase}}" id="{{ job?.id }}" *ngFor="let job of jobs; index as i"
+        [attr.data-index]="i">
         <a routerLink="/jobs/{{job?.id}}" title="View log details for {{job?.name}}">
           <small class=" ">Started at {{ job?.start_time }}</small>
           <span class="job-index">{{i + 1}}</span>
@@ -135,6 +134,9 @@
             Build {{ build.worker.status | lowercase }} at
             <em>{{ build.worker.end_time }}</em>.
           </span>
+          <pre>
+            {{ buildlogs.message }}
+          </pre>
         </span>
       </li>
 
