@@ -11,6 +11,7 @@ import { ProjectFactory } from '../tests/project-factory';
 import { ProjectComponent } from './project.component';
 
 import * as util from 'util';
+import { BuildService } from '../services/build/build.service';
 
 describe('ProjectComponent', () => {
   let component: ProjectComponent;
@@ -35,6 +36,7 @@ describe('ProjectComponent', () => {
         MomentModule
       ],
       providers: [
+        BuildService,
         {
           provide: ActivatedRoute,
           useValue: {

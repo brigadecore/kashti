@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MomentModule } from 'angular2-moment/moment.module';
 import { LogComponent } from './log.component';
+import { LogService } from '../services/log/log.service';
 
 describe('LogComponent', () => {
   let component: LogComponent;
@@ -17,7 +18,8 @@ describe('LogComponent', () => {
         ),
         MomentModule,
         HttpClientTestingModule
-      ]
+      ],
+      providers: [LogService]
     })
       .compileComponents();
   }));
