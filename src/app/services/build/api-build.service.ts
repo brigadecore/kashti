@@ -18,7 +18,7 @@ export class ApiBuildService implements BuildService {
     const buildsUrl = `${BRIGADE_API_HOST}/v1/project/${projectId}/builds`;
 
     return this.http
-      .get<Build[]>(buildsUrl, httpOptions);
+      .get<Build[]>(buildsUrl, httpOptions).map((builds: Build[]) => builds.filter(b => b.worker !== null));
   }
 
   getBuild(buildId): Observable<Build> {
