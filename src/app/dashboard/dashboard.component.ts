@@ -1,9 +1,13 @@
-import {Location} from '@angular/common';
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {LastBuild} from '../models/last-build';
-import {ProjectsBuild} from '../models/projects-build';
-import {JobStatus} from '../models/job';
+import { Location } from '@angular/common';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { LastBuild } from '../models/last-build';
+import { ProjectsBuild } from '../models/projects-build';
+import { JobStatus } from '../models/job';
+import { Subscription, interval } from 'rxjs';
+import { ProjectService } from '../services/project/project.service';
+import { startWith, switchMap, take } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,19 +15,50 @@ import {JobStatus} from '../models/job';
   styleUrls: ['./dashboard.component.scss']
 })
 
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, OnDestroy {
   location: Location;
-
   projectsBuilds: ProjectsBuild[];
+  subscriptions: Subscription[] = [];
 
-  constructor(private route: ActivatedRoute, location: Location) { this.location = location; }
+  constructor(private route: ActivatedRoute, location: Location, private projectService: ProjectService) { this.location = location; }
 
   backClicked() {
     this.location.back();
   }
 
+  ngOnDestroy(): void {
+    this.unsubscribe();
+  }
+
+  private unsubscribe(): void {
+    if (this.subscriptions) {
+      this.subscriptions.forEach(sub => {
+        sub.unsubscribe();
+      });
+    }
+  }
+
+  private updateProjects() {
+    if (!environment.production) {
+      return;
+    }
+
+    this.subscriptions.push(interval(5000)
+      .pipe(
+        startWith(0),
+        switchMap(() => {
+          return this.projectService.getProjectBuilds();
+        })
+      )
+      // stop refreshing the projects after 10 minutes
+      .pipe(take(120))
+      .subscribe(res => (this.projectsBuilds = res)));
+  }
+
   ngOnInit() {
     this.projectsBuilds = this.route.snapshot.data['projectsBuilds'];
+
+    this.updateProjects();
   }
 
   showStatus(projectBuild: ProjectsBuild) {

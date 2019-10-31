@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { JobComponent } from './job.component';
+import { JobService } from '../services/job/job.service';
+import { LogService } from '../services/log/log.service';
 
 describe('JobComponent', () => {
   let component: JobComponent;
@@ -13,7 +15,8 @@ describe('JobComponent', () => {
           [{ path: '', component: JobComponent }]
         )
       ],
-      declarations: [JobComponent]
+      declarations: [JobComponent],
+      providers: [JobService, LogService]
     })
       .compileComponents();
   }));
