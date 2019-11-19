@@ -43,7 +43,7 @@
               </a>
             </div>
 
-            <span class="task task-1">{{ build?.type }}</span>
+            <span class="task task-1 task-build-type">{{ build?.type }}</span>
             <span *ngFor="let job of jobs" class="task task-2">
               <a routerLink="/jobs/{{job?.id}}">{{ job.name }}</a>
             </span>
