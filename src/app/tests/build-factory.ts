@@ -7,6 +7,8 @@ export const BuildFactory = Factory.makeFactory<Build>({
   project_id: 'brigade-1234',
   type: 'push',
   provider: 'github',
+  short_title: '',
+  long_title: '',
   revision: {
     commit: '',
     ref: ''
