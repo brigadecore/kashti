@@ -1,12 +1,16 @@
-@import '../../global_variables';
-@import '../../global_states';
+@import "../../global_variables";
+@import "../../global_states";
 
 :host {
   min-width: 91.5%;
 }
 
 .build-chart-bg {
-  background: linear-gradient(5deg, darken(#F0F1F6, 2.5%) 0%, lighten(#e6e9f0, 1%) 100%);
+  background: linear-gradient(
+    5deg,
+    darken(#f0f1f6, 2.5%) 0%,
+    lighten(#e6e9f0, 1%) 100%
+  );
   display: block;
   content: " ";
   top: 0;
@@ -28,7 +32,7 @@
 
     .button {
       position: absolute;
-      bottom: -.9rem;
+      bottom: -0.9rem;
       right: 1.75rem;
       transition: none;
       padding-left: 0.75rem;
@@ -88,7 +92,7 @@
       text-transform: uppercase;
 
       &:before {
-        content: '#';
+        content: "#";
       }
     }
 
@@ -163,7 +167,7 @@
       min-width: 2%;
       color: white;
       @include border-radius(0.12rem);
-      @include box-shadow(0, 0.0625rem, 0.2rem,rgba(255,255,255,0.5));
+      @include box-shadow(0, 0.0625rem, 0.2rem, rgba(255, 255, 255, 0.5));
       @include transition;
 
       &:hover {
@@ -300,7 +304,7 @@
 
 ul.build-details {
   list-style: none;
-  margin: 1.5rem auto 3rem;
+  margin: 1.5rem auto 0;
 
   li,
   .accordion-item {
@@ -310,7 +314,7 @@ ul.build-details {
     font-size: 1rem;
     line-height: 1.5;
     border-left: 6px solid lighten($dark1, 42%);
-    @include box-shadow(0, 0.12rem, 0.12rem,rgba(0,0,0,0.125));
+    @include box-shadow(0, 0.12rem, 0.12rem, rgba(0, 0, 0, 0.125));
     @include border-radius(0.25rem);
     margin-left: 1rem;
     color: lighten($dark2, 5%);
@@ -337,6 +341,10 @@ ul.build-details {
   li.parent {
     padding-left: 2.5rem;
     position: relative;
+
+    &.parent-end {
+      margin-bottom: 0;
+    }
 
     .text-left {
       line-height: 2;
@@ -399,7 +407,7 @@ ul.build-details {
       @include nunitoBold;
       color: $dark2;
       font-size: 1.5rem;
-      padding: 0.5em 1.5rem 0 0;
+      padding: 0 1.5rem 0 0;
       float: left;
       margin-left: 0.75rem;
       margin-bottom: 1.125rem;
@@ -408,12 +416,13 @@ ul.build-details {
     .button {
       position: absolute;
       background: $light2;
-      padding: 0.75rem 1rem;
+      padding: 0.25rem 0.75rem 0.25rem 0.5rem;
       border-radius: 0.25rem;
       color: darken($light1, 12.5%);
       line-height: 1;
       top: 50%;
-      right: 5.25rem;
+      right: 1.25rem;
+      font-size: 1rem;
       transform: translateY(-50%);
       @include nunitoBold;
       @include transition;
@@ -481,20 +490,23 @@ ul.build-details {
 
     .job-index {
       position: absolute;
-      top: 1rem;
-      right: 1.25rem;
+      top: 0.3rem;
+      left: 0.35rem;
+      letter-spacing: 0;
       font-weight: bold;
+      font-size: 0.67rem;
     }
 
     .job-response {
       font-size: 0.75rem;
       float: left;
-      background: $light2;
-      margin: 0.75rem 0 0 0;
+      margin: 0.35em 0 0 0;
       padding: 0.25rem 0.75rem 0.25rem 2rem;
       border-radius: 3rem;
       line-height: 1.75;
-      position: relative;
+      position: absolute;
+      top: 3rem;
+      left: 1.125rem;
 
       .icon {
         padding-top: 0;
@@ -514,7 +526,7 @@ ul.build-details {
       }
       &.pending,
       &.running,
-      &.active, {
+      &.active {
         color: $brand2;
 
         .spinner {
@@ -549,7 +561,7 @@ ul.build-details {
     overflow: hidden;
   }
 
-  .log-inner   {
+  .log-inner {
     background: lighten($dark2, 5%);
     position: relative;
     overflow-x: hidden;
@@ -644,5 +656,72 @@ ul.build-details {
 
   .ion-checkmark-circled {
     color: $success;
+  }
+}
+
+.job-layout-wrap {
+  position: relative;
+  min-height: 100%;
+
+  .job-list,
+  .job-tab-content {
+    min-height: 100%;
+  }
+}
+
+.job-list {
+  display: inline-block;
+  width: 30%;
+  float: left;
+
+  .job-link {
+    min-height: 65px;
+    display: inline-block;
+  }
+}
+
+.job-tab-content {
+  display: inline-block;
+  width: 70%;
+  background: white;
+  margin-top: 1.5rem;
+  margin-left: -1px;
+  float: right;
+  z-index: 650;
+  @include box-shadow(0, 0.12rem, 0.12rem, rgba(0, 0, 0, 0.125));
+
+  &::after {
+    position: absolute;
+    display: block;
+    content: " ";
+    top: 0;
+    bottom: 0;
+  }
+
+  pre {
+    border: none;
+    font-family: $mono;
+    margin-top: 0.825rem;
+    color: white;
+    line-height: 1.5;
+    font-size: 0.825rem;
+    display: table-cell;
+    vertical-align: middle;
+    padding-bottom: 0.2em;
+    display: inline-block;
+    max-width: 98.5%;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+    @include transition;
+    background: $dark2;
+    color: $light3;
+    padding: 0.5rem 1rem 0;
+    margin-left: 0.75%;
+    margin-right: 0.25%;
+    margin-bottom: 0.5rem;
+    @include border-radius(0.25rem);
   }
 }
