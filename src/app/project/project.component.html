@@ -28,7 +28,12 @@
           <span class="act-type" title="Event Type: {{ build.type }}">
             {{ build.type }}
           </span>
-          <span class="act-message" title="Build ID: {{ build.id }}">
+          <span *ngIf="build.short_title && build.short_title != ''" class="act-message"
+            title="Build ID: {{ build.id }}">
+            {{ build.short_title }}
+          </span>
+          <span *ngIf="!build.short_title || build.short_title == ''" class="act-message"
+            title="Build ID: {{ build.id }}">
             {{ build.id }}
           </span>
 

@@ -10,6 +10,12 @@
             Build &nbsp;
             <em>{{ build.id }}</em>
           </h1>
+          <h1 *ngIf="build.long_title && build.long_title != ''">
+            {{ build.long_title }}
+          </h1>
+          <h1 *ngIf="(!build.long_title || build.long_title == '') && (build.short_title && build.short_title != '')">
+            {{ build.short_title }}
+          </h1>
 
           <div class="build-status">
             <div class="unknown" *ngIf="!build.worker?.status">

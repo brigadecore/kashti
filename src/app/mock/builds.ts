@@ -8,6 +8,8 @@ export const Builds: Build[] = [
       'brigade-29d38c7477ecee18e184b69bec354fc350605c51bc16d4dd2b6073',
     type: 'push',
     provider: 'github',
+    short_title: 'branch: master',
+    long_title: 'branch: master',
     revision: {
       commit: '3c981a',
       ref: 'master'
@@ -33,6 +35,8 @@ export const Builds: Build[] = [
       'brigade-29d38c7477ecee18e184b69bec354fc350605c51bc16d4dd2b6073',
     type: 'pull_request',
     provider: 'github',
+    short_title: 'PR #42',
+    long_title: 'PR #42: life, the universe, and everything',
     revision: {
       commit: '3c981a',
       ref: 'master'
@@ -58,6 +62,8 @@ export const Builds: Build[] = [
       'brigade-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
     type: 'exec',
     provider: 'github',
+    short_title: '',
+    long_title: '',
     revision: {
       commit: '3c981a',
       ref: 'master'
@@ -81,6 +87,8 @@ export const Builds: Build[] = [
       'brigade-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
     type: 'exec',
     provider: 'brigade-cli',
+    short_title: '',
+    long_title: '',
     revision: {
       commit: '3c981a',
       ref: 'master'
@@ -104,6 +112,8 @@ export const Builds: Build[] = [
       'brigade-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
     type: 'exec',
     provider: 'brigade-cli',
+    short_title: '',
+    long_title: '',
     revision: {
       commit: '3c981a',
       ref: 'master'
@@ -127,6 +137,8 @@ export const Builds: Build[] = [
       'brigade-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
     type: 'exec',
     provider: 'brigade-cli',
+    short_title: '',
+    long_title: '',
     revision: {
       commit: '',
       ref: ''
@@ -150,6 +162,8 @@ export const Builds: Build[] = [
       'brigade-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
     type: 'exec',
     provider: 'github',
+    short_title: '',
+    long_title: '',
     revision: {
       commit: '',
       ref: ''
@@ -173,6 +187,8 @@ export const Builds: Build[] = [
       'brigade-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
     type: 'quicktestX',
     provider: 'brigade-cli',
+    short_title: '',
+    long_title: '',
     revision: {
       commit: '',
       ref: ''
@@ -186,6 +202,8 @@ export const Builds: Build[] = [
       'brigade-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
     type: 'quicktestX',
     provider: 'brigade-cli',
+    short_title: '',
+    long_title: '',
     revision: {
       commit: '',
       ref: ''
@@ -209,6 +227,8 @@ export const Builds: Build[] = [
       'brigade-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
     type: 'exec',
     provider: 'brigade-cli',
+    short_title: '',
+    long_title: '',
     revision: {
       commit: '',
       ref: ''
@@ -232,6 +252,8 @@ export const Builds: Build[] = [
       'brigade-830c16d4aaf6f5490937ad719afd8490a5bcbef064d397411043ac',
     type: 'exec',
     provider: 'brigade-cli',
+    short_title: '',
+    long_title: '',
     revision: {
       commit: '',
       ref: ''
