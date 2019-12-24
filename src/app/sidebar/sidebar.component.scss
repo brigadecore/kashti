@@ -55,6 +55,10 @@
       @include transition;
     }
 
+    &.brigade-docs-icon {
+      bottom: 101px !important;
+    }
+    
     &.ion-md-document {
       bottom: 60px;
     }
@@ -66,6 +70,7 @@
 
   }
 
+  #brigade-docs,
   #kashti-issues,
   #kashti-docs {
 
@@ -96,6 +101,11 @@
       left: 48px;
       opacity: 1;
     }
+  }
+
+  #brigade-docs em {
+    bottom: 5.3rem;
+    min-width: 4.75rem;
   }
 
   #kashti-docs em {
