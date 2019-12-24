@@ -65,7 +65,7 @@ describe('DashboardComponent', () => {
         type: ''
       },
       project: undefined
-    }
+    };
     expect(component.showStatus(projectsBuild)).toBeTruthy();
   });
 
@@ -82,7 +82,7 @@ describe('DashboardComponent', () => {
         type: ''
       },
       project: undefined
-    }
+    };
     expect(component.showStatus(projectsBuild)).toBeFalsy();
   });
 
@@ -96,7 +96,7 @@ describe('DashboardComponent', () => {
       script: undefined,
       type: undefined,
       worker: undefined
-    }
+    };
     spyOn(component, 'unknownStateClasses');
     component.calculateStatusClasses(lastBuild);
     expect(component.unknownStateClasses).toHaveBeenCalled();
