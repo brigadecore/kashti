@@ -6,6 +6,8 @@ export interface Build {
   project_id: string;
   type: string;
   provider: string;
+  short_title: string;
+  long_title: string;
   revision: Revision;
   payload?: string;
   script?: string;
