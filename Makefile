@@ -68,7 +68,7 @@ serve: yarn-install
 
 .PHONY: yarn-audit
 yarn-audit:
-	$(DOCKER_CMD) yarn audit'
+	$(DOCKER_CMD) yarn audit
 
 ################################################################################
 # Tests                                                                        #
