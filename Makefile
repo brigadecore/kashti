@@ -66,6 +66,10 @@ yarn-install:
 serve: yarn-install
 	$(DOCKER_CMD) yarn serve
 
+.PHONY: yarn-audit
+yarn-audit:
+	$(DOCKER_CMD) yarn audit
+
 ################################################################################
 # Tests                                                                        #
 ################################################################################

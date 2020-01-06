@@ -13,7 +13,7 @@ function tests() {
   };
   job.tasks = [
     "cd /src",
-    "make lint test"
+    "make lint test yarn-audit"
   ];
   return job;
 }
