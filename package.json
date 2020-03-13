@@ -53,7 +53,9 @@
     "typescript": "~3.4.3"
   },
   "resolutions": {
+    "acorn": "~6.4.1",
+    "adm-zip": "~0.4.9",
     "handlebars": "~4.5.3",
-    "adm-zip": "~0.4.9"
+    "kind-of": "~6.0.3"
   }
 }
