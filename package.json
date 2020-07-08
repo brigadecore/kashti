@@ -58,7 +58,9 @@
     "handlebars": "~4.5.3",
     "http-proxy": "~1.18.1",
     "kind-of": "~6.0.3",
+    "lodash": "~4.17.7",
     "minimist": "~1.2.3",
+    "npm-registry-fetch": "~8.1.1",
     "yargs-parser": "~13.1.2"
   }
 }
