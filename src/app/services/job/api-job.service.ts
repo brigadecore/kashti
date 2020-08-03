@@ -6,24 +6,29 @@ import { Job } from '../../models/job';
 import { JobService } from './job.service';
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
 };
 
 @Injectable()
 export class ApiJobService implements JobService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getJobs(buildId): Observable<Job[]> {
     const jobsUrl = `${BRIGADE_API_HOST}/v1/build/${buildId}/jobs`;
 
     return this.http
-      .get<Job[]>(jobsUrl, httpOptions);
+      .get<Job[]>(jobsUrl, httpOptions)
+      .map((jobs) =>
+        jobs.sort(
+          (a: Job, b: Job) =>
+            new Date(a.start_time).getTime() - new Date(b.start_time).getTime()
+        )
+      );
   }
 
   getJob(jobId): Observable<Job> {
     const jobUrl = `${BRIGADE_API_HOST}/v1/job/${jobId}`;
 
-    return this.http
-      .get<Job>(jobUrl, httpOptions);
+    return this.http.get<Job>(jobUrl, httpOptions);
   }
 }
