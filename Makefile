@@ -23,7 +23,6 @@ ifneq ($(SKIP_DOCKER),true)
 		-e SKIP_DOCKER=true \
 		-v $(PROJECT_ROOT):/code/kashti \
 		-w /code/kashti \
-		-p 4200:4200 \
 		$(DEV_IMAGE)
 endif
 
@@ -64,7 +63,15 @@ yarn-install:
 
 .PHONY: serve
 serve: yarn-install
-	$(DOCKER_CMD) yarn serve
+	docker run \
+		-it \
+		--rm \
+		-e SKIP_DOCKER=true \
+		-v $(PROJECT_ROOT):/code/kashti \
+		-w /code/kashti \
+		-p 4200:4200 \
+		$(DEV_IMAGE) \
+		yarn serve
 
 .PHONY: yarn-audit
 yarn-audit:
@@ -85,6 +92,10 @@ test: yarn-install
 .PHONY: e2e
 e2e: yarn-install
 	$(DOCKER_CMD) yarn e2e
+
+.PHONY: shell
+shell: 
+	$(DOCKER_CMD) bash
 
 ################################################################################
 # Build / Publish                                                              #

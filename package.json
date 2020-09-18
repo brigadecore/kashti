@@ -6,7 +6,7 @@
   "tag": "latest",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --host 0.0.0.0",
+    "serve": "ng serve --host 0.0.0.0",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -61,6 +61,8 @@
     "lodash": "~4.17.7",
     "minimist": "~1.2.3",
     "npm-registry-fetch": "~8.1.1",
-    "yargs-parser": "~13.1.2"
+    "yargs-parser": "~13.1.2",
+    "node-forge": "^0.10.0",
+    "serialize-javascript": "^3.1.0"
   }
 }
