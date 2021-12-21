@@ -18,3 +18,5 @@ spec:
     logLevel: DEBUG
     git:
       cloneURL: https://github.com/brigadecore/kashti.git
+    jobPolicies:
+      allowPrivileged: true
