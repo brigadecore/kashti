@@ -4,25 +4,6 @@ const jsImg = "deis/node-chrome:node12"
 const dindImg = "docker:20.10.9-dind"
 const dockerClientImg = "brigadecore/docker-tools:v0.1.0"
 
-// FallibleJob is a Job that is allowed to fail without compelling the worker
-// process to fail.
-//
-// TODO: This will no longer be needed after
-// https://github.com/brigadecore/brigade/issues/1768 is addressed.
-class FallibleJob extends Job {
-	constructor(name: string, image: string, event: Event) {
-		super(name, image, event)
-	}
-	async run(): Promise<void> {
-		try {
-			await super.run()
-		} catch {
-			// Deliberately sweep any error under the rug
-		}
-		return Promise.resolve()
-	}
-}
-
 // A map of all jobs. When a check_run:rerequested event wants to re-run a
 // single job, this allows us to easily find that job by name.
 const jobs: { [key: string]: (event: Event) => Job } = {}
@@ -43,7 +24,7 @@ jobs[testJobName] = testJob
 
 const auditJobName = "audit"
 const auditJob = (event: Event) => {
-	const job = new FallibleJob(auditJobName, jsImg, event)
+	const job = new Job(auditJobName, jsImg, event)
 	job.primaryContainer.environment = {
 		"SKIP_DOCKER": "true"
 	}
@@ -51,6 +32,7 @@ const auditJob = (event: Event) => {
 	job.primaryContainer.workingDirectory = "/src"
 	job.primaryContainer.command = ["make"]
 	job.primaryContainer.arguments = ["yarn-audit"]
+	job.fallible = true
 	return job
 }
 jobs[auditJobName] = auditJob
