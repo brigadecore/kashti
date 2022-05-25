@@ -1,3 +1,12 @@
+> ⚠️&nbsp;&nbsp;This repo contains the source for a component of the Brigade
+> v1.x ecosystem. Brigade v1.x reached end-of-life on June 1, 2022 and as a
+> result, this component is no longer maintained.
+>
+> The
+> [Brigade Dashboard Gateway](https://github.com/brigadecore/brigade-dashboard)
+> is a work-in-progress (as of this writing) v2-compatible replacement for this
+> component.
+
 Kashti is a dashboard for your [Brigade](https://github.com/brigadecore/brigade) pipelines.
 
 ![kashti-animation](https://user-images.githubusercontent.com/686194/33646819-7d19d222-da06-11e7-8513-82e521fda608.gif)
